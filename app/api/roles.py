@@ -31,7 +31,7 @@ def update_role(id):
     updated_role = role_service.update_role(id, data['name'])
     if updated_role:
         return jsonify({'message': 'Role updated successfully'})
-    return jsonify({'message': 'Role not found'}), 404
+    return jsonify({'message': f'Role not found for ID [{id}'}), 404
 
 
 #-------------------------------------------------------------------------------

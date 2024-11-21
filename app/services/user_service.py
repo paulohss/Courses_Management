@@ -1,5 +1,7 @@
 from app.models.user import User
+from app.models.role import Role
 from app import db
+from flask import abort
 
 class UserService:
     
@@ -7,10 +9,23 @@ class UserService:
     #
     #-------------------------------------------------------------------------------        
     def create_user(self, name, role_id):
-        new_user = User(name=name, role_id=role_id)
-        db.session.add(new_user)
-        db.session.commit()
-        return new_user
+        # Validation:
+        if not name or not name.strip():
+            abort(400, 'Name must be provided for a Role!')
+        if not role_id or role_id <= 0:
+            abort(400, 'Invalid Role ID provided!')                
+        role = Role.query.get(role_id)
+        if not role:
+            abort(400, 'Role ID does not exist!') 
+        # Action:
+        try:
+            new_user = User(name=name, fk_role_id=role_id)
+            db.session.add(new_user)
+            db.session.commit()
+            return new_user
+        except:
+            db.session.rollback()
+            raise
 
     #-------------------------------------------------------------------------------
     #
