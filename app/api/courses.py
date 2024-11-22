@@ -6,7 +6,7 @@ course_service = CourseService()
 
 
 #-------------------------------------------------------------------------------
-#
+#  Create a new course
 #-------------------------------------------------------------------------------
 @bp.route('/courses', methods=['POST'])
 def create_course():
@@ -16,7 +16,7 @@ def create_course():
 
 
 #-------------------------------------------------------------------------------
-#
+# Get all courses
 #-------------------------------------------------------------------------------
 @bp.route('/courses', methods=['GET'])
 def get_courses():
@@ -25,7 +25,15 @@ def get_courses():
 
 
 #-------------------------------------------------------------------------------
-#
+# Get a course by id
+#-------------------------------------------------------------------------------
+@bp.route('/courses/<int:id>', methods=['GET'])
+def get_courses_by_id(id):
+    course = course_service.get_course_by_id(id)
+    return jsonify({'id': course.id, 'name': course.name, 'recurrent': course.recurrent})
+
+#-------------------------------------------------------------------------------
+# Get a course by id
 #-------------------------------------------------------------------------------
 @bp.route('/courses/<int:id>', methods=['PUT'])
 def update_course(id):
@@ -37,7 +45,7 @@ def update_course(id):
 
 
 #-------------------------------------------------------------------------------
-#
+# Get a course by id
 #-------------------------------------------------------------------------------
 @bp.route('/courses/<int:id>', methods=['DELETE'])
 def delete_course(id):

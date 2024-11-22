@@ -5,4 +5,4 @@
   If you're using Alembic for migrations (recommended for production), add a migrations/ folder to your project. To integrate
 
 
-- Evaluate the need of a service layer?
+- Validation when a string is informe as number and vise-versa

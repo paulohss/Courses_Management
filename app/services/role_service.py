@@ -46,7 +46,9 @@ class RoleService:
             if role:
                 role.name = name
                 db.session.commit()
-            return role
+                return role
+            else:
+                abort(400, f'Role ID [{id}] does not exist!')
         except:
             db.session.rollback()
             raise
@@ -64,7 +66,10 @@ class RoleService:
             if role:
                 db.session.delete(role)
                 db.session.commit()
-            return role
+                return role
+            else:
+                abort(400, f'Role ID [{id}] does not exist')
+                
         except:
             db.session.rollback()
             raise

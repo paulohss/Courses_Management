@@ -5,7 +5,7 @@ from app.services.role_service import RoleService
 role_service = RoleService()
 
 #-------------------------------------------------------------------------------
-#
+# Create a new role
 #-------------------------------------------------------------------------------
 @bp.route('/roles', methods=['POST'])
 def create_role():
@@ -14,7 +14,7 @@ def create_role():
     return jsonify({'message': 'Role created successfully', 'id': new_role.id}), 201
 
 #-------------------------------------------------------------------------------
-#
+# Get all roles
 #-------------------------------------------------------------------------------
 @bp.route('/roles', methods=['GET'])
 def get_roles():
@@ -23,7 +23,15 @@ def get_roles():
 
 
 #-------------------------------------------------------------------------------
-#
+# Get a course by id
+#-------------------------------------------------------------------------------
+@bp.route('/roles/<int:id>', methods=['GET'])
+def get_roles_by_id(id):
+    role = role_service.get_role_by_id(id)
+    return jsonify({'id': role.id, 'name': role.name})
+
+#-------------------------------------------------------------------------------
+#  Get role by ID
 #-------------------------------------------------------------------------------
 @bp.route('/roles/<int:id>', methods=['PUT'])
 def update_role(id):
@@ -35,7 +43,7 @@ def update_role(id):
 
 
 #-------------------------------------------------------------------------------
-#
+#  Get role by ID
 #-------------------------------------------------------------------------------
 @bp.route('/roles/<int:id>', methods=['DELETE'])
 def delete_role(id):
