@@ -7,7 +7,7 @@ user_course_service = UserCourseService()
 
 
 #-------------------------------------------------------------------------------
-#
+# Create / Add new user-course relationship
 #-------------------------------------------------------------------------------
 @bp.route('/user_courses', methods=['POST'])
 def create_user_course():
@@ -17,16 +17,27 @@ def create_user_course():
 
 
 #-------------------------------------------------------------------------------
-#
+# Get all user-course relationships
 #-------------------------------------------------------------------------------
 @bp.route('/user_courses', methods=['GET'])
 def get_user_courses():
     user_courses = user_course_service.get_all_user_courses()
-    return jsonify([{'id': uc.id, 'user_id': uc.user_id, 'course_id': uc.course_id} for uc in user_courses])
+    return jsonify([{'id': uc.id, 'user_id': uc.fk_user_id, 'course_id': uc.fk_course_id} for uc in user_courses])
 
 
 #-------------------------------------------------------------------------------
-#
+# Get user-course relationship by ID
+#-------------------------------------------------------------------------------
+@bp.route('/user_courses/<int:id>', methods=['PUT'])
+def update_user_course(id):
+    data = request.json
+    updated_user_course = user_course_service.update_user_course(id, data['user_id'], data['course_id'])
+    if updated_user_course:
+        return jsonify({'message': 'User-Course relationship updated successfully'})
+    return jsonify({'message': 'User-Course relationship not found'}), 404
+
+#-------------------------------------------------------------------------------
+# Delete user-course relationship by ID
 #-------------------------------------------------------------------------------
 @bp.route('/user_courses/<int:id>', methods=['DELETE'])
 def delete_user_course(id):
