@@ -25,7 +25,7 @@ class RoleCourseService:
             abort(400, f'Course ID [{course_id}] does not exist!')
 
     #-------------------------------------------------------------------------------
-    #
+    # Create a new role-course relationship
     #-------------------------------------------------------------------------------        
     def create_role_course(self, course_id, role_id):
         # Validation:
@@ -42,13 +42,13 @@ class RoleCourseService:
             raise
 
     #-------------------------------------------------------------------------------
-    #
+    # Get all role-course relationships
     #-------------------------------------------------------------------------------    
     def get_all_role_courses(self):
         return RoleCourse.query.all()
 
     #-------------------------------------------------------------------------------
-    #
+    # Delete a role-course relationship
     #-------------------------------------------------------------------------------    
     def delete_role_course(self, id):
         try:
@@ -70,7 +70,7 @@ class RoleCourseService:
             raise
 
     #-------------------------------------------------------------------------------
-    #
+    # Update a role-course relationship
     #-------------------------------------------------------------------------------    
     def update_role_course(self, id, new_course_id, new_role_id):
         try:

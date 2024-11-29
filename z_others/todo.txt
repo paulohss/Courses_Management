@@ -6,3 +6,6 @@
 
 
 - Validation when a string is informe as number and vise-versa
+
+
+npx tailwindcss -i ./src/index.css -o ./src/output.css --watch
