@@ -19,7 +19,17 @@ def create_user():
 @bp.route('/users', methods=['GET'])
 def get_users():
     users = user_service.get_all_users()
-    return jsonify([{'id': user.id, 'name': user.name, 'role_id': user.fk_role_id} for user in users])
+    return jsonify([
+        {
+            'id': user.id,
+            'name': user.name,
+            'role': {
+                'id': user.role.id,
+                'name': user.role.name
+            }
+        }
+        for user in users
+    ])
 
 #-------------------------------------------------------------------------------
 # Get a users by id
@@ -27,7 +37,16 @@ def get_users():
 @bp.route('/users/<int:id>', methods=['GET'])
 def get_user_by_id(id):
     user = user_service.get_user_by_id(id)
-    return jsonify({'id': user.id, 'name': user.name, 'role_id': user.fk_role_id})
+    if user:
+        return jsonify({
+            'id': user.id,
+            'name': user.name,
+            'role': {
+                'id': user.role.id,
+                'name': user.role.name
+            }
+        })
+    return jsonify({'message': 'User not found'}), 404
 
 #-------------------------------------------------------------------------------
 # Update user

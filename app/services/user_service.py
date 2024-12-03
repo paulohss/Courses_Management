@@ -28,7 +28,7 @@ class UserService:
 
         # Action:
         try:
-            new_user = User(name=name, fk_role_id=role_id)
+            new_user = User(name=name, role_id=role_id)
             db.session.add(new_user)
             db.session.commit()
             return new_user
@@ -48,7 +48,15 @@ class UserService:
     def get_user_by_id(self, id):
         if id <= 0:
             abort(400, 'Invalid User ID provided!')
-        return User.query.get(id)
+        user = User.query.get(id)
+        if user:
+            return {
+                'id': user.id,
+                'name': user.name,
+                'role_id': user.fk_role_id,
+                'role_name': user.role.name
+            }
+        return None
 
     #-------------------------------------------------------------------------------
     # Update user
@@ -65,7 +73,7 @@ class UserService:
             user = self.get_user_by_id(id)
             if user:
                 user.name = name
-                user.fk_role_id = role_id
+                user.role_id = role_id
                 db.session.commit()
                 return user
             else:

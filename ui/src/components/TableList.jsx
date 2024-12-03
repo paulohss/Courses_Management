@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function TableList({handleOpen}) {
+export default function TableList({handleOpen, searchTerm}) {
 
     const [userTable, setUserTable] = useState([]);
     const [error, setError] = useState(null);
@@ -19,9 +19,14 @@ export default function TableList({handleOpen}) {
 
     }, [])
 
+    const filteredData = userTable.filter(user => 
+        user.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        user.role.name.toLowerCase().includes(searchTerm.toLowerCase()) 
+    );
+
     return (
         <>
-
+            {console.log(filteredData.length)}
             {error && <div className="alert alert-error">An error occurred: {error.message}</div>}
 
             <div className="overflow-x-auto mt-10">
@@ -34,13 +39,13 @@ export default function TableList({handleOpen}) {
                             <th>Role</th>
                         </tr>
                     </thead>
-                    <tbody className="hover">
+                    <tbody>
                         { }
-                        {userTable.map((user) => (
-                            <tr key={user.id}>
+                        {filteredData.map((user) => (
+                            <tr className="hover" key={user.id}>
                                 <th>{user.id}</th>
                                 <td>{user.name}</td>
-                                <td>{user.role_id}</td>
+                                <td>{user.role.name}</td>
                                 <td>
                                     <button className="btn btn-secondary " onClick={()=>handleOpen('edit')}>Update</button>
                                 </td>

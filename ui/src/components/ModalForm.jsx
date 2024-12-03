@@ -2,13 +2,21 @@ import { useState } from "react";
 
 
 // ModalForm.js
-export default function ModalForm({ isOpen, onClose, mode, onSubmit }) {
+export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData }) {
     
+    const [id, setId] = useState(''); // State for Name
     const [name, setName] = useState(''); // State for Name
     const [role, setRole] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try{
+            const userData = { id, name, role };
+            await OnSubmit(userData);
+            
+        } catch (error) {
+            console.log("ModalForm.handleSubmit() error:" + error);
+        }
         onClose();
     }
 
