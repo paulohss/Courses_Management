@@ -15,7 +15,7 @@ def create_user_course():
     new_user_course = user_course_service.create_user_course(data['user_id'], data['course_id'])
     return jsonify({'message': 'User-Course relationship created successfully', 'id': new_user_course.id}), 201
 
-
+ 
 #-------------------------------------------------------------------------------
 # Get all user-course relationships
 #-------------------------------------------------------------------------------
@@ -23,6 +23,15 @@ def create_user_course():
 def get_user_courses():
     user_courses = user_course_service.get_all_user_courses()
     return jsonify([{'id': uc.id, 'user_id': uc.fk_user_id, 'course_id': uc.fk_course_id} for uc in user_courses])
+
+
+#-------------------------------------------------------------------------------
+# Get all courses associated with a user ID
+#-------------------------------------------------------------------------------
+@bp.route('/user_courses/user/<int:user_id>', methods=['GET'])
+def get_courses_by_user_id(user_id):
+    courses = user_course_service.get_courses_by_user_id(user_id)
+    return jsonify([{'id': course.id, 'name': course.name, 'recurrent': course.recurrent} for course in courses])
 
 
 #-------------------------------------------------------------------------------

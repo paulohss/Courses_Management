@@ -14,7 +14,6 @@ def create_role_course():
     return jsonify({'message': 'Role-Course relationship created successfully', 'id': new_role_course.id}), 201
 
 
-
 #-------------------------------------------------------------------------------
 # Get all role-course relationships
 #-------------------------------------------------------------------------------
@@ -22,6 +21,15 @@ def create_role_course():
 def get_role_courses():
     role_courses = role_course_service.get_all_role_courses()
     return jsonify([{'id': rc.id, 'course_id': rc.fk_course_id, 'role_id': rc.fk_role_id} for rc in role_courses])
+
+
+#-------------------------------------------------------------------------------
+# Get all courses associated with a role ID
+#-------------------------------------------------------------------------------
+@bp.route('/role_courses/role/<int:role_id>', methods=['GET'])
+def get_courses_by_role_id(role_id):
+    courses = role_course_service.get_courses_by_role_id(role_id)
+    return jsonify([{'id': course.id, 'name': course.name, 'recurrent': course.recurrent} for course in courses])
 
 
 #-------------------------------------------------------------------------------

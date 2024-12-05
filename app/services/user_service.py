@@ -1,5 +1,8 @@
 from app.models.user import User
 from app.models.role import Role
+from app.models.course import Course 
+from app.models.role_course import RoleCourse
+from app.models.user_course import UserCourse
 from app import db
 from flask import abort
 
@@ -48,14 +51,34 @@ class UserService:
     def get_user_by_id(self, id):
         if id <= 0:
             abort(400, 'Invalid User ID provided!')
+        
+        #Get user info
         user = User.query.get(id)
+        
+        #Get courses attended by user
+        user_courses = UserCourse.query.filter_by(fk_user_id=id).all()
+        courses_attented = [Course.query.get(uc.fk_course_id) for uc in user_courses]
+        
+        #Get courses available for user
+        role_courses = RoleCourse.query.filter_by(fk_role_id=user.fk_role_id).all()
+        courses_avaiable = [Course.query.get(rc.fk_course_id) for rc in role_courses]
+        
+        # Merge courses_attented and courses_avaiable, avoiding duplicates
+        course_ids = set()
+        user_course_list = []
+        
+        for course in courses_attented:
+            course_ids.add(course.id)
+            user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': True})
+                
+        for course in courses_avaiable:
+            if course.id not in course_ids:
+                course_ids.add(course.id)
+                user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': False})
+        
         if user:
-            return {
-                'id': user.id,
-                'name': user.name,
-                'role_id': user.fk_role_id,
-                'role_name': user.role.name
-            }
+            return {'id': user.id,'name': user.name,'role_id': user.fk_role_id,'role_name': user.role.name,'user_course_list': user_course_list}
+        
         return None
 
     #-------------------------------------------------------------------------------

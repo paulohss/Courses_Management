@@ -23,7 +23,7 @@ class UserCourseService:
         course = Course.query.get(course_id)
         if not course:
             abort(400, f'Course ID [{course_id}] does not exist!')
-
+ 
 
     #-------------------------------------------------------------------------------
     # Create / Add new user-course relationship
@@ -47,6 +47,19 @@ class UserCourseService:
     #-------------------------------------------------------------------------------    
     def get_all_user_courses(self):
         return UserCourse.query.all()
+
+
+    #-------------------------------------------------------------------------------
+    # Get all courses associated with a user ID
+    #-------------------------------------------------------------------------------    
+    def get_courses_by_user_id(self, user_id):
+        if not user_id or user_id <= 0:
+            abort(400, 'Invalid User ID provided!')
+        
+        user_courses = UserCourse.query.filter_by(fk_user_id=user_id).all()
+        courses = [Course.query.get(uc.fk_course_id) for uc in user_courses]
+        return courses
+
 
     #-------------------------------------------------------------------------------
     # Update user-course relationship

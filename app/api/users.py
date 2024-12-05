@@ -39,12 +39,13 @@ def get_user_by_id(id):
     user = user_service.get_user_by_id(id)
     if user:
         return jsonify({
-            'id': user.id,
-            'name': user.name,
+            'id': user['id'],
+            'name': user['name'],
             'role': {
-                'id': user.role.id,
-                'name': user.role.name
-            }
+                'id': user['role_id'],
+                'name': user['role_name']
+            },
+            'userCourseList': user['user_course_list']
         })
     return jsonify({'message': 'User not found'}), 404
 

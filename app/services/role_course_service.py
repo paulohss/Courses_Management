@@ -45,7 +45,18 @@ class RoleCourseService:
     # Get all role-course relationships
     #-------------------------------------------------------------------------------    
     def get_all_role_courses(self):
-        return RoleCourse.query.all()
+        return RoleCourse.query.all() 
+
+    #-------------------------------------------------------------------------------
+    # Get all courses associated with a role ID
+    #-------------------------------------------------------------------------------    
+    def get_courses_by_role_id(self, role_id):
+        if not role_id or role_id <= 0:
+            abort(400, 'Invalid Role ID provided!')
+        
+        role_courses = RoleCourse.query.filter_by(fk_role_id=role_id).all()
+        courses = [Course.query.get(rc.fk_course_id) for rc in role_courses]
+        return courses
 
     #-------------------------------------------------------------------------------
     # Delete a role-course relationship
