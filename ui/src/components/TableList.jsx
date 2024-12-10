@@ -26,7 +26,6 @@ export default function TableList({handleOpen, searchTerm}) {
 
     return (
         <>
-            {console.log(filteredData.length)}
             {error && <div className="alert alert-error">An error occurred: {error.message}</div>}
 
             <div className="overflow-x-auto mt-10">

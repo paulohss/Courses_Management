@@ -10,6 +10,8 @@ user_service = UserService()
 @bp.route('/users', methods=['POST'])
 def create_user():
     data = request.json
+    if not data or 'name' not in data or 'role_id' not in data:
+        return jsonify({'message': 'Invalid data'}), 400
     new_user = user_service.create_user(data['name'], data['role_id'])
     return jsonify({'message': 'User created successfully', 'id': new_user.id}), 201
 

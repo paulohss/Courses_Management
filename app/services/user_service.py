@@ -31,7 +31,7 @@ class UserService:
 
         # Action:
         try:
-            new_user = User(name=name, role_id=role_id)
+            new_user = User(name=name, fk_role_id=role_id)
             db.session.add(new_user)
             db.session.commit()
             return new_user

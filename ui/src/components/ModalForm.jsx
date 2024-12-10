@@ -6,16 +6,17 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
     
     const [id, setId] = useState(''); // State for Name
     const [name, setName] = useState(''); // State for Name
-    const [role, setRole] = useState('');
+    const [roleId, setRoleId] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const userData = { id, name, role };
-            await OnSubmit(userData);
+            console.log("ModalForm.handleSubmit() mode:" + mode);
+            const newUserData = {name, role_id: Number(roleId) };
+            await onSubmit(newUserData);
             
         } catch (error) {
-            console.log("ModalForm.handleSubmit() error:" + error);
+            console.error("ModalForm.handleSubmit() error:" + error);
         }
         onClose();
     }
@@ -29,16 +30,16 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={onClose}>✕</button>
                     <h3 className="font-bold text-lg py-4">{mode === 'edit' ? 'Edit User' : 'User Details'}</h3>
 
-                    <form onSubmit={(e) => { handleSubmit }}>
+                    <form onSubmit={handleSubmit}>
 
                         <label className="input input-bordered flex items-center my-4 gap-2">
                             Name
                             <input type="text" className="grow" value={name} onChange={(e) => setName(e.target.value)} />
                         </label>
                         <div className="flex mb-4 justify-between">
-                            <select className="select select-bordered w-full max-w-xs" value={role} onChange={(e) => setRole(e.target.value)}>
-                                <option>Inactive</option>
-                                <option>Active</option>
+                            <select className="select select-bordered w-full max-w-xs" value={roleId} onChange={(e) => setRoleId(e.target.value)}>
+                                <option>1</option>
+                                <option>2</option>
                             </select>
 
                         </div>
