@@ -2,10 +2,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 export default function TableList({handleOpen, searchTerm}) {
-
+    
+    // State to store the user data
     const [userTable, setUserTable] = useState([]);
     const [error, setError] = useState(null);
 
+    // Fetch the users from the API
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -19,10 +21,24 @@ export default function TableList({handleOpen, searchTerm}) {
 
     }, [])
 
+    // Filter the userTable based on the search term
     const filteredData = userTable.filter(user => 
         user.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         user.role.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     );
+
+    // Function to delete a user
+    const handleDelete = async (id) => {
+        const confirm = window.confirm('Are you sure you want to delete this user?');
+        if (!confirm) return;
+        try {
+            console.log('Deleting user with id:', id);
+            await axios.delete(`http://localhost:5000/api/users/${id}`);
+            setUserTable(userTable.filter(user => user.id !== id));
+        } catch (error) {
+            setError(error);
+        }
+    };
 
     return (
         <>
@@ -46,10 +62,10 @@ export default function TableList({handleOpen, searchTerm}) {
                                 <td>{user.name}</td>
                                 <td>{user.role.name}</td>
                                 <td>
-                                    <button className="btn btn-secondary " onClick={()=>handleOpen('edit')}>Update</button>
+                                    <button className="btn btn-secondary " onClick={()=>handleOpen('edit', user)}>Update</button>
                                 </td>
                                 <td>
-                                    <button className="btn btn-accent">Delete</button>
+                                    <button className="btn btn-accent" onClick={()=> handleDelete(user.id)} >Delete</button>
                                 </td>
                             </tr>
                         ))}

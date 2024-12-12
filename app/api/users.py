@@ -57,6 +57,9 @@ def get_user_by_id(id):
 @bp.route('/users/<int:id>', methods=['PUT'])
 def update_user(id):
     data = request.json
+    if not data or 'name' not in data or 'role_id' not in data:
+        return jsonify({'message': 'Invalid data'}), 400
+    
     updated_user = user_service.update_user(id, data['name'], data['role_id'])
     if updated_user:
         return jsonify({'message': 'User updated successfully'})

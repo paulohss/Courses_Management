@@ -1,3 +1,9 @@
+https://www.youtube.com/watch?v=gTD8b5Yxuuo
+
 UI
 npm run dev
 npx tailwindcss -i ./src/index.css -o ./src/output.css --watch
+
+
+Backend
+python run.py

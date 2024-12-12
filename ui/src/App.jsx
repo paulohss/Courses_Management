@@ -5,7 +5,7 @@ import ModalForm from './components/ModalForm'
 import Navbar from './components/NavBar'
 import Tablelist from './components/Tablelist'
 import axios from 'axios'
- 
+
 function App() {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -14,31 +14,42 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleOpen = (mode) => {
+  // Function to handle modal open:
+  const handleOpen = (mode, user) => {
+    setUserData(user);
     setIsOpen(true);
     setModalMode(mode);
   }
 
+  // Function to handle form submission:
   const handleSubmit = async (newUserData) => {
-    if (modalMode === 'add') {
+    if (modalMode === 'add') { // Add mode
 
       try {
-        const response = await axios.post('http://127.0.0.1:5000/api/users', newUserData );
+        const response = await axios.post('http://127.0.0.1:5000/api/users', newUserData);
         console.log('User added', response.data);
-        
-      } catch (error) {
-        console.error('Error adding user', error.response.data);
-        // Extract the content of the <p> tag from the error response
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(error.response.data, 'text/html');
-        const errorMsg = doc.querySelector('p').textContent;
-        setErrorMessage(errorMsg);
-      }
 
-      
-    } else {
-      console.log('edit')
+      } catch (error) {
+        console.error('Error adding user', error.response.data);        
+        extractError(error);
+      }
+    } else { // Edit mode      
+      try {
+        console.log('Edit user', userData);
+        const response = await axios.put(`http://127.0.0.1:5000/api/users/${userData.id}`, newUserData);
+        console.log('User updated', response.data);
+      } catch (error) {
+        extractError(error);
+      }
     }
+  }
+
+  // Extract the content of the <p> tag from the error response
+  function extractError(error) {
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(error.response.data, 'text/html')
+    const errorMsg = doc.querySelector('p').textContent
+    setErrorMessage(errorMsg)
   }
 
   return (
@@ -60,16 +71,18 @@ function App() {
           </svg>
           <span>Error! {errorMessage}</span>
         </div>
-      )}          
-      <Tablelist handleOpen={handleOpen} searchTerm={searchTerm} />    
+      )}
+      <Tablelist handleOpen={handleOpen} searchTerm={searchTerm} />
       <ModalForm
-        isOpen={isOpen} 
-        onSubmit={handleSubmit} 
-        onClose={() => setIsOpen(false)} 
+        isOpen={isOpen}
+        onSubmit={handleSubmit}
+        onClose={() => setIsOpen(false)}
         mode={modalMode}
-        userData={userData}/>
+        userData={userData} />
     </>
   )
+
+
 }
 
 export default App

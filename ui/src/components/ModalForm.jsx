@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState, useEffect } from "react";
 
 
 // ModalForm.js
@@ -8,18 +8,39 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
     const [name, setName] = useState(''); // State for Name
     const [roleId, setRoleId] = useState('');
 
+    // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
             console.log("ModalForm.handleSubmit() mode:" + mode);
             const newUserData = {name, role_id: Number(roleId) };
+            console.log(newUserData)
             await onSubmit(newUserData);
-            
+            onClose();
         } catch (error) {
             console.error("ModalForm.handleSubmit() error:" + error);
         }
         onClose();
     }
+
+    // useEffect to set the form fields when in edit mode - or clear them when in add mode
+    useEffect(() => {
+        if (mode === 'edit' && userData) {
+            console.log("ModalForm.useEffect() mode:" + mode);
+            console.log(userData);
+            setId(userData.id);
+            setName(userData.name);
+            setRoleId(userData.role.id);
+        }
+        else {
+            console.log("ModalForm.useEffect() mode:" + mode);
+            console.log(userData);
+            setId('');
+            setName('');
+            setRoleId('');
+        }
+    }, [mode, userData]);
+
 
     return (
         <>

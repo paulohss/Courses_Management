@@ -93,10 +93,10 @@ class UserService:
             self.validate_user(name, role_id)
             
             # Action:
-            user = self.get_user_by_id(id)
+            user = User.query.get(id)
             if user:
                 user.name = name
-                user.role_id = role_id
+                user.fk_role_id = role_id
                 db.session.commit()
                 return user
             else:
@@ -113,7 +113,7 @@ class UserService:
             if id <= 0:
                 abort(400, 'Invalid User ID provided!')
             
-            user = self.get_user_by_id(id)
+            user = User.query.get(id)
             if user:
                 db.session.delete(user)
                 db.session.commit()
