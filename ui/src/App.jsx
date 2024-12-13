@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import './App.css'
 import ModalForm from './components/ModalForm'
 import Navbar from './components/NavBar'
-import Tablelist from './components/Tablelist'
+import Tablelist from './components/TableList'
 import axios from 'axios'
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [userData, setUserData] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [refreshTable, setRefreshTable] = useState(false);
 
   // Function to handle modal open:
   const handleOpen = (mode, user) => {
@@ -28,6 +29,7 @@ function App() {
       try {
         const response = await axios.post('http://127.0.0.1:5000/api/users', newUserData);
         console.log('User added', response.data);
+        setRefreshTable(true); // Trigger table refresh
 
       } catch (error) {
         console.error('Error adding user', error.response.data);        
@@ -38,6 +40,7 @@ function App() {
         console.log('Edit user', userData);
         const response = await axios.put(`http://127.0.0.1:5000/api/users/${userData.id}`, newUserData);
         console.log('User updated', response.data);
+        setRefreshTable(true); // Trigger table refresh
       } catch (error) {
         extractError(error);
       }
@@ -72,7 +75,11 @@ function App() {
           <span>Error! {errorMessage}</span>
         </div>
       )}
-      <Tablelist handleOpen={handleOpen} searchTerm={searchTerm} />
+      <Tablelist 
+        handleOpen={handleOpen} 
+        searchTerm={searchTerm} 
+        refreshTable={refreshTable} 
+        setRefreshTable={setRefreshTable} />
       <ModalForm
         isOpen={isOpen}
         onSubmit={handleSubmit}

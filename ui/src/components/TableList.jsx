@@ -1,25 +1,32 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function TableList({handleOpen, searchTerm}) {
+export default function TableList({handleOpen, searchTerm, refreshTable, setRefreshTable}) {
     
     // State to store the user data
     const [userTable, setUserTable] = useState([]);
     const [error, setError] = useState(null);
 
     // Fetch the users from the API
-    useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/api/users');
-                setUserTable(response.data);
-            } catch (error) {
-                setError(error);
-            }
-        };
-        fetchUsers();
+    const fetchUsers = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/users');
+            setUserTable(response.data);
+        } catch (error) {
+            setError(error);
+        }
+    };
 
-    }, [])
+    useEffect(() => {
+        fetchUsers();
+    }, []);
+
+    useEffect(() => {
+        if (refreshTable) {
+            fetchUsers();
+            setRefreshTable(false);
+        }
+    }, [refreshTable, setRefreshTable]);
 
     // Filter the userTable based on the search term
     const filteredData = userTable.filter(user => 
