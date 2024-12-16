@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import { use } from "react";
 
 // ModalForm.js
 export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData }) {
@@ -66,6 +67,35 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
         }
     };
 
+    //--------------------------------------------------------------------------------
+    // Handle course button click
+    //--------------------------------------------------------------------------------
+    const handleCourseButtonClick = async (courseId, attended) => {
+        try {
+            if (attended) {
+                await axios.delete(`http://localhost:5000/api/user_courses`, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: { user_id: id, course_id: courseId }
+                });
+            } else {
+                await axios.post(`http://localhost:5000/api/user_courses`, { user_id: id, course_id: courseId }, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+            }
+            // Refresh user data
+            if (mode === 'edit') {
+                fetchUserData(id);
+            } else {
+                fetchCoursesByRoleId(roleId);
+            }
+        } catch (error) {
+            console.error('Error updating course attendance', error);
+        }
+    };
 
     //--------------------------------------------------------------------------------------
     // useEffect | to set the form fields when in edit mode - or clear them when in add mode
@@ -140,7 +170,10 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
                                                 <td>{course.name}</td>
                                                 <td>{course.recurrent}</td>
                                                 <td>
-                                                    <button className={course.attended ? 'btn btn-success' : 'btn btn-active btn-neutral'}>
+                                                    <button
+                                                        className={course.attended ? 'btn btn-success' : 'btn btn-active btn-neutral'}
+                                                        onClick={() => handleCourseButtonClick(course.id, course.attended)}
+                                                    >
                                                         {course.attended ? 'Yes' : 'No'}
                                                     </button>
                                                 </td>

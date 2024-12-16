@@ -29,6 +29,7 @@ class UserCourseService:
     # Create / Add new user-course relationship
     #-------------------------------------------------------------------------------    
     def create_user_course(self, user_id, course_id):
+        
         # Validation:
         self.validate_user_and_course(user_id, course_id)
 
@@ -64,7 +65,7 @@ class UserCourseService:
     #-------------------------------------------------------------------------------
     # Update user-course relationship
     #-------------------------------------------------------------------------------    
-    def update_user_course(self, id, user_id, course_id):
+    def update_user_course(self, user_id, course_id):
         try:
             # Validation:
             if id <= 0:
@@ -73,13 +74,13 @@ class UserCourseService:
             self.validate_user_and_course(user_id, course_id)
             
             # Action:
-            user_course = UserCourse.query.get(id)
+            user_course = UserCourse.query.filter_by(fk_user_id=user_id, fk_course_id=course_id).first()
             if user_course:
                 user_course.fk_user_id = user_id
                 user_course.fk_course_id = course_id
                 db.session.commit()
             else:
-                abort(400, f'User-Course Relationship ID [{id}] does not exist!')
+                abort(400, f'User-Course Relationship does not exist!')
             
             return user_course
         except:
@@ -90,17 +91,19 @@ class UserCourseService:
     #-------------------------------------------------------------------------------
     # Get user-course relationship by ID
     #-------------------------------------------------------------------------------    
-    def delete_user_course(self, id):
+    def delete_user_course(self, user_id, course_id):
+        
+        # Validation:
+        self.validate_user_and_course(user_id, course_id)
+        
         try:
-            if id <= 0:
-                abort(400, 'Invalid User-Course Relationship ID provided!')
-            
-            user_course = UserCourse.query.get(id)
+            # Action:
+            user_course = UserCourse.query.filter_by(fk_user_id=user_id, fk_course_id=course_id).first()
             if user_course:
                 db.session.delete(user_course)
                 db.session.commit()
             else:
-                abort(400, f'User-Course Relationship ID [{id}] does not exist!')
+                abort(400, f'User-Course Relationship does not exist!')
             
             return user_course
         except:
