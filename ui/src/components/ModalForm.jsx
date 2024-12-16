@@ -24,7 +24,7 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
         } catch (error) {
             console.error("ModalForm.handleSubmit() error:" + error);
         }
-        onClose();
+        //onClose();
     }
 
     //--------------------------------------------------------------------------------
@@ -75,7 +75,7 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
             if (attended) {
                 await axios.delete(`http://localhost:5000/api/user_courses`, {
                     headers: {
-                        'Content-Type': 'application/json' 
+                        'Content-Type': 'application/json'
                     },
                     data: { user_id: id, course_id: courseId }
                 });
@@ -184,8 +184,11 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
                             </div>
                         )}
 
-                        {/*Button: SUBMIT */}
-                        <button type="submit" className=" btn btn-success mt-4">{mode === 'edit' ? 'Save Changes' : 'Add User'}</button>
+                        {/* Button: SUBMIT and CLOSE */}
+                        <div className="flex justify-between mt-4">
+                            <button type="submit" className="btn btn-success">{mode === 'edit' ? 'Save Changes' : 'Add User'}</button>
+                            <button type="button" className="btn btn-outline btn-primary" onClick={onClose}>Close</button>
+                        </div>
                     </form>
                 </div>
             </dialog>
