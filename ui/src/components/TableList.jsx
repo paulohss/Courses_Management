@@ -7,7 +7,9 @@ export default function TableList({handleOpen, searchTerm, refreshTable, setRefr
     const [userTable, setUserTable] = useState([]);
     const [error, setError] = useState(null);
 
+    //--------------------------------------------------------------------------------
     // Fetch the users from the API
+    //--------------------------------------------------------------------------------
     const fetchUsers = async () => {
         try {
             const response = await axios.get('http://localhost:5000/api/users');
@@ -17,6 +19,9 @@ export default function TableList({handleOpen, searchTerm, refreshTable, setRefr
         }
     };
 
+    //--------------------------------------------------------------------------------
+    // Fetch the users from the API
+    //--------------------------------------------------------------------------------
     useEffect(() => {
         fetchUsers();
     }, []);
@@ -28,13 +33,17 @@ export default function TableList({handleOpen, searchTerm, refreshTable, setRefr
         }
     }, [refreshTable, setRefreshTable]);
 
+    //--------------------------------------------------------------------------------
     // Filter the userTable based on the search term
+    //--------------------------------------------------------------------------------
     const filteredData = userTable.filter(user => 
         user.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         user.role.name.toLowerCase().includes(searchTerm.toLowerCase()) 
     );
 
+    //--------------------------------------------------------------------------------
     // Function to delete a user
+    //--------------------------------------------------------------------------------
     const handleDelete = async (id) => {
         const confirm = window.confirm('Are you sure you want to delete this user?');
         if (!confirm) return;

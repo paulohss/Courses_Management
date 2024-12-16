@@ -3,18 +3,21 @@ import axios from 'axios';
 
 // ModalForm.js
 export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData }) {
-    
+
     const [id, setId] = useState(''); // State for Name
     const [name, setName] = useState(''); // State for Name
     const [roleId, setRoleId] = useState(''); // State for Role ID
     const [roles, setRoles] = useState([]); // State for Roles LIST
+    const [userCourses, setUserCourses] = useState([]); // State for User Courses
 
+    //--------------------------------------------------------------------------------
     // Function to handle form submission
+    //--------------------------------------------------------------------------------
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
+        try {
             console.log("ModalForm.handleSubmit() mode:" + mode);
-            const newUserData = {name, role_id: Number(roleId) };
+            const newUserData = { name, role_id: Number(roleId) };
             console.log(newUserData)
             await onSubmit(newUserData);
         } catch (error) {
@@ -23,8 +26,9 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
         onClose();
     }
 
-
+    //--------------------------------------------------------------------------------
     // Fetch roles from the API
+    //--------------------------------------------------------------------------------
     const fetchRoles = async () => {
         try {
             const response = await axios.get('http://localhost:5000/api/roles');
@@ -32,17 +36,46 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
         } catch (error) {
             console.error('Error fetching roles', error);
         }
-    };    
+    };
 
-    // useEffect to set the form fields when in edit mode - or clear them when in add mode
+    //--------------------------------------------------------------------------------
+    // Fetch user data including courses from the API by user ID (Edit User)
+    //--------------------------------------------------------------------------------
+    const fetchUserData = async (userId) => {
+        try {
+            const response = await axios.get(`http://localhost:5000/api/users/${userId}`);
+            const user = response.data;
+            setId(user.id);
+            setName(user.name);
+            setRoleId(user.role.id);
+            setUserCourses(user.userCourseList);
+        } catch (error) {
+            console.error('Error fetching user data', error);
+        }
+    };
+
+    //--------------------------------------------------------------------------------
+    // Fetch courses by role ID from the API (New User)
+    //--------------------------------------------------------------------------------
+    const fetchCoursesByRoleId = async (roleId) => {
+        try {
+            const response = await axios.get(`http://127.0.0.1:5000/api/role_courses/role/${roleId}`);
+            setUserCourses(response.data);
+        } catch (error) {
+            console.error('Error fetching courses by role ID', error);
+        }
+    };
+
+
+    //--------------------------------------------------------------------------------------
+    // useEffect | to set the form fields when in edit mode - or clear them when in add mode
+    //--------------------------------------------------------------------------------------
     useEffect(() => {
-        fetchRoles();        
+        fetchRoles();
         if (mode === 'edit' && userData) {
             console.log("ModalForm.useEffect() mode:" + mode);
             console.log(userData);
-            setId(userData.id);
-            setName(userData.name);
-            setRoleId(userData.role.id);
+            fetchUserData(userData.id);
         }
         else {
             console.log("ModalForm.useEffect() mode:" + mode);
@@ -50,9 +83,18 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
             setId('');
             setName('');
             setRoleId('');
+            setUserCourses([]);
         }
     }, [mode, userData]);
 
+    //--------------------------------------------------------------------------------------
+    // useEffect | to fetch courses by role ID when roleId changes in add mode
+    //--------------------------------------------------------------------------------------
+    useEffect(() => {
+        if (mode === 'add' && roleId) {
+            fetchCoursesByRoleId(roleId);
+        }
+    }, [roleId, mode]);
 
     return (
         <>
@@ -65,19 +107,52 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
 
                     <form onSubmit={handleSubmit}>
 
+                        {/* Field: NAME */}
                         <label className="input input-bordered flex items-center my-4 gap-2">
                             Name
                             <input type="text" className="grow" value={name} onChange={(e) => setName(e.target.value)} />
                         </label>
+
+                        {/* Field: ROLE */}
                         <div className="flex mb-4 justify-between">
-                        <select className="select select-bordered w-full max-w-xs" value={roleId} onChange={(e) => setRoleId(e.target.value)}>
+                            <select className="select select-bordered w-full max-w-xs" value={roleId} onChange={(e) => setRoleId(e.target.value)}>
                                 <option value="">Select Role</option>
                                 {roles.map(role => (
                                     <option key={role.id} value={role.id}>{role.name}</option>
                                 ))}
                             </select>
                         </div>
-                        <button type="submit" className=" btn btn-success">{mode === 'edit' ? 'Save Changes' : 'Add User'}</button>
+
+                        {/*Table: COURSES */}
+                        {userCourses.length > 0 && (
+                            <div className="overflow-x-auto mt-4">
+                                <table className="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Recurrent</th>
+                                            <th>Attended</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {userCourses.map((course) => (
+                                            <tr className="hover" key={course.id}>
+                                                <td>{course.name}</td>
+                                                <td>{course.recurrent}</td>
+                                                <td>
+                                                    <button className={course.attended ? 'btn btn-success' : 'btn btn-active btn-neutral'}>
+                                                        {course.attended ? 'Yes' : 'No'}
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        )}
+
+                        {/*Button: SUBMIT */}
+                        <button type="submit" className=" btn btn-success mt-4">{mode === 'edit' ? 'Save Changes' : 'Add User'}</button>
                     </form>
                 </div>
             </dialog>

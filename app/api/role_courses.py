@@ -29,7 +29,7 @@ def get_role_courses():
 @bp.route('/role_courses/role/<int:role_id>', methods=['GET'])
 def get_courses_by_role_id(role_id):
     courses = role_course_service.get_courses_by_role_id(role_id)
-    return jsonify([{'id': course.id, 'name': course.name, 'recurrent': course.recurrent} for course in courses])
+    return jsonify([{'id': course.id, 'name': course.name, 'recurrent': course.recurrent, "attended": False} for course in courses])
 
 
 #-------------------------------------------------------------------------------
