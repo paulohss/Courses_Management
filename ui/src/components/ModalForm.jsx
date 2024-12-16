@@ -75,7 +75,7 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
             if (attended) {
                 await axios.delete(`http://localhost:5000/api/user_courses`, {
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json' 
                     },
                     data: { user_id: id, course_id: courseId }
                 });

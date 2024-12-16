@@ -50,7 +50,7 @@ def update_user_course():
 #-------------------------------------------------------------------------------
 @bp.route('/user_courses', methods=['DELETE'])
 def delete_user_course():
-    data = request.json
+    data = request.json 
     deleted_user_course = user_course_service.delete_user_course(data['user_id'], data['course_id'])
     if deleted_user_course:
         return jsonify({'message': 'User-Course relationship deleted successfully'})

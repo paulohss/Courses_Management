@@ -106,6 +106,6 @@ class UserCourseService:
                 abort(400, f'User-Course Relationship does not exist!')
             
             return user_course
-        except:
+        except: 
             db.session.rollback()
             raise
