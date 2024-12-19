@@ -14,15 +14,20 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [refreshTable, setRefreshTable] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState('users'); // State to manage selected menu option
 
-  // Function to handle modal open:
+  //--------------------------------------------------------------------------------
+  //  Function to handle modal open:
+  //--------------------------------------------------------------------------------
   const handleOpen = (mode, user) => {
     setUserData(user);
     setIsOpen(true);
     setModalMode(mode);
   }
 
+  //--------------------------------------------------------------------------------
   // Function to handle form submission:
+  //--------------------------------------------------------------------------------
   const handleSubmit = async (newUserData) => {
     if (modalMode === 'add') { // Add mode
 
@@ -35,7 +40,9 @@ function App() {
         console.error('Error adding user', error.response.data);        
         extractError(error);
       }
+
     } else { // Edit mode      
+
       try {
         console.log('Edit user', userData);
         const response = await axios.put(`http://127.0.0.1:5000/api/users/${userData.id}`, newUserData);
@@ -47,7 +54,9 @@ function App() {
     }
   }
 
+  //--------------------------------------------------------------------------------
   // Extract the content of the <p> tag from the error response
+  //--------------------------------------------------------------------------------
   function extractError(error) {
     const parser = new DOMParser()
     const doc = parser.parseFromString(error.response.data, 'text/html')
@@ -55,9 +64,17 @@ function App() {
     setErrorMessage(errorMsg)
   }
 
+  //--------------------------------------------------------------------------------
+  // Function to handle menu change
+  // -------------------------------------------------------------------------------
+  const handleMenuChange = (menu) => {
+      setSelectedMenu(menu);
+  }
+
   return (
     <>
-      <Navbar onOpen={() => handleOpen('add')} onSearch={setSearchTerm} />
+      <Navbar onOpen={() => handleOpen('add')} onSearch={setSearchTerm} onMenuChange={handleMenuChange} />
+      <div className="divider divider-secondary"></div>
       {errorMessage && (
         <div role="alert" className="alert alert-error">
           <svg
@@ -75,17 +92,18 @@ function App() {
           <span>Error! {errorMessage}</span>
         </div>
       )}
-      <Tablelist 
-        handleOpen={handleOpen} 
-        searchTerm={searchTerm} 
-        refreshTable={refreshTable} 
-        setRefreshTable={setRefreshTable} />
-      <ModalForm
-        isOpen={isOpen}
-        onSubmit={handleSubmit}
-        onClose={() => setIsOpen(false)}
-        mode={modalMode}
-        userData={userData} />
+      {selectedMenu === 'users' && (
+        <>
+          <Tablelist handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
+          <ModalForm isOpen={isOpen} onSubmit={handleSubmit} onClose={() => setIsOpen(false)} mode={modalMode} userData={userData} />
+        </>
+      )}
+      {selectedMenu === 'rolesCourses' && (
+        <div>
+          {/* Roles and Courses UI will be built here later */}
+          <h2>Roles and Courses Management</h2>
+        </div>
+      )}
     </>
   )
 

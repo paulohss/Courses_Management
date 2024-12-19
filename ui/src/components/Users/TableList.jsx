@@ -3,9 +3,8 @@ import { useState, useEffect } from 'react';
 
 export default function TableList({handleOpen, searchTerm, refreshTable, setRefreshTable}) {
     
-    // State to store the user data
-    const [userTable, setUserTable] = useState([]);
-    const [error, setError] = useState(null);
+    const [userTable, setUserTable] = useState([]); // State for User Table
+    const [error, setError] = useState(null);       // State for Error
 
     //--------------------------------------------------------------------------------
     // Fetch the users from the API

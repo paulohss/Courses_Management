@@ -24,7 +24,7 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
         } catch (error) {
             console.error("ModalForm.handleSubmit() error:" + error);
         }
-        //onClose();
+        onClose();
     }
 
     //--------------------------------------------------------------------------------
