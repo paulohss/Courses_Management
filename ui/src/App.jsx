@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react'
 import './App.css'
-import ModalForm from './components/ModalForm'
-import Navbar from './components/NavBar'
-import Tablelist from './components/TableList'
+import ModalForm from './components/Users/ModalForm'
+import Navbar from './components/Users/NavBar'
+import Tablelist from './components/Users/TableList'
 import axios from 'axios'
 
 function App() {
