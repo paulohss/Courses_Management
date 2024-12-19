@@ -4,7 +4,7 @@ export default function NavBar({ onOpen, onSearch }) {
         onSearch(event.target.value); 
     };
 
-    return (
+    return ( 
         <>
             <div className="navbar bg-base-100 p-4">
                 <div className="navbar-start">
