@@ -1,9 +1,10 @@
 
 import React, { useState } from 'react'
 import './App.css'
-import ModalForm from './components/Users/ModalForm'
-import Navbar from './components/Users/NavBar'
-import Tablelist from './components/Users/TableList'
+import UserModalForm from './components/UserModalForm'
+import Navbar from './components/NavBar'
+import UserTableList from './components/UserTableList'
+import RolesTableList from './components/RolesTableList'
 import axios from 'axios' 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState('');
   const [refreshTable, setRefreshTable] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState('users'); // State to manage selected menu option
+
 
   //--------------------------------------------------------------------------------
   //  Function to handle modal open:
@@ -74,7 +76,7 @@ function App() {
   return (
     <>
       <Navbar onOpen={() => handleOpen('add')} onSearch={setSearchTerm} onMenuChange={handleMenuChange} />
-      <div className="divider divider-secondary"></div>
+      <div className="divider divider-secondary"> {selectedMenu === 'users' ? 'Users' : 'Roles & Courses'} </div>
       {errorMessage && (
         <div role="alert" className="alert alert-error">
           <svg
@@ -94,14 +96,13 @@ function App() {
       )}
       {selectedMenu === 'users' && (
         <>
-          <Tablelist handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
-          <ModalForm isOpen={isOpen} onSubmit={handleSubmit} onClose={() => setIsOpen(false)} mode={modalMode} userData={userData} />
+          <UserTableList handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
+          <UserModalForm isOpen={isOpen} onSubmit={handleSubmit} onClose={() => setIsOpen(false)} mode={modalMode} userData={userData} />
         </>
       )}
       {selectedMenu === 'rolesCourses' && (
-        <div>
-          {/* Roles and Courses UI will be built here later */}
-          <h2>Roles and Courses Management</h2>
+        <div>          
+          <RolesTableList handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
         </div>
       )}
     </>

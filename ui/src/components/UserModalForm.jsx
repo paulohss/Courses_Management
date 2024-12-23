@@ -3,14 +3,14 @@ import axios from 'axios';
 
 
 // ModalForm.js 
-export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData }) {
+export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userData }) {
 
     const [id, setId] = useState(''); // State for Name
     const [name, setName] = useState(''); // State for Name
     const [roleId, setRoleId] = useState(''); // State for Role ID
     const [roles, setRoles] = useState([]); // State for Roles LIST
     const [userCourses, setUserCourses] = useState([]); // State for User Courses
-    const [shouldClose, setShouldClose] = useState(true);
+    const [shouldClose, setShouldClose] = useState(true); // State to close the modal
 
     //--------------------------------------------------------------------------------
     // Function to handle form submission
@@ -192,7 +192,9 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
                             <button type="submit" className="btn btn-success" onClick={() => setShouldClose(true)}>
                                 {mode === 'edit' ? 'Save Changes' : 'Add User'}
                             </button>
-                            <button type="button" className="btn btn-outline btn-primary" onClick={onClose}>Close</button>
+                            <button type="button" className="btn btn-outline btn-primary" onClick={onClose}>
+                                Close
+                            </button>
                         </div>
                     </form>
                 </div>

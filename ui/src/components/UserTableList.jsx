@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react'; 
 
-export default function TableList({handleOpen, searchTerm, refreshTable, setRefreshTable}) {
+export default function UserTableList({handleOpen, searchTerm, refreshTable, setRefreshTable}) {
     
     const [userTable, setUserTable] = useState([]); // State for User Table
     const [error, setError] = useState(null);       // State for Error
