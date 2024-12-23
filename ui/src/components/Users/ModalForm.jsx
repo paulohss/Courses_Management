@@ -10,6 +10,7 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
     const [roleId, setRoleId] = useState(''); // State for Role ID
     const [roles, setRoles] = useState([]); // State for Roles LIST
     const [userCourses, setUserCourses] = useState([]); // State for User Courses
+    const [shouldClose, setShouldClose] = useState(true);
 
     //--------------------------------------------------------------------------------
     // Function to handle form submission
@@ -24,7 +25,8 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
         } catch (error) {
             console.error("ModalForm.handleSubmit() error:" + error);
         }
-        onClose();
+        if (shouldClose)
+            onClose();
     }
 
     //--------------------------------------------------------------------------------
@@ -71,6 +73,7 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
     // Handle course button click
     //--------------------------------------------------------------------------------
     const handleCourseButtonClick = async (courseId, attended) => {
+        setShouldClose(false); // Prevent the modal from closing
         try {
             if (attended) {
                 await axios.delete(`http://localhost:5000/api/user_courses`, {
@@ -186,7 +189,9 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit, userData })
 
                         {/* Button: SUBMIT and CLOSE */}
                         <div className="flex justify-between mt-4">
-                            <button type="submit" className="btn btn-success">{mode === 'edit' ? 'Save Changes' : 'Add User'}</button>
+                            <button type="submit" className="btn btn-success" onClick={() => setShouldClose(true)}>
+                                {mode === 'edit' ? 'Save Changes' : 'Add User'}
+                            </button>
                             <button type="button" className="btn btn-outline btn-primary" onClick={onClose}>Close</button>
                         </div>
                     </form>
