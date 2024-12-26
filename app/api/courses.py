@@ -28,9 +28,9 @@ def get_courses():
 # Get a course by id
 #-------------------------------------------------------------------------------
 @bp.route('/courses/<int:id>', methods=['GET'])
-def get_courses_by_id(id):
+def get_courses_by_id(id): 
     course = course_service.get_course_by_id(id)
-    return jsonify({'id': course.id, 'name': course.name, 'recurrent': course.recurrent})
+    return jsonify({'id': course.id, 'name': course.name, 'recurrent': course.recurrent, 'rolesList': course.roles})
 
 #-------------------------------------------------------------------------------
 # Get a course by id
