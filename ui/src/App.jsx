@@ -5,6 +5,7 @@ import UserModalForm from './components/UserModalForm'
 import Navbar from './components/NavBar'
 import UserTableList from './components/UserTableList'
 import RolesTableList from './components/RolesTableList'
+import CoursesTableList from './components/CoursesTableList'
 import axios from 'axios' 
 
 function App() {
@@ -77,8 +78,12 @@ function App() {
     <>
       {/* Navbar component */}
       <Navbar onOpen={() => handleOpen('add')} onSearch={setSearchTerm} onMenuChange={handleMenuChange} selectedMenu={selectedMenu} />
+      
       {/* Divider */}
-      <div className="divider divider-secondary"> {selectedMenu === 'users' ? 'Users' : 'Roles & Courses'} </div>
+      <div className="divider divider-secondary">
+        {selectedMenu === 'users' ? 'Users' : selectedMenu === 'roles' ? 'Roles' : 'Courses'}
+      </div>
+      
       {/* Error message */}
       {errorMessage && (
         <div role="alert" className="alert alert-error">
@@ -97,15 +102,26 @@ function App() {
           <span>Error! {errorMessage}</span>
         </div>
       )}
+
+      {/* Users UI */}
       {selectedMenu === 'users' && (
         <>
           <UserTableList handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
           <UserModalForm isOpen={isOpen} onSubmit={handleSubmit} onClose={() => setIsOpen(false)} mode={modalMode} userData={userData} />
         </>
       )}
-      {selectedMenu === 'rolesCourses' && (
+
+      {/* Roles UI */}
+      {selectedMenu === 'roles' && (
         <div>          
           <RolesTableList handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
+        </div>
+      )}
+
+      {/* Courses UI */}
+      {selectedMenu === 'courses' && (
+        <div>          
+          <CoursesTableList handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
         </div>
       )}
     </>

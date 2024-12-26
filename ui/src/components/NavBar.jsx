@@ -16,7 +16,8 @@ export default function NavBar({ onOpen, onSearch, onMenuChange, selectedMenu })
                             <h2 className="menu-title">Course Management</h2>
                             <ul>
                                 <li><a onClick={() => onMenuChange('users')}>Users</a></li>
-                                <li><a onClick={() => onMenuChange('rolesCourses')}>Roles & Courses</a></li>
+                                <li><a onClick={() => onMenuChange('roles')}>Roles</a></li>
+                                <li><a onClick={() => onMenuChange('courses')}>Courses</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -28,7 +29,7 @@ export default function NavBar({ onOpen, onSearch, onMenuChange, selectedMenu })
                 </div>
                 <div className="navbar-end">
                     <a className="btn btn-primary ml-2" onClick={onOpen}>
-                        {selectedMenu === 'users' ? 'Add User' : 'Add Role & Course'}
+                        {selectedMenu === 'users' ? 'Add User' : selectedMenu === 'roles' ? 'Add Role' : 'Add Course'}
                     </a>
                 </div>
             </div>
