@@ -1,10 +1,10 @@
-export default function NavBar({ onOpen, onSearch, onMenuChange }) {
+export default function NavBar({ onOpen, onSearch, onMenuChange, selectedMenu }) {
 
     //--------------------------------------------------------------------------------
     //  Function to handle search change
     //--------------------------------------------------------------------------------
     const handleSearchChange = (event) => {
-        onSearch(event.target.value); 
+        onSearch(event.target.value);
     };
 
     return (
@@ -27,7 +27,9 @@ export default function NavBar({ onOpen, onSearch, onMenuChange }) {
                     </div>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn btn-primary ml-2" onClick={onOpen}>Add User</a>
+                    <a className="btn btn-primary ml-2" onClick={onOpen}>
+                        {selectedMenu === 'users' ? 'Add User' : 'Add Role & Course'}
+                    </a>
                 </div>
             </div>
         </>

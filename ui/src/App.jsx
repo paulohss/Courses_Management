@@ -75,8 +75,11 @@ function App() {
 
   return (
     <>
-      <Navbar onOpen={() => handleOpen('add')} onSearch={setSearchTerm} onMenuChange={handleMenuChange} />
+      {/* Navbar component */}
+      <Navbar onOpen={() => handleOpen('add')} onSearch={setSearchTerm} onMenuChange={handleMenuChange} selectedMenu={selectedMenu} />
+      {/* Divider */}
       <div className="divider divider-secondary"> {selectedMenu === 'users' ? 'Users' : 'Roles & Courses'} </div>
+      {/* Error message */}
       {errorMessage && (
         <div role="alert" className="alert alert-error">
           <svg

@@ -65,8 +65,8 @@ export default function UserTableList({handleOpen, searchTerm, refreshTable, set
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Role</th>
+                            <th>NAME</th>
+                            <th>ROLE</th>
                         </tr>
                     </thead>
                     <tbody>
