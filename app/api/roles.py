@@ -26,9 +26,9 @@ def get_roles():
 # Get a course by id
 #-------------------------------------------------------------------------------
 @bp.route('/roles/<int:id>', methods=['GET'])
-def get_roles_by_id(id):
+def get_role_by_id(id):
     role = role_service.get_role_by_id(id)
-    return jsonify({'id': role.id, 'name': role.name})
+    return jsonify({'id': role.id, 'name': role.name, 'coursesList': role.courses})
 
 #-------------------------------------------------------------------------------
 #  Get role by ID

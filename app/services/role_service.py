@@ -1,5 +1,7 @@
 from flask import abort
 from app.models.role import Role
+from app.models.course import Course
+from app.models.role_course import RoleCourse
 from app import db
 
 class RoleService:
@@ -30,7 +32,39 @@ class RoleService:
     # Get Role by ID
     #-------------------------------------------------------------------------------    
     def get_role_by_id(self, id):
-        return Role.query.get(id)
+        
+        # Validation:
+        if id <= 0:
+            abort(400, 'Invalid User ID provided!')
+        
+        role = Role.query.get(id)
+        if not role:
+            abort(400, f'Role ID [{id}] does not exist!')
+            
+        # Get courses linked to role
+        role_courses = RoleCourse.query.filter_by(fk_role_id=id).all()
+
+        # Get all courses
+        all_courses = Course.query.all()
+        
+        # Initialize final_list
+        final_list = []
+        
+        # Add role_courses to final_list with 'linked' property set to True
+        for role_course in role_courses:
+            course = Course.query.get(role_course.fk_course_id)
+            final_list.append({'id': course.id, 'name': course.name, 'recurrent': course.recurrent, 'linked': True})
+            
+        # Add all_courses to final_list with 'linked' property set to False, avoiding duplicates
+        role_course_ids = {role_course.fk_course_id for role_course in role_courses}
+        for course in all_courses:
+            if course.id not in role_course_ids:
+                final_list.append({'id': course.id, 'name': course.name, 'recurrent': course.recurrent, 'linked': False})
+        
+        # Add final_list as a property of role
+        role.courses = final_list
+        
+        return role
 
     #-------------------------------------------------------------------------------
     # Update/Edit a Role
