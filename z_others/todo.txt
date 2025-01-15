@@ -1,16 +1,16 @@
+- Map
+  App -> Table -> ModalForm
+
 - Edit User:
   - change role, 
     -> message: all course info sera deletada
     -> update course list
+
+- Add user
+  -> Save User First?
 
 - Auth
 
 - Migration Tool: Use a migration tool like Flask-Migrate to handle schema changes. 
   Optional: Adding Alembic for Database Migrations
   If you're using Alembic for migrations (recommended for production), add a migrations/ folder to your project. To integrate
-
-
-- Validation when a string is informe as number and vise-versa
-
-
-npx tailwindcss -i ./src/index.css -o ./src/output.css --watch

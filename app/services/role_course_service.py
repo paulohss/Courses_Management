@@ -61,14 +61,13 @@ class RoleCourseService:
     #-------------------------------------------------------------------------------
     # Delete a role-course relationship
     #-------------------------------------------------------------------------------    
-    def delete_role_course(self, id):
+    def delete_role_course(self, role_id, course_id):
         try:
             # Validation:
-            if id <= 0:
-                abort(400, 'Invalid Role-Course Relationship ID provided!')
+            self.validate_role_and_course(role_id, course_id)
             
             # Action:
-            role_course = RoleCourse.query.get(id)
+            role_course = RoleCourse.query.filter_by(fk_course_id=course_id, fk_role_id=role_id).first()
             if role_course:
                 db.session.delete(role_course)
                 db.session.commit()

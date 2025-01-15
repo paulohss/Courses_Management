@@ -47,9 +47,12 @@ def update_role_course(id):
 #-------------------------------------------------------------------------------
 # Delete a role-course relationship
 #-------------------------------------------------------------------------------
-@bp.route('/role_courses/<int:id>', methods=['DELETE'])
-def delete_role_course(id):    
-    deleted_role_course = role_course_service.delete_role_course(id)
+@bp.route('/role_courses', methods=['DELETE'])
+def delete_role_course(): 
+    data = request.json    
+    deleted_role_course = role_course_service.delete_role_course(data['role_id'], data['course_id'])
     if deleted_role_course:
         return jsonify({'message': 'Role-Course relationship deleted successfully'})
     return jsonify({'message': 'Role-Course relationship not found'}), 404
+
+

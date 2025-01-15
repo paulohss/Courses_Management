@@ -108,4 +108,4 @@ class UserCourseService:
             return user_course
         except: 
             db.session.rollback()
-            raise
+            raise 

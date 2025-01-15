@@ -57,6 +57,7 @@ export default function RolesModalForm({ isOpen, onClose, mode, onSubmit, roleDa
     //--------------------------------------------------------------------------------
     const handleCourseButtonClick = async (courseId, linked) => {
         setShouldClose(false); // Prevent the modal from closing
+        console.log('Course button clicked:', id, courseId, linked);
         try {
             if (linked) {
                 await axios.delete(`http://localhost:5000/api/role_courses`, {
