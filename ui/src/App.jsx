@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react'
 import './App.css'
-import UserModalForm from './components/UserModalForm'
 import Navbar from './components/NavBar'
+import UserModalForm from './components/UserModalForm'
+import CoursesModalForm from './components/CoursesModalForm'
+import RolesModalForm from './components/RolesModalForm'
 import UserTableList from './components/UserTableList'
 import RolesTableList from './components/RolesTableList'
-import RolesModalForm from './components/RolesModalForm'
 import CoursesTableList from './components/CoursesTableList'
 import axios from 'axios' 
 
@@ -16,6 +17,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [userData, setUserData] = useState(null);
   const [roleData, setRoleData] = useState(null);
+  const [courseData, setCourseData] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [refreshTable, setRefreshTable] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState('users'); // State to manage selected menu option
@@ -29,7 +31,9 @@ function App() {
       setUserData(data);
     } else if (selectedMenu === 'roles') {
       setRoleData(data);
-    }
+    } else if (selectedMenu === 'courses') {
+      setCourseData(data);
+    }    
     setIsOpen(true);
     setModalMode(mode);
 }
@@ -79,6 +83,29 @@ const handleSubmit = async (newData) => {
         console.log('Edit role', roleData);
         const response = await axios.put(`http://127.0.0.1:5000/api/roles/${roleData.id}`, newData);
         console.log('Role updated', response.data);
+        setRefreshTable(true); // Trigger table refresh
+      } catch (error) {
+        extractError(error);
+      }
+    }
+
+  // [COURSES] Add or Edit
+  //--------------------
+  } else if (selectedMenu === 'courses') {
+    if (modalMode === 'add') { // Add mode
+      try {
+        const response = await axios.post('http://127.0.0.1:5000/api/courses', newData);
+        console.log('Course added', response.data);
+        setRefreshTable(true); // Trigger table refresh
+      } catch (error) {
+        console.error('Error adding course', error.response.data);        
+        extractError(error);
+      }
+    } else { // Edit mode      
+      try {
+        console.log('Edit course', courseData);
+        const response = await axios.put(`http://127.0.0.1:5000/api/courses/${courseData.id}`, newData);
+        console.log('Course updated', response.data);
         setRefreshTable(true); // Trigger table refresh
       } catch (error) {
         extractError(error);
@@ -152,6 +179,7 @@ const handleSubmit = async (newData) => {
       {selectedMenu === 'courses' && (
         <div>          
           <CoursesTableList handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
+          <CoursesModalForm isOpen={isOpen} onSubmit={handleSubmit} onClose={() => setIsOpen(false)} mode={modalMode} courseData={courseData} />
         </div>
       )}
     </>
