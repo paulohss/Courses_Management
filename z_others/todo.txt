@@ -9,6 +9,9 @@
 - Add user
   -> Save User First?
 
+- Delete User
+  -> Cascate deleting
+
 - Auth
 
 - Migration Tool: Use a migration tool like Flask-Migrate to handle schema changes. 

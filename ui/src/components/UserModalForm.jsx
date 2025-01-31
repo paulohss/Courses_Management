@@ -13,6 +13,24 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
     const [shouldClose, setShouldClose] = useState(true); // State to close the modal
 
     //--------------------------------------------------------------------------------
+    // Function to cleanup form fields
+    //--------------------------------------------------------------------------------
+    const cleanupFields = () => {
+        setId('');
+        setName('');
+        setRoleId('');
+        setUserCourses([]);
+    };
+
+    //--------------------------------------------------------------------------------
+    // Function to handle modal close
+    //--------------------------------------------------------------------------------
+    const handleClose = () => {
+        cleanupFields();
+        onClose();
+    };    
+
+    //--------------------------------------------------------------------------------
     // Function to handle form submission
     //--------------------------------------------------------------------------------
     const handleSubmit = async (e) => {
@@ -62,6 +80,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
     //--------------------------------------------------------------------------------
     const fetchCoursesByRoleId = async (roleId) => {
         try {
+            console.log("roleId:" + roleId);
             const response = await axios.get(`http://127.0.0.1:5000/api/role_courses/role/${roleId}`);
             setUserCourses(response.data);
         } catch (error) {
@@ -104,19 +123,18 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
     // useEffect | to set the form fields when in edit mode - or clear them when in add mode
     //--------------------------------------------------------------------------------------
     useEffect(() => {
-        fetchRoles();
+        // EDIT MODE
         if (mode === 'edit' && userData) {
+            fetchRoles();
             console.log("ModalForm.useEffect() mode:" + mode);
             console.log(userData);
             fetchUserData(userData.id);
         }
+        // ADD MODE
         else {
             console.log("ModalForm.useEffect() mode:" + mode);
             console.log(userData);
-            setId('');
-            setName('');
-            setRoleId('');
-            setUserCourses([]);
+            cleanupFields();
         }
     }, [mode, userData]);
 
@@ -124,6 +142,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
     // useEffect | to fetch courses by role ID when roleId changes in add mode
     //--------------------------------------------------------------------------------------
     useEffect(() => {
+        console.log("mode and roleId:" + mode + " " + roleId);
         if (mode === 'add' && roleId) {
             fetchCoursesByRoleId(roleId);
         }
@@ -135,7 +154,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
             <dialog id="my_modal_3" className="modal bg-black/40" open={isOpen}>
                 <div className="modal-box">
                     {/* if there is a button in form, it will close the modal */}
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={onClose}>✕</button>
+                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={handleClose}>✕</button>
                     <h3 className="font-bold text-lg py-4">{mode === 'edit' ? 'Edit User' : 'User Details'}</h3>
 
                     <form onSubmit={handleSubmit}>
@@ -192,7 +211,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
                             <button type="submit" className="btn btn-success" onClick={() => setShouldClose(true)}>
                                 {mode === 'edit' ? 'Save Changes' : 'Add User'}
                             </button>
-                            <button type="button" className="btn btn-outline btn-primary" onClick={onClose}>
+                            <button type="button" className="btn btn-outline btn-primary" onClick={handleClose}>
                                 Close
                             </button>
                         </div>
