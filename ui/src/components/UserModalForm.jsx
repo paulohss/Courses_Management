@@ -11,6 +11,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
     const [roles, setRoles] = useState([]); // State for Roles LIST
     const [userCourses, setUserCourses] = useState([]); // State for User Courses
     const [shouldClose, setShouldClose] = useState(true); // State to close the modal
+    const [message, setMessage] = useState(''); // Add new state for message
 
     //--------------------------------------------------------------------------------
     // Function to cleanup form fields
@@ -94,25 +95,26 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
     const handleCourseButtonClick = async (courseId, attended) => {
         setShouldClose(false); // Prevent the modal from closing
         try {
-            if (attended) {
-                await axios.delete(`http://localhost:5000/api/user_courses`, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    data: { user_id: id, course_id: courseId }
-                });
-            } else {
-                await axios.post(`http://localhost:5000/api/user_courses`, { user_id: id, course_id: courseId }, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-            }
-            // Refresh user data
             if (mode === 'edit') {
-                fetchUserData(id);
+                if (attended) {
+                    await axios.delete(`http://localhost:5000/api/user_courses`, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        data: { user_id: id, course_id: courseId }
+                    });
+                } else {
+                    await axios.post(`http://localhost:5000/api/user_courses`, { user_id: id, course_id: courseId }, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                }
+                fetchUserData(id);// Refresh user data
             } else {
-                fetchCoursesByRoleId(roleId);
+                setMessage('Please save the User first!');
+                // Clear message after 3 seconds
+                setTimeout(() => setMessage(''), 3000);
             }
         } catch (error) {
             console.error('Error updating course attendance', error);
@@ -176,7 +178,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
                         </div>
 
                         {/*Table: COURSES */}
-                        {userCourses.length > 0 && (
+                        {mode === 'edit' && userCourses.length > 0 && (
                             <div className="overflow-x-auto mt-4">
                                 <table className="table">
                                     <thead>
