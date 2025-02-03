@@ -56,11 +56,21 @@ class UserService:
         user = User.query.get(id)
         
         #Get courses attended by user
-        user_courses = UserCourse.query.filter_by(fk_user_id=id).all()
+        user_courses = UserCourse.query\
+            .join(Course, UserCourse.fk_course_id == Course.id)\
+            .filter(UserCourse.fk_user_id == id)\
+            .order_by(Course.name)\
+            .all()
+            
         courses_attented = [Course.query.get(uc.fk_course_id) for uc in user_courses]
         
         #Get courses available for user
-        role_courses = RoleCourse.query.filter_by(fk_role_id=user.fk_role_id).all()
+        role_courses = RoleCourse.query\
+            .join(Course, RoleCourse.fk_course_id == Course.id)\
+            .filter(RoleCourse.fk_role_id == user.role.id)\
+            .order_by(Course.name)\
+            .all()
+            
         courses_avaiable = [Course.query.get(rc.fk_course_id) for rc in role_courses]
         
         # Merge courses_attented and courses_avaiable, avoiding duplicates

@@ -42,10 +42,14 @@ class RoleService:
             abort(400, f'Role ID [{id}] does not exist!')
             
         # Get courses linked to role
-        role_courses = RoleCourse.query.filter_by(fk_role_id=id).all()
+        role_courses = RoleCourse.query\
+            .join(Course, RoleCourse.fk_course_id == Course.id)\
+            .filter(RoleCourse.fk_role_id == id)\
+            .order_by(Course.name)\
+            .all()
 
         # Get all courses
-        all_courses = Course.query.all()
+        all_courses = Course.query.order_by(Course.name).all()
         
         # Initialize final_list
         final_list = []
