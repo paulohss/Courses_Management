@@ -8,7 +8,8 @@ import RolesModalForm from './components/RolesModalForm'
 import UserTableList from './components/UserTableList'
 import RolesTableList from './components/RolesTableList'
 import CoursesTableList from './components/CoursesTableList'
-import axios from 'axios' 
+import ChatBotSql from './components/ChatBotSql'
+import axios from 'axios'
 
 function App() {
 
@@ -33,86 +34,86 @@ function App() {
       setRoleData(data);
     } else if (selectedMenu === 'courses') {
       setCourseData(data);
-    }    
+    }
     setIsOpen(true);
     setModalMode(mode);
-}
+  }
 
-//--------------------------------------------------------------------------------
-// Function to handle form submission:
-//--------------------------------------------------------------------------------
-const handleSubmit = async (newData) => {
-  
-  // [USER] Add or Edit 
-  //------------------
-  if (selectedMenu === 'users') {
-    if (modalMode === 'add') { // Add mode
-      try {
-        const response = await axios.post('http://127.0.0.1:5000/api/users', newData);
-        console.log('User added', response.data);
-        setRefreshTable(true); // Trigger table refresh
-      } catch (error) {
-        console.error('Error adding user', error.response.data);        
-        extractError(error);
-      }
-    } else { // Edit mode      
-      try {
-        console.log('Edit user', userData);
-        const response = await axios.put(`http://127.0.0.1:5000/api/users/${userData.id}`, newData);
-        console.log('User updated', response.data);
-        setRefreshTable(true); // Trigger table refresh
-      } catch (error) {
-        extractError(error);
-      }
-    }
-  
-  // [ROLES] Add or Edit
-  //--------------------
-  } else if (selectedMenu === 'roles') {
-    if (modalMode === 'add') { // Add mode
-      try {
-        const response = await axios.post('http://127.0.0.1:5000/api/roles', newData);
-        console.log('Role added', response.data);
-        setRefreshTable(true); // Trigger table refresh
-      } catch (error) {
-        console.error('Error adding role', error.response.data);        
-        extractError(error);
-      }
-    } else { // Edit mode      
-      try {
-        console.log('Edit role', roleData);
-        const response = await axios.put(`http://127.0.0.1:5000/api/roles/${roleData.id}`, newData);
-        console.log('Role updated', response.data);
-        setRefreshTable(true); // Trigger table refresh
-      } catch (error) {
-        extractError(error);
-      }
-    }
+  //--------------------------------------------------------------------------------
+  // Function to handle form submission:
+  //--------------------------------------------------------------------------------
+  const handleSubmit = async (newData) => {
 
-  // [COURSES] Add or Edit
-  //--------------------
-  } else if (selectedMenu === 'courses') {
-    if (modalMode === 'add') { // Add mode
-      try {
-        const response = await axios.post('http://127.0.0.1:5000/api/courses', newData);
-        console.log('Course added', response.data);
-        setRefreshTable(true); // Trigger table refresh
-      } catch (error) {
-        console.error('Error adding course', error.response.data);        
-        extractError(error);
+    // [USER] Add or Edit 
+    //------------------
+    if (selectedMenu === 'users') {
+      if (modalMode === 'add') { // Add mode
+        try {
+          const response = await axios.post('http://127.0.0.1:5000/api/users', newData);
+          console.log('User added', response.data);
+          setRefreshTable(true); // Trigger table refresh
+        } catch (error) {
+          console.error('Error adding user', error.response.data);
+          extractError(error);
+        }
+      } else { // Edit mode      
+        try {
+          console.log('Edit user', userData);
+          const response = await axios.put(`http://127.0.0.1:5000/api/users/${userData.id}`, newData);
+          console.log('User updated', response.data);
+          setRefreshTable(true); // Trigger table refresh
+        } catch (error) {
+          extractError(error);
+        }
       }
-    } else { // Edit mode      
-      try {
-        console.log('Edit course', courseData);
-        const response = await axios.put(`http://127.0.0.1:5000/api/courses/${courseData.id}`, newData);
-        console.log('Course updated', response.data);
-        setRefreshTable(true); // Trigger table refresh
-      } catch (error) {
-        extractError(error);
+
+      // [ROLES] Add or Edit
+      //--------------------
+    } else if (selectedMenu === 'roles') {
+      if (modalMode === 'add') { // Add mode
+        try {
+          const response = await axios.post('http://127.0.0.1:5000/api/roles', newData);
+          console.log('Role added', response.data);
+          setRefreshTable(true); // Trigger table refresh
+        } catch (error) {
+          console.error('Error adding role', error.response.data);
+          extractError(error);
+        }
+      } else { // Edit mode      
+        try {
+          console.log('Edit role', roleData);
+          const response = await axios.put(`http://127.0.0.1:5000/api/roles/${roleData.id}`, newData);
+          console.log('Role updated', response.data);
+          setRefreshTable(true); // Trigger table refresh
+        } catch (error) {
+          extractError(error);
+        }
+      }
+
+      // [COURSES] Add or Edit
+      //--------------------
+    } else if (selectedMenu === 'courses') {
+      if (modalMode === 'add') { // Add mode
+        try {
+          const response = await axios.post('http://127.0.0.1:5000/api/courses', newData);
+          console.log('Course added', response.data);
+          setRefreshTable(true); // Trigger table refresh
+        } catch (error) {
+          console.error('Error adding course', error.response.data);
+          extractError(error);
+        }
+      } else { // Edit mode      
+        try {
+          console.log('Edit course', courseData);
+          const response = await axios.put(`http://127.0.0.1:5000/api/courses/${courseData.id}`, newData);
+          console.log('Course updated', response.data);
+          setRefreshTable(true); // Trigger table refresh
+        } catch (error) {
+          extractError(error);
+        }
       }
     }
   }
-}
   //--------------------------------------------------------------------------------
   // Extract the content of the <p> tag from the error response
   //--------------------------------------------------------------------------------
@@ -127,19 +128,19 @@ const handleSubmit = async (newData) => {
   // Function to handle menu change
   // -------------------------------------------------------------------------------
   const handleMenuChange = (menu) => {
-      setSelectedMenu(menu);
+    setSelectedMenu(menu);
   }
 
   return (
     <>
       {/* Navbar component */}
       <Navbar onOpen={() => handleOpen('add')} onSearch={setSearchTerm} onMenuChange={handleMenuChange} selectedMenu={selectedMenu} />
-      
+
       {/* Divider */}
       <div className="divider divider-secondary">
         {selectedMenu === 'users' ? 'Users' : selectedMenu === 'roles' ? 'Roles' : 'Courses'}
       </div>
-      
+
       {/* Error message */}
       {errorMessage && (
         <div role="alert" className="alert alert-error">
@@ -169,7 +170,7 @@ const handleSubmit = async (newData) => {
 
       {/* Roles UI */}
       {selectedMenu === 'roles' && (
-        <div>          
+        <div>
           <RolesTableList handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
           <RolesModalForm isOpen={isOpen} onSubmit={handleSubmit} onClose={() => setIsOpen(false)} mode={modalMode} roleData={roleData} />
         </div>
@@ -177,9 +178,22 @@ const handleSubmit = async (newData) => {
 
       {/* Courses UI */}
       {selectedMenu === 'courses' && (
-        <div>          
+        <div>
           <CoursesTableList handleOpen={handleOpen} searchTerm={searchTerm} refreshTable={refreshTable} setRefreshTable={setRefreshTable} />
           <CoursesModalForm isOpen={isOpen} onSubmit={handleSubmit} onClose={() => setIsOpen(false)} mode={modalMode} courseData={courseData} />
+        </div>
+      )}
+
+      {/* ChatBot UI */}
+      {selectedMenu === 'chatbot' && (
+        <div>
+          <ChatBotSql
+            isOpen={true}
+            onClose={() => {
+              setIsOpen(false);
+              setSelectedMenu('users');
+            }}
+          />
         </div>
       )}
     </>

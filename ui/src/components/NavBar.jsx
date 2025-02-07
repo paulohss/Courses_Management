@@ -18,6 +18,7 @@ export default function NavBar({ onOpen, onSearch, onMenuChange, selectedMenu })
                                 <li><a onClick={() => onMenuChange('users')}>Users</a></li>
                                 <li><a onClick={() => onMenuChange('roles')}>Roles</a></li>
                                 <li><a onClick={() => onMenuChange('courses')}>Courses</a></li>
+                                <li><a onClick={() => onMenuChange('chatbot')}>ChatBot</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -28,8 +29,10 @@ export default function NavBar({ onOpen, onSearch, onMenuChange, selectedMenu })
                     </div>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn btn-primary ml-2" onClick={onOpen}>
-                        {selectedMenu === 'users' ? 'Add User' : selectedMenu === 'roles' ? 'Add Role' : 'Add Course'}
+                    <a className="btn btn-primary ml-2" onClick={() => onOpen('add')}>
+                        {selectedMenu === 'users' ? 'Add User' :
+                            selectedMenu === 'roles' ? 'Add Role' :
+                                selectedMenu === 'courses' ? 'Add Course' : ''}
                     </a>
                 </div>
             </div>
