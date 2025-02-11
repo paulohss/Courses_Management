@@ -6,12 +6,12 @@ import userIcon from '../images/user.png';
 export default function ChatBotSql({ isOpen, onClose }) {
     const [messages, setMessages] = useState([
         {
-            content: "Hi, I'm your Courses Management Assistant. How can I help you?",
+            content: "Hi, I'm your Courses Management Assistant. I can help you retrive information from the database.",
             role: "assistant"
         },
         {
-            content: "Im fucking good",
-            role: "user"
+            content: "How can I help you today?",
+            role: "assistant"
         }
     ]);
     const [isTyping, setIsTyping] = useState(false);
@@ -28,7 +28,7 @@ export default function ChatBotSql({ isOpen, onClose }) {
         e.target.reset();
 
         try {
-            const response = await axios.post('http://localhost:5000/api/chatbot', {
+            const response = await axios.post('http://127.0.0.1:5000/api/sqlchatbot/ask', {
                 message: newMessage.content
             });
 
@@ -47,7 +47,7 @@ export default function ChatBotSql({ isOpen, onClose }) {
             <div className="modal-box w-11/12 max-w-5xl h-[80vh] flex flex-col">
                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onClick={onClose}>✕</button>
                 <h3 className="font-bold text-lg py-4">Courses Management Assistant</h3>
-
+                <div className="divider divider-secondary"></div>
                 <div className='flex-grow overflow-auto p-4'>
                     {messages.map((msg, i) => (
                         <div className={`chat ${msg.role === 'assistant' ? 'chat-start' : 'chat-end'}`} key={'chatKey' + i}>
@@ -66,7 +66,7 @@ export default function ChatBotSql({ isOpen, onClose }) {
 
                 <form className="form-control mt-4" onSubmit={handleSubmit}>
                     <div className="input-group relative">
-                        {isTyping && <small className='absolute -top-5 left-0.5 animate-pulse'>Assistant is typing...</small>}
+                        {isTyping && <small className='absolute -top-8 left-0.5 animate-pulse text-green-400 text-lg'>Assistant is typing...</small>}
                         <textarea
                             placeholder="Type your question..."
                             className="textarea textarea-bordered textarea-lg w-[calc(100%-4rem)]"

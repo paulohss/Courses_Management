@@ -1,10 +1,10 @@
 - Map
   App -> Table -> ModalForm
 
-- Edit User:
-  - change role, 
-    -> message: all course info sera deletada
-    -> update course list
+
+- sql agent memory
+https://github.com/langchain-ai/langchain/blob/master/cookbook/sql_db_qa.mdx
+
 
 - Add user
   -> Save User First?
