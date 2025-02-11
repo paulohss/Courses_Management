@@ -186,3 +186,112 @@ Query: How many users are there?
 2025-02-11 16:57:51,503 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-11 16:57:55,653 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-11 16:57:57,155 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 16:57:57] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:09:21,889 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-11 17:09:21,890 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-11 17:09:21,891 - werkzeug - INFO -  * Restarting with stat
+2025-02-11 17:09:27,533 - werkzeug - WARNING -  * Debugger is active!
+2025-02-11 17:09:27,548 - werkzeug - INFO -  * Debugger PIN: 376-101-617
+2025-02-11 17:09:37,616 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:09:37] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:09:37,623 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:09:37] "GET /api/courses HTTP/1.1" 200 -
+2025-02-11 17:09:37,789 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:09:37] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:09:37,931 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:09:37] "GET /api/courses HTTP/1.1" 200 -
+2025-02-11 17:09:38,717 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:09:38] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:09:39,035 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:09:39] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:09:39,884 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:09:39] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:09:40,232 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:09:40] "GET /api/users/2 HTTP/1.1" 200 -
+2025-02-11 17:10:42,010 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:10:42] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:10:42,259 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:10:42] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:10:49,334 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:10:49] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:10:49,647 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:10:49] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:11:25,746 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:11:25] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:11:26,066 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:11:26] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:11:42,995 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:11:42] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:11:43,704 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:11:44,676 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:11:47,279 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:11:50,711 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:11:51,533 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:11:53,536 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:11:59,976 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:00,501 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:02,643 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:03,367 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:12:03] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:12:20,267 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:12:20] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:12:21,343 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:25,290 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:28,195 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:34,881 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:35,936 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:49,688 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:55,973 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:56,510 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:12:59,935 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:13:01,931 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:13:01] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:14:36,404 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:14:36] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:14:36,405 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:14:36] "GET /api/courses HTTP/1.1" 200 -
+2025-02-11 17:14:36,667 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:14:36] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:14:36,714 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:14:36] "GET /api/courses HTTP/1.1" 200 -
+2025-02-11 17:14:40,582 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:14:40] "GET /api/roles/2 HTTP/1.1" 200 -
+2025-02-11 17:15:11,593 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:15:11] "GET /api/roles/6 HTTP/1.1" 200 -
+2025-02-11 17:15:20,255 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:15:20] "GET /api/courses HTTP/1.1" 200 -
+2025-02-11 17:15:20,568 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:15:20] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:15:20,570 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:15:20] "GET /api/courses HTTP/1.1" 200 -
+2025-02-11 17:15:20,876 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:15:20] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:15:28,484 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:15:28] "GET /api/courses/3 HTTP/1.1" 200 -
+2025-02-11 17:16:10,492 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:10] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:16:10,793 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:10] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:16:10,816 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:10] "GET /api/users HTTP/1.1" 200 -
+2025-02-11 17:16:10,827 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:10] "GET /api/users/3 HTTP/1.1" 200 -
+2025-02-11 17:16:11,117 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:11] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:16:11,165 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:11] "GET /api/users/3 HTTP/1.1" 200 -
+2025-02-11 17:16:14,757 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:14] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:16:14,813 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:14] "GET /api/users/11 HTTP/1.1" 200 -
+2025-02-11 17:16:37,220 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:16:37] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:16:37,762 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:16:38,938 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:16:42,209 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:16:49,000 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:16:49,755 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:16:52,677 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:00,706 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:01,559 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:09,219 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:10,271 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:17:10] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:17:40,251 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:17:40] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:17:41,071 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:42,113 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:45,083 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:52,407 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:52,957 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:17:56,864 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:07,733 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:08,592 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:13,342 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:17,957 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:18:17] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:18:42,548 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:18:42] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:18:43,080 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:44,237 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:46,636 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:53,797 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:54,423 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:18:58,469 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:19:05,028 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:19:05,650 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:19:09,213 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-11 17:19:14,115 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:19:14] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-02-11 17:20:25,029 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:20:25] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:20:25,035 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:20:25] "GET /api/roles/6 HTTP/1.1" 200 -
+2025-02-11 17:20:25,289 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:20:25] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:20:25,339 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:20:25] "GET /api/roles/6 HTTP/1.1" 200 -
+2025-02-11 17:23:43,291 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:43] "GET /api/roles/3 HTTP/1.1" 200 -
+2025-02-11 17:23:44,561 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:44] "OPTIONS /api/role_courses HTTP/1.1" 200 -
+2025-02-11 17:23:44,567 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:44] "OPTIONS /api/roles/3 HTTP/1.1" 200 -
+2025-02-11 17:23:44,577 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:44] "PUT /api/roles/3 HTTP/1.1" 200 -
+2025-02-11 17:23:44,887 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:44] "[35m[1mPOST /api/role_courses HTTP/1.1[0m" 201 -
+2025-02-11 17:23:44,894 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:44] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:23:45,147 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:45] "GET /api/roles/3 HTTP/1.1" 200 -
+2025-02-11 17:23:46,899 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:46] "PUT /api/roles/3 HTTP/1.1" 200 -
+2025-02-11 17:23:46,901 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:46] "DELETE /api/role_courses HTTP/1.1" 200 -
+2025-02-11 17:23:47,224 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:47] "GET /api/roles HTTP/1.1" 200 -
+2025-02-11 17:23:47,230 - werkzeug - INFO - 127.0.0.1 - - [11/Feb/2025 17:23:47] "GET /api/roles/3 HTTP/1.1" 200 -

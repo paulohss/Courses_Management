@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import assistantIcon from '../images/assistant.png';
 import userIcon from '../images/user.png';
 
 export default function ChatBotSql({ isOpen, onClose }) {
+
+
+    //  List of messages
     const [messages, setMessages] = useState([
         {
             content: "Hi, I'm your Courses Management Assistant. I can help you retrive information from the database.",
@@ -14,8 +17,30 @@ export default function ChatBotSql({ isOpen, onClose }) {
             role: "assistant"
         }
     ]);
+    
+    //  State to check if the assistant is typing
     const [isTyping, setIsTyping] = useState(false);
 
+    // Reference to the last message
+    const messagesEndRef = useRef(null);
+
+    //--------------------------------------------------------------------------------
+    // Function to scroll to the bottom of the chat
+    //--------------------------------------------------------------------------------
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    //--------------------------------------------------------------------------------
+    // Scroll to the bottom of the chat when a new message is added
+    //--------------------------------------------------------------------------------
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
+
+    //--------------------------------------------------------------------------------
+    //  Function to handle form submission:
+    //--------------------------------------------------------------------------------    
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newMessage = {
@@ -42,6 +67,9 @@ export default function ChatBotSql({ isOpen, onClose }) {
         setIsTyping(false);
     }
 
+    //--------------------------------------------------------------------------------
+    // Render the component:
+    //--------------------------------------------------------------------------------       
     return (
         <dialog id="chatbot_modal" className="modal bg-black/40" open={true}>
             <div className="modal-box w-11/12 max-w-5xl h-[80vh] flex flex-col">
@@ -62,6 +90,7 @@ export default function ChatBotSql({ isOpen, onClose }) {
                             <div className="chat-bubble">{msg.content}</div>
                         </div>
                     ))}
+                    <div ref={messagesEndRef} />
                 </div>
 
                 <form className="form-control mt-4" onSubmit={handleSubmit}>
