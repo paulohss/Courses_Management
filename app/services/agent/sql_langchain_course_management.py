@@ -1,6 +1,7 @@
 from urllib.parse import quote_plus
 from langchain.agents import *
 from urllib.parse import quote_plus
+from langchain.memory import ConversationBufferMemory
 from langchain_community.chat_models import ChatOpenAI
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
@@ -61,10 +62,12 @@ class sql_langchain_course_management:
             try:
                 self.llm = ChatOpenAI(model="gpt-4")
                 self.tool_kit = SQLDatabaseToolkit(db=self.db, llm=self.llm)
+                self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
                 self.agent_executor = create_sql_agent(
                             llm=self.llm,
                             toolkit=self.tool_kit,
-                            verbose=True
+                            verbose=True,
+                            memory=self.memory
                         )
                 
             except Exception as e:

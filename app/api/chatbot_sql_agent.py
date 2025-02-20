@@ -1,8 +1,14 @@
-from flask import jsonify, request
+from flask import jsonify, request, current_app
 from app.api import bp
 from app.services.agent.sql_langchain_course_management import sql_langchain_course_management
 
-chatbot_service = sql_langchain_course_management()
+#chatbot_service = sql_langchain_course_management()
+
+
+def get_chatbot_service():
+    if 'chatbot_service' not in current_app.config:
+        current_app.config['chatbot_service'] = sql_langchain_course_management()
+    return current_app.config['chatbot_service']
 
 
 #-------------------------------------------------------------------------------
@@ -14,8 +20,11 @@ def process_message():
         data = request.json
         if not data or 'message' not in data:
             return jsonify({'error': 'No message provided'}), 400
-
+        
+        chatbot_service = get_chatbot_service()
         response = chatbot_service.execute_query(data['message'])
+
+        #response = chatbot_service.execute_query(data['message'])
         return jsonify({'response': response}), 200
 
     except Exception as e:
