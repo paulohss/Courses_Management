@@ -3,15 +3,18 @@
 
 
 - sql agent memory
-https://github.com/langchain-ai/langchain/blob/master/cookbook/sql_db_qa.mdx
+  - add schema info to the prefix
 
+- add llama
+
+- add paper form (pdf) reader to add info to db
+
+- add email with letter tone
 
 - Add user
   -> Save User First?
 
-- Delete User
-  -> Cascate deleting
-
+-
 - Auth
 
 - Migration Tool: Use a migration tool like Flask-Migrate to handle schema changes. 

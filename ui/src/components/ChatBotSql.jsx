@@ -24,6 +24,20 @@ export default function ChatBotSql({ isOpen, onClose }) {
     // Reference to the last message
     const messagesEndRef = useRef(null);
 
+
+    //--------------------------------------------------------------------------------
+    // Function to handle Enter key press
+    //--------------------------------------------------------------------------------
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); // Prevent default behavior (newline)
+            const form = e.target.form;
+            if (form) {
+                form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+            }
+        }
+    };
+
     //--------------------------------------------------------------------------------
     // Function to scroll to the bottom of the chat
     //--------------------------------------------------------------------------------
@@ -99,6 +113,7 @@ export default function ChatBotSql({ isOpen, onClose }) {
                         <textarea
                             placeholder="Type your question..."
                             className="textarea textarea-bordered textarea-lg w-[calc(100%-4rem)]"
+                            onKeyDown={handleKeyDown}
                         ></textarea>
                         <button className="btn btn-square w-16" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 16 16">
