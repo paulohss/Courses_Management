@@ -5,7 +5,7 @@ import axios from 'axios';
 // ModalForm.js 
 export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userData }) {
 
-    const [id, setId] = useState(''); // State for Name
+    const [id, setId] = useState(''); // State for Id
     const [name, setName] = useState(''); // State for Name
     const [roleId, setRoleId] = useState(''); // State for Role ID
     const [roles, setRoles] = useState([]); // State for Roles LIST
@@ -134,6 +134,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
         }
         // ADD MODE
         else {
+            fetchRoles();
             console.log("ModalForm.useEffect() mode:" + mode);
             console.log(userData);
             cleanupFields();
@@ -178,7 +179,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
                         </div>
 
                         {/*Table: COURSES */}
-                        {mode === 'edit' && userCourses.length > 0 && (
+                        {userCourses.length > 0 && (id !== null && id !== 0 && id !== '') &&(
                             <div className="overflow-x-auto mt-4">
                                 <table className="table">
                                     <thead>

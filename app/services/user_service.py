@@ -67,7 +67,7 @@ class UserService:
         #Get courses available for user
         role_courses = RoleCourse.query\
             .join(Course, RoleCourse.fk_course_id == Course.id)\
-            .filter(RoleCourse.fk_role_id == user.role.id)\
+            .filter(RoleCourse.fk_role_id == user.fk_role_id)\
             .order_by(Course.name)\
             .all()
             

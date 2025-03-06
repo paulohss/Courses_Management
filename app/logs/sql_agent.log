@@ -368,3 +368,36 @@ Query: how many curses are there?
 2025-02-25 21:17:02,120 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-25 21:17:06,352 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-02-25 21:17:07,588 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 21:17:07] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-06 17:37:41,857 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:37:44,482 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:37:48,025 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:37:58,684 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:38:04,567 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:38:10,982 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:38:10] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-06 17:38:25,413 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:38:25] "GET /api/roles HTTP/1.1" 200 -
+2025-03-06 17:38:25,434 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:38:25] "GET /api/users HTTP/1.1" 200 -
+2025-03-06 17:38:25,454 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:38:25] "GET /api/users/58 HTTP/1.1" 200 -
+2025-03-06 17:38:25,660 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:38:25] "GET /api/roles HTTP/1.1" 200 -
+2025-03-06 17:38:25,784 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:38:25] "GET /api/users HTTP/1.1" 200 -
+2025-03-06 17:38:25,808 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:38:25] "GET /api/users/58 HTTP/1.1" 200 -
+2025-03-06 17:44:29,504 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:44:31,936 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:44:36,973 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:44:44,646 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:44:47,770 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:44:51,126 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:44:56,284 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:44:59,614 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:45:05,491 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-06 17:45:09,642 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:09] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-06 17:45:28,616 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:28] "GET /api/roles HTTP/1.1" 200 -
+2025-03-06 17:45:28,629 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:28] "GET /api/users HTTP/1.1" 200 -
+2025-03-06 17:45:28,644 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:28] "GET /api/users/59 HTTP/1.1" 200 -
+2025-03-06 17:45:28,860 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:28] "GET /api/roles HTTP/1.1" 200 -
+2025-03-06 17:45:28,949 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:28] "GET /api/users HTTP/1.1" 200 -
+2025-03-06 17:45:28,959 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:28] "GET /api/users/59 HTTP/1.1" 200 -
+2025-03-06 17:45:36,207 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:36] "OPTIONS /api/users/59 HTTP/1.1" 200 -
+2025-03-06 17:45:36,532 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:45:36] "DELETE /api/users/59 HTTP/1.1" 200 -
+2025-03-06 17:50:02,758 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:50:02] "GET /api/roles HTTP/1.1" 200 -
+2025-03-06 17:50:02,777 - werkzeug - INFO - 127.0.0.1 - - [06/Mar/2025 17:50:02] "[35m[1mGET /api/users/59 HTTP/1.1[0m" 500 -
+2025-03-06 17:51:38,392 - werkzeug - INFO -  * Detected change in 'D:\\AI\\HandsOn\\PROJECTS\\Course_Management\\src\\app\\services\\user_service.py', reloading
