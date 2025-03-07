@@ -1,13 +1,14 @@
 from flask import jsonify, request, current_app
 from app.api import bp
-from app.services.agent.sql_langchain_course_management import sql_langchain_course_management
-
-#chatbot_service = sql_langchain_course_management()
+from app.services.agent.sql_agent import sql_agent
 
 
+#-------------------------------------------------------------------------------
+# Get chatbot service
+#-------------------------------------------------------------------------------
 def get_chatbot_service():
     if 'chatbot_service' not in current_app.config:
-        current_app.config['chatbot_service'] = sql_langchain_course_management()
+        current_app.config['chatbot_service'] = sql_agent()
     return current_app.config['chatbot_service']
 
 
@@ -24,11 +25,11 @@ def process_message():
         chatbot_service = get_chatbot_service()
         response = chatbot_service.execute_query(data['message'])
 
-        #response = chatbot_service.execute_query(data['message'])
         return jsonify({'response': response}), 200
 
     except Exception as e:
         return jsonify({'error': 'Internal server error', 'details': str(e)}), 500
+
 
 #-------------------------------------------------------------------------------
 # Health check endpoint

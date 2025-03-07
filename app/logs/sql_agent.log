@@ -571,3 +571,68 @@ Query: how many curses are there?
 2025-03-07 11:36:32,319 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-07 11:36:42,782 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-07 11:36:43,895 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:36:43] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 11:42:19,135 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:42:21,655 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:42:24,799 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:42:25,595 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:42:28,050 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:42:29,699 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:42:29] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 11:42:47,594 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:42:47] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 11:42:48,339 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:42:52,303 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:42:54,871 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:03,799 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:04,648 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:43:04] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 11:43:10,107 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:43:10] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 11:43:10,937 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:12,290 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:16,645 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:18,058 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:43:18] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 11:43:32,500 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:43:32] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 11:43:33,316 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:39,741 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:42,126 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:44,912 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:56,296 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:43:57,024 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:44:02,339 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 11:44:05,037 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:44:05] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 11:48:02,498 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:48:02] "GET /api/roles HTTP/1.1" 200 -
+2025-03-07 11:48:02,514 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:48:02] "GET /api/users HTTP/1.1" 200 -
+2025-03-07 11:48:02,527 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:48:02] "GET /api/users/66 HTTP/1.1" 200 -
+2025-03-07 11:48:02,740 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:48:02] "GET /api/roles HTTP/1.1" 200 -
+2025-03-07 11:48:02,830 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:48:02] "GET /api/users HTTP/1.1" 200 -
+2025-03-07 11:48:02,838 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:48:02] "GET /api/users/66 HTTP/1.1" 200 -
+2025-03-07 11:48:04,184 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:48:04] "GET /api/roles HTTP/1.1" 200 -
+2025-03-07 11:48:04,510 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 11:48:04] "GET /api/users/66 HTTP/1.1" 200 -
+2025-03-07 16:46:57,936 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:47:01,062 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:47:02,899 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:47:05,809 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:47:08,179 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:47:09,781 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 16:47:09] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 16:48:42,901 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:48:45,952 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:48:49,155 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:48:49,867 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:48:52,011 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:48:52,829 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 16:48:52] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 16:49:17,421 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 16:49:17] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 16:49:18,126 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:19,509 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:21,534 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:24,056 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:25,633 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 16:49:25] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 16:49:36,150 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 16:49:36] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 16:49:37,135 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:40,002 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:41,739 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:44,463 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:45,681 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 16:49:45] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 16:49:52,981 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 16:49:52] "OPTIONS /api/sqlchatbot/ask HTTP/1.1" 200 -
+2025-03-07 16:49:53,988 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:49:58,530 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:50:03,233 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:50:04,119 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:50:11,020 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-07 16:50:11,981 - werkzeug - INFO - 127.0.0.1 - - [07/Mar/2025 16:50:11] "POST /api/sqlchatbot/ask HTTP/1.1" 200 -
