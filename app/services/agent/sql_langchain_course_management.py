@@ -57,12 +57,11 @@ class sql_langchain_course_management:
 
             **General SQL Rules**
             - If the user mentions **'User'** (a reserved keyword), use square brackets: `SELECT * FROM [User]`, same for join statements.
+            - When asked about **user's course attended** as well as the **courses that the user is missing*, consider the *User.FK_Role_ID** to answer, notice that the Courses the *User should attend are always related to the Role* the user is assigned to. The tables User, Course, Roles, Role_Course and User_Course have the relationship and data to answer that type of questions.            
             - **Do not use** `LIMIT` statements in SQL.
             - Round numerical answers to **two decimal places**.
             - **Avoid complex queries** (e.g., division inside queries).
             - Always **execute operations step by step**.
-            - When asked about **user course attendence**, consider the **Role** of the user.
-
             **Query Interpretation**
             - **Strictly follow all conditions** in the query. **Do not infer extra conditions**.            
             - **YTD (Year to Date)** should be interpreted correctly.            
