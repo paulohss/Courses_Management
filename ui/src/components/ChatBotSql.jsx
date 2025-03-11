@@ -67,7 +67,7 @@ export default function ChatBotSql({ isOpen, onClose }) {
         e.target.reset();
 
         try {
-            const response = await axios.post('http://127.0.0.1:5000/api/sqlchatbot/ask', {
+            const response = await axios.post('http://127.0.0.1:5000/api/chatbot/ask', {
                 message: newMessage.content
             });
 

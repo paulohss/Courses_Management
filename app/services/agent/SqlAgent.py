@@ -12,10 +12,12 @@ from sqlalchemy import create_engine
 from langchain_core.globals import set_verbose, set_debug
 from langchain.prompts import MessagesPlaceholder
 
-class sql_agent:
+class SqlAgent:
     
+    # --------------------------------------------------------------------------------
     # Initialize the SQL agent
-    def __init__(self, verbose=False):
+    # --------------------------------------------------------------------------------
+    def __init__(self, model_name="gpt-4o", verbose=False):
         try:
             # Configure logging
             log_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'logs')
@@ -26,7 +28,7 @@ class sql_agent:
                 format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
             )
             self.logger = logging.getLogger(__name__)
-            
+            self.model = model_name
             set_debug(verbose)
             self.create_db()
             self.create_llm_agent()
@@ -36,7 +38,9 @@ class sql_agent:
             raise Exception("Initialization error: Please try again later.")
     
     
+    # --------------------------------------------------------------------------------
     # Create database connection
+    # --------------------------------------------------------------------------------
     def create_db(self):
         try:
             self.server = "User-PC"
@@ -49,7 +53,9 @@ class sql_agent:
             raise Exception("Database connection error.")
     
     
+    # --------------------------------------------------------------------------------
     # Get SQL agent suffix with guidelines for SQL generation
+    # --------------------------------------------------------------------------------
     def GetSqlAgentPrefix(self) -> str:
         return textwrap.dedent("""\
             You are a Microsoft SQL Server expert assistant for a **Course Management Database**.
@@ -71,6 +77,7 @@ class sql_agent:
             """)
 
 
+    # --------------------------------------------------------------------------------
     # Get SQL agent suffix with guidelines for SQL generation
     #  When using AgentType.ZERO_SHOT_REACT_DESCRIPTION, 
     #  - the agent follows a Thought → Action → Observation → Thought cycle.
@@ -78,6 +85,7 @@ class sql_agent:
     #  - The scratchpad is a place where the agent can write down notes or thoughts that it has while working on a problem.
     #  - The agent writes down its thoughts and chosen actions before executing them.
     #  - After execution, it records observations and updates its reasoning accordingly.
+    # --------------------------------------------------------------------------------
     def GetSqlAgentSufix(self) -> str:
         return textwrap.dedent("""\
                 Begin!
@@ -87,10 +95,13 @@ class sql_agent:
         """)
 
 
+
+    # --------------------------------------------------------------------------------
     # Create LLM agent
+    # --------------------------------------------------------------------------------
     def create_llm_agent(self):
         try:
-            self.llm = ChatOpenAI(model="gpt-4")
+            self.llm = ChatOpenAI(model=self.model)
             self.tool_kit = SQLDatabaseToolkit(db=self.db, llm=self.llm)
             # Use ConversationBufferMemory to store chat history in memory
             self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
@@ -99,7 +110,7 @@ class sql_agent:
             self.prefix = self.GetSqlAgentPrefix()
             self.suffix = self.GetSqlAgentSufix()
             
-            self.agent_executor = create_sql_agent(
+            self.agent = create_sql_agent(
                 llm=self.llm,
                 toolkit=self.tool_kit,
                 verbose=True,
@@ -112,8 +123,10 @@ class sql_agent:
             self.logger.error(f"Error creating LLM agent: {str(e)}")
             raise Exception("LLM agent initialization error.")
     
-    
+
+    # --------------------------------------------------------------------------------    
     # Combine previous chat history with new question
+    # --------------------------------------------------------------------------------
     def get_full_context(self, new_question: str) -> str:        
         conversation = ""
         for msg in self.memory.chat_memory.messages:
@@ -122,12 +135,14 @@ class sql_agent:
             
         return conversation if conversation else f"user: {new_question}\n"
     
-    
+        
+    # --------------------------------------------------------------------------------
     # Execute user query
-    def execute_query(self, query: str) -> str:
+    # --------------------------------------------------------------------------------
+    def invoke(self, query: str) -> str:
         try:
             full_context = self.get_full_context(query)
-            response = self.agent_executor.invoke({"input": query, "chat_history": full_context})
+            response = self.agent.invoke({"input": query, "chat_history": full_context})
 
             output = response.get("output", "Sorry, I couldn't process your request.")
             if "intermediate_steps" in response:
