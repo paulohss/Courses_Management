@@ -81,7 +81,7 @@ def process_message():
 
 
     except Exception as e:
-        return jsonify({'error': 'Internal server error', 'details': str(e)}), 500
+        return jsonify({'response': 'Internal server error'}), 500
 
 
 #-------------------------------------------------------------------------------

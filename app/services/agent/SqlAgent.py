@@ -11,6 +11,7 @@ from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from sqlalchemy import create_engine
 from langchain_core.globals import set_verbose, set_debug
 from langchain.prompts import MessagesPlaceholder
+from langchain_core.messages import HumanMessage
 
 class SqlAgent:
     
@@ -139,20 +140,42 @@ class SqlAgent:
     # --------------------------------------------------------------------------------
     # Execute user query
     # --------------------------------------------------------------------------------
-    def invoke(self, query: str) -> str:
+    def invoke(self, state):
+        """
+        Process the current state to execute SQL queries.
+        This method adapts the SqlAgent to work in a LangGraph multi-agent workflow.
+        
+        Args:
+            state: The current state containing messages
+            
+        Returns:
+            Dict with messages field containing the agent's response
+        """
         try:
+            # Extract the query from the last message in the state
+            messages = state.get("messages", [])
+            if not messages:
+                return {"messages": [{"content": "No query provided."}]}
+                
+            # Get the query from the last message
+            query = messages[-1].content
+            
+            # Use our existing implementation logic
             full_context = self.get_full_context(query)
             response = self.agent.invoke({"input": query, "chat_history": full_context})
-
+            
             output = response.get("output", "Sorry, I couldn't process your request.")
             if "intermediate_steps" in response:
                 for step in response["intermediate_steps"]:
                     if "observation" in step:
                         output = step["observation"]
-
+            
+            # Save to memory
             self.memory.chat_memory.messages.append({"role": "assistant", "content": output})
-            return output
-        
+            
+            # Return in the format expected by agent_node
+            return {"messages": [HumanMessage(content=output)]}
+            
         except Exception as e:
-            self.logger.error(f"Error executing query: {str(e)}\nQuery: {query}")
-            return "Sorry, I couldn't process your request."
+            self.logger.error(f"Error executing query: {str(e)}")
+            return {"messages": [{"content": f"Sorry, I couldn't process your request: {str(e)}"}]}

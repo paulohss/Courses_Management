@@ -23,17 +23,3 @@ class CoderAgent:
         self.agent = create_react_agent(self.llm, tools=[self.python_repl_tool])
     
     
-    #--------------------------------------------------------------------------------
-    # Define the invoke method to process the current state and perform coding tasks
-    #--------------------------------------------------------------------------------    
-    def invoke(self, state):
-        """
-        Process the current state and perform coding tasks.
-        
-        Args:
-            state: Current state with messages
-            
-        Returns:
-            Result of the agent's processing
-        """
-        return self.agent.invoke(state)

@@ -695,3 +695,103 @@ Query: how many curses are there?
 2025-03-11 17:11:58,238 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2025 17:11:58] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
 2025-03-11 17:12:04,540 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-11 17:12:25,077 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2025 17:12:25] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 16:08:51,537 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:10:22,856 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:10:22] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 16:10:42,216 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:10:42] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 16:11:04,848 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:11:37,327 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:11:37] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 16:21:35,312 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:21:47,964 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:21:52,504 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:22:37,268 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:22:39,442 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:22:39] "POST /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 16:23:20,217 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:23:20] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 16:23:25,486 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:23:26,099 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:23:26] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 16:23:52,797 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:23:52] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 16:23:57,430 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:24:52,202 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:24:52] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 16:38:54,591 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:39:45,397 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:39:45] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 16:39:57,393 - werkzeug - INFO -  * Detected change in 'D:\\AI\\HandsOn\\PROJECTS\\Course_Management\\src\\app\\services\\agent\\ResearcherAgent.py', reloading
+2025-03-12 16:40:33,264 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:40:41,575 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:40:55,616 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 16:40:59,552 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 16:40:59] "POST /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 17:00:34,218 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:00:55,398 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:00:56,673 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:00:58,296 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:00:58,749 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:00:59,415 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:01:30,495 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:01:30] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 17:03:56,876 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:03:56] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 17:04:02,047 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:04:15,185 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:04:19,075 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:05:08,393 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:05:15,093 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:05:15] "POST /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 17:05:22,953 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:05:22] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 17:05:27,013 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:05:59,488 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:06:00,620 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:06:02,079 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:06:02,595 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:06:03,320 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:06:15,312 - werkzeug - INFO -  * Detected change in 'D:\\AI\\HandsOn\\PROJECTS\\Course_Management\\src\\app\\services\\agent\\SqlAgent.py', reloading
+2025-03-12 17:07:33,755 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:07:33] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 17:13:07,119 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:13:24,045 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:13:24] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 17:13:33,919 - werkzeug - INFO -  * Detected change in 'D:\\AI\\HandsOn\\PROJECTS\\Course_Management\\src\\app\\services\\agent\\SqlAgent.py', reloading
+2025-03-12 17:13:50,898 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:13:56,709 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:13:57,497 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:13:58,342 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:13:59,522 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:13:59,975 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:14:00,710 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:14:01,509 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:14:24,772 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `I now know the final answer. There are 6 users in the database.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-12 17:14:25,817 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:14:25] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 17:16:03,697 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:09,599 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:10,917 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:11,619 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:12,500 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:13,662 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:14,934 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:15,433 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:16,060 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:16:39,639 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `There are 6 users in the database.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-12 17:16:39,648 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:16:39] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 17:19:12,456 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:13,575 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:17,013 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:22,848 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:24,519 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:19:24] "POST /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 17:19:41,467 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:19:41] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 17:19:42,209 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:46,207 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:47,409 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:49,488 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:49,986 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:51,399 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:19:51,713 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `There are 6 users in the database.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-12 17:20:17,466 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:20:17] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-12 17:24:23,575 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:24:26,767 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:24:27,854 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:24:29,213 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:24:29,677 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:24:30,510 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:24:52,184 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:24:53,451 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:24:53] "POST /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 17:25:24,874 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:25:24] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-12 17:25:25,552 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:25:26,483 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:25:32,014 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:25:36,479 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-12 17:25:40,429 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:25:40] "POST /api/chatbot/ask HTTP/1.1" 200 -

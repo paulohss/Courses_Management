@@ -56,9 +56,9 @@ class MultiAgentWorkflow:
         )
         workflow.add_node("Coder", code_node)
         
-        # SQL Agent
+        # SQL Agent - Add SqlAgent Class directly so the proper Invoke method is called
         sql_node = functools.partial(
-            agent_node, agent=self.sql_agent.agent, name="SqlAgent"
+            agent_node, agent=self.sql_agent, name="SqlAgent"
         )
         workflow.add_node("SqlAgent", sql_node)        
         

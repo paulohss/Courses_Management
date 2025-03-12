@@ -1,4 +1,5 @@
 https://www.youtube.com/watch?v=gTD8b5Yxuuo
+https://medium.com/@b.rajeshrao/building-a-multi-agent-system-using-langgraph-involving-sql-agent-and-rag-model-8b8224187e26
 
 UI
 npm run dev

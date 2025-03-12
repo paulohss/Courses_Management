@@ -20,17 +20,3 @@ class ResearcherAgent:
         self.tavily_tool = TavilySearchResults(max_result=5)
         self.agent = create_react_agent(self.llm, tools=[self.tavily_tool])
     
-    #--------------------------------------------------------------------------------
-    # Define the invoke method to process the current state and perform research tasks
-    #--------------------------------------------------------------------------------    
-    def invoke(self, state):
-        """
-        Process the current state and perform research tasks.
-        
-        Args:
-            state: Current state with messages
-            
-        Returns:
-            Result of the agent's processing
-        """
-        return self.agent.invoke(state)
