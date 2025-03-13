@@ -57,7 +57,10 @@ class SqlAgent:
 
             **General SQL Rules**
             - If the user mentions **'User'** (a reserved keyword), use square brackets: `SELECT * FROM [User]`, same for join statements.
-            - When asked about **user's course attended** as well as the **courses that the user is missing*, consider the *User.FK_Role_ID** to answer, notice that the Courses the *User should attend are always related to the Role* the user is assigned to. The tables User, Course, Roles, Role_Course and User_Course have the relationship and data to answer that type of questions.            
+            - When asked about **user's course attended** as well as the **courses that the user is missing*, consider:
+              -- the *User.FK_Role_ID and Role.ID** to answer, 
+              -- also notice that the Courses that User attended (or missed) are always related to the User's Role the user is assigned to. 
+              -- The tables User, Course, Roles, Role_Course and User_Course have the relationship and data to answer that type of questions.            
             - When discribing the **user role**, use Role.Name instead of Role.ID.
             - **Do not use** `LIMIT` statements in SQL.
             - Round numerical answers to **two decimal places**.
@@ -111,7 +114,8 @@ class SqlAgent:
                 memory=self.memory,
                 agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
                 prefix=self.prefix,
-                suffix=self.suffix
+                suffix=self.suffix,
+                agent_executor_kwargs=dict(handle_parsing_errors=True)
             )
         except Exception as e:
             self.logger.error(f"Error creating LLM agent: {str(e)}")
@@ -171,4 +175,4 @@ class SqlAgent:
             
         except Exception as e:
             self.logger.error(f"Error executing query: {str(e)}")
-            return {"messages": [{"content": f"Sorry, I couldn't process your request: {str(e)}"}]}
+            return {"messages": [HumanMessage(content=f"Sorry, I couldn't process your request: {str(e)}")]}

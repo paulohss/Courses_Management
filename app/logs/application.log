@@ -49,3 +49,47 @@ For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/er
 2025-03-13 16:17:31,884 - app.api.chatbot - INFO - ---- End of Response ---
 2025-03-13 16:17:32,467 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
 2025-03-13 16:17:32,469 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:25:37,313 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:25:37,315 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:25:59,118 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `There are 6 users in the database.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:25:59,121 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:25:59,124 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:25:59,990 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:25:59,991 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:26:13,896 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `The number of users in the database is 6.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:26:13,900 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:26:13,902 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:26:14,652 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:26:14,654 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:26:38,508 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `The number of users in the database is 6.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:26:38,513 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:26:38,517 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:26:39,194 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:26:39,196 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:26:57,256 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `The number of users in the Course Management Database is 6.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:26:57,261 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:26:57,265 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:26:58,153 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:26:58,154 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:27:06,424 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `The number of users in the Course Management Database is 6.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:27:06,428 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:27:06,431 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:27:07,112 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:27:07,113 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:30:21,191 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:30:21,193 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:30:37,237 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:30:37,240 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:30:38,011 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:30:38,013 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:42:40,683 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:42:40,684 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:42:57,879 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:42:57,882 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:42:58,540 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:42:58,542 - app.api.chatbot - INFO - ---- End of Response ---

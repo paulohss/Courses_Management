@@ -1,10 +1,10 @@
 import functools
 from langgraph.graph import END, StateGraph, START
-from app.services.agent.Factory.AgentState import AgentState
-from app.services.agent.Factory.Helpers import agent_node
-from app.services.agent.SqlAgent import SqlAgent
-from app.services.agent.SupervisorAgent import SupervisorAgent
-from app.services.agent.ResearcherAgent import ResearcherAgent
+from app.services.agent.Factory.agent_state import AgentState
+from app.services.agent.Factory.helpers import agent_node
+from app.services.agent.sql_agent import SqlAgent
+from app.services.agent.supervisor_agent import SupervisorAgent
+from app.services.agent.researcher_agent import ResearcherAgent
 from app.utils.logger_service import LoggerService
 
 
