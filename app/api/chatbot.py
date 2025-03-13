@@ -2,19 +2,32 @@ from flask import jsonify, request, current_app
 from app.api import bp
 from app.services.agent.Factory.MultiAgentWorkflow import MultiAgentWorkflow
 from langchain_core.messages import HumanMessage
+from app.utils.logger_service import LoggerService
+
+
+#-------------------------------------------------------------------------------
+# Initialize logger
+#-------------------------------------------------------------------------------
+logger = LoggerService.get_instance().get_logger(__name__)
 
 
 #-------------------------------------------------------------------------------
 # Get chatbot service
 #-------------------------------------------------------------------------------
 def get_chatbot_service():
-    if 'multi_agent_workflow' not in current_app.config:
-        # Initialize the multi-agent workflow
-        workflow = MultiAgentWorkflow()
-        # Build the graph
-        workflow.build_graph()
-        current_app.config['multi_agent_workflow'] = workflow
-    return current_app.config['multi_agent_workflow']
+    try:
+        if 'multi_agent_workflow' not in current_app.config:
+            # Initialize the multi-agent workflow
+            workflow = MultiAgentWorkflow()
+            # Build the graph
+            workflow.build_graph()
+            current_app.config['multi_agent_workflow'] = workflow
+            
+        return current_app.config['multi_agent_workflow']
+    
+    except Exception as e:
+        logger.error(f"Error initializing chatbot service: {str(e)}")
+
 
 
 #-------------------------------------------------------------------------------
@@ -23,8 +36,7 @@ def get_chatbot_service():
 @bp.route('/chatbot/ask', methods=['POST'])
 def process_message():
     try:
-        FINISH = "{'next': 'FINISH'}"
-        
+        FINISH = "{'next': 'FINISH'}"        
         data = request.json
         if not data or 'message' not in data:
             return jsonify({'error': 'No message provided'}), 400
@@ -48,7 +60,7 @@ def process_message():
                 
             # Process each agent's response
             for agent_name, response in step.items():
-                print(f"\n--- {agent_name.upper()} Response ---")
+                logger.info(f"--- {agent_name.upper()} Response ---")
                 
                 # Extract and process the message content based on format
                 if isinstance(response, dict) and "messages" in response: # check if response is a dict and has a "messages" key
@@ -58,31 +70,25 @@ def process_message():
                         
                         message_content = message.content
                         print(message_content)
-                        conversation_history.append({
-                            "agent": agent_name,
-                            "content": message_content
-                        })
-                        
+                        conversation_history.append({"agent": agent_name,"content": message_content})                        
                         if str(response) != FINISH:
                             final_response = message_content                
                 else:                
-                    # Handle direct content format
-                    print(jsonify(response))
-                    conversation_history.append({
-                        "agent": agent_name, 
-                        "content": response
-                    })  
-                    
+                    # Handle direct content format                    
+                    conversation_history.append({"agent": agent_name, "content": response })                      
                     if str(response) != FINISH:
                        final_response = response                  
                 
-                print("\n---- End of Response ---")
+                logger.info("---- End of Response ---")
 
         return jsonify({'response': final_response}), 200
 
 
     except Exception as e:
+        logger.error(f"Error processing request: {str(e)}", exc_info=True)
         return jsonify({'response': 'Internal server error'}), 500
+
+
 
 
 #-------------------------------------------------------------------------------
@@ -91,6 +97,9 @@ def process_message():
 @bp.route('/chatbot/health', methods=['GET'])
 def health_check():
     try:
+        logger.info("Health check requested")
         return jsonify({'status': 'healthy', 'service': 'multi-agent chatbot'}), 200
+    
     except Exception as e:
+        logger.error(f"Health check failed: {str(e)}", exc_info=True)
         return jsonify({'error': 'Service unhealthy', 'details': str(e)}), 500

@@ -2,6 +2,7 @@ from typing import List, Literal
 from pydantic import BaseModel
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
+from app.utils.logger_service import LoggerService
 
 # Define the allowed routing decisions for the supervisor agent
 class RouteResponse(BaseModel):
@@ -51,6 +52,7 @@ class SupervisorAgent:
         Args:
             model_name: The LLM model to use
         """
+        self.logger = LoggerService.get_instance().get_logger(__name__)
         self.members = ["Researcher", "SqlAgent"]
         self.options = ["FINISH"] + self.members
         
@@ -86,22 +88,27 @@ class SupervisorAgent:
     # Define the __call__ method to process the current state and decide on the next routing step
     #--------------------------------------------------------------------------------    
     def __call__(self, state):
-        """
-        Process the current state and decide on the next routing step.
-        
-        Args:
-            state: Current state with messages
+        try:
+            """
+            Process the current state and decide on the next routing step.
             
-        Returns:
-            Dict containing the next routing step
-        """
-        # Step 1: Configure the LLM to output structured data according to our model
-        structured_llm = self.llm.with_structured_output(RouteResponse)
+            Args:
+                state: Current state with messages
+                
+            Returns:
+                Dict containing the next routing step
+            """
+            # Step 1: Configure the LLM to output structured data according to our model
+            structured_llm = self.llm.with_structured_output(RouteResponse)
+            
+            # Step 2: Create a decision chain by combining our prompt template with the structured LLM
+            routing_chain = self.prompt | structured_llm
+            
+            # Step 3: Process the current state through the chain to determine next step
+            routing_decision = routing_chain.invoke(state)
+            
+            return routing_decision
         
-        # Step 2: Create a decision chain by combining our prompt template with the structured LLM
-        routing_chain = self.prompt | structured_llm
-        
-        # Step 3: Process the current state through the chain to determine next step
-        routing_decision = routing_chain.invoke(state)
-        
-        return routing_decision
+        except Exception as e:
+            self.logger.error(f"Error processing supervisor routing decision: {str(e)}")
+            raise Exception("Supervisor routing error.")

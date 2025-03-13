@@ -3,26 +3,43 @@ from app.models.user import User
 from app.models.course import Course
 from app import db
 from flask import abort
+from app.utils.logger_service import LoggerService
 
 class UserCourseService:
+    
+    #-------------------------------------------------------------------------------
+    # Constructor
+    #-------------------------------------------------------------------------------    
+    def __init__(self):
+        # Initialize logger
+        self.logger = LoggerService.get_instance().get_logger(__name__)        
     
     #-------------------------------------------------------------------------------
     # Validation method
     #-------------------------------------------------------------------------------
     def validate_user_and_course(self, user_id, course_id):
-        if not user_id or user_id <= 0:
-            abort(400, 'Invalid User ID provided!')
+        try:
+            if not user_id or user_id <= 0:
+                self.logger.warning(f"Invalid User ID [{user_id}] provided")
+                abort(400, 'Invalid User ID provided!')
+            
+            if not course_id or course_id <= 0:
+                self.logger.warning(f"Invalid Course ID [{course_id}] provided")
+                abort(400, 'Invalid Course ID provided!')
+            
+            user = User.query.get(user_id)
+            if not user:
+                self.logger.warning(f"User ID [{user_id}] does not exist")
+                abort(400, f'User ID [{user_id}] does not exist!')
+            
+            course = Course.query.get(course_id)
+            if not course:
+                self.logger.warning(f"Course ID [{course_id}] does not exist")
+                abort(400, f'Course ID [{course_id}] does not exist!')
         
-        if not course_id or course_id <= 0:
-            abort(400, 'Invalid Course ID provided!')
-        
-        user = User.query.get(user_id)
-        if not user:
-            abort(400, f'User ID [{user_id}] does not exist!')
-        
-        course = Course.query.get(course_id)
-        if not course:
-            abort(400, f'Course ID [{course_id}] does not exist!')
+        except Exception as e:
+            self.logger.error(f"Error validating User-Course relationship: {str(e)}")
+            raise
  
 
     #-------------------------------------------------------------------------------
@@ -39,15 +56,23 @@ class UserCourseService:
             db.session.add(new_user_course)
             db.session.commit()
             return new_user_course
+        
         except:
+            self.logger.error(f"Error creating User-Course relationship: {str(e)}")
             db.session.rollback()
             raise
+
 
     #-------------------------------------------------------------------------------
     # Get all user-course relationships
     #-------------------------------------------------------------------------------    
     def get_all_user_courses(self):
-        return UserCourse.query.all()
+        try:
+            return UserCourse.query.all()
+        
+        except Exception as e:
+            self.logger.error(f"Error retrieving User-Course relationships: {str(e)}")
+            raise
 
 
     #-------------------------------------------------------------------------------
@@ -55,11 +80,17 @@ class UserCourseService:
     #-------------------------------------------------------------------------------    
     def get_courses_by_user_id(self, user_id):
         if not user_id or user_id <= 0:
+            self.logger.warning(f"Invalid User ID [{user_id}] provided")
             abort(400, 'Invalid User ID provided!')
         
-        user_courses = UserCourse.query.filter_by(fk_user_id=user_id).all()
-        courses = [Course.query.get(uc.fk_course_id) for uc in user_courses]
-        return courses
+        try:
+            user_courses = UserCourse.query.filter_by(fk_user_id=user_id).all()
+            courses = [Course.query.get(uc.fk_course_id) for uc in user_courses]
+            return courses
+        
+        except Exception as e:
+            self.logger.error(f"Error retrieving courses for User ID [{user_id}]: {str(e)}")
+            raise
 
 
     #-------------------------------------------------------------------------------
@@ -69,6 +100,7 @@ class UserCourseService:
         try:
             # Validation:
             if id <= 0:
+                self.logger.warning(f"Invalid User-Course Relationship ID [{id}] provided")
                 abort(400, 'Invalid User-Course Relationship ID provided!')
             
             self.validate_user_and_course(user_id, course_id)
@@ -83,7 +115,9 @@ class UserCourseService:
                 abort(400, f'User-Course Relationship does not exist!')
             
             return user_course
+        
         except:
+            self.logger.error(f"Error updating User-Course relationship: {str(e)}")
             db.session.rollback()
             raise
     
@@ -106,6 +140,8 @@ class UserCourseService:
                 abort(400, f'User-Course Relationship does not exist!')
             
             return user_course
-        except: 
+        
+        except Exception as e:
+            self.logger.error(f"Error deleting User-Course relationship: {str(e)}") 
             db.session.rollback()
             raise 

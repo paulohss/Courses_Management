@@ -5,6 +5,8 @@ from app.services.agent.Factory.Helpers import agent_node
 from app.services.agent.SqlAgent import SqlAgent
 from app.services.agent.SupervisorAgent import SupervisorAgent
 from app.services.agent.ResearcherAgent import ResearcherAgent
+from app.utils.logger_service import LoggerService
+
 
 class MultiAgentWorkflow:
     """
@@ -21,57 +23,63 @@ class MultiAgentWorkflow:
         Args:
             model_name: The LLM model to use for all agents
         """
+        self.logger = LoggerService.get_instance().get_logger(__name__)
         self.supervisor_agent = SupervisorAgent(model_name)
         self.researcher_agent = ResearcherAgent(model_name)
         self.sql_agent = SqlAgent(model_name)
         self.members = ["Researcher", "SqlAgent"]
         self.graph = None  # Will be initialized when build_graph() is called
     
+    
     #--------------------------------------------------------------------------------
     # Define the build_graph method to build the workflow graph connecting the agents
     #--------------------------------------------------------------------------------
     def build_graph(self):
-        """
-        Build the workflow graph connecting the agents.
+        try:
+            """
+            Build the workflow graph connecting the agents.
+            
+            Returns:
+                The compiled workflow graph
+            """
+            workflow = StateGraph(AgentState)
+            
+            # Add nodes for each agent
+            workflow.add_node("supervisor", self.supervisor_agent)
+            
+            # Researcher Agent (researcher_agent.agent)
+            research_node = functools.partial(
+                agent_node, agent=self.researcher_agent.agent, name="Researcher"
+            )
+            workflow.add_node("Researcher", research_node)
+            
+            # SQL Agent - Add SqlAgent Class directly (self.sql_agent) so the proper Invoke method is called
+            sql_node = functools.partial(
+                agent_node, agent=self.sql_agent, name="SqlAgent"
+            )
+            workflow.add_node("SqlAgent", sql_node)        
+            
+            # Add Graph Edges
+            for member in self.members:
+                # Workers always report back to the supervisor
+                workflow.add_edge(member, "supervisor")
+            
+            # The supervisor populates the NEXT field in the graph state
+            # which routes to a node or finishes
+            conditional_map = {k: k for k in self.members}
+            conditional_map["FINISH"] = END
+            workflow.add_conditional_edges(
+                "supervisor", lambda x: x["next"], conditional_map
+            )
+            
+            # Add entry point
+            workflow.add_edge(START, "supervisor")
+            
+            self.graph = workflow.compile()
+            return self.graph
         
-        Returns:
-            The compiled workflow graph
-        """
-        workflow = StateGraph(AgentState)
-        
-        # Add nodes for each agent
-        workflow.add_node("supervisor", self.supervisor_agent)
-        
-        # Researcher Agent (researcher_agent.agent)
-        research_node = functools.partial(
-            agent_node, agent=self.researcher_agent.agent, name="Researcher"
-        )
-        workflow.add_node("Researcher", research_node)
-        
-        # SQL Agent - Add SqlAgent Class directly (self.sql_agent) so the proper Invoke method is called
-        sql_node = functools.partial(
-            agent_node, agent=self.sql_agent, name="SqlAgent"
-        )
-        workflow.add_node("SqlAgent", sql_node)        
-        
-        # Add Graph Edges
-        for member in self.members:
-            # Workers always report back to the supervisor
-            workflow.add_edge(member, "supervisor")
-        
-        # The supervisor populates the NEXT field in the graph state
-        # which routes to a node or finishes
-        conditional_map = {k: k for k in self.members}
-        conditional_map["FINISH"] = END
-        workflow.add_conditional_edges(
-            "supervisor", lambda x: x["next"], conditional_map
-        )
-        
-        # Add entry point
-        workflow.add_edge(START, "supervisor")
-        
-        self.graph = workflow.compile()
-        return self.graph
+        except Exception as e:
+            self.logger.error(f"Error building workflow graph: {str(e)}")
     
     
     

@@ -1,0 +1,51 @@
+2025-03-13 16:09:28,283 - app.api.chatbot - INFO - 
+--- {agent_name.upper()} Response ---
+2025-03-13 16:09:28,284 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:09:43,386 - app.api.chatbot - INFO - 
+--- {agent_name.upper()} Response ---
+2025-03-13 16:09:43,389 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:09:44,046 - app.api.chatbot - INFO - 
+--- {agent_name.upper()} Response ---
+2025-03-13 16:09:44,047 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:16:18,319 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:16:18,320 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:16:34,758 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `There is a user with the first name "Paulo" in the database. His full name is "Paulo Henrique Silva", and he has a role ID associated with him.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:16:34,761 - app.services.agent.Factory.Helpers - ERROR - Error invoking agent SqlAgent: 'dict' object has no attribute 'content'
+2025-03-13 16:16:34,765 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:16:34,766 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:16:35,476 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:16:35,477 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:16:42,469 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:16:42,473 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:16:43,188 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:16:43,189 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:15,808 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:17:15,809 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:17,087 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `To determine the user's role, we need to first check if there is any user with the specified name in the `User` table. Since there is no user with the first name "Paulo" in the current data, we can't provide any role information. 
+
+If you have any other questions or need further assistance, feel free to ask!`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:17:17,089 - app.services.agent.Factory.Helpers - ERROR - Error invoking agent SqlAgent: 'dict' object has no attribute 'content'
+2025-03-13 16:17:17,091 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:17:17,092 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:17,843 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:17:17,845 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:25,067 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `The user with the first name "Paulo" does not exist in the current data of the `User` table. Therefore, I cannot provide information about "Paulo's" role in the database.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:17:25,070 - app.services.agent.Factory.Helpers - ERROR - Error invoking agent SqlAgent: 'dict' object has no attribute 'content'
+2025-03-13 16:17:25,075 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:17:25,077 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:25,898 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:17:25,900 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:26,943 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `The user mentioned does not exist in the current data of the `User` table. Therefore, there is no role associated with this user. If you believe there might be an issue with the data, please provide more details or check for typos in the user's name.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 16:17:26,946 - app.services.agent.Factory.Helpers - ERROR - Error invoking agent SqlAgent: 'dict' object has no attribute 'content'
+2025-03-13 16:17:26,951 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:17:26,953 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:27,807 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:17:27,809 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:31,882 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-13 16:17:31,884 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-13 16:17:32,467 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-13 16:17:32,469 - app.api.chatbot - INFO - ---- End of Response ---

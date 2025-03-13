@@ -12,7 +12,8 @@ from sqlalchemy import create_engine
 from langchain_core.globals import set_verbose, set_debug
 from langchain.prompts import MessagesPlaceholder
 from langchain_core.messages import HumanMessage
-
+from app.utils.logger_service import LoggerService
+ 
 class SqlAgent:
     
     # --------------------------------------------------------------------------------
@@ -20,18 +21,10 @@ class SqlAgent:
     # --------------------------------------------------------------------------------
     def __init__(self, model_name="gpt-4o", verbose=False):
         try:
-            # Configure logging
-            log_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'logs')
-            os.makedirs(log_dir, exist_ok=True)
-            logging.basicConfig(
-                filename=os.path.join(log_dir, 'sql_agent.log'),
-                level=logging.INFO,
-                format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-            )
-            self.logger = logging.getLogger(__name__)
+            self.logger = LoggerService.get_instance().get_logger(__name__)
             self.model = model_name
             set_debug(verbose)
-            self.create_db()
+            self.create_db()            
             self.create_llm_agent()
             
         except Exception as e:
