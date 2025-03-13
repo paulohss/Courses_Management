@@ -17,7 +17,7 @@ class RouteResponse(BaseModel):
        validation, serialization, and documentation capabilities.
     
     3. The 'next' field uses Python's Literal type to restrict valid values to only
-       three specific options: "FINISH", "Researcher", or "Coder". Any other value
+       three specific options: "FINISH", "Researcher", or "SqlAgent". Any other value
        would cause a validation error.
     
     4. Used with .with_structured_output(RouteResponse) to instruct the LLM to
@@ -26,11 +26,10 @@ class RouteResponse(BaseModel):
     
     5. Controls workflow routing:
        - "Researcher" → Send to researcher agent
-       - "Coder" → Send to coder agent 
        - "SqlAgent" → Send to SQL agent
        - "FINISH" → End the workflow
     """
-    next: Literal["FINISH", "Researcher", "Coder", "SqlAgent"]
+    next: Literal["FINISH", "Researcher", "SqlAgent"]
 
 
 #--------------------------------------------------------------------------------
@@ -52,7 +51,7 @@ class SupervisorAgent:
         Args:
             model_name: The LLM model to use
         """
-        self.members = ["Researcher", "Coder", "SqlAgent"]
+        self.members = ["Researcher", "SqlAgent"]
         self.options = ["FINISH"] + self.members
         
         system_prompt = (
@@ -62,7 +61,6 @@ class SupervisorAgent:
             " task and respond with their results and status."
             "\n\nWorker specialties:"
             "\n- Researcher: For general information gathering, web research, and non-database questions"
-            "\n- Coder: For code-related tasks, programming help, and algorithm questions"
             "\n- SqlAgent: For database queries, SQL operations, and data retrieval from the Course Management system"
             "\n\nWhen the user asks about database information, users, courses, roles, or any data that would"
             " require SQL queries, always route to SqlAgent first."

@@ -1,9 +1,5 @@
-- Map
-  App -> Table -> ModalForm
 
 
-- sql agent memory
-  - add schema info to the prefix
 
 - add llama
 
@@ -14,9 +10,11 @@
 - Add user
   -> Save User First?
 
--
 - Auth
 
 - Migration Tool: Use a migration tool like Flask-Migrate to handle schema changes. 
   Optional: Adding Alembic for Database Migrations
   If you're using Alembic for migrations (recommended for production), add a migrations/ folder to your project. To integrate
+
+- Map
+  App -> Table -> ModalForm

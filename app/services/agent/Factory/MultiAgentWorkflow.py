@@ -5,7 +5,6 @@ from app.services.agent.Factory.Helpers import agent_node
 from app.services.agent.SqlAgent import SqlAgent
 from app.services.agent.SupervisorAgent import SupervisorAgent
 from app.services.agent.ResearcherAgent import ResearcherAgent
-from app.services.agent.CoderAgent import CoderAgent
 
 class MultiAgentWorkflow:
     """
@@ -24,9 +23,8 @@ class MultiAgentWorkflow:
         """
         self.supervisor_agent = SupervisorAgent(model_name)
         self.researcher_agent = ResearcherAgent(model_name)
-        self.coder_agent = CoderAgent(model_name)
         self.sql_agent = SqlAgent(model_name)
-        self.members = ["Researcher", "Coder", "SqlAgent"]
+        self.members = ["Researcher", "SqlAgent"]
         self.graph = None  # Will be initialized when build_graph() is called
     
     #--------------------------------------------------------------------------------
@@ -44,19 +42,13 @@ class MultiAgentWorkflow:
         # Add nodes for each agent
         workflow.add_node("supervisor", self.supervisor_agent)
         
-        # Researcher Agent
+        # Researcher Agent (researcher_agent.agent)
         research_node = functools.partial(
             agent_node, agent=self.researcher_agent.agent, name="Researcher"
         )
         workflow.add_node("Researcher", research_node)
         
-        # Coder Agent
-        code_node = functools.partial(
-            agent_node, agent=self.coder_agent.agent, name="Coder"
-        )
-        workflow.add_node("Coder", code_node)
-        
-        # SQL Agent - Add SqlAgent Class directly so the proper Invoke method is called
+        # SQL Agent - Add SqlAgent Class directly (self.sql_agent) so the proper Invoke method is called
         sql_node = functools.partial(
             agent_node, agent=self.sql_agent, name="SqlAgent"
         )

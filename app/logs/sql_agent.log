@@ -795,3 +795,51 @@ For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/er
 2025-03-12 17:25:32,014 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-12 17:25:36,479 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-03-12 17:25:40,429 - werkzeug - INFO - 127.0.0.1 - - [12/Mar/2025 17:25:40] "POST /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-13 11:56:21,602 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:56:22,327 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:56:23,546 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:56:24,510 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:56:26,389 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:56:26,883 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:56:27,631 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:56:27,958 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `I found a user with the name "Novin" in the database. The user has an ID of 66 and is associated with a role ID of 1.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 11:57:07,392 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 11:57:07] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-13 11:57:14,617 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 11:57:14] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-13 11:57:26,407 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:57:53,980 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:57:54,787 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:57:55,959 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:57:58,281 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:57:58,826 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:57:59,938 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:58:00,567 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `I have found that there is a user named Novin in the database with ID 66 and a foreign key role ID of 1.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 11:58:32,669 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 11:58:32] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-13 11:58:49,773 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 11:58:49] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-13 11:59:01,007 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:59:15,018 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:59:18,433 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:59:19,387 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:59:20,816 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:59:21,277 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 11:59:22,337 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:01:25,172 - app.services.agent.SqlAgent - ERROR - Error executing query: An output parsing error occurred. In order to pass this error back to the agent and have it try again, pass `handle_parsing_errors=True` to the AgentExecutor. This is the error: Could not parse LLM output: `There is a user called Novin in the database.`
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE 
+2025-03-13 12:01:32,470 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 12:01:32] "[35m[1mPOST /api/chatbot/ask HTTP/1.1[0m" 500 -
+2025-03-13 12:01:41,660 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 12:01:41] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-13 12:01:45,207 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:02:04,002 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:02:05,610 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:02:06,576 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:02:08,095 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:02:08,724 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:02:09,921 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:02:28,581 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:02:29,733 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 12:02:29] "POST /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-13 12:03:02,250 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 12:03:02] "OPTIONS /api/chatbot/ask HTTP/1.1" 200 -
+2025-03-13 12:03:06,703 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:03:13,611 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:03:17,412 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:03:19,107 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-13 12:03:19,874 - werkzeug - INFO - 127.0.0.1 - - [13/Mar/2025 12:03:19] "POST /api/chatbot/ask HTTP/1.1" 200 -

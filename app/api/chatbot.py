@@ -29,6 +29,7 @@ def process_message():
         if not data or 'message' not in data:
             return jsonify({'error': 'No message provided'}), 400
         
+        # Get the chatbot Singleton Service
         workflow = get_chatbot_service()
         
         # Initialize state with user message
@@ -40,6 +41,7 @@ def process_message():
         
         # Process the conversation flow
         for step in workflow.graph.stream(initial_state):
+            
             # Skip the end state marker
             if "__end__" in step:
                 continue
@@ -50,6 +52,7 @@ def process_message():
                 
                 # Extract and process the message content based on format
                 if isinstance(response, dict) and "messages" in response: # check if response is a dict and has a "messages" key
+                   
                     # Handle message collection format
                     for message in response["messages"]:
                         
@@ -60,11 +63,9 @@ def process_message():
                             "content": message_content
                         })
                         
-                        if response != FINISH:
-                            final_response = message_content
-                
-                else:
-                
+                        if str(response) != FINISH:
+                            final_response = message_content                
+                else:                
                     # Handle direct content format
                     print(jsonify(response))
                     conversation_history.append({
