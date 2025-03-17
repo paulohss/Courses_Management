@@ -1,5 +1,17 @@
+
+Multi agent
 https://www.youtube.com/watch?v=gTD8b5Yxuuo
 https://medium.com/@b.rajeshrao/building-a-multi-agent-system-using-langgraph-involving-sql-agent-and-rag-model-8b8224187e26
+
+
+Researcher agent
+https://tavily.us.auth0.com/u/login/identifier?state=hKFo2SA3MFpuYjRMRXVpNGtEVzN3ZDJMdi1Gam5acU9scWZmRKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIEh5NHRCQ1dCS20ybldLazI5cml6b0J6RXg3UEdkQzAxo2NpZNkgUlJJQXZ2WE5GeHBmVFdJb3pYMW1YcUxueVVtWVNUclE
+
+llama
+https://github.com/ollama/ollama/blob/main/docs/faq.md
+https://www.perplexity.ai/search/i-have-llama-3-2-installed-on-QSKNJMjGQk2eF7ygYFEtsg
+https://www.youtube.com/watch?v=zaWIIthDSg4&t=519s
+
 
 UI
 npm run dev
@@ -8,3 +20,45 @@ npx tailwindcss -i ./src/index.css -o ./src/output.css --watch    (rebuild css)
 
 Backend
 python run.py
+
+
+
+
+
+
+CHAT BOT MARKDOWWN
+import ReactMarkdown from 'react-markdown';
+
+
+/* Add to your CSS file */
+.markdown-content {
+  font-size: 0.95rem;
+}
+
+.markdown-content ol, 
+.markdown-content ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+}
+
+.markdown-content a {
+  color: #3b82f6; /* Blue color for links */
+  text-decoration: underline;
+}
+
+.markdown-content p {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content strong {
+  font-weight: bold;
+}

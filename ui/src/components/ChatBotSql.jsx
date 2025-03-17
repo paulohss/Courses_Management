@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import assistantIcon from '../images/assistant.png';
 import userIcon from '../images/user.png';
+import ReactMarkdown from 'react-markdown';
 
 export default function ChatBotSql({ isOpen, onClose }) {
 
@@ -101,7 +102,13 @@ export default function ChatBotSql({ isOpen, onClose }) {
                                     />
                                 </div>
                             </div>
-                            <div className="chat-bubble">{msg.content}</div>
+                            <div className="chat-bubble markdown-content">
+                                {msg.role === 'assistant' ? (
+                                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                                ) : (
+                                    msg.content
+                                )}
+                            </div>
                         </div>
                     ))}
                     <div ref={messagesEndRef} />

@@ -2582,6 +2582,39 @@ html {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+/* Add to your CSS file */
+.markdown-content {
+  font-size: 0.95rem;
+}
+
+.markdown-content ol, 
+.markdown-content ul {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+}
+
+.markdown-content a {
+  color: #3b82f6; /* Blue color for links */
+  text-decoration: underline;
+}
+
+.markdown-content p {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content strong {
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   .md\:w-auto {
     width: auto;

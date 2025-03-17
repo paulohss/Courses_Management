@@ -1,5 +1,7 @@
 
-
+tables
+- add email
+- add course cost
 
 - add llama
 

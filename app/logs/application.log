@@ -93,3 +93,27 @@ For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/er
 2025-03-13 16:42:57,882 - app.api.chatbot - INFO - ---- End of Response ---
 2025-03-13 16:42:58,540 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
 2025-03-13 16:42:58,542 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:26:16,268 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-17 15:26:16,280 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:26:25,596 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-17 15:26:25,603 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:26:26,451 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-17 15:26:26,454 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:26:44,715 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-17 15:26:44,716 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:26:55,645 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-03-17 15:26:55,651 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:26:58,958 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-17 15:26:58,959 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:39:02,047 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-17 15:39:02,049 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:39:11,202 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-17 15:39:11,204 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:39:11,850 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-17 15:39:11,851 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:39:40,999 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-17 15:39:41,000 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:39:50,124 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-03-17 15:39:50,129 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-17 15:39:50,775 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-17 15:39:50,776 - app.api.chatbot - INFO - ---- End of Response ---
