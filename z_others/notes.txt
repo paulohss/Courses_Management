@@ -1,4 +1,13 @@
 
+UI
+npm run dev
+npx tailwindcss -i ./src/index.css -o ./src/output.css --watch    (rebuild css)
+
+
+Backend
+python run.py
+
+
 Multi agent
 https://www.youtube.com/watch?v=gTD8b5Yxuuo
 https://medium.com/@b.rajeshrao/building-a-multi-agent-system-using-langgraph-involving-sql-agent-and-rag-model-8b8224187e26
@@ -11,17 +20,6 @@ llama
 https://github.com/ollama/ollama/blob/main/docs/faq.md
 https://www.perplexity.ai/search/i-have-llama-3-2-installed-on-QSKNJMjGQk2eF7ygYFEtsg
 https://www.youtube.com/watch?v=zaWIIthDSg4&t=519s
-
-
-UI
-npm run dev
-npx tailwindcss -i ./src/index.css -o ./src/output.css --watch    (rebuild css)
-
-
-Backend
-python run.py
-
-
 
 
 

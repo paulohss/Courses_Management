@@ -2,6 +2,7 @@ from flask import jsonify, request, current_app
 from app.api import bp
 from app.services.agent.Factory.multi_agent_workflow import MultiAgentWorkflow
 from langchain_core.messages import HumanMessage
+from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
 
 
@@ -17,10 +18,14 @@ logger = LoggerService.get_instance().get_logger(__name__)
 def get_chatbot_service():
     try:
         if 'multi_agent_workflow' not in current_app.config:
-            # Initialize the multi-agent workflow
-            workflow = MultiAgentWorkflow()
-            # Build the graph
-            workflow.build_graph()
+            
+            provider = LLMConfig.PROVIDER
+            model =  LLMConfig.MODEL_NAME
+            
+            logger.info(f"Initializing chatbot service with provider: {provider}, model: {model}")
+            
+            workflow = MultiAgentWorkflow(provider, model)
+            workflow.build_graph()            
             current_app.config['multi_agent_workflow'] = workflow
             
         return current_app.config['multi_agent_workflow']

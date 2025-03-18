@@ -2,6 +2,8 @@ from typing import List, Literal
 from pydantic import BaseModel
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
+from app.services.llm.llm_factory import LLMFactory
+from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
 
 # Define the allowed routing decisions for the supervisor agent
@@ -45,7 +47,7 @@ class SupervisorAgent:
     #--------------------------------------------------------------------------------
     # Define the __init__ method to initialize the supervisor agent
     #--------------------------------------------------------------------------------
-    def __init__(self, model_name="gpt-4o"):
+    def __init__(self, provider=None, model_name=None):
         """
         Initialize the supervisor agent.
         
@@ -55,6 +57,8 @@ class SupervisorAgent:
         self.logger = LoggerService.get_instance().get_logger(__name__)
         self.members = ["Researcher", "SqlAgent"]
         self.options = ["FINISH"] + self.members
+        provider = provider or LLMConfig.PROVIDER
+        model_name = model_name or LLMConfig.MODEL_NAME
         
         system_prompt = (
             "You are a supervisor tasked with managing a conversation between the" 
@@ -81,7 +85,7 @@ class SupervisorAgent:
             ]
         ).partial(options=str(self.options), members=", ".join(self.members))
         
-        self.llm = ChatOpenAI(model=model_name)
+        self.llm = LLMFactory.get_instance().get_llm(provider, model_name)
     
     
     #--------------------------------------------------------------------------------

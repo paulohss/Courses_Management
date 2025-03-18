@@ -12,6 +12,8 @@ from sqlalchemy import create_engine
 from langchain_core.globals import set_verbose, set_debug
 from langchain.prompts import MessagesPlaceholder
 from langchain_core.messages import HumanMessage
+from app.services.llm.llm_factory import LLMFactory
+from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
  
 class SqlAgent:
@@ -19,10 +21,13 @@ class SqlAgent:
     # --------------------------------------------------------------------------------
     # Initialize the SQL agent
     # --------------------------------------------------------------------------------
-    def __init__(self, model_name="gpt-4o", verbose=False):
+    def __init__(self, provider=None, model_name=None, verbose=False):
         try:
             self.logger = LoggerService.get_instance().get_logger(__name__)
-            self.model = model_name
+            
+            self.provider = provider or LLMConfig.PROVIDER
+            self.model_name = model_name or LLMConfig.MODEL_NAME
+            
             set_debug(verbose)
             self.create_db()            
             self.create_llm_agent()
@@ -98,7 +103,7 @@ class SqlAgent:
     # --------------------------------------------------------------------------------
     def create_llm_agent(self):
         try:
-            self.llm = ChatOpenAI(model=self.model)
+            self.llm = LLMFactory.get_instance().get_llm(self.provider, self.model_name)
             self.tool_kit = SQLDatabaseToolkit(db=self.db, llm=self.llm)
             # Use ConversationBufferMemory to store chat history in memory
             self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)

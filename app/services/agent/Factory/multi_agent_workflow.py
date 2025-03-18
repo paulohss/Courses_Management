@@ -5,6 +5,7 @@ from app.services.agent.Factory.helpers import agent_node
 from app.services.agent.sql_agent import SqlAgent
 from app.services.agent.supervisor_agent import SupervisorAgent
 from app.services.agent.researcher_agent import ResearcherAgent
+from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
 
 
@@ -16,17 +17,20 @@ class MultiAgentWorkflow:
     #--------------------------------------------------------------------------------
     # Define the __init__ method to initialize the multi-agent workflow
     #--------------------------------------------------------------------------------
-    def __init__(self, model_name="gpt-4o"):
-        """
-        Initialize the multi-agent workflow.
-        
-        Args:
-            model_name: The LLM model to use for all agents
-        """
+    def __init__(self, provider=None, model_name=None):
         self.logger = LoggerService.get_instance().get_logger(__name__)
-        self.supervisor_agent = SupervisorAgent(model_name)
-        self.researcher_agent = ResearcherAgent(model_name)
-        self.sql_agent = SqlAgent(model_name)
+        
+        # Use config if not provided
+        provider = provider or LLMConfig.PROVIDER
+        model_name = model_name or LLMConfig.MODEL_NAME
+        
+        self.logger.info(f"Initializing MultiAgentWorkflow with provider: {provider}, model: {model_name}")
+        
+        # Create agents with specified provider and model
+        self.supervisor_agent = SupervisorAgent(provider, model_name)
+        self.researcher_agent = ResearcherAgent(provider, model_name)
+        self.sql_agent = SqlAgent(provider, model_name)
+        
         self.members = ["Researcher", "SqlAgent"]
         self.graph = None  # Will be initialized when build_graph() is called
     
