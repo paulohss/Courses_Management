@@ -1,5 +1,5 @@
 from langchain_openai import ChatOpenAI
-from langchain_community.llms import Ollama
+from langchain_community.chat_models import ChatOllama
 from app.services.llm.llm_provider import LLMProvider
 
 
@@ -30,7 +30,7 @@ class OllamaProvider(LLMProvider):
     
     def get_llm(self, model_name="llama3.2"):
         self.logger.info(f"Creating Ollama LLM with model: {model_name}")
-        return Ollama(model=model_name, base_url=self.base_url)
+        return ChatOllama(model=model_name, base_url=self.base_url)
     
     def get_available_models(self):
         return ["llama3.2", "deepseek-r1:14b"]

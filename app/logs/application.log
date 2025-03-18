@@ -117,3 +117,20 @@ For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/er
 2025-03-17 15:39:50,129 - app.api.chatbot - INFO - ---- End of Response ---
 2025-03-17 15:39:50,775 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
 2025-03-17 15:39:50,776 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-18 18:47:13,924 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-03-18 18:47:20,226 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-03-18 18:48:23,812 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-18 18:48:37,807 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-18 18:48:50,581 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-18 18:49:14,832 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-18 18:49:14,834 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-18 18:49:22,088 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-18 18:49:22,091 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-18 18:49:22,725 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-18 18:49:22,726 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-18 18:50:42,028 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-18 18:50:42,030 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-18 18:50:47,319 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-03-18 18:50:47,323 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-18 18:50:47,983 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-18 18:50:47,984 - app.api.chatbot - INFO - ---- End of Response ---
