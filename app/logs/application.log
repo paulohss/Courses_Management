@@ -134,3 +134,566 @@ For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/er
 2025-03-18 18:50:47,323 - app.api.chatbot - INFO - ---- End of Response ---
 2025-03-18 18:50:47,983 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
 2025-03-18 18:50:47,984 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 10:17:55,135 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 10:17:59,728 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 10:18:50,442 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:18:54,126 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:19:12,866 - app.api.chatbot - ERROR - Error initializing chatbot service: 
+2025-03-20 10:19:12,868 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-03-20 10:20:53,919 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 10:20:53,922 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 10:20:54,988 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:21:17,405 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:22:01,259 - app.api.chatbot - ERROR - Error initializing chatbot service: 
+2025-03-20 10:22:13,074 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-03-20 10:26:58,050 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 10:26:58,053 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 10:27:00,078 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:27:11,224 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:27:28,819 - app.api.chatbot - ERROR - Error initializing chatbot service: 'OllamaLLM' object has no attribute 'bind_tools'
+2025-03-20 10:27:28,821 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-03-20 10:30:59,172 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 10:30:59,174 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 10:31:00,355 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:31:08,107 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:31:14,635 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:31:46,634 - app.api.chatbot - ERROR - Error processing request: 'next'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 548, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\graph\graph.py", line 94, in _route
+    result = self.path.invoke(value, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 302, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\Factory\multi_agent_workflow.py", line 76, in <lambda>
+    "supervisor", lambda x: x["next"], conditional_map
+                            ~^^^^^^^^
+KeyError: 'next'
+During task with name 'supervisor' and id 'b5d63d83-9419-f30a-f01a-619af012761d'
+2025-03-20 10:33:35,380 - app.api.chatbot - ERROR - Error processing request: 'next'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 548, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\graph\graph.py", line 94, in _route
+    result = self.path.invoke(value, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 302, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\Factory\multi_agent_workflow.py", line 76, in <lambda>
+    "supervisor", lambda x: x["next"], conditional_map
+                            ~^^^^^^^^
+KeyError: 'next'
+During task with name 'supervisor' and id '06b35099-d680-bd1d-a0a9-270f68e9f859'
+2025-03-20 10:35:24,830 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-03-20 10:35:24,832 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-03-20 10:35:35,134 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 10:35:35,836 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 10:35:37,743 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 10:36:02,809 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 10:36:02,811 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 10:36:51,514 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-20 10:36:51,516 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 10:37:43,311 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 10:37:43,313 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 10:39:43,951 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 10:39:43,953 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 10:39:45,930 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:39:54,269 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:40:00,789 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:43:01,303 - app.api.chatbot - ERROR - Error processing request: 'next'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 548, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\graph\graph.py", line 94, in _route
+    result = self.path.invoke(value, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 302, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\Factory\multi_agent_workflow.py", line 76, in <lambda>
+    "supervisor", lambda x: x["next"], conditional_map
+                            ~^^^^^^^^
+KeyError: 'next'
+During task with name 'supervisor' and id 'a1bd9277-0e70-595b-b225-996a7f938bc2'
+2025-03-20 10:43:57,719 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 10:43:57,722 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 10:43:59,192 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:44:01,243 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:44:05,999 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 10:47:02,041 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-03-20 10:47:02,042 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-03-20 10:47:03,924 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 10:47:04,715 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 10:47:06,693 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 10:50:10,100 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 10:50:10,101 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 10:50:22,813 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-20 10:50:22,817 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 10:50:25,616 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 10:50:25,617 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 11:41:08,743 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 11:41:08,745 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 11:41:08,749 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 11:41:09,428 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 11:41:11,707 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 11:43:31,199 - app.api.chatbot - ERROR - Error processing request: 'next'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 548, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\graph\graph.py", line 94, in _route
+    result = self.path.invoke(value, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 302, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\Factory\multi_agent_workflow.py", line 76, in <lambda>
+    "supervisor", lambda x: x["next"], conditional_map
+                            ~^^^^^^^^
+KeyError: 'next'
+During task with name 'supervisor' and id 'b1e7fd28-b085-72dc-8b7e-733056b9afbc'
+2025-03-20 11:44:20,769 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-03-20 11:44:20,771 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-03-20 11:44:20,774 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 11:44:21,485 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 11:44:23,305 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 11:45:33,431 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 11:45:33,433 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 12:03:32,315 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 12:03:32,317 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 12:03:32,319 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:03:33,024 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:03:35,132 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:05:40,746 - app.services.agent.supervisor_agent - ERROR - Error processing supervisor routing decision: Unsupported function
+
+{'messages': [HumanMessage(content='how many users we have', additional_kwargs={}, response_metadata={})]}
+
+Functions must be passed in as Dict, pydantic.BaseModel, or Callable. If they're a dict they must either be in OpenAI function format or valid JSON schema with top-level 'title' and 'description' keys.
+2025-03-20 12:06:00,209 - app.api.chatbot - ERROR - Error processing request: Supervisor routing error.
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\supervisor_agent.py", line 114, in __call__
+    dict_schema = convert_to_openai_tool(state)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\utils\function_calling.py", line 537, in convert_to_openai_tool
+    oai_function = convert_to_openai_function(tool, strict=strict)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\utils\function_calling.py", line 471, in convert_to_openai_function
+    raise ValueError(msg)
+ValueError: Unsupported function
+
+{'messages': [HumanMessage(content='how many users we have', additional_kwargs={}, response_metadata={})]}
+
+Functions must be passed in as Dict, pydantic.BaseModel, or Callable. If they're a dict they must either be in OpenAI function format or valid JSON schema with top-level 'title' and 'description' keys.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 546, in invoke
+    input = step.invoke(input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\supervisor_agent.py", line 123, in __call__
+    raise Exception("Supervisor routing error.")
+Exception: Supervisor routing error.
+During task with name 'supervisor' and id '01bf4aa8-81c9-8a90-2c91-91cd1e92cb3e'
+2025-03-20 12:08:09,260 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 12:08:09,264 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 12:08:09,265 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 12:08:09,267 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 12:08:09,269 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:08:09,271 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:08:10,128 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:08:10,138 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:08:12,234 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:08:12,255 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 12:10:49,170 - app.api.chatbot - ERROR - Error processing request: 'next'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 548, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\graph\graph.py", line 94, in _route
+    result = self.path.invoke(value, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 302, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\Factory\multi_agent_workflow.py", line 76, in <lambda>
+    "supervisor", lambda x: x["next"], conditional_map
+                            ~^^^^^^^^
+KeyError: 'next'
+During task with name 'supervisor' and id 'ea47ac38-1fa8-1581-f140-f89751fa7552'
+2025-03-20 12:11:58,293 - app.api.chatbot - ERROR - Error processing request: 'next'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 548, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\graph\graph.py", line 94, in _route
+    result = self.path.invoke(value, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 302, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\Factory\multi_agent_workflow.py", line 76, in <lambda>
+    "supervisor", lambda x: x["next"], conditional_map
+                            ~^^^^^^^^
+KeyError: 'next'
+During task with name 'supervisor' and id '504a3075-c16b-b369-81fb-63f1ed49c04c'
+2025-03-20 12:12:46,550 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-03-20 12:12:46,552 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-03-20 12:12:46,555 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 12:12:47,333 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 12:12:49,234 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 12:14:59,669 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 12:14:59,671 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 12:15:04,915 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-20 12:15:04,918 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 12:15:05,589 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 12:15:05,590 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 16:50:24,943 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-03-20 16:50:24,944 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-03-20 16:50:24,948 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 16:50:38,698 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 16:51:36,279 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 16:51:36,282 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 16:51:36,287 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 16:51:44,282 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 16:51:47,516 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 16:53:14,292 - app.api.chatbot - ERROR - Error processing request: 'next'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 548, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\graph\graph.py", line 94, in _route
+    result = self.path.invoke(value, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 302, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\Factory\multi_agent_workflow.py", line 76, in <lambda>
+    "supervisor", lambda x: x["next"], conditional_map
+                            ~^^^^^^^^
+KeyError: 'next'
+During task with name 'supervisor' and id '1d673e45-8dc8-4f8e-06fc-980bae4d4994'
+2025-03-20 17:57:36,354 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.2
+2025-03-20 17:57:36,356 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.2
+2025-03-20 17:57:42,336 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 17:57:43,066 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 17:57:44,931 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.2
+2025-03-20 17:58:11,149 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 17:58:23,356 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 17:59:39,637 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-20 18:00:00,958 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 18:00:57,380 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 18:01:01,421 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 18:03:50,155 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-03-20 18:03:50,157 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-03-20 18:03:54,923 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 18:03:55,716 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 18:03:58,003 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-20 18:04:15,127 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 18:04:15,128 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 18:04:20,526 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-20 18:04:20,530 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 18:04:23,407 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 18:04:23,407 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 18:04:38,074 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 18:04:38,076 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 18:04:45,697 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-03-20 18:04:45,703 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 18:04:51,160 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-20 18:04:51,162 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-20 18:09:02,972 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: deepseek-r1:14b
+2025-03-20 18:09:02,975 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: deepseek-r1:14b
+2025-03-20 18:09:05,016 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: deepseek-r1:14b
+2025-03-20 18:09:05,758 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: deepseek-r1:14b
+2025-03-20 18:09:07,489 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: deepseek-r1:14b
+2025-03-20 18:09:36,049 - app.services.agent.supervisor_agent - ERROR - Error processing supervisor routing decision: registry.ollama.ai/library/deepseek-r1:14b does not support tools (status code: 400)
+2025-03-20 18:09:36,055 - app.api.chatbot - ERROR - Error processing request: Supervisor routing error.
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\supervisor_agent.py", line 113, in __call__
+    routing_decision = routing_chain.invoke(state)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3029, in invoke
+    input = context.run(step.invoke, input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\runnables\base.py", line 5365, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 307, in invoke
+    self.generate_prompt(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 843, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 683, in generate
+    self._generate_with_cache(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 908, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 701, in _generate
+    final_chunk = self._chat_stream_with_aggregation(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 602, in _chat_stream_with_aggregation
+    for stream_resp in self._create_chat_stream(messages, stop, **kwargs):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 589, in _create_chat_stream
+    yield from self._client.chat(**chat_params)
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\ollama\_client.py", line 168, in inner
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: registry.ollama.ai/library/deepseek-r1:14b does not support tools (status code: 400)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 546, in invoke
+    input = step.invoke(input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\supervisor_agent.py", line 119, in __call__
+    raise Exception("Supervisor routing error.")
+Exception: Supervisor routing error.
+During task with name 'supervisor' and id '09f5ca8c-625e-1c09-ca48-97cdcf865a37'
+2025-03-27 11:19:32,186 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: mixtral:8x7b-instruct-v0.1-q4_0
+2025-03-27 11:19:32,239 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: mixtral:8x7b-instruct-v0.1-q4_0
+2025-03-27 11:19:44,405 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: mixtral:8x7b-instruct-v0.1-q4_0
+2025-03-27 11:19:47,801 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: mixtral:8x7b-instruct-v0.1-q4_0
+2025-03-27 11:19:54,181 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: mixtral:8x7b-instruct-v0.1-q4_0
+2025-03-27 11:20:25,622 - app.services.agent.supervisor_agent - ERROR - Error processing supervisor routing decision: registry.ollama.ai/library/mixtral:8x7b-instruct-v0.1-q4_0 does not support tools (status code: 400)
+2025-03-27 11:20:25,627 - app.api.chatbot - ERROR - Error processing request: Supervisor routing error.
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\supervisor_agent.py", line 113, in __call__
+    routing_decision = routing_chain.invoke(state)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\runnables\base.py", line 3029, in invoke
+    input = context.run(step.invoke, input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\runnables\base.py", line 5365, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 307, in invoke
+    self.generate_prompt(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 843, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 683, in generate
+    self._generate_with_cache(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 908, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 701, in _generate
+    final_chunk = self._chat_stream_with_aggregation(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 602, in _chat_stream_with_aggregation
+    for stream_resp in self._create_chat_stream(messages, stop, **kwargs):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_ollama\chat_models.py", line 589, in _create_chat_stream
+    yield from self._client.chat(**chat_params)
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\ollama\_client.py", line 168, in inner
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: registry.ollama.ai/library/mixtral:8x7b-instruct-v0.1-q4_0 does not support tools (status code: 400)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 546, in invoke
+    input = step.invoke(input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\supervisor_agent.py", line 119, in __call__
+    raise Exception("Supervisor routing error.")
+Exception: Supervisor routing error.
+During task with name 'supervisor' and id '8863deec-7a9a-9ec3-858d-65328554d918'
+2025-03-27 12:25:03,122 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:25:03,125 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:25:06,695 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:25:07,402 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:25:09,294 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:27:16,473 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-27 12:27:19,942 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-27 12:38:07,986 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-27 12:38:07,989 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-27 12:39:55,875 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-27 12:39:55,876 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-27 12:45:56,118 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-03-27 12:45:56,120 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-03-27 12:45:59,624 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-27 12:46:01,607 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-27 12:46:05,855 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-03-27 12:46:18,535 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-27 12:46:21,999 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-03-27 12:46:25,823 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-27 12:46:40,738 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-27 12:46:42,165 - app.api.chatbot - INFO - Agent: SqlAgent, Content: There are 6 users in the database.
+2025-03-27 12:46:42,172 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-27 12:46:44,032 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-27 12:46:44,040 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-03-27 12:46:44,042 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-27 12:46:47,635 - app.api.chatbot - INFO - response: There are 6 users in the database.
+2025-03-27 12:48:41,822 - app.api.chatbot - INFO - Initializing chatbot service with provider: ollama, model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:48:41,823 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: ollama, model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:48:46,154 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:48:47,907 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:48:51,803 - app.services.llm.llm_provider - INFO - Creating Ollama LLM with model: llama3.1:8b-instruct-q4_0
+2025-03-27 12:51:30,950 - app.api.chatbot - ERROR - Error processing request: 'next'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\__init__.py", line 1779, in stream
+    for _ in runner.tick(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\runner.py", line 230, in tick
+    run_with_retry(
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 548, in invoke
+    input = step.invoke(input, config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 310, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\graph\graph.py", line 94, in _route
+    result = self.path.invoke(value, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langgraph\utils\runnable.py", line 302, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\Factory\multi_agent_workflow.py", line 76, in <lambda>
+    "supervisor", lambda x: x["next"], conditional_map
+                            ~^^^^^^^^
+KeyError: 'next'
+During task with name 'supervisor' and id '804d3193-d5a8-5ed4-f63f-c09bcb7fdf7a'

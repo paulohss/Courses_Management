@@ -78,7 +78,7 @@ class SupervisorAgent:
                 ("system", system_prompt),
                 MessagesPlaceholder(variable_name="messages"),
                 (
-                    "system",
+                    "user",
                     "Given the conversation above, who should act next?" 
                     " Or should we FINISH? Select one of: {options}"
                 ),
@@ -86,6 +86,7 @@ class SupervisorAgent:
         ).partial(options=str(self.options), members=", ".join(self.members))
         
         self.llm = LLMFactory.get_instance().get_llm(provider, model_name)
+
     
     
     #--------------------------------------------------------------------------------

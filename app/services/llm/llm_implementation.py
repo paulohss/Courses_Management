@@ -1,5 +1,5 @@
 from langchain_openai import ChatOpenAI
-from langchain_community.chat_models import ChatOllama
+from langchain_ollama import ChatOllama
 from app.services.llm.llm_provider import LLMProvider
 
 
@@ -33,4 +33,4 @@ class OllamaProvider(LLMProvider):
         return ChatOllama(model=model_name, base_url=self.base_url)
     
     def get_available_models(self):
-        return ["llama3.2", "deepseek-r1:14b"]
+        return ["llama3.1:8b-instruct-q4_0","llama3.2", "deepseek-r1:14b"]

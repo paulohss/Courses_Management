@@ -75,17 +75,20 @@ def process_message():
                         
                         message_content = message.content
                         print(message_content)
-                        conversation_history.append({"agent": agent_name,"content": message_content})                        
+                        conversation_history.append({"agent": agent_name,"content": message_content})   
+                        logger.info(f"Agent: {agent_name}, Content: {message_content}")                     
                         if str(response) != FINISH:
                             final_response = message_content                
                 else:                
                     # Handle direct content format                    
                     conversation_history.append({"agent": agent_name, "content": response })                      
+                    logger.info(f"Agent: {agent_name}, Content: {response}")
                     if str(response) != FINISH:
                        final_response = response                  
                 
                 logger.info("---- End of Response ---")
 
+        logger.info("FINAL response: " + final_response)
         return jsonify({'response': final_response}), 200
 
 
