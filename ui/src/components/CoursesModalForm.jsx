@@ -6,6 +6,7 @@ export default function CoursesModalForm({ isOpen, onClose, mode, onSubmit, cour
     const [id, setId] = useState(''); // State for ID
     const [name, setName] = useState(''); // State for Name
     const [recurrent, setRecurrent] = useState(''); // State for Recurrent
+    const [cost, setCost] = useState(''); // State for cost
     const [roles, setRoles] = useState([]); // State for Roles linked to the Course
     const [shouldClose, setShouldClose] = useState(true); // State to close the modal
 
@@ -16,7 +17,11 @@ export default function CoursesModalForm({ isOpen, onClose, mode, onSubmit, cour
         e.preventDefault();
         try {
             console.log("CoursesModalForm.handleSubmit() mode:" + mode);
-            const newCourseData = { name, recurrent };
+            const newCourseData = { 
+                name, 
+                recurrent, 
+                cost: cost === '' ? null : parseFloat(cost) 
+            };
             console.log(newCourseData)
             await onSubmit(newCourseData);
         } catch (error) {
@@ -36,6 +41,7 @@ export default function CoursesModalForm({ isOpen, onClose, mode, onSubmit, cour
             setId(course.id);
             setName(course.name);
             setRecurrent(course.recurrent);
+            setCost(course.cost !== null ? course.cost : ''); 
             setRoles(course.rolesList);
         } catch (error) {
             console.error('Error fetching course data', error);
@@ -101,6 +107,7 @@ export default function CoursesModalForm({ isOpen, onClose, mode, onSubmit, cour
             setId('');
             setName('');
             setRecurrent('None');
+            setCost('');
             setRoles([]);
             fetchAllRoles();
         }
@@ -128,8 +135,22 @@ export default function CoursesModalForm({ isOpen, onClose, mode, onSubmit, cour
                             Recurrent
                             <select className="grow" value={recurrent} onChange={(e) => setRecurrent(e.target.value)}>
                                 <option value="Annual">Annual</option>
-                                <option value="None">None</option>
+                                <option value="Quarterty">Quarterty</option>                                
+                                <option value="None">None</option>                                
                             </select>
+                        </label>
+
+                        {/* Field: COST */}
+                        <label className="input input-bordered flex items-center my-4 gap-2">
+                            Cost
+                            <input 
+                                type="number" 
+                                step="0.01" 
+                                className="grow" 
+                                value={cost} 
+                                onChange={(e) => setCost(e.target.value)}
+                                placeholder="Enter course cost"
+                            />
                         </label>
 
                         {/*Table: ROLES */}

@@ -11,7 +11,7 @@ course_service = CourseService()
 @bp.route('/courses', methods=['POST'])
 def create_course():
     data = request.json
-    new_course = course_service.create_course(data['name'], data['recurrent'])
+    new_course = course_service.create_course(data['name'], data['recurrent'], data['cost'])
     return jsonify({'message': 'Course created successfully', 'id': new_course.id}), 201
 
 
@@ -21,7 +21,12 @@ def create_course():
 @bp.route('/courses', methods=['GET'])
 def get_courses():
     courses = course_service.get_all_courses()
-    return jsonify([{'id': course.id, 'name': course.name, 'recurrent': course.recurrent} for course in courses])
+    return jsonify([{
+        'id': course.id, 
+        'name': course.name, 
+        'recurrent': course.recurrent,
+        'cost': float(course.cost) if course.cost is not None else None
+    } for course in courses])
 
 
 #-------------------------------------------------------------------------------
@@ -30,7 +35,13 @@ def get_courses():
 @bp.route('/courses/<int:id>', methods=['GET'])
 def get_courses_by_id(id): 
     course = course_service.get_course_by_id(id)
-    return jsonify({'id': course.id, 'name': course.name, 'recurrent': course.recurrent, 'rolesList': course.roles})
+    return jsonify({
+        'id': course.id, 
+        'name': course.name, 
+        'recurrent': course.recurrent, 
+        'cost': float(course.cost) if course.cost is not None else None,
+        'rolesList': course.roles
+    })
 
 #-------------------------------------------------------------------------------
 # Get a course by id
@@ -38,7 +49,7 @@ def get_courses_by_id(id):
 @bp.route('/courses/<int:id>', methods=['PUT'])
 def update_course(id):
     data = request.json
-    updated_course = course_service.update_course(id, data['name'], data['recurrent'])
+    updated_course = course_service.update_course(id, data['name'], data['recurrent'], data['cost'])
     if updated_course:
         return jsonify({'message': 'Course updated successfully'})
     return jsonify({'message': 'Course not found'}), 404

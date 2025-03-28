@@ -14,25 +14,35 @@ class CourseService:
         # Initialize logger
         self.logger = LoggerService.get_instance().get_logger(__name__)
     
+
+    #-------------------------------------------------------------------------------
+    # Fields Validation
+    #-------------------------------------------------------------------------------        
+    def validateFields(self, name, recurrent, cost):
+        if not name or not name.strip():
+            self.logger.warning(f"Course creation failed: Empty name provided")
+            abort(400, 'Name must be provided for a Course!')
+            
+        if not len(recurrent.strip()) > 1:
+            if recurrent not in ('Annual', 'Quarterty', 'None'):
+                self.logger.warning(f"Course creation failed: Invalid recurrence '{recurrent}'")
+                abort(400, 'Recurrence must be [Annual], [Quarterty] or [None]!')
+                   
+        if cost is None or not isinstance(cost, (int, float)):
+            self.logger.warning(f"Course creation failed: Invalid cost '{cost}'")
+            abort(400, 'Cost must be a valid number!')    
     
     
     #-------------------------------------------------------------------------------
     # Create a new course
     #-------------------------------------------------------------------------------    
-    def create_course(self, name, recurrent):
+    def create_course(self, name, recurrent, cost):
         try:
             # Validation
-            if not name or not name.strip():
-                self.logger.warning(f"Course creation failed: Empty name provided")
-                abort(400, 'Name must be provided for a Course!')
-            
-            if not len(recurrent.strip()) > 1:
-                if recurrent not in ('Annual', 'Quarterty', 'None'):
-                    self.logger.warning(f"Course creation failed: Invalid recurrence '{recurrent}'")
-                    abort(400, 'Recurrence must be [Annual], [Quarterty] or [None]!')
+            self.validateFields(name, recurrent, cost)
             
             # Action
-            course = Course(name=name, recurrent=recurrent)
+            course = Course(name=name, recurrent=recurrent, cost=cost)
             db.session.add(course)
             db.session.commit()
             return course
@@ -40,8 +50,7 @@ class CourseService:
         except Exception as e:
             db.session.rollback()
             self.logger.error(f"Error creating course '{name}': {str(e)}")
-            raise
-        
+            raise      
         
 
     #-------------------------------------------------------------------------------
@@ -103,24 +112,17 @@ class CourseService:
     #-------------------------------------------------------------------------------
     # Update a course
     #-------------------------------------------------------------------------------    
-    def update_course(self, id, name, recurrent):
+    def update_course(self, id, name, recurrent, cost):
         try:
             # Validation
-            if id is None or id <= 0:
-                abort(400, 'Id must be provided for a Course!')
-            
-            if not name or not name.strip():
-                abort(400, 'Name must be provided for a Course!')
-            
-            if not len(recurrent.strip()) > 1:
-                if recurrent not in ('Annual', 'Quarterty', 'None'):
-                    abort(400, 'Recurrence must be [Annual], [Quarterty] or [None]!')
+            self.validateFields(name, recurrent, cost)
             
             # Action
             course = self.get_course_by_id(id)
             if course:
                 course.name = name
                 course.recurrent = recurrent
+                course.cost = cost 
                 db.session.commit()
                 return course
             else:

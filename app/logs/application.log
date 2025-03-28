@@ -697,3 +697,5 @@ Traceback (most recent call last):
                             ~^^^^^^^^
 KeyError: 'next'
 During task with name 'supervisor' and id '804d3193-d5a8-5ed4-f63f-c09bcb7fdf7a'
+2025-03-28 18:06:51,821 - app.services.course_service - WARNING - Course creation failed: Invalid cost 'None'
+2025-03-28 18:06:57,042 - app.services.course_service - ERROR - Error updating course 'Leadership Fundamentals': 400 Bad Request: Cost must be a valid number!
