@@ -699,3 +699,30 @@ KeyError: 'next'
 During task with name 'supervisor' and id '804d3193-d5a8-5ed4-f63f-c09bcb7fdf7a'
 2025-03-28 18:06:51,821 - app.services.course_service - WARNING - Course creation failed: Invalid cost 'None'
 2025-03-28 18:06:57,042 - app.services.course_service - ERROR - Error updating course 'Leadership Fundamentals': 400 Bad Request: Cost must be a valid number!
+2025-03-28 18:36:44,239 - app.services.user_service - WARNING - Email already in use: test@au.com.br
+2025-03-28 18:36:44,241 - app.services.user_service - ERROR - Error updating User: 400 Bad Request: Email already in use!
+2025-03-28 18:40:39,701 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-3.5-turbo
+2025-03-28 18:40:39,703 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-3.5-turbo
+2025-03-28 18:40:46,956 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-3.5-turbo
+2025-03-28 18:40:47,570 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-3.5-turbo
+2025-03-28 18:40:49,307 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-3.5-turbo
+2025-03-28 18:40:53,674 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-28 18:40:53,675 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-03-28 18:40:53,677 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-28 18:40:55,820 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-28 18:40:55,822 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The email of the user 'Novin' is paulohssgames@gmail.com.
+2025-03-28 18:40:55,824 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-28 18:40:57,831 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-28 18:40:57,832 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-03-28 18:40:57,833 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-28 18:41:01,140 - app.api.chatbot - INFO - FINAL response: The email of the user 'Novin' is paulohssgames@gmail.com.
+2025-03-28 18:42:03,126 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-28 18:42:03,128 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-03-28 18:42:03,129 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-28 18:42:04,631 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-03-28 18:42:04,634 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The cost of the course 'Agile Methodologies' is $2500.00.
+2025-03-28 18:42:04,638 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-28 18:42:05,249 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-03-28 18:42:05,250 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-03-28 18:42:05,251 - app.api.chatbot - INFO - ---- End of Response ---
+2025-03-28 18:42:05,253 - app.api.chatbot - INFO - FINAL response: The cost of the course 'Agile Methodologies' is $2500.00.

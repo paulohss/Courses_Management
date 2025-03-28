@@ -19,11 +19,26 @@ class UserService:
     #-------------------------------------------------------------------------------
     # Validation method
     #-------------------------------------------------------------------------------
-    def validate_user(self, name, role_id):
+    def validate_user(self, name, role_id, email, id):
         if not name or not name.strip():
             self.logger.warning('Name must be provided for a User!')
             abort(400, 'Name must be provided for a User!')
-            
+
+        if not email or not email.strip():
+            self.logger.warning('Email must be provided for a User!')
+            abort(400, 'Email must be provided for a User!')
+        
+        # Basic email validation
+        if '@' not in email or '.' not in email:
+            self.logger.warning(f'Invalid email format: {email}')
+            abort(400, 'Invalid email format!')
+        
+        # Check for duplicate email (except for the user being updated)
+        existing_user = User.query.filter_by(email=email).first()
+        if existing_user and existing_user.id != id:
+            self.logger.warning(f'Email already in use: {email}')
+            abort(400, 'Email already in use!')
+                    
         if not role_id or role_id <= 0:
             self.logger.warning(f'Invalid Role ID [{role_id}] provided!')
             abort(400, 'Invalid Role ID provided!')
@@ -38,13 +53,13 @@ class UserService:
     #-------------------------------------------------------------------------------
     # Create / Add new user
     #-------------------------------------------------------------------------------        
-    def create_user(self, name, role_id):
+    def create_user(self, name, role_id, email):
         # Validation:
-        self.validate_user(name, role_id)
+        self.validate_user(name, role_id, email, 0)
 
         # Action:
         try:
-            new_user = User(name=name, fk_role_id=role_id)
+            new_user = User(name=name, fk_role_id=role_id, email=email)
             db.session.add(new_user)
             db.session.commit()
             return new_user
@@ -109,7 +124,7 @@ class UserService:
                     user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': False})
             
             if user:
-                return {'id': user.id,'name': user.name,'role_id': user.fk_role_id,'role_name': user.role.name,'user_course_list': user_course_list}
+                return {'id': user.id,'name': user.name, 'email': user.email, 'role_id': user.fk_role_id,'role_name': user.role.name,'user_course_list': user_course_list}
             
             return None
         
@@ -122,20 +137,21 @@ class UserService:
     #-------------------------------------------------------------------------------
     # Update user
     #-------------------------------------------------------------------------------    
-    def update_user(self, id, name, role_id):
+    def update_user(self, id, name, role_id, email):
         try:
             # Validation:
             if id <= 0:
                 self.logger.warning('Invalid User ID provided!')
                 abort(400, 'Invalid User ID provided!')
             
-            self.validate_user(name, role_id)
+            self.validate_user(name, role_id, email, id)
             
             # Action:
             user = User.query.get(id)
             if user:
                 user.name = name
                 user.fk_role_id = role_id
+                user.email = email
                 db.session.commit()
                 return user
             else:

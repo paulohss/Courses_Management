@@ -10,9 +10,9 @@ user_service = UserService()
 @bp.route('/users', methods=['POST'])
 def create_user():
     data = request.json
-    if not data or 'name' not in data or 'role_id' not in data:
+    if not data or 'name' not in data or 'role_id' not in data or 'email' not in data:
         return jsonify({'message': 'Invalid data'}), 400
-    new_user = user_service.create_user(data['name'], data['role_id'])
+    new_user = user_service.create_user(data['name'], data['role_id'], data['email'])
     return jsonify({'message': 'User created successfully', 'id': new_user.id}), 201
 
 #-------------------------------------------------------------------------------
@@ -25,6 +25,7 @@ def get_users():
         {
             'id': user.id,
             'name': user.name,
+            'email': user.email,
             'role': {
                 'id': user.role.id,
                 'name': user.role.name
@@ -43,6 +44,7 @@ def get_user_by_id(id):
         return jsonify({
             'id': user['id'],
             'name': user['name'],
+            'email': user['email'],
             'role': {
                 'id': user['role_id'],
                 'name': user['role_name']
@@ -57,10 +59,10 @@ def get_user_by_id(id):
 @bp.route('/users/<int:id>', methods=['PUT'])
 def update_user(id):
     data = request.json
-    if not data or 'name' not in data or 'role_id' not in data:
+    if not data or 'name' not in data or 'role_id' not in data or 'email' not in data:
         return jsonify({'message': 'Invalid data'}), 400
     
-    updated_user = user_service.update_user(id, data['name'], data['role_id'])
+    updated_user = user_service.update_user(id, data['name'], data['role_id'], data['email'])
     if updated_user:
         return jsonify({'message': 'User updated successfully'})
     return jsonify({'message': 'User not found'}), 404

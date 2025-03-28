@@ -7,6 +7,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
 
     const [id, setId] = useState(''); // State for Id
     const [name, setName] = useState(''); // State for Name
+    const [email, setEmail] = useState(''); // State for Email
     const [roleId, setRoleId] = useState(''); // State for Role ID
     const [roles, setRoles] = useState([]); // State for Roles LIST
     const [userCourses, setUserCourses] = useState([]); // State for User Courses
@@ -20,6 +21,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
         setId('');
         setName('');
         setRoleId('');
+        setEmail('');
         setUserCourses([]);
     };
 
@@ -38,7 +40,11 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
         e.preventDefault();
         try {
             console.log("ModalForm.handleSubmit() mode:" + mode);
-            const newUserData = { name, role_id: Number(roleId) };
+            const newUserData = { 
+                name, 
+                email, 
+                role_id: Number(roleId) 
+            };
             console.log(newUserData)
             await onSubmit(newUserData);
         } catch (error) {
@@ -69,6 +75,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
             const user = response.data;
             setId(user.id);
             setName(user.name);
+            setEmail(user.email); 
             setRoleId(user.role.id);
             setUserCourses(user.userCourseList);
         } catch (error) {
@@ -168,6 +175,18 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
                             <input type="text" className="grow" value={name} onChange={(e) => setName(e.target.value)} />
                         </label>
 
+                       {/* Field: EMAIL - Add this field */}
+                       <label className="input input-bordered flex items-center my-4 gap-2">
+                            Email
+                            <input 
+                                type="email" 
+                                className="grow" 
+                                value={email} 
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="user@example.com"
+                            />
+                        </label>
+                        
                         {/* Field: ROLE */}
                         <div className="flex mb-4 justify-between">
                             <select className="select select-bordered w-full max-w-xs" value={roleId} onChange={(e) => setRoleId(e.target.value)}>

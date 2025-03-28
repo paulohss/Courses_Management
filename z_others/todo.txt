@@ -1,13 +1,16 @@
 
 tables
 - add email
-- add course cost
 
+
+LLM
 - add llama
-
 - add paper form (pdf) reader to add info to db
-
 - add email with letter tone
+- add Langsmith
+
+
+
 
 - Add user
   -> Save User First?
