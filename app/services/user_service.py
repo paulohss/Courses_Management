@@ -133,6 +133,61 @@ class UserService:
             raise
 
 
+    #-------------------------------------------------------------------------------
+    # Get user by Name
+    #-------------------------------------------------------------------------------    
+    def get_user_by_name(self, name):
+        try:
+            if not name or not name.strip():
+                self.logger.warning('Name must be provided for a User!')
+                abort(400, 'Name must be provided for a User!')
+                                    
+            # Query the database for a user with a matching name (case-insensitive)
+            user = User.query.filter(User.name.ilike(f"%{name}%")).first()
+            
+            if user:
+                #Get courses attended by user
+                user_courses = UserCourse.query\
+                    .join(Course, UserCourse.fk_course_id == Course.id)\
+                    .filter(UserCourse.fk_user_id == user.id)\
+                    .order_by(Course.name)\
+                    .all()
+                    
+                courses_attented = [Course.query.get(uc.fk_course_id) for uc in user_courses]
+                
+                #Get courses available for user
+                role_courses = RoleCourse.query\
+                    .join(Course, RoleCourse.fk_course_id == Course.id)\
+                    .filter(RoleCourse.fk_role_id == user.fk_role_id)\
+                    .order_by(Course.name)\
+                    .all()
+                    
+                courses_avaiable = [Course.query.get(rc.fk_course_id) for rc in role_courses]
+                
+                # Merge courses_attented and courses_avaiable, avoiding duplicates
+                course_ids = set()
+                user_course_list = []
+                
+                for course in courses_attented:
+                    course_ids.add(course.id)
+                    user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': True})
+                        
+                for course in courses_avaiable:
+                    if course.id not in course_ids:
+                        course_ids.add(course.id)
+                        user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': False})
+                
+                if user:
+                    return {'id': user.id,'name': user.name, 'email': user.email, 'role_id': user.fk_role_id,'role_name': user.role.name,'user_course_list': user_course_list}
+            else:            
+                return None
+        
+        except Exception as e:
+            self.logger.error(f"Error getting User by ID: {str(e)}")
+            raise
+
+
+
 
     #-------------------------------------------------------------------------------
     # Update user

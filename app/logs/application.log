@@ -726,3 +726,372 @@ During task with name 'supervisor' and id '804d3193-d5a8-5ed4-f63f-c09bcb7fdf7a'
 2025-03-28 18:42:05,250 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
 2025-03-28 18:42:05,251 - app.api.chatbot - INFO - ---- End of Response ---
 2025-03-28 18:42:05,253 - app.api.chatbot - INFO - FINAL response: The cost of the course 'Agile Methodologies' is $2500.00.
+2025-04-07 11:24:07,058 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-3.5-turbo
+2025-04-07 11:24:07,060 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-3.5-turbo
+2025-04-07 11:24:07,067 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-3.5-turbo
+2025-04-07 11:24:07,727 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-3.5-turbo
+2025-04-07 11:24:09,662 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-3.5-turbo
+2025-04-07 11:24:17,955 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:24:17,956 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-07 11:24:17,958 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:24:19,785 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-07 11:24:19,788 - app.api.chatbot - INFO - Agent: SqlAgent, Content: There are XX users in the database.
+2025-04-07 11:24:19,790 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:24:20,327 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:24:20,330 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-07 11:24:20,332 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:24:20,336 - app.api.chatbot - INFO - FINAL response: There are XX users in the database.
+2025-04-07 11:25:23,983 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:25:23,984 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-07 11:25:23,986 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:25:25,507 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-07 11:25:25,511 - app.api.chatbot - INFO - Agent: SqlAgent, Content: There are 6 users in the database.
+2025-04-07 11:25:25,513 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:25:26,010 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:25:26,011 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-07 11:25:26,012 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:25:26,014 - app.api.chatbot - INFO - FINAL response: There are 6 users in the database.
+2025-04-07 11:41:31,587 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:41:31,588 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-07 11:41:31,589 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:41:32,895 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-07 11:41:32,897 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Sarah Wilson's email is paulohssgames@gmail.com"
+2025-04-07 11:41:32,898 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:41:33,424 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:41:33,425 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-07 11:41:33,427 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:41:33,428 - app.api.chatbot - INFO - FINAL response: Sarah Wilson's email is paulohssgames@gmail.com"
+2025-04-07 11:48:32,799 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:48:32,800 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-07 11:48:32,801 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:48:37,781 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-07 11:48:37,783 - app.api.chatbot - INFO - Agent: SqlAgent, Content: SELECT TOP 5 * FROM Course WHERE Name LIKE '%HR%' AND Recurrent = 'Online'
+2025-04-07 11:48:37,784 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:48:38,272 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:48:38,273 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-07 11:48:38,274 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:48:38,276 - app.api.chatbot - INFO - FINAL response: SELECT TOP 5 * FROM Course WHERE Name LIKE '%HR%' AND Recurrent = 'Online'
+2025-04-07 11:53:01,913 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-07 11:53:01,915 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-07 11:53:01,918 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-07 11:53:02,560 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-07 11:53:04,330 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-07 11:53:13,519 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:53:13,521 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'Researcher'}
+2025-04-07 11:53:13,523 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:53:35,710 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-04-07 11:53:35,714 - app.api.chatbot - INFO - Agent: Researcher, Content: Here are the top 5 HR courses in universities at NSW, Australia according to research:
+
+1. **La Trobe University:** This university offers full time, part-time, online and distance learning options for Human Resource Management courses. The HRM course at La Trobe University is globally recognized. It ranks 251 in the world. ([Source](https://www.hotcoursesabroad.com/study/training-degrees/new-south-wales/human-resources-courses/loc/1/cgory/d5-3/sin/ct/programs.html))
+
+2. **University of New South Wales (UNSW):** The University offers several undergraduate and postgraduate degrees in Human Resource Management with strong industry partnerships. UNSW Business School is consistently ranked as one of Australia’s top business education hubs. ([Source](https://www.unsw.edu.au/business/study-with-us/study-areas/Human-resource-management))
+
+3. **University of Sydney:** The University of Sydney HRM programs provide students with a solid understanding of key human resource management, employment, and ethical issues. (Sources: [Hotcourses](https://www.hotcoursesabroad.com/study/training-degrees/new-south-wales/human-resources-courses/loc/1/cgory/d5-3/sin/ct/programs.html), [DegreesandCareers](https://degreesandcareers.info/resources/human-resource-management-2/))
+
+4. **University of Technology Sydney:** They offer a Master's degree in Human Resource Management. The degree focuses on developing an understanding of contemporary human resource management issues. They also offer a Graduate Diploma in Human Resource Management. Both programs are available as full time or part time and are conducted on-campus. ([Source](https://www.educations.com/human-resources/australia))
+
+5. **University of Wollongong:** The University offers a Master of Human Resource Management. This course is designed to help the students navigate the modern workplace challenges and lead with a competitive edge. ([Source](https://www.uow.edu.au/study/courses/master-of-human-resource-management/))
+
+2025-04-07 11:53:35,718 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:53:40,596 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 11:53:40,598 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-07 11:53:40,600 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 11:53:42,002 - app.api.chatbot - INFO - FINAL response: Here are the top 5 HR courses in universities at NSW, Australia according to research:
+
+1. **La Trobe University:** This university offers full time, part-time, online and distance learning options for Human Resource Management courses. The HRM course at La Trobe University is globally recognized. It ranks 251 in the world. ([Source](https://www.hotcoursesabroad.com/study/training-degrees/new-south-wales/human-resources-courses/loc/1/cgory/d5-3/sin/ct/programs.html))
+
+2. **University of New South Wales (UNSW):** The University offers several undergraduate and postgraduate degrees in Human Resource Management with strong industry partnerships. UNSW Business School is consistently ranked as one of Australia’s top business education hubs. ([Source](https://www.unsw.edu.au/business/study-with-us/study-areas/Human-resource-management))
+
+3. **University of Sydney:** The University of Sydney HRM programs provide students with a solid understanding of key human resource management, employment, and ethical issues. (Sources: [Hotcourses](https://www.hotcoursesabroad.com/study/training-degrees/new-south-wales/human-resources-courses/loc/1/cgory/d5-3/sin/ct/programs.html), [DegreesandCareers](https://degreesandcareers.info/resources/human-resource-management-2/))
+
+4. **University of Technology Sydney:** They offer a Master's degree in Human Resource Management. The degree focuses on developing an understanding of contemporary human resource management issues. They also offer a Graduate Diploma in Human Resource Management. Both programs are available as full time or part time and are conducted on-campus. ([Source](https://www.educations.com/human-resources/australia))
+
+5. **University of Wollongong:** The University offers a Master of Human Resource Management. This course is designed to help the students navigate the modern workplace challenges and lead with a competitive edge. ([Source](https://www.uow.edu.au/study/courses/master-of-human-resource-management/))
+
+2025-04-07 18:17:34,890 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-07 18:17:34,892 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-07 18:17:34,894 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-07 18:17:35,501 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-07 18:17:37,100 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-07 18:17:43,250 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 18:17:43,251 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-07 18:17:43,252 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 18:17:57,741 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-07 18:17:57,744 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The users in the database are:
+
+1. ID: 2, Name: 'Jane Smith Rock and Roll', FK_Role_ID: 2, Email: 'janesgotagun@gmail.com'
+2. ID: 3, Name: 'Mike Johnson', FK_Role_ID: 3, Email: '\tpaulohssgames@gmail.com'
+3. ID: 5, Name: 'David Lee Roth', FK_Role_ID: 5, Email: '\tpaulohssgames@gmail.com'
+4. ID: 6, Name: 'Sarah Wilson', FK_Role_ID: 4, Email: '\tpaulohssgames@gmail.com'
+5. ID: 11, Name: 'Paulo Henrique Silva', FK_Role_ID: 6, Email: '\tpaulohssgames@gmail.com'
+6. ID: 66, Name: 'Novin', FK_Role_ID: 1, Email: '\tpaulohssgames@gmail.com'
+2025-04-07 18:17:57,747 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 18:17:59,171 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 18:17:59,172 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-07 18:17:59,173 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 18:17:59,175 - app.api.chatbot - INFO - FINAL response: The users in the database are:
+
+1. ID: 2, Name: 'Jane Smith Rock and Roll', FK_Role_ID: 2, Email: 'janesgotagun@gmail.com'
+2. ID: 3, Name: 'Mike Johnson', FK_Role_ID: 3, Email: '\tpaulohssgames@gmail.com'
+3. ID: 5, Name: 'David Lee Roth', FK_Role_ID: 5, Email: '\tpaulohssgames@gmail.com'
+4. ID: 6, Name: 'Sarah Wilson', FK_Role_ID: 4, Email: '\tpaulohssgames@gmail.com'
+5. ID: 11, Name: 'Paulo Henrique Silva', FK_Role_ID: 6, Email: '\tpaulohssgames@gmail.com'
+6. ID: 66, Name: 'Novin', FK_Role_ID: 1, Email: '\tpaulohssgames@gmail.com'
+2025-04-07 18:18:33,509 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 18:18:33,511 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'Researcher'}
+2025-04-07 18:18:33,512 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 18:18:57,796 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-04-07 18:18:57,801 - app.api.chatbot - INFO - Agent: Researcher, Content: Based on the search results, here are some of the top Project Management courses offered in NSW, Australia:
+
+1. Graduate Diploma in Project Management: This is referenced as one of the best Project Management courses in Australia (source: [linkedin](https://www.linkedin.com/pulse/top-5-best-project-management-courses-australia-istudywise-cyzgf)).
+
+2. Master of Business Administration (MBA) - Project Management: This course also ranks high among the best project management courses in the country (source: [linkedin](https://www.linkedin.com/pulse/top-5-best-project-management-courses-australia-istudywise-cyzgf)).
+
+3. Project Management course of University of Sydney: They offer various short-term courses including Project Management (source: [MasterOfProject](https://blog.masterofproject.com/pmp-certification-sydney-pmp-training/)).
+
+4. Course by PM-Partners: PM-Partners group, having worked with private and public sector organizations for over 20 years, also offers project management training in Sydney (source: [MasterOfProject](https://blog.masterofproject.com/pmp-certification-sydney-pmp-training/)).
+
+5. Diploma of Project Management by TAFE NSW: They offer skills in managing stakeholder relationships, budgeting, and deadlines (source: [TAFE NSW](https://www.tafensw.edu.au/course-areas/business-and-marketing/courses/diploma-of-project-management--BSB50820-01)).
+
+6. Other courses are mentioned without specific names, such as Certificate IV in Project Management Practice, Diploma of Project Management, Bachelor of Business (Project Management), and Master of Science (source: [AECC Global](https://www.aeccglobal.com.au/blog/project-management-courses-in-australia)).
+
+Please consider the relevance of each course to your specific requirements and the credibility of the institution whilst making your decision. Also note the listed courses might have certain prerequisites, and fees can vary.
+2025-04-07 18:18:57,807 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 18:18:58,733 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-07 18:18:58,734 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-07 18:18:58,736 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-07 18:18:58,737 - app.api.chatbot - INFO - FINAL response: Based on the search results, here are some of the top Project Management courses offered in NSW, Australia:
+
+1. Graduate Diploma in Project Management: This is referenced as one of the best Project Management courses in Australia (source: [linkedin](https://www.linkedin.com/pulse/top-5-best-project-management-courses-australia-istudywise-cyzgf)).
+
+2. Master of Business Administration (MBA) - Project Management: This course also ranks high among the best project management courses in the country (source: [linkedin](https://www.linkedin.com/pulse/top-5-best-project-management-courses-australia-istudywise-cyzgf)).
+
+3. Project Management course of University of Sydney: They offer various short-term courses including Project Management (source: [MasterOfProject](https://blog.masterofproject.com/pmp-certification-sydney-pmp-training/)).
+
+4. Course by PM-Partners: PM-Partners group, having worked with private and public sector organizations for over 20 years, also offers project management training in Sydney (source: [MasterOfProject](https://blog.masterofproject.com/pmp-certification-sydney-pmp-training/)).
+
+5. Diploma of Project Management by TAFE NSW: They offer skills in managing stakeholder relationships, budgeting, and deadlines (source: [TAFE NSW](https://www.tafensw.edu.au/course-areas/business-and-marketing/courses/diploma-of-project-management--BSB50820-01)).
+
+6. Other courses are mentioned without specific names, such as Certificate IV in Project Management Practice, Diploma of Project Management, Bachelor of Business (Project Management), and Master of Science (source: [AECC Global](https://www.aeccglobal.com.au/blog/project-management-courses-in-australia)).
+
+Please consider the relevance of each course to your specific requirements and the credibility of the institution whilst making your decision. Also note the listed courses might have certain prerequisites, and fees can vary.
+2025-04-08 16:31:37,278 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-08 16:31:37,281 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-08 16:31:37,285 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:31:37,861 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:31:40,225 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:31:58,329 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:32:06,884 - app.services.agent.email_agent - WARNING - Email sender or password not configured in environment variables
+2025-04-08 16:32:06,894 - app.services.agent.Factory.multi_agent_workflow - ERROR - Error building workflow graph: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'app.services.agent.email_agent.EmailAgent'>
+2025-04-08 16:32:06,897 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'stream'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'stream'
+2025-04-08 16:35:49,223 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-08 16:35:49,225 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-08 16:35:49,228 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:35:50,408 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:35:52,623 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:35:58,347 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:36:08,227 - app.services.agent.email_agent - WARNING - Email sender or password not configured in environment variables
+2025-04-08 16:36:08,234 - app.services.agent.Factory.multi_agent_workflow - ERROR - Error building workflow graph: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'app.services.agent.email_agent.EmailAgent'>
+2025-04-08 16:36:08,237 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'stream'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'stream'
+2025-04-08 16:44:50,727 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-08 16:44:50,730 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-08 16:44:50,735 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:44:51,490 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:44:53,556 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:44:58,978 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:46:04,234 - app.services.agent.Factory.multi_agent_workflow - ERROR - Error building workflow graph: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'app.services.agent.email_agent.EmailAgent'>
+2025-04-08 16:46:04,237 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'stream'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'stream'
+2025-04-08 16:47:57,325 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-08 16:47:57,327 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-08 16:47:57,331 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:47:58,063 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:47:58,942 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:48:04,257 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:48:54,991 - app.services.agent.Factory.multi_agent_workflow - ERROR - Error building workflow graph: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'app.services.agent.email_agent.EmailAgent'>
+2025-04-08 16:48:54,994 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'stream'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'stream'
+2025-04-08 16:55:05,296 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-08 16:55:05,298 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-08 16:55:05,302 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:55:06,010 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:55:06,927 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:55:13,194 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 16:55:47,135 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-08 16:55:49,704 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-08 16:55:52,852 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-08 16:56:58,990 - app.services.agent.email_agent - ERROR - Error processing email request: list index out of range
+2025-04-08 16:56:59,001 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-08 16:56:59,003 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Error processing email request: list index out of range
+2025-04-08 16:56:59,005 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-08 17:39:56,739 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-08 17:39:56,741 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-08 17:39:56,745 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 17:39:57,385 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 17:39:58,158 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 17:39:58,793 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-08 17:40:04,651 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-08 17:40:04,652 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-08 17:40:04,654 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-08 17:40:32,165 - app.services.agent.email_agent - ERROR - Error extracting user email and type: Invalid input type <class 'dict'>. Must be a PromptValue, str, or list of BaseMessages.
+2025-04-08 17:40:32,168 - app.services.agent.email_agent - ERROR - Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-08 17:40:32,173 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-08 17:40:32,175 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-08 17:40:32,177 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:17:44,287 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-10 17:17:44,288 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-10 17:17:44,293 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-10 17:17:45,014 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-10 17:17:45,922 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-10 17:17:55,019 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-10 17:18:15,166 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:18:15,168 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-10 17:18:15,170 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:19:42,913 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 17:19:42,914 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 17:19:42,917 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:19:43,572 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:19:44,402 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:19:50,793 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:20:43,923 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:20:43,925 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-10 17:20:43,926 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:21:33,338 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-10 17:21:33,340 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Agent stopped due to iteration limit or time limit.
+2025-04-10 17:21:33,342 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:21:34,298 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:21:34,300 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-10 17:21:34,301 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:21:34,302 - app.services.agent.email_agent - ERROR - Error extracting user email and type: Invalid input type <class 'dict'>. Must be a PromptValue, str, or list of BaseMessages.
+2025-04-10 17:21:34,304 - app.services.agent.email_agent - ERROR - Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-10 17:21:34,307 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-10 17:21:34,309 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-10 17:21:34,311 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:21:35,149 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:21:35,151 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-10 17:21:35,152 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:23:42,971 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 17:23:42,972 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 17:24:09,088 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:24:11,031 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:24:13,523 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:24:14,687 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:24:32,160 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:24:32,161 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-10 17:24:32,163 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:25:09,373 - app.services.agent.email_agent - ERROR - Error extracting user email and type: Invalid input type <class 'dict'>. Must be a PromptValue, str, or list of BaseMessages.
+2025-04-10 17:25:09,375 - app.services.agent.email_agent - ERROR - Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-10 17:25:09,382 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-10 17:25:09,384 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-10 17:25:09,387 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:37:22,800 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 17:37:22,806 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 17:37:28,203 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:37:28,837 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:37:29,652 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:37:30,307 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:38:25,881 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:38:28,631 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-10 17:38:31,269 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:41:12,291 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 17:41:12,293 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 17:41:12,302 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:41:12,970 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:41:13,971 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:41:14,642 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:41:39,153 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:41:39,155 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-10 17:41:39,156 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:43:40,487 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4
+2025-04-10 17:43:40,489 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4
+2025-04-10 17:43:40,492 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-10 17:43:41,096 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-10 17:43:41,881 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-10 17:43:42,443 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4
+2025-04-10 17:46:14,877 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:46:14,879 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-10 17:46:14,880 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:50:01,460 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 17:50:01,462 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 17:50:01,465 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:50:02,102 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:50:02,915 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:50:03,509 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:50:14,435 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:50:14,436 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-10 17:50:14,437 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:51:27,293 - app.services.agent.email_agent - ERROR - Error extracting user email and type: 'Input to ChatPromptTemplate is missing variables {\'\\n    "user_name"\'}.  Expected: [\'\\n    "user_name"\', \'request\'] Received: [\'request\']\nNote: if you intended {\n    "user_name"} to be part of the string and not a variable, please escape it with double curly braces like: \'{{\n    "user_name"}}\'.\nFor troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT '
+2025-04-10 17:51:27,296 - app.services.agent.email_agent - ERROR - Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-10 17:51:27,304 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-10 17:51:27,306 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-10 17:51:27,308 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:59:24,461 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 17:59:24,464 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 17:59:24,469 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:59:25,158 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:59:25,999 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:59:26,567 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 17:59:38,675 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 17:59:40,848 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-10 17:59:42,737 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 17:59:44,782 - app.services.agent.email_agent - ERROR - Error processing email request: EmailAgent._extract_user_email_and_type() missing 1 required positional argument: 'sql_agent'
+2025-04-10 18:00:12,800 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-10 18:00:12,803 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Error processing email request: EmailAgent._extract_user_email_and_type() missing 1 required positional argument: 'sql_agent'
+2025-04-10 18:00:12,804 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 18:00:13,685 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 18:00:13,686 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-10 18:00:13,688 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 18:06:22,212 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 18:06:22,214 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 18:06:22,218 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:06:22,844 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:06:23,617 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:06:24,197 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:06:37,012 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 18:06:37,014 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-10 18:06:37,016 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 18:08:28,405 - app.services.agent.email_agent - ERROR - Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-10 18:08:28,415 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-10 18:08:28,417 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Error processing email request: not enough values to unpack (expected 4, got 3)
+2025-04-10 18:08:28,418 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 18:10:40,289 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 18:10:40,291 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 18:10:40,294 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:10:40,988 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:10:41,882 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:10:42,526 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:10:53,398 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 18:10:56,494 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-10 18:10:59,420 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 18:11:51,823 - app.services.agent.email_agent - ERROR - Error composing email body: Invalid input type <class 'dict'>. Must be a PromptValue, str, or list of BaseMessages.
+2025-04-10 18:32:38,116 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-10 18:32:38,119 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-10 18:32:38,125 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:32:38,824 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:32:39,742 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:32:40,359 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-10 18:32:44,494 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-10 18:32:44,496 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-10 18:32:44,498 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-10 18:34:46,364 - app.services.agent.email_agent - ERROR - Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-22ac7c95c35sm24938595ad.143 - gsmtp')
+2025-04-10 18:34:46,371 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-10 18:34:46,373 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Failed to send email: Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-22ac7c95c35sm24938595ad.143 - gsmtp')
+2025-04-10 18:34:46,374 - app.api.chatbot - INFO - ---- End of Response ---

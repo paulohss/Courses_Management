@@ -28,11 +28,12 @@ class RouteResponse(BaseModel):
        always returns one of the three valid routing options.
     
     5. Controls workflow routing:
+       - "EmailAgent" → Send to email agent
        - "Researcher" → Send to researcher agent
        - "SqlAgent" → Send to SQL agent
        - "FINISH" → End the workflow
     """
-    next: Literal["FINISH", "Researcher", "SqlAgent"]
+    next: Literal["FINISH", "EmailAgent", "Researcher", "SqlAgent"]
 
 
 #--------------------------------------------------------------------------------
@@ -55,22 +56,23 @@ class SupervisorAgent:
             model_name: The LLM model to use
         """
         self.logger = LoggerService.get_instance().get_logger(__name__)
-        self.members = ["Researcher", "SqlAgent"]
+        self.members = ["EmailAgent", "Researcher", "SqlAgent"]
         self.options = ["FINISH"] + self.members
         provider = provider or LLMConfig.PROVIDER
         model_name = model_name or LLMConfig.MODEL_NAME
         
         system_prompt = (
             "You are a supervisor tasked with managing a conversation between the" 
-            " following workers: {members}. Given the following user request,"
-            " respond with the worker to act next. Each worker will perform a"
-            " task and respond with their results and status."
-            "\n\nWorker specialties:"
-            "\n- Researcher: For general information gathering, web research, and non-database questions"
-            "\n- SqlAgent: For database queries, SQL operations, and data retrieval from the Course Management system"
-            "\n\nWhen the user asks about database information, users, courses, roles, or any data that would"
-            " require SQL queries, always route to SqlAgent first."
-            "\n\nWhen finished, respond with FINISH."
+            " following workers (agents): {members}. Given the following user request,"
+            " respond with the worker to act next. Each worker will perform a task and respond with their results and status."
+            "Worker (agents) specialties:"
+            "\n1. EmailAgent: For sending emails to users with course information."
+            "  1.1 When the user asks to SEND AN EMAIL to a user (Example: Semd an email to Jon with his completed courses)."            
+            "\n2. Researcher: For general information gathering, online research, web research, and non-database questions"
+            "  2.1 Exemple: When the user asks about general information, research topics, or any data that would require web search."
+            "\n3. SqlAgent: For database queries, SQL operations, and data retrieval from the Course Management system"
+            "\ 3.1 Exemple: When the user asks about database information, users, courses, roles, or any data that would require SQL queries."
+            "\n4. When finished, respond with FINISH."
         )
         
         self.prompt = ChatPromptTemplate.from_messages(

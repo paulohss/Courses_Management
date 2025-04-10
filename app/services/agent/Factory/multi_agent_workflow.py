@@ -5,6 +5,7 @@ from app.services.agent.Factory.helpers import agent_node
 from app.services.agent.sql_agent import SqlAgent
 from app.services.agent.supervisor_agent import SupervisorAgent
 from app.services.agent.researcher_agent import ResearcherAgent
+from app.services.agent.email_agent import EmailAgent
 from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
 
@@ -30,8 +31,9 @@ class MultiAgentWorkflow:
         self.supervisor_agent = SupervisorAgent(provider, model_name)
         self.researcher_agent = ResearcherAgent(provider, model_name)
         self.sql_agent = SqlAgent(provider, model_name)
+        self.email_agent = EmailAgent(provider, model_name)
         
-        self.members = ["Researcher", "SqlAgent"]
+        self.members = ["Researcher", "SqlAgent", "EmailAgent"]
         self.graph = None  # Will be initialized when build_graph() is called
     
     
@@ -48,8 +50,13 @@ class MultiAgentWorkflow:
             """
             workflow = StateGraph(AgentState)
             
-            # Add nodes for each agent
+            # Add nodes for each agent, starting with Supervisor
             workflow.add_node("supervisor", self.supervisor_agent)
+            
+            # Add email agent
+            workflow.add_node("EmailAgent", functools.partial(
+                agent_node, agent=self.email_agent, name="EmailAgent")
+            )
             
             # Researcher Agent (researcher_agent.agent)
             research_node = functools.partial(
