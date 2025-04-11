@@ -1,6 +1,6 @@
 
-tables
-- add email
+Agent
+- MCP Protocol - study it
 
 
 LLM

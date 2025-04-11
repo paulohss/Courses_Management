@@ -1095,3 +1095,63 @@ AttributeError: 'NoneType' object has no attribute 'stream'
 2025-04-10 18:34:46,371 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
 2025-04-10 18:34:46,373 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Failed to send email: Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-22ac7c95c35sm24938595ad.143 - gsmtp')
 2025-04-10 18:34:46,374 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 14:39:20,117 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 14:39:20,148 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 14:39:20,153 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:39:20,843 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:39:22,579 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:39:23,137 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:40:31,541 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 14:40:31,585 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 14:40:31,597 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:40:32,210 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:40:32,993 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:40:33,532 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:40:52,477 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 14:40:52,479 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-11 14:40:52,480 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 14:42:00,280 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-11 14:42:02,579 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Novin (	paulohssgames@gmail.com).
+2025-04-11 14:42:02,581 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 14:42:05,604 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 14:42:05,607 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-11 14:42:05,610 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 14:42:06,908 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Novin (	paulohssgames@gmail.com).
+2025-04-11 14:59:03,671 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 14:59:03,674 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 14:59:03,683 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:59:04,483 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:59:05,379 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:59:05,969 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 14:59:15,259 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 14:59:15,260 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-11 14:59:15,262 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 14:59:32,706 - app.services.agent.email_agent - ERROR - Error extracting user email and type: EmailExtractedInfo.get_extract_user_msg_type_prompt() missing 1 required positional argument: 'self'
+2025-04-11 14:59:32,714 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-11 14:59:32,717 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Could not find the user or their email.
+2025-04-11 14:59:32,719 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:01:11,611 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 15:01:11,613 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 15:01:11,617 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:01:12,343 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:01:13,204 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:01:13,795 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:01:26,752 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 15:01:32,892 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-11 15:01:32,893 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:02:24,362 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 15:02:24,364 - app.services.agent.Factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 15:02:24,367 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:02:25,022 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:02:25,907 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:02:26,491 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:02:34,840 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 15:02:34,841 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-11 15:02:34,843 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:03:16,496 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-11 15:03:16,499 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Novin (	paulohssgames@gmail.com).
+2025-04-11 15:03:16,501 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:03:20,637 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 15:03:20,638 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-11 15:03:20,639 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:03:20,640 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Novin (	paulohssgames@gmail.com).

@@ -9,25 +9,17 @@ from app.services.user_service import UserService
 from app.utils.logger_service import LoggerService
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
-from pydantic import BaseModel
-from pydantic import Field
+from app.services.agent.prompt.EmailContent import EmailContent
+from app.services.agent.prompt.EmailExtractedInfo import EmailExtractedInfo
 
-
-class EmailExtractedInfo(BaseModel):
-    """
-    Schema for the structured output from the LLM.
-    """
-    user_name: str = Field(..., description="The name of the user/person mentioned in the request.")
-    email_type: str = Field(..., description="The type of email requested (either 'pending' or 'completed').")
-
-class EmailContent(BaseModel):
-    """
-    Schema for the structured output from the LLM for email content.
-    """
-    email_body: str = Field(..., description="The body of the email to be sent to the user.")
-
-
+#--------------------------------------------------------------------------------
+# EmailAgent class
+#--------------------------------------------------------------------------------
 class EmailAgent:
+
+    #--------------------------------------------------------------------------------
+    # Initialize the EmailAgent
+    #--------------------------------------------------------------------------------
     def __init__(self, provider=None, model_name=None):
 
         self.logger = LoggerService.get_instance().get_logger(__name__)
@@ -50,7 +42,9 @@ class EmailAgent:
 
 
 
-
+    # --------------------------------------------------------------------------------
+    # Send email using SMTP
+    # --------------------------------------------------------------------------------
     def _send_email(self, recipient_email, subject, body):
         try:
             message = MIMEMultipart()
@@ -74,15 +68,16 @@ class EmailAgent:
             return False, f"Error sending email: {str(e)}"
 
 
-
-
+    # --------------------------------------------------------------------------------
+    # Compose email body using LLM
+    # --------------------------------------------------------------------------------
     def _compose_email_body(self, user_name, list_type, course_list):
         try:
             # Format the course list
             courses_text = "\n".join([f"- {course}" for course in course_list]) if course_list else "No courses found."
 
             # Step 1: Define the prompt template
-            prompt_template = self.compose_email_prompt()
+            prompt_template = EmailContent.compose_email_prompt()
 
             # Step 2: Combine the prompt template with the structured LLM
             structured_llm = self.llm.with_structured_output(EmailContent)
@@ -105,35 +100,13 @@ class EmailAgent:
             return f"Error composing email body: {str(e)}"
 
 
-    def compose_email_prompt(self):
-        prompt_template = ChatPromptTemplate.from_messages(
-                [
-                    (
-                        "system",
-                        "You are an assistant that generates professional and friendly email content."
-                    ),
-                    (
-                        "user",
-                        "Write a professional and friendly email to {user_name}.\n"
-                        "The email should include the following:\n"
-                        "- A greeting\n"
-                        "- A message about their {list_type} courses\n"
-                        "- The list of courses (use bullet points):\n"
-                        "{courses_text}\n"
-                        "- A closing statement encouraging them to take action if needed."
-                    ),
-                ]
-            )
-        
-        return prompt_template
-
-
-
-
+    # --------------------------------------------------------------------------------
+    # Extract user email and type from the request
+    # --------------------------------------------------------------------------------
     def _extract_user_email_and_type(self, request):
         try:
             # Step 1: Define the prompt template
-            prompt_template = self.get_extract_user_msg_type_prompt()
+            prompt_template = EmailExtractedInfo.get_extract_user_msg_type_prompt()
 
             # Step 2: Combine the prompt template with the structured LLM
             structured_llm = self.llm.with_structured_output(EmailExtractedInfo)
@@ -167,43 +140,10 @@ class EmailAgent:
             return None, None, None, None
 
 
-    def get_extract_user_msg_type_prompt(self):
-        prompt_template = ChatPromptTemplate.from_messages(
-                [
-                    (
-                        "system",
-                        "You are an assistant that extracts structured information from user requests."
-                    ),
-                    (
-                        "user",
-                        "Analyze the following request and extract the following information:\n"
-                        "1. The name of the user mentioned in the request.\n"
-                        "2. The type of email requested (either 'pending' courses or 'completed' courses).\n\n"
-                        "Request: {request}\n\n"
-                        "Respond in the following JSON format:\n"
-                        "{{\n"
-                        "    \"user_name\": \"<Extracted User Name>\",\n"
-                        "    \"email_type\": \"<pending|completed>\"\n"
-                        "}}"
-                    ),
-                ]
-            )
-        
-        return prompt_template
-
-
-
-
+    # --------------------------------------------------------------------------------
+    # Invoke method to process the request and send the email
+    # --------------------------------------------------------------------------------
     def invoke(self, state):
-        """
-        Process the current state to send an email.
-
-        Args:
-            state: The current state containing messages
-
-        Returns:
-            Dict with messages field containing the agent's response
-        """
         try:
             # Extract the request from the last message in the state
             messages = state.get("messages", [])
