@@ -34,10 +34,10 @@ class UserService:
             abort(400, 'Invalid email format!')
         
         # Check for duplicate email (except for the user being updated)
-        existing_user = User.query.filter_by(email=email).first()
-        if existing_user and existing_user.id != id:
-            self.logger.warning(f'Email already in use: {email}')
-            abort(400, 'Email already in use!')
+        #existing_user = User.query.filter_by(email=email).first()
+        #if existing_user and existing_user.id != id:
+        #    self.logger.warning(f'Email already in use: {email}')
+        #    abort(400, 'Email already in use!')
                     
         if not role_id or role_id <= 0:
             self.logger.warning(f'Invalid Role ID [{role_id}] provided!')

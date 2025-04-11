@@ -1155,3 +1155,98 @@ AttributeError: 'NoneType' object has no attribute 'stream'
 2025-04-11 15:03:20,638 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
 2025-04-11 15:03:20,639 - app.api.chatbot - INFO - ---- End of Response ---
 2025-04-11 15:03:20,640 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Novin (	paulohssgames@gmail.com).
+2025-04-11 15:50:31,905 - app.services.user_service - WARNING - Email already in use: paulohss19832@gmail.com
+2025-04-11 15:50:31,935 - app.services.user_service - ERROR - Error updating User: 400 Bad Request: Email already in use!
+2025-04-11 15:52:25,865 - app.services.user_service - WARNING - Email already in use: paulohss19832@gmail.com
+2025-04-11 15:52:25,868 - app.services.user_service - ERROR - Error updating User: 400 Bad Request: Email already in use!
+2025-04-11 15:54:51,497 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 15:54:51,498 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 15:54:51,502 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:54:52,099 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:54:53,748 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:54:54,385 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:55:04,387 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 15:55:04,388 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-11 15:55:04,391 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:55:23,365 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-11 15:55:23,367 - app.api.chatbot - INFO - Agent: SqlAgent, Content: 1. Design Thinking
+2. Machine Learning Fundamentals
+3. Data Visualization
+4. Innovation and Creativity
+5. Agile Methodologies
+2025-04-11 15:55:23,369 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:55:24,235 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 15:55:24,236 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-11 15:55:24,237 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:55:24,239 - app.api.chatbot - INFO - FINAL response: 1. Design Thinking
+2. Machine Learning Fundamentals
+3. Data Visualization
+4. Innovation and Creativity
+5. Agile Methodologies
+2025-04-11 15:55:41,435 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 15:55:41,437 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-11 15:55:41,438 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 15:57:46,425 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 15:57:46,427 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 15:57:46,431 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:57:47,089 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:57:47,894 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:57:48,465 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 15:58:03,332 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 15:58:03,333 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-11 15:58:03,335 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:13:50,509 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 16:13:50,511 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 16:14:19,491 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:14:21,411 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:14:23,515 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:14:24,149 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:15:11,466 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:15:11,468 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-11 16:15:11,469 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:16:13,201 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 16:16:13,204 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 16:16:22,271 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:16:22,882 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:16:23,715 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:16:24,315 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:16:59,111 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:16:59,112 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-11 16:16:59,114 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:23:39,293 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 16:23:39,295 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 16:23:39,299 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:23:39,986 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:23:40,801 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:23:41,413 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:23:52,892 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:23:54,863 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-11 16:23:54,865 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:24:08,453 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-11 16:24:10,854 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Paulo (paulohss19832@gmail.com).
+2025-04-11 16:24:10,857 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:24:13,724 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:24:13,725 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-11 16:24:13,727 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:24:36,340 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-11 16:24:40,771 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Paulo (paulohss19832@gmail.com).
+2025-04-11 16:24:54,587 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:25:39,097 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:25:39,099 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-11 16:25:39,100 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:28:08,974 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 16:28:08,975 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 16:28:08,979 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:28:09,554 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:28:10,317 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:28:10,942 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:28:22,883 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:28:32,807 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-11 16:28:32,809 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:28:51,710 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-11 16:28:57,915 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Paulo (paulohss19832@gmail.com).
+2025-04-11 16:29:00,491 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:29:18,133 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:29:18,135 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-11 16:29:18,136 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:29:18,700 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Paulo (paulohss19832@gmail.com).

@@ -143,16 +143,6 @@ class SqlAgent:
     # Execute user query
     # --------------------------------------------------------------------------------
     def invoke(self, state):
-        """
-        Process the current state to execute SQL queries.
-        This method adapts the SqlAgent to work in a LangGraph multi-agent workflow.
-        
-        Args:
-            state: The current state containing messages
-            
-        Returns:
-            Dict with messages field containing the agent's response
-        """
         try:
             # Extract the query from the last message in the state
             messages = state.get("messages", [])

@@ -9,8 +9,8 @@ from app.services.user_service import UserService
 from app.utils.logger_service import LoggerService
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
-from app.services.agent.prompt.EmailContent import EmailContent
-from app.services.agent.prompt.EmailExtractedInfo import EmailExtractedInfo
+from app.services.agent.prompt.email_content import EmailContent
+from app.services.agent.prompt.email_extracted_info import EmailExtractedInfo
 
 #--------------------------------------------------------------------------------
 # EmailAgent class
@@ -133,7 +133,7 @@ class EmailAgent:
 
             user_email = user["email"]
             course_list = user["user_course_list"]
-            return user_name, user_email, email_type, course_list
+            return user_name, user_email.strip(), email_type, course_list
 
         except Exception as e:
             self.logger.error(f"Error extracting user email and type: {str(e)}")

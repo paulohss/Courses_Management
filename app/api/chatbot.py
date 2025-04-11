@@ -1,6 +1,6 @@
 from flask import jsonify, request, current_app
 from app.api import bp
-from app.services.agent.Factory.multi_agent_workflow import MultiAgentWorkflow
+from app.services.agent.factory.multi_agent_workflow import MultiAgentWorkflow
 from langchain_core.messages import HumanMessage
 from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
