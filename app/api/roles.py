@@ -1,6 +1,6 @@
 from flask import jsonify, request
 from app.api import bp
-from app.services.role_service import RoleService
+from app.services.bll.role_service import RoleService
 
 role_service = RoleService()
 

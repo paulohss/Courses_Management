@@ -1,6 +1,6 @@
 from flask import jsonify, request
 from app.api import bp
-from app.services.user_service import UserService
+from app.services.bll.user_service import UserService
 
 user_service = UserService()
 

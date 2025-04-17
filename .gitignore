@@ -1,2 +1,7 @@
 venv
 .venv
+combined_pdfs/default__vector_store.json
+combined_pdfs/docstore.json
+combined_pdfs/graph_store.json
+combined_pdfs/index_store.json
+combined_pdfs/image__vector_store.json

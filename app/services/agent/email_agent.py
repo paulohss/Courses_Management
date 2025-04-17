@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from app.services.llm.llm_factory import LLMFactory
 from app.services.llm.llm_setting import LLMConfig
-from app.services.user_service import UserService
+from app.services.bll.user_service import UserService
 from app.utils.logger_service import LoggerService
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate

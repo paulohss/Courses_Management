@@ -1250,3 +1250,211 @@ AttributeError: 'NoneType' object has no attribute 'stream'
 2025-04-11 16:29:18,135 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
 2025-04-11 16:29:18,136 - app.api.chatbot - INFO - ---- End of Response ---
 2025-04-11 16:29:18,700 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Paulo (paulohss19832@gmail.com).
+2025-04-11 16:31:25,160 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-11 16:31:25,161 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-11 16:31:25,167 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:31:25,740 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:31:26,521 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:31:27,117 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-11 16:31:33,426 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:31:33,427 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-11 16:31:33,428 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:31:46,098 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-11 16:31:46,100 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Paulo has completed 5 courses.
+2025-04-11 16:31:46,101 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:31:47,021 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:31:47,022 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-11 16:31:47,023 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:31:47,024 - app.api.chatbot - INFO - FINAL response: Paulo has completed 5 courses.
+2025-04-11 16:32:24,430 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:32:24,431 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-11 16:32:24,433 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:32:37,074 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-11 16:32:37,076 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Paulo (paulohss19832@gmail.com).
+2025-04-11 16:32:37,077 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:32:37,951 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:32:37,953 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-11 16:32:37,955 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:32:37,956 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Paulo (paulohss19832@gmail.com).
+2025-04-11 16:33:27,863 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:33:27,864 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'Researcher'}
+2025-04-11 16:33:27,866 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:33:40,367 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-04-11 16:33:40,370 - app.api.chatbot - INFO - Agent: Researcher, Content: Here are some Math courses available in Sydney for 2023:
+
+1. **University of New South Wales (UNSW)**
+   - **Postgraduate Courses:** The School of Mathematics offers a variety of postgraduate courses, details for which can be found on the UNSW website. These include the Data Science & Decisions program among others.
+     - [More Details](https://www.unsw.edu.au/science/our-schools/maths/student-life-resources/postgraduate-coursework/postgraduate-courses/2023-postgrad-courses)
+   - **Undergraduate Courses:** Courses like MATH1081 Discrete Mathematics are available, which is recommended for students majoring in Mathematics.
+     - [More Details](https://www.unsw.edu.au/science/our-schools/maths/student-life-resources/undergraduate/undergraduate-courses)
+
+2. **University of Sydney**
+   - **MATH2023:** This course focuses on analysis and its fundamental role in mathematics, covering topics like calculus, limits, and series.
+     - [Course Information](https://www.sydney.edu.au/units/MATH2023)
+   - **Various Undergraduate Units:** Courses such as MATH1021 Calculus of One Variable, MATH1023 Multivariable Calculus and Modelling, and MATH1002 Linear Algebra, among others, are available for undergraduate students.
+     - [More Details](https://www.maths.usyd.edu.au/u/UG/JM/)
+
+These resources should help you explore a variety of mathematical topics depending on your academic or career needs.
+2025-04-11 16:33:40,373 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:33:41,068 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-11 16:33:41,070 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-11 16:33:41,071 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-11 16:33:41,073 - app.api.chatbot - INFO - FINAL response: Here are some Math courses available in Sydney for 2023:
+
+1. **University of New South Wales (UNSW)**
+   - **Postgraduate Courses:** The School of Mathematics offers a variety of postgraduate courses, details for which can be found on the UNSW website. These include the Data Science & Decisions program among others.
+     - [More Details](https://www.unsw.edu.au/science/our-schools/maths/student-life-resources/postgraduate-coursework/postgraduate-courses/2023-postgrad-courses)
+   - **Undergraduate Courses:** Courses like MATH1081 Discrete Mathematics are available, which is recommended for students majoring in Mathematics.
+     - [More Details](https://www.unsw.edu.au/science/our-schools/maths/student-life-resources/undergraduate/undergraduate-courses)
+
+2. **University of Sydney**
+   - **MATH2023:** This course focuses on analysis and its fundamental role in mathematics, covering topics like calculus, limits, and series.
+     - [Course Information](https://www.sydney.edu.au/units/MATH2023)
+   - **Various Undergraduate Units:** Courses such as MATH1021 Calculus of One Variable, MATH1023 Multivariable Calculus and Modelling, and MATH1002 Linear Algebra, among others, are available for undergraduate students.
+     - [More Details](https://www.maths.usyd.edu.au/u/UG/JM/)
+
+These resources should help you explore a variety of mathematical topics depending on your academic or career needs.
+2025-04-17 17:03:16,315 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:03:16,316 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:03:29,859 - app.api.chatbot - ERROR - Error initializing chatbot service: AgentsUtil.get_members() missing 1 required positional argument: 'self'
+2025-04-17 17:03:29,862 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 17:04:35,048 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:04:35,050 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:04:47,717 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:04:49,181 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:04:51,564 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:04:52,796 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:06:27,727 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:07:02,560 - app.api.chatbot - ERROR - Error initializing chatbot service: RagPdfContent.get_name() missing 1 required positional argument: 'self'
+2025-04-17 17:07:02,562 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 17:15:40,593 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:15:40,595 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:15:40,600 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:15:41,297 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:15:42,072 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:15:42,657 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:25:33,003 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:25:33,005 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:25:33,010 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:25:33,614 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:25:34,507 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:25:35,117 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:26:03,284 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:26:36,903 - app.api.chatbot - ERROR - Error initializing chatbot service: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:26:36,906 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 17:27:43,713 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:27:43,715 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:27:43,719 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:27:44,324 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:27:45,134 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:27:45,697 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:27:56,324 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:27:56,950 - app.api.chatbot - ERROR - Error initializing chatbot service: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:28:18,228 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 17:29:33,948 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:29:33,950 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:29:33,954 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:29:34,636 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:29:35,456 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:29:36,046 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:30:02,104 - app.services.agent.factory.multi_agent_workflow - ERROR - Error building workflow graph: Found edge starting at unknown node 'RagPdfAgent'
+2025-04-17 17:30:02,107 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'stream'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'stream'
+2025-04-17 17:32:01,627 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:32:01,629 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:32:01,632 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:32:02,315 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:32:03,110 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:32:03,694 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:32:21,275 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:32:21,848 - app.api.chatbot - ERROR - Error initializing chatbot service: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:33:13,852 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 17:47:41,250 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:47:41,252 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:47:41,256 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:47:41,930 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:47:42,850 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:47:43,473 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:47:50,308 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:49:17,547 - app.services.agent.rag_pdf - ERROR - Error initializing RagPdfAgent: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:49:17,549 - app.api.chatbot - ERROR - Error initializing chatbot service: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:49:17,551 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 17:50:13,717 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:50:13,719 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:50:13,722 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:50:14,312 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:50:15,099 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:50:15,679 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:51:12,484 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:51:53,848 - app.services.agent.rag_pdf - ERROR - Error initializing RagPdfAgent: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:51:53,851 - app.api.chatbot - ERROR - Error initializing chatbot service: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:51:53,853 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 17:54:25,479 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 17:54:25,481 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 17:54:25,484 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:54:26,105 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:54:26,889 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:54:27,475 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:54:39,792 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 17:54:55,704 - app.services.agent.rag_pdf - ERROR - Error initializing RagPdfAgent: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:54:55,707 - app.api.chatbot - ERROR - Error initializing chatbot service: 'NoneType' object has no attribute 'context_window'
+2025-04-17 17:54:55,709 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 18:05:30,440 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 18:05:30,442 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 18:05:30,446 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:05:31,052 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:05:31,847 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:05:32,463 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:05:44,965 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:06:38,284 - app.services.agent.rag_pdf - ERROR - Error initializing RagPdfAgent: 'NoneType' object has no attribute 'context_window'
+2025-04-17 18:06:38,287 - app.api.chatbot - ERROR - Error initializing chatbot service: 'NoneType' object has no attribute 'context_window'
+2025-04-17 18:06:38,289 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+                ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'

@@ -10,6 +10,9 @@ class EmailExtractedInfo(BaseModel):
     email_type: str = Field(..., description="The type of email requested (either 'pending' or 'completed').")
     
     
+    #----------------------------------------------------------------------------------
+    # Get the prompt template for extracting user email and type from the request
+    #----------------------------------------------------------------------------------
     def get_extract_user_msg_type_prompt():
         prompt_template = ChatPromptTemplate.from_messages(
                 [
