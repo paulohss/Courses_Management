@@ -8,6 +8,8 @@ from app.services.agent.prompt.rag_pdf_content import RagPdfContent
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent import ReActAgent
 from langchain_core.messages import HumanMessage
+from llama_index.llms.langchain import LangChainLLM  # Import the wrapper
+import traceback  # Import traceback for better error logging
 
 #--------------------------------------------------------------------------------
 # RAG PDF class
@@ -20,24 +22,33 @@ class RagPdfAgent:
     def __init__(self, provider=None, model_name=None):
         try:
             self.logger = LoggerService.get_instance().get_logger(__name__)
-            
+
             # Define the relative path to the data_courses folder
             data_courses_path = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data_courses')
             self.combined_engine = self._load_pdfs_from_directory(data_courses_path)
-            
+            if self.combined_engine is None:
+                raise ValueError("Failed to initialize combined query engine from PDFs.")
+
             # Use config if not provided
             provider = provider or LLMConfig.PROVIDER
             model_name = model_name or LLMConfig.MODEL_NAME
-            
-            # Get LLM from factory
-            self.llm = LLMFactory.get_instance().get_llm(provider, model_name)
-            
-            # Check if LLM was successfully initialized
-            if self.llm is None:
-                error_msg = f"Failed to get LLM instance from factory for provider: {provider}, model: {model_name}"
+
+            # Get LangChain LLM from factory
+            langchain_llm = LLMFactory.get_instance().get_llm(provider, model_name)
+
+            # Check if LangChain LLM was successfully initialized
+            if langchain_llm is None:
+                error_msg = f"Failed to get LangChain LLM instance from factory for provider: {provider}, model: {model_name}"
                 self.logger.error(error_msg)
                 raise ValueError(error_msg)
-            
+
+            self.logger.info(f"LangChain LLM instance obtained successfully: {type(langchain_llm)}")
+
+            # Wrap the LangChain LLM for LlamaIndex compatibility
+            # This creates a LlamaIndex LLM object from the LangChain one
+            self.llm = LangChainLLM(llm=langchain_llm)
+            self.logger.info(f"Wrapped LLM for LlamaIndex: {type(self.llm)}")
+
             # Define the tools for the agent
             self.tools = [
                 QueryEngineTool(
@@ -47,15 +58,20 @@ class RagPdfAgent:
                         description=RagPdfContent.get_context(),
                     ),
                 ),
-            ]        
+            ]
+
+            # Initialize the ReActAgent using the wrapped LlamaIndex LLM
             self.agent = ReActAgent.from_tools(self.tools, llm=self.llm, verbose=True, context=RagPdfContent.get_context())
-        
+            self.logger.info("ReActAgent initialized successfully for RagPdfAgent.")
+
         except Exception as e:
-            self.logger.error(f"Error initializing RagPdfAgent: {str(e)}")
+            # Log the full traceback for better debugging
+            self.logger.error(f"Error initializing RagPdfAgent: {str(e)}\n{traceback.format_exc()}")
             raise
 
+
     #--------------------------------------------------------------------------------
-    # Define the _get_index method to create or load an index for the documents
+    # Define the _build_index method to create or load an index for the documents
     #--------------------------------------------------------------------------------
     def _build_index(self, data, index_name):
         try:
@@ -85,6 +101,7 @@ class RagPdfAgent:
         except Exception as e:
             self.logger.error(f"Error loading index: {str(e)}")
             return None
+
 
     #--------------------------------------------------------------------------------
     # Define the _load_pdfs_from_directory method to load all PDFs from a directory
@@ -126,7 +143,6 @@ class RagPdfAgent:
             return None        
         
 
-
     # --------------------------------------------------------------------------------
     # Invoke method to process the request and send the email
     # --------------------------------------------------------------------------------
@@ -140,8 +156,7 @@ class RagPdfAgent:
             request = messages[-1].content
             
             response = self.agent.query(request)
-            output = response.get("output", "Sorry, I couldn't process your request.")
-            return {"messages": [HumanMessage(content=output)]}
+            return {"messages": [HumanMessage(content=str(response))]}
             
         except Exception as e:
             self.logger.error(f"Error extracting request: {str(e)}")

@@ -19,15 +19,19 @@ class RouteResponse(BaseModel):
             " respond with the worker to act next. Each worker will perform a task and respond with their results and status."
             "Worker (agents) specialties:"
             
-            "\n**1. EmailAgent ** When the user asks to **send an email** to a user (Example: Send an email to **user** with his completed courses)."
-            
-            "\n**2. Researcher ** For general information gathering, online research, web research, and non-database questions"
+            "\n 1. EmailAgent when the user asks to send an email to a user. Example: "
+               "1.1 Send an email to user with his completed courses."
+               "1.2 Send an email to user with his pending courses."
+               "1.3 email a user with his completed courses."
+               "1.4 email a user with his pending courses."
+               
+            "\n2. Researcher ** For general information gathering, online research, web research, and non-database questions"
             "  2.1 Exemple: When the user asks about general information, research topics, or any data that would require web search."
             
-            "\n**3. SqlAgent ** For database queries, SQL operations, and data retrieval from the Course Management system"
+            "\n3. SqlAgent ** For database queries, SQL operations, and data retrieval from the Course Management system"
             "\ 3.1 Exemple: When the user asks about database information, users, courses, roles, or any data that would require SQL queries."
             
-            "\n**4. RagPdfAgent ** For querying the offline courses data in PDF format provided by CORPORATE SCHOOL (aka: 'corporate school', 'inner documents', 'our documments', 'our files') "
+            "\n4. RagPdfAgent ** For querying the offline courses data in PDF format provided by CORPORATE SCHOOL (aka: 'corporate school', 'inner documents', 'our documments', 'our files') "
             
             "\n5. When finished, respond with FINISH."
         )

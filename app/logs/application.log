@@ -1458,3 +1458,235 @@ Traceback (most recent call last):
     for step in workflow.graph.stream(initial_state):
                 ^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'graph'
+2025-04-17 18:15:54,413 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 18:15:54,414 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 18:15:54,419 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:15:55,205 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:15:56,162 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:15:57,094 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:16:19,006 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:16:22,275 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-17 18:16:24,235 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-17 18:16:32,489 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-17 18:17:02,929 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:17:02,930 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-17 18:17:02,932 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:17:27,717 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-17 18:17:27,719 - app.api.chatbot - INFO - Agent: SqlAgent, Content: No, David has not completed all his courses. He is missing courses with IDs 10, 19, and 4.
+2025-04-17 18:17:27,721 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:17:30,453 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:17:30,454 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-17 18:17:30,456 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:17:31,641 - app.api.chatbot - INFO - FINAL response: No, David has not completed all his courses. He is missing courses with IDs 10, 19, and 4.
+2025-04-17 18:18:00,311 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:00,313 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:00,314 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:04,111 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:04,115 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:04,118 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:04,119 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:04,985 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:04,986 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:04,987 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:07,627 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:07,636 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:07,640 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:07,643 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:08,375 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:08,377 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:08,379 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:10,079 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:10,081 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:10,083 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:10,085 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:10,931 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:10,933 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:10,935 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:11,939 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:11,944 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:11,946 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:11,947 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:12,884 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:12,886 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:12,889 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:13,981 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:14,023 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:14,032 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:14,035 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:14,742 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:14,744 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:14,745 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:16,316 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:16,326 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:16,341 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:16,346 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:17,172 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:17,174 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:17,177 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:19,619 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:19,623 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:19,627 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:19,630 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:20,401 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:20,403 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:20,404 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:24,726 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:24,732 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:24,735 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:24,738 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:25,555 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:25,556 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:18:25,558 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:28,530 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:18:28,534 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:18:28,537 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:18:28,539 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:29,740 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:29,742 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-17 18:18:29,744 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:39,027 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-17 18:18:39,031 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Please restate your question or provide more details about your query regarding the Course Management Database. For example, you might ask about the courses a specific user attended, courses a user is missing, details about user roles, or other specific database queries you need assistance with.
+2025-04-17 18:18:39,034 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:39,871 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:18:39,873 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-17 18:18:39,874 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:18:39,875 - app.api.chatbot - INFO - FINAL response: Please restate your question or provide more details about your query regarding the Course Management Database. For example, you might ask about the courses a specific user attended, courses a user is missing, details about user roles, or other specific database queries you need assistance with.
+2025-04-17 18:20:04,702 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:20:04,703 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-17 18:20:04,704 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:20:21,381 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-17 18:20:21,383 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The courses that David missed are:
+1. Agile Methodologies
+2. Time Management
+3. Data Visualization
+2025-04-17 18:20:21,385 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:20:25,709 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:20:25,710 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-17 18:20:25,711 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:20:26,906 - app.api.chatbot - INFO - FINAL response: The courses that David missed are:
+1. Agile Methodologies
+2. Time Management
+3. Data Visualization
+2025-04-17 18:21:00,540 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:21:00,542 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-17 18:21:00,543 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:28:56,884 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 18:28:56,886 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 18:28:56,889 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:28:57,528 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:28:58,388 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:28:58,955 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:29:10,300 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:29:10,904 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-17 18:29:10,906 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-17 18:29:10,911 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-17 18:29:47,585 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:29:47,587 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-17 18:29:47,588 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:35:41,107 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 18:35:41,110 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 18:35:51,865 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:35:52,514 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:35:53,302 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:35:53,899 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:36:01,133 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:36:01,705 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-17 18:36:01,707 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-17 18:36:01,712 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-17 18:36:10,276 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:36:12,812 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:36:14,397 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:37:06,272 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:37:06,282 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:37:06,283 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:37:06,285 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:44:39,419 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 18:44:39,421 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 18:44:39,425 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:44:40,080 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:44:40,975 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:44:41,600 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:44:48,315 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:44:48,854 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-17 18:44:48,856 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-17 18:45:00,638 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-17 18:45:07,437 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:45:09,860 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:45:10,780 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:46:35,162 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:46:35,169 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:46:35,171 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:46:35,172 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:46:36,110 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:46:36,111 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:46:36,112 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:46:37,050 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:46:37,054 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:46:37,057 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:46:37,059 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:46:37,895 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:46:37,896 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:46:37,897 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:46:39,129 - app.services.agent.rag_pdf - ERROR - Error extracting request: 'Response' object has no attribute 'get'
+2025-04-17 18:46:39,132 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:46:39,134 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:46:39,137 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:46:40,079 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:46:40,079 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:46:40,080 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:46:59,392 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 18:46:59,394 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 18:46:59,398 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:46:59,972 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:47:00,748 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:47:01,330 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:47:08,023 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:47:08,582 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-17 18:47:08,584 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-17 18:47:13,522 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-17 18:47:17,204 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:47:17,205 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:47:17,206 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:48:10,379 - app.services.agent.rag_pdf - ERROR - Error extracting request: 2 validation errors for HumanMessage
+content.str
+  Input should be a valid string [type=string_type, input_value=Response(response='The Ag...690395)], metadata=None), input_type=Response]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]]
+  Input should be a valid list [type=list_type, input_value=Response(response='The Ag...690395)], metadata=None), input_type=Response]
+    For further information visit https://errors.pydantic.dev/2.10/v/list_type
+2025-04-17 18:48:10,388 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:48:10,390 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:48:10,392 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:48:11,100 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:48:11,101 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:48:11,102 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:48:16,892 - app.services.agent.rag_pdf - ERROR - Error extracting request: 2 validation errors for HumanMessage
+content.str
+  Input should be a valid string [type=string_type, input_value=Response(response="Could ...nodes=[], metadata=None), input_type=Response]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]]
+  Input should be a valid list [type=list_type, input_value=Response(response="Could ...nodes=[], metadata=None), input_type=Response]
+    For further information visit https://errors.pydantic.dev/2.10/v/list_type
+2025-04-17 18:48:16,894 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:48:16,897 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: Error extracting request.
+2025-04-17 18:48:16,898 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:48:36,746 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-17 18:48:36,749 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-17 18:48:36,754 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:48:37,395 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:48:38,195 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:48:38,775 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:48:45,576 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-17 18:48:46,119 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-17 18:48:46,121 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-17 18:48:46,126 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-17 18:48:49,234 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:48:49,235 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-17 18:48:49,236 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:49:05,136 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-17 18:49:05,139 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: The Agile Methodologies course at CORPORATE SCHOOL offers a thorough understanding and practical application of Agile frameworks such as Scrum, Kanban, Lean, and Extreme Programming (XP). Through hands-on exercises and real-world scenarios, participants will learn to enhance productivity, foster collaboration, and deliver high-quality projects. The course covers key Agile principles and values, various methodologies, Agile roles, ceremonies, artifacts, planning, backlog management, estimation, and scaling Agile in large teams and enterprise environments. It is designed for project managers, team leaders, software developers, engineers, business analysts, product owners, entrepreneurs, and those transitioning to Agile environments. The course is offered in-person in Brisbane and online, with different pricing for each format.
+2025-04-17 18:49:05,141 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:49:06,876 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-17 18:49:06,877 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-17 18:49:06,878 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-17 18:49:07,733 - app.api.chatbot - INFO - FINAL response: The Agile Methodologies course at CORPORATE SCHOOL offers a thorough understanding and practical application of Agile frameworks such as Scrum, Kanban, Lean, and Extreme Programming (XP). Through hands-on exercises and real-world scenarios, participants will learn to enhance productivity, foster collaboration, and deliver high-quality projects. The course covers key Agile principles and values, various methodologies, Agile roles, ceremonies, artifacts, planning, backlog management, estimation, and scaling Agile in large teams and enterprise environments. It is designed for project managers, team leaders, software developers, engineers, business analysts, product owners, entrepreneurs, and those transitioning to Agile environments. The course is offered in-person in Brisbane and online, with different pricing for each format.
