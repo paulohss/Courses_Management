@@ -1690,3 +1690,174 @@ content.list[union[str,dict[any,any]]]
 2025-04-17 18:49:06,877 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
 2025-04-17 18:49:06,878 - app.api.chatbot - INFO - ---- End of Response ---
 2025-04-17 18:49:07,733 - app.api.chatbot - INFO - FINAL response: The Agile Methodologies course at CORPORATE SCHOOL offers a thorough understanding and practical application of Agile frameworks such as Scrum, Kanban, Lean, and Extreme Programming (XP). Through hands-on exercises and real-world scenarios, participants will learn to enhance productivity, foster collaboration, and deliver high-quality projects. The course covers key Agile principles and values, various methodologies, Agile roles, ceremonies, artifacts, planning, backlog management, estimation, and scaling Agile in large teams and enterprise environments. It is designed for project managers, team leaders, software developers, engineers, business analysts, product owners, entrepreneurs, and those transitioning to Agile environments. The course is offered in-person in Brisbane and online, with different pricing for each format.
+2025-04-22 12:35:25,813 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-22 12:35:25,815 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-22 12:35:25,818 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 12:35:26,414 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 12:35:27,235 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 12:35:27,809 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 12:35:34,665 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 12:35:35,244 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-22 12:35:35,245 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-22 12:35:35,251 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-22 12:35:46,358 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 12:35:46,360 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-22 12:35:46,362 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:36:04,683 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-22 12:36:04,685 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The courses that Person1 has finished are:
+1. Financial Management
+2. Leadership Fundamentals
+3. Project Management Basics
+4. Public Speaking
+2025-04-22 12:36:04,687 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:36:06,536 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 12:36:06,537 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-22 12:36:06,539 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:36:06,540 - app.api.chatbot - INFO - FINAL response: The courses that Person1 has finished are:
+1. Financial Management
+2. Leadership Fundamentals
+3. Project Management Basics
+4. Public Speaking
+2025-04-22 12:37:06,594 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 12:37:06,595 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-22 12:37:06,596 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:37:18,120 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-22 12:37:18,124 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: The 'Leadership Fundamentals' course runs for 6 weeks, with sessions on Mondays and Wednesdays from 6:30 PM to 9:00 PM (AEDT). There are two sessions per week, each lasting 2.5 hours. Additionally, there is an optional bonus Leadership Coaching Session on Saturdays from 10:00 AM to 11:00 AM.
+2025-04-22 12:37:18,130 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:37:19,129 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 12:37:19,130 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-22 12:37:19,132 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:37:19,134 - app.api.chatbot - INFO - FINAL response: The 'Leadership Fundamentals' course runs for 6 weeks, with sessions on Mondays and Wednesdays from 6:30 PM to 9:00 PM (AEDT). There are two sessions per week, each lasting 2.5 hours. Additionally, there is an optional bonus Leadership Coaching Session on Saturdays from 10:00 AM to 11:00 AM.
+2025-04-22 12:38:40,166 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 12:38:40,167 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'Researcher'}
+2025-04-22 12:38:40,168 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:38:49,569 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-04-22 12:38:49,575 - app.api.chatbot - INFO - Agent: Researcher, Content: Here are some of the top Leadership Fundamentals courses available in Australia:
+
+1. **AGSM at UNSW Business School**:
+   - AGSM (Australian Graduate School of Management) is recognized for its Executive Education programs, which are ranked among the top 35 in the world. The school offers various leadership programs designed to elevate leadership capabilities across Australia, focusing on helping leaders and organizations rebuild, transform, and thrive. Learn more on their [official website](https://www.unsw.edu.au/business/our-schools/agsm/learn-with-us/short-courses/leadership-fundamentals).
+
+2. **Institute of Managers and Leaders Australia and New Zealand**:
+   - This organization offers a range of leadership courses tailored for different stages of a leader's journey. Their courses aim to transform managers into more effective leaders, enhancing resilience, adaptability, and performance. Visit their [website](https://managersandleaders.com.au/leadership-courses/) for more details.
+
+3. **CMA Consulting**:
+   - The Relationship Leaders Leadership Program provided by CMA Consulting empowers senior leaders with the mindset and skills necessary to solve complex organizational challenges. More information can be found on their [website](https://cmaconsulting.com.au/top-leadership-training-courses-for-managers-in-australia/).
+
+These programs are structured to provide comprehensive learning experiences that can significantly enhance leadership qualities and capabilities.
+2025-04-22 12:38:49,580 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:38:51,858 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 12:38:51,860 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-22 12:38:51,861 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:38:51,862 - app.api.chatbot - INFO - FINAL response: Here are some of the top Leadership Fundamentals courses available in Australia:
+
+1. **AGSM at UNSW Business School**:
+   - AGSM (Australian Graduate School of Management) is recognized for its Executive Education programs, which are ranked among the top 35 in the world. The school offers various leadership programs designed to elevate leadership capabilities across Australia, focusing on helping leaders and organizations rebuild, transform, and thrive. Learn more on their [official website](https://www.unsw.edu.au/business/our-schools/agsm/learn-with-us/short-courses/leadership-fundamentals).
+
+2. **Institute of Managers and Leaders Australia and New Zealand**:
+   - This organization offers a range of leadership courses tailored for different stages of a leader's journey. Their courses aim to transform managers into more effective leaders, enhancing resilience, adaptability, and performance. Visit their [website](https://managersandleaders.com.au/leadership-courses/) for more details.
+
+3. **CMA Consulting**:
+   - The Relationship Leaders Leadership Program provided by CMA Consulting empowers senior leaders with the mindset and skills necessary to solve complex organizational challenges. More information can be found on their [website](https://cmaconsulting.com.au/top-leadership-training-courses-for-managers-in-australia/).
+
+These programs are structured to provide comprehensive learning experiences that can significantly enhance leadership qualities and capabilities.
+2025-04-22 12:39:48,591 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 12:39:48,592 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-22 12:39:48,594 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:39:54,155 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-22 12:39:54,158 - app.api.chatbot - INFO - Agent: SqlAgent, Content: I can't send emails, but I can help you retrieve data from your database to include in an email. You may use tools like Microsoft Power Automate or Zapier for sending the email.
+2025-04-22 12:39:54,161 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 12:39:54,842 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 12:39:54,843 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-22 12:39:54,844 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:36:04,789 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-22 13:36:04,791 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-22 13:36:04,800 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 13:36:05,421 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 13:36:06,209 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 13:36:06,798 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 13:36:13,931 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-22 13:36:14,489 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-22 13:36:14,491 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-22 13:36:14,499 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-22 13:36:21,996 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'EmailAgent'}} <---
+2025-04-22 13:36:25,921 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 13:36:25,921 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-04-22 13:36:25,922 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:36:35,749 - app.api.chatbot - INFO - ----> Step: {'EmailAgent': {'messages': [HumanMessage(content='Email sent successfully to Person1 (paulohss19832@gmail.com).', additional_kwargs={}, response_metadata={}, name='EmailAgent')]}} <---
+2025-04-22 13:36:35,751 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-04-22 13:36:35,753 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Person1 (paulohss19832@gmail.com).
+2025-04-22 13:36:35,754 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:36:42,230 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-04-22 13:36:44,318 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 13:36:44,320 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-22 13:36:44,321 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:36:45,235 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Person1 (paulohss19832@gmail.com).
+2025-04-22 13:37:44,110 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-04-22 13:37:44,111 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 13:37:44,112 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-22 13:37:44,113 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:38:06,353 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Courses completed by Person1: Leadership Fundamentals, Financial Management, Project Management Basics, and Course ID 16.\nCourses missing for Person1: Time Management, Team Building, and Stress Management.', additional_kwargs={}, response_metadata={}, name='SqlAgent')]}} <---
+2025-04-22 13:38:06,354 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-22 13:38:06,355 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Courses completed by Person1: Leadership Fundamentals, Financial Management, Project Management Basics, and Course ID 16.
+Courses missing for Person1: Time Management, Team Building, and Stress Management.
+2025-04-22 13:38:06,356 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:38:07,132 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-04-22 13:38:07,133 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 13:38:07,135 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-22 13:38:07,136 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:38:07,138 - app.api.chatbot - INFO - FINAL response: Courses completed by Person1: Leadership Fundamentals, Financial Management, Project Management Basics, and Course ID 16.
+Courses missing for Person1: Time Management, Team Building, and Stress Management.
+2025-04-22 13:38:49,114 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'RagPdfAgent'}} <---
+2025-04-22 13:38:49,115 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 13:38:49,116 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-22 13:38:49,117 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:38:54,142 - app.api.chatbot - INFO - ----> Step: {'RagPdfAgent': {'messages': [HumanMessage(content='The Financial Management course runs for 10 weeks with two sessions per week. Each session is 3 hours long, taking place on Tuesdays and Thursdays from 6:00 PM to 9:00 PM (AEST). Additionally, there is an optional bonus online Q&A session on Saturdays from 10:00 AM to 11:30 AM.', additional_kwargs={}, response_metadata={}, name='RagPdfAgent')]}} <---
+2025-04-22 13:38:54,144 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-22 13:38:54,146 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: The Financial Management course runs for 10 weeks with two sessions per week. Each session is 3 hours long, taking place on Tuesdays and Thursdays from 6:00 PM to 9:00 PM (AEST). Additionally, there is an optional bonus online Q&A session on Saturdays from 10:00 AM to 11:30 AM.
+2025-04-22 13:38:54,148 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:38:54,983 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-04-22 13:38:54,985 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 13:38:54,986 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-22 13:38:54,988 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:38:54,989 - app.api.chatbot - INFO - FINAL response: The Financial Management course runs for 10 weeks with two sessions per week. Each session is 3 hours long, taking place on Tuesdays and Thursdays from 6:00 PM to 9:00 PM (AEST). Additionally, there is an optional bonus online Q&A session on Saturdays from 10:00 AM to 11:30 AM.
+2025-04-22 13:40:22,571 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'Researcher'}} <---
+2025-04-22 13:40:22,572 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 13:40:22,573 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'Researcher'}
+2025-04-22 13:40:22,574 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:40:31,015 - app.api.chatbot - INFO - ----> Step: {'Researcher': {'messages': [HumanMessage(content='Here are the top Financial Management courses in Adelaide:\n\n1. **University of Adelaide - Master of Finance**\n   - This program provides the foundation for a rewarding career as an analyst, consultant, or manager in the financial services sector.\n   - [Learn more here](https://www.adelaide.edu.au/degree-finder/mfin_mfinance.html)\n\n2. **University of Adelaide - Master of Financial Planning**\n   - This course helps students achieve expertise in financial planning to assist others in attaining their financial goals.\n   - [Learn more here](https://adelaideuni.edu.au/study/degrees/master-of-financial-planning/)\n\n3. **University of South Australia - Financial Planning Programs**\n   - The university offers several programs, including a Master of Finance (Financial Planning), Graduate Diploma in Financial Planning, and Bachelor of Business (Financial Planning).\n   - [Explore options here](https://study.unisa.edu.au/financial-planning/)\n\nThese courses are highly regarded and provide comprehensive education in financial management and planning.', additional_kwargs={}, response_metadata={}, name='Researcher')]}} <---
+2025-04-22 13:40:31,018 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-04-22 13:40:31,023 - app.api.chatbot - INFO - Agent: Researcher, Content: Here are the top Financial Management courses in Adelaide:
+
+1. **University of Adelaide - Master of Finance**
+   - This program provides the foundation for a rewarding career as an analyst, consultant, or manager in the financial services sector.
+   - [Learn more here](https://www.adelaide.edu.au/degree-finder/mfin_mfinance.html)
+
+2. **University of Adelaide - Master of Financial Planning**
+   - This course helps students achieve expertise in financial planning to assist others in attaining their financial goals.
+   - [Learn more here](https://adelaideuni.edu.au/study/degrees/master-of-financial-planning/)
+
+3. **University of South Australia - Financial Planning Programs**
+   - The university offers several programs, including a Master of Finance (Financial Planning), Graduate Diploma in Financial Planning, and Bachelor of Business (Financial Planning).
+   - [Explore options here](https://study.unisa.edu.au/financial-planning/)
+
+These courses are highly regarded and provide comprehensive education in financial management and planning.
+2025-04-22 13:40:31,026 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:40:31,930 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-04-22 13:40:31,931 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-22 13:40:31,932 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-22 13:40:31,933 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-22 13:40:31,934 - app.api.chatbot - INFO - FINAL response: Here are the top Financial Management courses in Adelaide:
+
+1. **University of Adelaide - Master of Finance**
+   - This program provides the foundation for a rewarding career as an analyst, consultant, or manager in the financial services sector.
+   - [Learn more here](https://www.adelaide.edu.au/degree-finder/mfin_mfinance.html)
+
+2. **University of Adelaide - Master of Financial Planning**
+   - This course helps students achieve expertise in financial planning to assist others in attaining their financial goals.
+   - [Learn more here](https://adelaideuni.edu.au/study/degrees/master-of-financial-planning/)
+
+3. **University of South Australia - Financial Planning Programs**
+   - The university offers several programs, including a Master of Finance (Financial Planning), Graduate Diploma in Financial Planning, and Bachelor of Business (Financial Planning).
+   - [Explore options here](https://study.unisa.edu.au/financial-planning/)
+
+These courses are highly regarded and provide comprehensive education in financial management and planning.

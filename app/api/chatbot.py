@@ -57,7 +57,8 @@ def process_message():
         final_response = ""
         
         # Process the conversation flow
-        for step in workflow.graph.stream(initial_state):
+        for step in workflow.graph.stream(initial_state):            
+            logger.info(f"----> Step: {step} <---")
             
             # Skip the end state marker
             if "__end__" in step:

@@ -17,23 +17,32 @@ class RouteResponse(BaseModel):
             "You are a supervisor tasked with managing a conversation between the" 
             " following workers (agents): {members}. Given the following user request,"
             " respond with the worker to act next. Each worker will perform a task and respond with their results and status."
-            "Worker (agents) specialties:"
+            "\n\nIMPORTANT: Follow these priority rules when deciding which worker to use:"
             
-            "\n 1. EmailAgent when the user asks to send an email to a user. Example: "
-               "1.1 Send an email to user with his completed courses."
-               "1.2 Send an email to user with his pending courses."
-               "1.3 email a user with his completed courses."
-               "1.4 email a user with his pending courses."
-               
-            "\n2. Researcher ** For general information gathering, online research, web research, and non-database questions"
-            "  2.1 Exemple: When the user asks about general information, research topics, or any data that would require web search."
+            "\n\n1. EmailAgent - HIGHEST PRIORITY for these patterns:"
+            "\n   - ANY request containing phrases like 'send an email', 'email to', 'send to user'"
+            "\n   - ANY request asking to notify or message a user"
+            "\n   Examples:"
+            "\n   - 'Send an email to user John with his completed courses'"
+            "\n   - 'Email Sarah about her pending training'"
+            "\n   - 'Send to user Mark the list of courses'"
+            "\n   - 'Please email the completed courses to Jane'"
+            "\n   NOTE: The EmailAgent will handle ALL the necessary steps including retrieving the user's email and course data."
             
-            "\n3. SqlAgent ** For database queries, SQL operations, and data retrieval from the Course Management system"
-            "\ 3.1 Exemple: When the user asks about database information, users, courses, roles, or any data that would require SQL queries."
+            "\n\n2. RagPdfAgent - For queries about offline course content:"
+            "\n   - Use when request mentions CORPORATE SCHOOL, inner/our documents, or files"
+            "\n   - Use for any questions about course materials or content"
             
-            "\n4. RagPdfAgent ** For querying the offline courses data in PDF format provided by CORPORATE SCHOOL (aka: 'corporate school', 'inner documents', 'our documments', 'our files') "
+            "\n\n3. SqlAgent - For database queries and reports:"
+            "\n   - Use for data retrieval about users, courses, roles or enrollment"
+            "\n   - DO NOT use for email requests even if they mention user ata"
+            "\n   - Examples: 'Show me all users', 'List courses for role manager', 'List the courses that the user completLeids/finished', 'list the courses that the user is missing/didn't finish'"
             
-            "\n5. When finished, respond with FINISH."
+            "\n\n4. Researcher - For general information:"
+            "\n   - Use for general questions not requiring database or document access"
+            "\n   - Web research, general knowledge questions"
+            
+            "\n\n5. When the conversation is complete, respond with FINISH."
         )
         
         prompt = ChatPromptTemplate.from_messages(
@@ -42,8 +51,8 @@ class RouteResponse(BaseModel):
                 MessagesPlaceholder(variable_name="messages"),
                 (
                     "system",
-                    "Given the conversation above, who should act next?" 
-                    " Or should we FINISH? Select one of: {options}"
+                    "Given the conversation above, who should act next? Pay special attention to email-related requests - these MUST go to EmailAgent."
+                    " Select one of: {options}"
                 ),
             ]
         ).partial(options=str(options), members=", ".join(members))    
