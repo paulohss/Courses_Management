@@ -10,10 +10,13 @@ user_service = UserService()
 @bp.route('/users', methods=['POST'])
 def create_user():
     data = request.json
-    if not data or 'name' not in data or 'role_id' not in data or 'email' not in data:
+
+    if not data or 'name' not in data or 'role_id' not in data or 'email' not in data or 'office' not in data or 'country' not in data:
         return jsonify({'message': 'Invalid data'}), 400
-    new_user = user_service.create_user(data['name'], data['role_id'], data['email'])
+    
+    new_user = user_service.create_user(data['name'], data['role_id'], data['email'], data['office'], data['country'])
     return jsonify({'message': 'User created successfully', 'id': new_user.id}), 201
+
 
 #-------------------------------------------------------------------------------
 # Get all users
@@ -26,6 +29,8 @@ def get_users():
             'id': user.id,
             'name': user.name,
             'email': user.email,
+            'office': user.office,
+            'country': user.country,
             'role': {
                 'id': user.role.id,
                 'name': user.role.name
@@ -33,6 +38,7 @@ def get_users():
         }
         for user in users
     ])
+
 
 #-------------------------------------------------------------------------------
 # Get a users by id 
@@ -45,6 +51,8 @@ def get_user_by_id(id):
             'id': user['id'],
             'name': user['name'],
             'email': user['email'],
+            'office': user['office'],
+            'country': user['country'],
             'role': {
                 'id': user['role_id'],
                 'name': user['role_name']
@@ -59,10 +67,10 @@ def get_user_by_id(id):
 @bp.route('/users/<int:id>', methods=['PUT'])
 def update_user(id):
     data = request.json
-    if not data or 'name' not in data or 'role_id' not in data or 'email' not in data:
+    if not data or 'name' not in data or 'role_id' not in data or 'email' not in data or 'office' not in data or 'country' not in data:
         return jsonify({'message': 'Invalid data'}), 400
     
-    updated_user = user_service.update_user(id, data['name'], data['role_id'], data['email'])
+    updated_user = user_service.update_user(id, data['name'], data['role_id'], data['email'], data['office'], data['country'])
     if updated_user:
         return jsonify({'message': 'User updated successfully'})
     return jsonify({'message': 'User not found'}), 404

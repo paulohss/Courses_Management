@@ -1861,3 +1861,69 @@ These courses are highly regarded and provide comprehensive education in financi
    - [Explore options here](https://study.unisa.edu.au/financial-planning/)
 
 These courses are highly regarded and provide comprehensive education in financial management and planning.
+2025-04-23 11:46:56,269 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-23 11:46:56,271 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-23 11:46:56,274 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-23 11:46:56,881 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-23 11:46:57,704 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-23 11:46:58,272 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-23 11:47:05,131 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-23 11:47:05,697 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-23 11:47:05,699 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-23 11:47:05,705 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-23 11:47:07,731 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'RagPdfAgent'}} <---
+2025-04-23 11:47:07,732 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-23 11:47:07,734 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-04-23 11:47:07,735 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-23 11:47:19,368 - app.api.chatbot - INFO - ----> Step: {'RagPdfAgent': {'messages': [HumanMessage(content="I was able to retrieve the following information:\n\n| Course       | Total Time (Hours) | Total Time (Days) | Price for In-Person (Brisbane) | Price for Online |\n|--------------|--------------------|-------------------|------------------------------|-----------------|\n| Course 1     | Not specified      | Not specified     | AUD $1,800                   | AUD $1,600      |\n| Course 2     | Not specified      | Not specified     | Not specified                | Not specified   |\n\nUnfortunately, the total time to complete each course in hours and days is not specified, and the price for Course 2 wasn't provided in the documents I have access to.", additional_kwargs={}, response_metadata={}, name='RagPdfAgent')]}} <---
+2025-04-23 11:47:19,371 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-04-23 11:47:19,374 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: I was able to retrieve the following information:
+
+| Course       | Total Time (Hours) | Total Time (Days) | Price for In-Person (Brisbane) | Price for Online |
+|--------------|--------------------|-------------------|------------------------------|-----------------|
+| Course 1     | Not specified      | Not specified     | AUD $1,800                   | AUD $1,600      |
+| Course 2     | Not specified      | Not specified     | Not specified                | Not specified   |
+
+Unfortunately, the total time to complete each course in hours and days is not specified, and the price for Course 2 wasn't provided in the documents I have access to.
+2025-04-23 11:47:19,377 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-23 11:47:20,315 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-04-23 11:47:20,316 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-23 11:47:20,317 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-23 11:47:20,318 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-23 11:47:20,319 - app.api.chatbot - INFO - FINAL response: I was able to retrieve the following information:
+
+| Course       | Total Time (Hours) | Total Time (Days) | Price for In-Person (Brisbane) | Price for Online |
+|--------------|--------------------|-------------------|------------------------------|-----------------|
+| Course 1     | Not specified      | Not specified     | AUD $1,800                   | AUD $1,600      |
+| Course 2     | Not specified      | Not specified     | Not specified                | Not specified   |
+
+Unfortunately, the total time to complete each course in hours and days is not specified, and the price for Course 2 wasn't provided in the documents I have access to.
+2025-04-25 13:01:45,563 - app.services.bll.user_service - WARNING - Email already in use: paulohss19832@gmail.com
+2025-04-25 13:01:45,564 - app.services.bll.user_service - ERROR - Error updating User: 400 Bad Request: Email already in use!
+2025-04-25 13:14:52,177 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-04-25 13:14:52,180 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-04-25 13:14:52,185 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-25 13:14:52,812 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-25 13:14:54,519 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-25 13:14:55,124 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-25 13:15:02,624 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-04-25 13:15:03,281 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-04-25 13:15:03,283 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-04-25 13:15:03,303 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-04-25 13:15:04,825 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-04-25 13:15:04,826 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-25 13:15:04,827 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-04-25 13:15:04,829 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-25 13:15:21,293 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content="The users located in 'Build B' are:\n1. David - Email: paulohss19832@gmail.com, Country: Brazil\n2. Sarah - Email: paulohss19832@gmail.com, Country: Australia", additional_kwargs={}, response_metadata={}, name='SqlAgent')]}} <---
+2025-04-25 13:15:21,306 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-04-25 13:15:21,309 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The users located in 'Build B' are:
+1. David - Email: paulohss19832@gmail.com, Country: Brazil
+2. Sarah - Email: paulohss19832@gmail.com, Country: Australia
+2025-04-25 13:15:21,311 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-25 13:15:21,843 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-04-25 13:15:21,844 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-04-25 13:15:21,845 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-04-25 13:15:21,847 - app.api.chatbot - INFO - ---- End of Response ---
+2025-04-25 13:15:21,849 - app.api.chatbot - INFO - FINAL response: The users located in 'Build B' are:
+1. David - Email: paulohss19832@gmail.com, Country: Brazil
+2. Sarah - Email: paulohss19832@gmail.com, Country: Australia

@@ -16,28 +16,33 @@ class UserService:
         # Initialize logger
         self.logger = LoggerService.get_instance().get_logger(__name__)            
     
+    
     #-------------------------------------------------------------------------------
     # Validation method
     #-------------------------------------------------------------------------------
-    def validate_user(self, name, role_id, email, id):
+    def validate_user(self, name, role_id, email, id, office, country):
+        
         if not name or not name.strip():
             self.logger.warning('Name must be provided for a User!')
             abort(400, 'Name must be provided for a User!')
+           
+        if not office or not office.strip():
+            self.logger.warning('Office must be provided for a User!')
+            abort(400, 'Office must be provided for a User!')
+
+        if not country or not country.strip():
+            self.logger.warning('Country must be provided for a User!')
+            abort(400, 'Country must be provided for a User!')            
 
         if not email or not email.strip():
             self.logger.warning('Email must be provided for a User!')
             abort(400, 'Email must be provided for a User!')
         
-        # Basic email validation
         if '@' not in email or '.' not in email:
             self.logger.warning(f'Invalid email format: {email}')
             abort(400, 'Invalid email format!')
         
-        # Check for duplicate email (except for the user being updated)
-        #existing_user = User.query.filter_by(email=email).first()
-        #if existing_user and existing_user.id != id:
-        #    self.logger.warning(f'Email already in use: {email}')
-        #    abort(400, 'Email already in use!')
+        # TODO: Check if email already exists in the database
                     
         if not role_id or role_id <= 0:
             self.logger.warning(f'Invalid Role ID [{role_id}] provided!')
@@ -53,13 +58,14 @@ class UserService:
     #-------------------------------------------------------------------------------
     # Create / Add new user
     #-------------------------------------------------------------------------------        
-    def create_user(self, name, role_id, email):
+    def create_user(self, name, role_id, email, office, country):
+        
         # Validation:
-        self.validate_user(name, role_id, email, 0)
+        self.validate_user(name, role_id, email, 0, office, country)
 
         # Action:
         try:
-            new_user = User(name=name, fk_role_id=role_id, email=email)
+            new_user = User(name=name, fk_role_id=role_id, email=email, office=office, country=country)
             db.session.add(new_user)
             db.session.commit()
             return new_user
@@ -68,7 +74,6 @@ class UserService:
             self.logger.error(f"Error creating User: {str(e)}")
             db.session.rollback()
             raise
-
 
 
     #-------------------------------------------------------------------------------
@@ -80,6 +85,66 @@ class UserService:
         except Exception as e:
             self.logger.error(f"Error getting all Users: {str(e)}")  
 
+
+    #-------------------------------------------------------------------------------
+    # Helper method to fetch user details and courses
+    #-------------------------------------------------------------------------------
+    def _get_user_details(self, user):
+        if not user:
+            return None
+
+        # Get courses attended by user
+        user_courses = UserCourse.query \
+            .join(Course, UserCourse.fk_course_id == Course.id) \
+            .filter(UserCourse.fk_user_id == user.id) \
+            .order_by(Course.name) \
+            .all()
+
+        courses_attended = [Course.query.get(uc.fk_course_id) for uc in user_courses]
+
+        # Get courses available for user
+        role_courses = RoleCourse.query \
+            .join(Course, RoleCourse.fk_course_id == Course.id) \
+            .filter(RoleCourse.fk_role_id == user.fk_role_id) \
+            .order_by(Course.name) \
+            .all()
+
+        courses_available = [Course.query.get(rc.fk_course_id) for rc in role_courses]
+
+        # Merge courses_attended and courses_available, avoiding duplicates
+        course_ids = set()
+        user_course_list = []
+
+        for course in courses_attended:
+            course_ids.add(course.id)
+            user_course_list.append({
+                'id': course.id,
+                'name': course.name,
+                'recurrent': course.recurrent,
+                'attended': True
+            })
+
+        for course in courses_available:
+            if course.id not in course_ids:
+                course_ids.add(course.id)
+                user_course_list.append({
+                    'id': course.id,
+                    'name': course.name,
+                    'recurrent': course.recurrent,
+                    'attended': False
+                })
+
+        return {
+            'id': user.id,
+            'name': user.name,
+            'email': user.email,
+            'office': user.office,
+            'country': user.country,
+            'role_id': user.fk_role_id,
+            'role_name': user.role.name,
+            'user_course_list': user_course_list
+        }
+
     #-------------------------------------------------------------------------------
     # Get user by ID
     #-------------------------------------------------------------------------------    
@@ -89,44 +154,8 @@ class UserService:
                 self.logger.warning('Invalid User ID provided!')
                 abort(400, 'Invalid User ID provided!')
             
-            #Get user info
             user = User.query.get(id)
-            
-            #Get courses attended by user
-            user_courses = UserCourse.query\
-                .join(Course, UserCourse.fk_course_id == Course.id)\
-                .filter(UserCourse.fk_user_id == id)\
-                .order_by(Course.name)\
-                .all()
-                
-            courses_attented = [Course.query.get(uc.fk_course_id) for uc in user_courses]
-            
-            #Get courses available for user
-            role_courses = RoleCourse.query\
-                .join(Course, RoleCourse.fk_course_id == Course.id)\
-                .filter(RoleCourse.fk_role_id == user.fk_role_id)\
-                .order_by(Course.name)\
-                .all()
-                
-            courses_avaiable = [Course.query.get(rc.fk_course_id) for rc in role_courses]
-            
-            # Merge courses_attented and courses_avaiable, avoiding duplicates
-            course_ids = set()
-            user_course_list = []
-            
-            for course in courses_attented:
-                course_ids.add(course.id)
-                user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': True})
-                    
-            for course in courses_avaiable:
-                if course.id not in course_ids:
-                    course_ids.add(course.id)
-                    user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': False})
-            
-            if user:
-                return {'id': user.id,'name': user.name, 'email': user.email, 'role_id': user.fk_role_id,'role_name': user.role.name,'user_course_list': user_course_list}
-            
-            return None
+            return self._get_user_details(user)
         
         except Exception as e:
             self.logger.error(f"Error getting User by ID: {str(e)}")
@@ -142,64 +171,25 @@ class UserService:
                 self.logger.warning('Name must be provided for a User!')
                 abort(400, 'Name must be provided for a User!')
                                     
-            # Query the database for a user with a matching name (case-insensitive)
             user = User.query.filter(User.name.ilike(f"%{name}%")).first()
-            
-            if user:
-                #Get courses attended by user
-                user_courses = UserCourse.query\
-                    .join(Course, UserCourse.fk_course_id == Course.id)\
-                    .filter(UserCourse.fk_user_id == user.id)\
-                    .order_by(Course.name)\
-                    .all()
-                    
-                courses_attented = [Course.query.get(uc.fk_course_id) for uc in user_courses]
-                
-                #Get courses available for user
-                role_courses = RoleCourse.query\
-                    .join(Course, RoleCourse.fk_course_id == Course.id)\
-                    .filter(RoleCourse.fk_role_id == user.fk_role_id)\
-                    .order_by(Course.name)\
-                    .all()
-                    
-                courses_avaiable = [Course.query.get(rc.fk_course_id) for rc in role_courses]
-                
-                # Merge courses_attented and courses_avaiable, avoiding duplicates
-                course_ids = set()
-                user_course_list = []
-                
-                for course in courses_attented:
-                    course_ids.add(course.id)
-                    user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': True})
-                        
-                for course in courses_avaiable:
-                    if course.id not in course_ids:
-                        course_ids.add(course.id)
-                        user_course_list.append({'id': course.id,'name': course.name,'recurrent': course.recurrent,'attended': False})
-                
-                if user:
-                    return {'id': user.id,'name': user.name, 'email': user.email, 'role_id': user.fk_role_id,'role_name': user.role.name,'user_course_list': user_course_list}
-            else:            
-                return None
+            return self._get_user_details(user)
         
         except Exception as e:
-            self.logger.error(f"Error getting User by ID: {str(e)}")
+            self.logger.error(f"Error getting User by Name: {str(e)}")
             raise
-
-
 
 
     #-------------------------------------------------------------------------------
     # Update user
     #-------------------------------------------------------------------------------    
-    def update_user(self, id, name, role_id, email):
+    def update_user(self, id, name, role_id, email, office, country):
         try:
             # Validation:
             if id <= 0:
                 self.logger.warning('Invalid User ID provided!')
                 abort(400, 'Invalid User ID provided!')
             
-            self.validate_user(name, role_id, email, id)
+            self.validate_user(name, role_id, email, id, office, country)
             
             # Action:
             user = User.query.get(id)
@@ -207,6 +197,8 @@ class UserService:
                 user.name = name
                 user.fk_role_id = role_id
                 user.email = email
+                user.office = office
+                user.country = country
                 db.session.commit()
                 return user
             else:

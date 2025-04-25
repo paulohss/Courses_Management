@@ -13,6 +13,8 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
     const [userCourses, setUserCourses] = useState([]); // State for User Courses
     const [shouldClose, setShouldClose] = useState(true); // State to close the modal
     const [message, setMessage] = useState(''); // Add new state for message
+    const [office, setOffice] = useState(''); // State for Office
+    const [country, setCountry] = useState(''); // State for Country
 
     //--------------------------------------------------------------------------------
     // Function to cleanup form fields
@@ -23,6 +25,8 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
         setRoleId('');
         setEmail('');
         setUserCourses([]);
+        setOffice('');
+        setCountry('');
     };
 
     //--------------------------------------------------------------------------------
@@ -43,7 +47,9 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
             const newUserData = { 
                 name, 
                 email, 
-                role_id: Number(roleId) 
+                role_id: Number(roleId),
+                office,
+                country
             };
             console.log(newUserData)
             await onSubmit(newUserData);
@@ -77,6 +83,8 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
             setName(user.name);
             setEmail(user.email); 
             setRoleId(user.role.id);
+            setOffice(user.office);
+            setCountry(user.country);
             setUserCourses(user.userCourseList);
         } catch (error) {
             console.error('Error fetching user data', error);
@@ -189,6 +197,7 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
                         
                         {/* Field: ROLE */}
                         <div className="flex mb-4 justify-between">
+                            Role
                             <select className="select select-bordered w-full max-w-xs" value={roleId} onChange={(e) => setRoleId(e.target.value)}>
                                 <option value="">Select Role</option>
                                 {roles.map(role => (
@@ -196,6 +205,30 @@ export default function UserModalForm({ isOpen, onClose, mode, onSubmit, userDat
                                 ))}
                             </select>
                         </div>
+
+                        {/* Field: OFFICE */}
+                        <label className="flex mb-4 justify-between">
+                            Office
+                            <select className="select select-bordered w-full max-w-xs"  value={office} onChange={(e) => setOffice(e.target.value)}>
+                                <option value="">Select Office</option>
+                                <option value="Build A">Build A</option>
+                                <option value="Build B">Build B</option>
+                                <option value="Build C">Build C</option>
+                                <option value="Build D">Build D</option>
+                            </select>
+                        </label>
+
+                        {/* Field: COUNTRY */}
+                        <label className="flex mb-4 justify-between">
+                            Country
+                            <select className="select select-bordered w-full max-w-xs" value={country} onChange={(e) => setCountry(e.target.value)}>
+                                <option value="">Select Country</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Manila">Manila</option>
+                                <option value="US">US</option>
+                            </select>
+                        </label>
 
                         {/*Table: COURSES */}
                         {userCourses.length > 0 && (id !== null && id !== 0 && id !== '') &&(
