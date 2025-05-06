@@ -12,7 +12,7 @@ from langchain_core.messages import HumanMessage
 from app.services.llm.llm_factory import LLMFactory
 from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
-from app.services.agent.prompt.sql_agent_general import SqlAgentGeneralPromptTemplate
+from app.services.agent.prompt.sql_agent_general_prompt import SqlAgentGeneralPromptTemplate
  
 class SqlAgent:
     

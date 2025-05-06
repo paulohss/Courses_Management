@@ -7,4 +7,4 @@ class AgentsUtil:
     #--------------------------------------------------------------------------------
     @staticmethod
     def get_members():
-        return ["Researcher", "SqlAgent", "EmailAgent", "RagPdfAgent"] 
+        return ["Researcher", "SqlAgent", "EmailAgent", "RagPdfAgent", "ChartAgent"] 

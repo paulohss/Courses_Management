@@ -1955,3 +1955,230 @@ Unfortunately, the total time to complete each course in hours and days is not s
 2025-05-06 10:45:37,835 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
 2025-05-06 10:45:37,836 - app.api.chatbot - INFO - ---- End of Response ---
 2025-05-06 10:45:37,837 - app.api.chatbot - INFO - FINAL response: Yes, there is a user named Novin in the database.
+2025-05-06 16:32:11,978 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 16:32:18,161 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 16:32:24,452 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:32:26,012 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:32:27,567 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:32:28,905 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:32:37,379 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:32:37,998 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 16:32:38,000 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 16:32:38,006 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 16:32:48,226 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:33:00,714 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-06 16:34:03,171 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-06 16:34:05,416 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 16:34:08,079 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-06 16:34:10,770 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 16:34:47,303 - app.services.agent.chart_agent - ERROR - Error invoking the agent: 'plotly_json'
+2025-05-06 16:34:47,305 - app.services.agent.factory.helpers - ERROR - Error invoking agent ChartAgent: 'NoneType' object is not subscriptable
+2025-05-06 16:34:47,312 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': None} <---
+2025-05-06 16:34:47,314 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-06 16:34:47,315 - app.api.chatbot - INFO - Agent: ChartAgent, Content: None
+2025-05-06 16:34:47,317 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 16:52:33,851 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 16:52:42,158 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 16:52:42,163 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:52:42,778 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:52:43,556 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:52:44,209 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:52:51,248 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:52:51,802 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 16:52:51,803 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 16:52:51,809 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 16:53:01,672 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:53:11,058 - app.services.agent.chart_agent - ERROR - Error initializing ChatAgentState: ChatAgentState.connect_to_database() takes 1 positional argument but 2 were given
+2025-05-06 16:53:11,061 - app.api.chatbot - ERROR - Error initializing chatbot service: ChatAgentState.connect_to_database() takes 1 positional argument but 2 were given
+2025-05-06 16:53:11,063 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-05-06 16:55:21,895 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 16:55:21,897 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 16:55:21,901 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:55:22,579 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:55:23,423 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:55:24,032 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:55:30,724 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:55:31,281 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 16:55:31,283 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 16:55:31,289 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 16:55:36,333 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:55:45,301 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:55:50,358 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:55:57,495 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:56:44,702 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:59:52,673 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 16:59:52,675 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 16:59:52,679 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:59:53,328 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:59:54,122 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 16:59:54,712 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:00:02,838 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:00:03,452 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 17:00:03,454 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 17:00:03,461 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 17:00:08,055 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:00:13,319 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:01:22,553 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:04:53,041 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 17:04:53,042 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 17:04:53,046 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:04:53,740 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:04:54,593 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:04:55,194 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:05:02,259 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:05:02,886 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 17:05:02,888 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 17:05:02,894 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 17:05:10,295 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:05:14,723 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:10:25,428 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 17:10:25,430 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 17:10:25,433 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:10:26,229 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:10:26,998 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:10:27,568 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:10:34,299 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:10:34,855 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 17:10:34,857 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 17:10:34,864 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 17:10:38,950 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:10:48,527 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-06 17:11:01,966 - app.services.agent.chart_agent - ERROR - Error building language graph: unhashable type: 'dict'
+2025-05-06 17:11:01,967 - app.services.agent.chart_agent - ERROR - Error initializing ChatAgentState: unhashable type: 'dict'
+2025-05-06 17:11:01,969 - app.api.chatbot - ERROR - Error initializing chatbot service: unhashable type: 'dict'
+2025-05-06 17:11:01,971 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 60, in process_message
+    for step in workflow.graph.stream(initial_state):
+    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-05-06 17:26:25,064 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 17:26:25,066 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 17:26:25,069 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:26:25,730 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:26:26,702 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:26:27,336 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:26:34,232 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:26:34,786 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 17:26:34,788 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 17:26:34,793 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 17:26:39,857 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:26:49,855 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-06 17:27:11,839 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-06 17:27:11,840 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 17:27:11,842 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-06 17:27:11,843 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:28:43,347 - app.services.agent.chart_agent - ERROR - Error invoking the agent: 'NoneType' object is not subscriptable
+2025-05-06 17:28:43,349 - app.services.agent.factory.helpers - ERROR - Error invoking agent ChartAgent: 'NoneType' object is not subscriptable
+2025-05-06 17:28:43,356 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': None} <---
+2025-05-06 17:28:43,357 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-06 17:28:43,358 - app.api.chatbot - INFO - Agent: ChartAgent, Content: None
+2025-05-06 17:28:43,360 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:37:47,788 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 17:37:47,789 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 17:37:47,794 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:37:48,412 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:37:49,373 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:37:49,963 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:37:57,095 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:37:57,741 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 17:37:57,742 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 17:37:57,746 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 17:38:00,303 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:38:06,396 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-06 17:38:07,441 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-06 17:38:07,442 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 17:38:07,444 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-06 17:38:07,445 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:38:11,837 - app.services.agent.chart_agent - ERROR - Error invoking the agent: 'str' object has no attribute 'name'
+2025-05-06 17:38:21,303 - app.services.agent.factory.helpers - ERROR - Error invoking agent ChartAgent: 'NoneType' object is not subscriptable
+2025-05-06 17:38:21,311 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': None} <---
+2025-05-06 17:38:21,312 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-06 17:38:21,314 - app.api.chatbot - INFO - Agent: ChartAgent, Content: None
+2025-05-06 17:38:21,315 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:38:22,405 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-06 17:38:22,406 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 17:38:22,408 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-06 17:38:22,409 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:38:36,708 - app.services.agent.chart_agent - ERROR - Error invoking the agent: 'str' object has no attribute 'name'
+2025-05-06 17:38:36,710 - app.services.agent.factory.helpers - ERROR - Error invoking agent ChartAgent: 'NoneType' object is not subscriptable
+2025-05-06 17:38:36,718 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': None} <---
+2025-05-06 17:38:36,719 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-06 17:38:36,721 - app.api.chatbot - INFO - Agent: ChartAgent, Content: None
+2025-05-06 17:38:36,722 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:40:26,190 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 17:40:26,193 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 17:40:26,198 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:40:26,845 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:40:27,643 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:40:28,236 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:40:35,246 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:40:36,024 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 17:40:36,025 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 17:40:36,031 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 17:40:38,248 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 17:40:39,017 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-06 17:40:40,036 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-06 17:40:40,037 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 17:40:40,038 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-06 17:40:40,039 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:40:42,832 - app.services.agent.chart_agent - INFO - Node: __start__
+2025-05-06 17:40:43,815 - app.services.agent.chart_agent - INFO - Node: connect_to_database
+2025-05-06 17:40:44,719 - app.services.agent.chart_agent - INFO - Node: run_query
+2025-05-06 17:40:45,520 - app.services.agent.chart_agent - INFO - Node: generate_plotly_graph
+2025-05-06 17:42:50,849 - app.services.agent.chart_agent - ERROR - Error invoking the agent: string indices must be integers, not 'str'
+2025-05-06 17:42:50,852 - app.services.agent.factory.helpers - ERROR - Error invoking agent ChartAgent: 'NoneType' object is not subscriptable
+2025-05-06 17:42:50,857 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': None} <---
+2025-05-06 17:42:50,858 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-06 17:42:50,859 - app.api.chatbot - INFO - Agent: ChartAgent, Content: None
+2025-05-06 17:42:50,861 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:48:28,897 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 17:48:28,900 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 17:48:38,368 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 17:48:38,370 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 17:48:38,376 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 17:48:42,782 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-06 17:48:43,684 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-06 17:48:43,685 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 17:48:43,686 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-06 17:48:43,688 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 17:48:52,347 - app.services.agent.chart_agent - INFO - Node: __start__
+2025-05-06 17:48:54,815 - app.services.agent.chart_agent - INFO - Node: connect_to_database
+2025-05-06 17:48:56,232 - app.services.agent.chart_agent - INFO - Node: run_query
+2025-05-06 17:48:57,544 - app.services.agent.chart_agent - INFO - Node: generate_plotly_graph
+2025-05-06 17:49:35,012 - app.services.agent.chart_agent - ERROR - Error invoking the agent: string indices must be integers, not 'str'
+2025-05-06 17:49:35,015 - app.services.agent.factory.helpers - ERROR - Error invoking agent ChartAgent: 'NoneType' object is not subscriptable
+2025-05-06 17:49:35,020 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': None} <---
+2025-05-06 17:49:35,021 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-06 17:49:35,022 - app.api.chatbot - INFO - Agent: ChartAgent, Content: None
+2025-05-06 17:49:35,024 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 19:11:06,626 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 19:11:06,628 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 19:11:16,409 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 19:11:16,410 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 19:11:16,417 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 19:11:19,297 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-06 19:11:19,298 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 19:11:19,299 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-06 19:11:19,300 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 19:11:23,170 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-06 19:11:23,171 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 19:11:23,173 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-06 19:11:23,174 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 19:11:23,175 - app.api.chatbot - INFO - FINAL response: 
+2025-05-06 19:11:25,328 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-06 19:11:27,132 - app.services.agent.chart_agent - INFO - Node: __start__
+2025-05-06 19:11:27,523 - app.services.agent.chart_agent - INFO - Node: connect_to_database
+2025-05-06 19:11:28,313 - app.services.agent.chart_agent - INFO - Node: run_query
+2025-05-06 19:11:28,637 - app.services.agent.chart_agent - INFO - Node: generate_plotly_graph
+2025-05-06 19:11:39,614 - app.services.agent.chart_agent - ERROR - Error invoking the Chart Agent: string indices must be integers, not 'str'
+2025-05-06 19:11:39,616 - app.services.agent.factory.helpers - ERROR - Error invoking agent ChartAgent: 'NoneType' object is not subscriptable
+2025-05-06 19:11:39,624 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': None} <---
+2025-05-06 19:11:39,625 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-06 19:11:39,627 - app.api.chatbot - INFO - Agent: ChartAgent, Content: None
+2025-05-06 19:11:39,628 - app.api.chatbot - INFO - ---- End of Response ---

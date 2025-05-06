@@ -4,7 +4,7 @@ from llama_index.readers.file import PDFReader
 from app.utils.logger_service import LoggerService
 from app.services.llm.llm_factory import LLMFactory
 from app.services.llm.llm_setting import LLMConfig
-from app.services.agent.prompt.rag_pdf_content import RagPdfContent
+from app.services.agent.prompt.rag_pdf_content_prompt import RagPdfContent
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent import ReActAgent
 from langchain_core.messages import HumanMessage

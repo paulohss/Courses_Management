@@ -5,7 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 class RouteResponse(BaseModel):
     
     # Properties of the RouteResponse class
-    next: Literal["FINISH", "EmailAgent", "Researcher", "SqlAgent", "RagPdfAgent"]
+    next: Literal["FINISH", "EmailAgent", "Researcher", "SqlAgent", "RagPdfAgent", "ChartAgent"]
     
     
     #--------------------------------------------------------------------------------
@@ -35,14 +35,19 @@ class RouteResponse(BaseModel):
             
             "\n\n3. SqlAgent - For database queries and reports:"
             "\n   - Use for data retrieval about users, courses, roles or enrollment"
-            "\n   - DO NOT use for email requests even if they mention user ata"
-            "\n   - Examples: 'Show me all users', 'List courses for role manager', 'List the courses that the user completLeids/finished', 'list the courses that the user is missing/didn't finish'"
+            "\n   - DO NOT use for email requests even if they mention user data"
+            "\n   - Examples: 'Show me all users', 'List courses for role manager', 'List the courses that the user completed/finished', 'list the courses that the user is missing/didn't finish'"
             
-            "\n\n4. Researcher - For general information:"
+            "\n\n4. ChartAgent - For generating visualizations and charts:"
+            "\n   - Use when the request involves creating graphs, charts, or visual representations of data"
+            "\n   - Examples: 'Generate a bar chart of user enrollments', 'Create a pie chart of course completion rates', 'Visualize the data for user progress'"
+            "\n   - NOTE: ChartAgent will handle both data processing and chart generation."
+            
+            "\n\n5. Researcher - For general information:"
             "\n   - Use for general questions not requiring database or document access"
             "\n   - Web research, general knowledge questions"
             
-            "\n\n5. When the conversation is complete, respond with FINISH."
+            "\n\n6. When the conversation is complete, respond with FINISH."
         )
         
         prompt = ChatPromptTemplate.from_messages(

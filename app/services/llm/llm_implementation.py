@@ -12,7 +12,6 @@ class OpenAIProvider(LLMProvider):
         self.api_key = api_key
     
     def get_llm(self, model_name="gpt-4o"):
-        self.logger.info(f"Creating OpenAI LLM with model: {model_name}")
         return ChatOpenAI(model=model_name, api_key=self.api_key)
     
     def get_available_models(self):

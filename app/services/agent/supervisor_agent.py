@@ -1,8 +1,7 @@
-from langchain_openai import ChatOpenAI
 from app.services.llm.llm_factory import LLMFactory
 from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
-from app.services.agent.prompt.supervisor_route_response import RouteResponse
+from app.services.agent.prompt.supervisor_route_response_prompt import RouteResponse
 from app.services.agent.factory.agents_util import AgentsUtil
 
 
@@ -15,15 +14,18 @@ class SupervisorAgent:
     # Define the __init__ method to initialize the supervisor agent
     #--------------------------------------------------------------------------------
     def __init__(self, provider=None, model_name=None):
-
-        self.logger = LoggerService.get_instance().get_logger(__name__)
-        self.members = AgentsUtil.get_members()
-        self.options = ["FINISH"] + self.members
-        provider = provider or LLMConfig.PROVIDER
-        model_name = model_name or LLMConfig.MODEL_NAME                
-        self.prompt = RouteResponse.get_route_prompt(self.options, self.members)        
-        self.llm = LLMFactory.get_instance().get_llm(provider, model_name)
-
+        try:
+            self.logger = LoggerService.get_instance().get_logger(__name__)
+            self.members = AgentsUtil.get_members()
+            self.options = ["FINISH"] + self.members
+            provider = provider or LLMConfig.PROVIDER
+            model_name = model_name or LLMConfig.MODEL_NAME                
+            self.prompt = RouteResponse.get_route_prompt(self.options, self.members)        
+            self.llm = LLMFactory.get_instance().get_llm(provider, model_name)
+        
+        except Exception as e:
+            self.logger.error(f"Error initializing SupervisorAgent: {e}")
+            raise
     
     
     #--------------------------------------------------------------------------------

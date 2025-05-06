@@ -9,8 +9,8 @@ from app.services.bll.user_service import UserService
 from app.utils.logger_service import LoggerService
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
-from app.services.agent.prompt.email_content import EmailContent
-from app.services.agent.prompt.email_extracted_info import EmailExtractedInfo
+from app.services.agent.prompt.email_content_prompt import EmailContent
+from app.services.agent.prompt.email_extracted_info_prompt import EmailExtractedInfo
 
 #--------------------------------------------------------------------------------
 # EmailAgent class

@@ -8,6 +8,7 @@ from app.services.agent.supervisor_agent import SupervisorAgent
 from app.services.agent.researcher_agent import ResearcherAgent
 from app.services.agent.email_agent import EmailAgent
 from app.services.agent.rag_pdf import RagPdfAgent
+from app.services.agent.chart_agent import ChartAgent  
 from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
 
@@ -35,6 +36,7 @@ class MultiAgentWorkflow:
         self.sql_agent = SqlAgent(provider, model_name)
         self.email_agent = EmailAgent(provider, model_name)
         self.rag_pdf_agent = RagPdfAgent(provider, model_name)
+        self.chart_agent = ChartAgent(provider, model_name)  
         
         self.members = AgentsUtil.get_members()
         self.graph = None 
@@ -49,20 +51,17 @@ class MultiAgentWorkflow:
             
             # Add nodes for each agent, starting with Supervisor
             workflow.add_node("supervisor", self.supervisor_agent)            
-                        
-            
+                                    
             # Researcher Agent --------------------------------------------------
-            # (researcher_agent.agent) 
             research_node = functools.partial(
                 agent_node, agent=self.researcher_agent.agent, name="Researcher"
             )
             workflow.add_node("Researcher", research_node)
             # --------------------------------------------------------------------
             
-            # SQL Agent ----------------------------------------------------------
-            # (Add directly (self.sql_agent) so the Invoke method is called)
+            # SQL Agent ----------------------------------------------------------            
             sql_node = functools.partial(
-                agent_node, agent=self.sql_agent, name="SqlAgent"
+                agent_node, agent=self.sql_agent, name="SqlAgent" # Add directly (self.sql_agent) so the Invoke method is called
             )
             workflow.add_node("SqlAgent", sql_node)        
             #--------------------------------------------------------------------
@@ -81,11 +80,17 @@ class MultiAgentWorkflow:
             workflow.add_node("RagPdfAgent", rag_pdf_node)        
             # --------------------------------------------------------------------
             
+            # Chart Agent --------------------------------------------------------
+            chart_node = functools.partial(
+                agent_node, agent=self.chart_agent, name="ChartAgent"
+            )
+            workflow.add_node("ChartAgent", chart_node)
+            # --------------------------------------------------------------------
             
             # Add Graph Edges
             for member in self.members:
                 # Workers always report back to the supervisor
-                workflow.add_edge(member, "supervisor")
+                workflow.add_edge(member, "supervisor")              
             
             # The supervisor populates the NEXT field in the graph state which routes to a node or finishes
             conditional_map = {k: k for k in self.members}
@@ -105,10 +110,3 @@ class MultiAgentWorkflow:
     
     
     
-    """
-    The functools.partial() creates a new function where:
-    - It's based on the agent_node helper function
-    - The 'agent' and 'name' parameters are permanently set
-    - Only the 'state' parameter will need to be provided when this function is called
-    - This makes the node reusable without repeating these arguments
-    """

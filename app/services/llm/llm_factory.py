@@ -39,7 +39,6 @@ class LLMFactory:
             provider_name = provider_name or self.default_provider
             
             if provider_name not in self.providers:
-                self.logger.warning(f"Provider {provider_name} not found. Using {self.default_provider}.")
                 provider_name = self.default_provider
             
             provider = self.providers[provider_name]
