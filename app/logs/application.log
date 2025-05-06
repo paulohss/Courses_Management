@@ -1927,3 +1927,31 @@ Unfortunately, the total time to complete each course in hours and days is not s
 2025-04-25 13:15:21,849 - app.api.chatbot - INFO - FINAL response: The users located in 'Build B' are:
 1. David - Email: paulohss19832@gmail.com, Country: Brazil
 2. Sarah - Email: paulohss19832@gmail.com, Country: Australia
+2025-05-06 10:43:55,798 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 10:43:55,831 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 10:43:55,834 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 10:43:56,444 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 10:43:57,406 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 10:45:04,979 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-06 10:45:04,982 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-06 10:45:04,986 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 10:45:05,704 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 10:45:06,776 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 10:45:19,335 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 10:45:26,815 - app.services.llm.llm_provider - INFO - Creating OpenAI LLM with model: gpt-4o
+2025-05-06 10:45:27,404 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-06 10:45:27,406 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-06 10:45:27,413 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-06 10:45:29,164 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-06 10:45:29,165 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 10:45:29,166 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-06 10:45:29,167 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 10:45:36,536 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Yes, there is a user named Novin in the database.', additional_kwargs={}, response_metadata={}, name='SqlAgent')]}} <---
+2025-05-06 10:45:36,537 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-06 10:45:36,539 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Yes, there is a user named Novin in the database.
+2025-05-06 10:45:36,540 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 10:45:37,833 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-06 10:45:37,834 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-06 10:45:37,835 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-06 10:45:37,836 - app.api.chatbot - INFO - ---- End of Response ---
+2025-05-06 10:45:37,837 - app.api.chatbot - INFO - FINAL response: Yes, there is a user named Novin in the database.

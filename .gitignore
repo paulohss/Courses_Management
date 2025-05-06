@@ -5,3 +5,7 @@ combined_pdfs/docstore.json
 combined_pdfs/graph_store.json
 combined_pdfs/index_store.json
 combined_pdfs/image__vector_store.json
+app/logs/application.log
+app/services/agent/prompt/__pycache__/sql_agent_general.cpython-311.pyc
+app/services/agent/__pycache__/sql_agent.cpython-311.pyc
+app/services/agent/__pycache__/sql_agent.cpython-311.pyc

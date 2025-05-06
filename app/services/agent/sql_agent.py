@@ -1,6 +1,4 @@
-import os
-import logging
-import textwrap
+
 from urllib.parse import quote_plus
 from langchain.agents import create_sql_agent
 from langchain.agents import AgentType
@@ -9,12 +7,12 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_community.utilities.sql_database import SQLDatabase
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 from sqlalchemy import create_engine
-from langchain_core.globals import set_verbose, set_debug
-from langchain.prompts import MessagesPlaceholder
+from langchain_core.globals import set_debug
 from langchain_core.messages import HumanMessage
 from app.services.llm.llm_factory import LLMFactory
 from app.services.llm.llm_setting import LLMConfig
 from app.utils.logger_service import LoggerService
+from app.services.agent.prompt.sql_agent_general import SqlAgentGeneralPromptTemplate
  
 class SqlAgent:
     
@@ -52,51 +50,6 @@ class SqlAgent:
             raise Exception("Database connection error.")
     
     
-    # --------------------------------------------------------------------------------
-    # Get SQL agent suffix with guidelines for SQL generation
-    # --------------------------------------------------------------------------------
-    def GetSqlAgentPrefix(self) -> str:
-        return textwrap.dedent("""\
-            You are a Microsoft SQL Server expert assistant for a **Course Management Database**.
-            While generating Microsoft SQL Server for the user's query, follow these instructions:
-
-            **General SQL Rules**
-            - If the user mentions **'User'** (a reserved keyword), use square brackets: `SELECT * FROM [User]`, same for join statements.
-            - When asked about **user's course attended** as well as the **courses that the user is missing*, consider:
-              -- the *User.FK_Role_ID and Role.ID** to answer, 
-              -- also notice that the Courses that User attended (or missed) are always related to the User's Role the user is assigned to. 
-              -- The tables User, Course, Roles, Role_Course and User_Course have the relationship and data to answer that type of questions.            
-            - When discribing the **user role**, use Role.Name instead of Role.ID.
-            - **Do not use** `LIMIT` statements in SQL.
-            - Round numerical answers to **two decimal places**.
-            - **Avoid complex queries** (e.g., division inside queries).
-            - Always **execute operations step by step**.
-            
-            **Query Interpretation**
-            - **Strictly follow all conditions** in the query. **Do not infer extra conditions**.            
-            - **YTD (Year to Date)** should be interpreted correctly.            
-
-            """)
-
-
-    # --------------------------------------------------------------------------------
-    # Get SQL agent suffix with guidelines for SQL generation
-    #  When using AgentType.ZERO_SHOT_REACT_DESCRIPTION, 
-    #  - the agent follows a Thought → Action → Observation → Thought cycle.
-    #  The agent_scratchpad: 
-    #  - The scratchpad is a place where the agent can write down notes or thoughts that it has while working on a problem.
-    #  - The agent writes down its thoughts and chosen actions before executing them.
-    #  - After execution, it records observations and updates its reasoning accordingly.
-    # --------------------------------------------------------------------------------
-    def GetSqlAgentSufix(self) -> str:
-        return textwrap.dedent("""\
-                Begin!
-                {chat_history}
-                Question: {input}
-                Thought: Let's think step by step. {agent_scratchpad}"
-        """)
-
-
 
     # --------------------------------------------------------------------------------
     # Create LLM agent
@@ -109,8 +62,8 @@ class SqlAgent:
             self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
             
             # Create custom prompt with SQL guidelines
-            self.prefix = self.GetSqlAgentPrefix()
-            self.suffix = self.GetSqlAgentSufix()
+            self.prefix = SqlAgentGeneralPromptTemplate.GetSqlAgentPrefix()
+            self.suffix = SqlAgentGeneralPromptTemplate.GetSqlAgentSufix()
             
             self.agent = create_sql_agent(
                 llm=self.llm,
