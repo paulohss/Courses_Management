@@ -3875,3 +3875,332 @@ GROUP BY [Country]
 2025-05-07 15:22:04,282 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
 2025-05-07 15:22:04,284 - app.api.chatbot - INFO - ---- End of Response ---
 2025-05-07 15:22:04,285 - app.api.chatbot - INFO - FINAL response: The Business Ethics course focuses on understanding ethical principles in business contexts, covering ethical decision-making, corporate social responsibility, and compliance. Participants learn about ethical dilemmas, ethical leadership, and global ethical standards, as well as the impact of these factors on organizations and society.
+2025-05-07 16:31:06,504 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-07 16:31:06,511 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-07 16:31:16,129 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-07 16:31:16,131 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-07 16:31:16,136 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-07 16:31:16,726 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-07 16:31:18,282 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-07 16:31:18,283 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:31:18,285 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-07 16:31:22,585 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-07 16:31:22,866 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a BAR chart of the number of users PER COUNTRY with legend and title', additional_kwargs={}, response_metadata={})], 'next': 'ChartAgent'}
+2025-05-07 16:31:22,868 - app.services.agent.chart_agent - INFO - Extracted user input: Make a BAR chart of the number of users PER COUNTRY with legend and title
+2025-05-07 16:31:22,870 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-07 16:31:22,875 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-07 16:31:23,109 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-07 16:31:23,112 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-07 16:31:24,248 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [Country], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Country]
+ORDER BY [Country]
+```
+2025-05-07 16:31:24,250 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [Country], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Country]
+ORDER BY [Country]
+
+2025-05-07 16:31:24,252 - app.services.agent.chart_agent - INFO - Query Results: [('Australia', 2), ('Brazil', 1), ('Manila', 1), ('US', 1)]
+2025-05-07 16:31:24,253 - app.services.agent.chart_agent - INFO - Query Columns: ['Country', 'NumberOfUsers']
+2025-05-07 16:31:24,254 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Country': ['Australia', 'Brazil', 'Manila', 'US'], 'NumberOfUsers': [2, 1, 1, 1]}
+2025-05-07 16:31:24,278 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+     Country  NumberOfUsers
+0  Australia              2
+1     Brazil              1
+2     Manila              1
+3         US              1
+2025-05-07 16:31:24,280 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [Country], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Country]\nORDER BY [Country]\n```'}]
+2025-05-07 16:31:24,281 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-07 16:31:24,285 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-07 16:31:24,290 - app.services.agent.chart_agent - INFO - Query Result String:      Country  NumberOfUsers
+0  Australia              2
+1     Brazil              1
+2     Manila              1
+3         US              1
+2025-05-07 16:31:26,828 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-07 16:31:26,861 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x0000029493818590>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': 'Make a BAR chart of the number of users PER COUNTRY with legend and title', 'messages': [AIMessage(content='```sql\nSELECT [Country], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Country]\nORDER BY [Country]\n```', additional_kwargs={}, response_metadata={}, id='080b5c73-36c1-4a16-b27e-ea7cf76307a1')], 'conn': <pyodbc.Connection object at 0x0000029493582F50>, 'query_result':      Country  NumberOfUsers
+0  Australia              2
+1     Brazil              1
+2     Manila              1
+3         US              1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "bar",\n            "x": ["Australia", "Brazil", "Manila", "US"],\n            "y": [2, 1, 1, 1],\n            "marker": {\n                "color": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]\n            },\n            "name": "Number of Users"\n        }\n    ],\n    "layout": {\n        "title": "Number of Users Per Country",\n        "xaxis": {\n            "title": "Country"\n        },\n        "yaxis": {\n            "title": "Number of Users"\n        },\n        "showlegend": true\n    }\n}'}
+2025-05-07 16:31:26,866 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-07 16:31:27,393 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-07 16:31:31,418 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-07 16:31:33,386 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'bar', 'x': ['Australia', 'Brazil', 'Manila', 'US'], 'y': [2, 1, 1, 1], 'marker': {'color': ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']}, 'name': 'Number of Users'}], 'chart_layout': {'title': 'Number of Users Per Country', 'xaxis': {'title': 'Country'}, 'yaxis': {'title': 'Number of Users'}, 'showlegend': True}}} <---
+2025-05-07 16:31:34,385 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-07 16:31:34,385 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-07 16:31:34,386 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title'
+2025-05-07 16:31:35,179 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-07 16:31:35,180 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:31:35,181 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-07 16:31:35,183 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-07 16:31:35,184 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a BAR chart of the number of users PER COUNTRY with legend and title', additional_kwargs={}, response_metadata={}), HumanMessage(content="I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'ChartAgent', 'chart_data': [{'type': 'bar', 'x': ['Australia', 'Brazil', 'Manila', 'US'], 'y': [2, 1, 1, 1], 'marker': {'color': ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']}, 'name': 'Number of Users'}], 'chart_layout': {'title': 'Number of Users Per Country', 'xaxis': {'title': 'Country'}, 'yaxis': {'title': 'Number of Users'}, 'showlegend': True}}
+2025-05-07 16:31:35,185 - app.services.agent.chart_agent - INFO - Extracted user input: I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title'
+2025-05-07 16:31:35,187 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-07 16:31:35,193 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-07 16:31:35,385 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-07 16:31:35,388 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-07 16:31:36,402 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [Country], COUNT([ID]) AS [UserCount]
+FROM [User]
+GROUP BY [Country]
+```
+2025-05-07 16:31:36,403 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [Country], COUNT([ID]) AS [UserCount]
+FROM [User]
+GROUP BY [Country]
+
+2025-05-07 16:31:36,406 - app.services.agent.chart_agent - INFO - Query Results: [('Australia', 2), ('Brazil', 1), ('Manila', 1), ('US', 1)]
+2025-05-07 16:31:36,408 - app.services.agent.chart_agent - INFO - Query Columns: ['Country', 'UserCount']
+2025-05-07 16:31:36,409 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Country': ['Australia', 'Brazil', 'Manila', 'US'], 'UserCount': [2, 1, 1, 1]}
+2025-05-07 16:31:36,418 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+     Country  UserCount
+0  Australia          2
+1     Brazil          1
+2     Manila          1
+3         US          1
+2025-05-07 16:31:36,419 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [Country], COUNT([ID]) AS [UserCount]\nFROM [User]\nGROUP BY [Country]\n```'}]
+2025-05-07 16:31:36,421 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-07 16:31:36,425 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-07 16:31:36,430 - app.services.agent.chart_agent - INFO - Query Result String:      Country  UserCount
+0  Australia          2
+1     Brazil          1
+2     Manila          1
+3         US          1
+2025-05-07 16:31:39,215 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-07 16:31:39,229 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x00000294944078D0>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': "I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title'", 'messages': [AIMessage(content='```sql\nSELECT [Country], COUNT([ID]) AS [UserCount]\nFROM [User]\nGROUP BY [Country]\n```', additional_kwargs={}, response_metadata={}, id='6328c731-7800-47dc-a2ac-ef4a16744e85')], 'conn': <pyodbc.Connection object at 0x0000029493A11A30>, 'query_result':      Country  UserCount
+0  Australia          2
+1     Brazil          1
+2     Manila          1
+3         US          1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "bar",\n            "x": ["Australia", "Brazil", "Manila", "US"],\n            "y": [2, 1, 1, 1],\n            "marker": {\n                "color": ["#636EFA", "#EF553B", "#00CC96", "#AB63FA"]\n            },\n            "name": "User Count"\n        }\n    ],\n    "layout": {\n        "title": {\n            "text": "Number of Users per Country"\n        },\n        "xaxis": {\n            "title": {\n                "text": "Country"\n            }\n        },\n        "yaxis": {\n            "title": {\n                "text": "User Count"\n            }\n        },\n        "legend": {\n            "title": {\n                "text": "Legend"\n            }\n        },\n        "barmode": "group"\n    }\n}'}
+2025-05-07 16:31:39,232 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-07 16:31:39,233 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-07 16:31:39,234 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-07 16:31:39,237 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title''", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'bar', 'x': ['Australia', 'Brazil', 'Manila', 'US'], 'y': [2, 1, 1, 1], 'marker': {'color': ['#636EFA', '#EF553B', '#00CC96', '#AB63FA']}, 'name': 'User Count'}], 'chart_layout': {'title': {'text': 'Number of Users per Country'}, 'xaxis': {'title': {'text': 'Country'}}, 'yaxis': {'title': {'text': 'User Count'}}, 'legend': {'title': {'text': 'Legend'}}, 'barmode': 'group'}}} <---
+2025-05-07 16:31:39,238 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-07 16:31:39,240 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-07 16:31:39,241 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title''
+2025-05-07 16:31:40,043 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-07 16:31:40,044 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:31:40,046 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-07 16:31:40,048 - app.api.chatbot - INFO - FINAL response: I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title''
+2025-05-07 16:31:41,809 - app.api.chatbot - INFO - Adding CHART data to response
+2025-05-07 16:31:59,864 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-07 16:31:59,864 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:31:59,866 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-07 16:31:59,867 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-07 16:32:05,783 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-07 16:32:05,785 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-07 16:32:05,788 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='There are 5 users in the database.', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-07 16:32:05,790 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-07 16:32:05,791 - app.api.chatbot - INFO - Agent: SqlAgent, Content: There are 5 users in the database.
+2025-05-07 16:32:06,538 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-07 16:32:06,539 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:32:06,541 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-07 16:32:06,542 - app.api.chatbot - INFO - FINAL response: There are 5 users in the database.
+2025-05-07 16:33:43,805 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-07 16:33:43,807 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:33:43,810 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-07 16:33:43,813 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-07 16:33:57,137 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-07 16:33:57,138 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-07 16:33:57,142 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='The user named Jen has attended the following courses:\n1. Cybersecurity Awareness\n2. Business Ethics\n3. Crisis Management', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-07 16:33:57,143 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-07 16:33:57,145 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The user named Jen has attended the following courses:
+1. Cybersecurity Awareness
+2. Business Ethics
+3. Crisis Management
+2025-05-07 16:33:57,918 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-07 16:33:57,919 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:33:57,920 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-07 16:33:57,939 - app.api.chatbot - INFO - FINAL response: The user named Jen has attended the following courses:
+1. Cybersecurity Awareness
+2. Business Ethics
+3. Crisis Management
+2025-05-07 16:34:30,040 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'RagPdfAgent'}} <---
+2025-05-07 16:34:30,042 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:34:30,043 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-05-07 16:34:30,045 - app.services.agent.factory.helpers - INFO - Invoking agent: RagPdfAgent
+2025-05-07 16:34:35,220 - app.services.agent.factory.helpers - INFO - Agent RagPdfAgent result type: <class 'dict'>
+2025-05-07 16:34:35,222 - app.services.agent.factory.helpers - INFO - RagPdfAgent response found
+2025-05-07 16:34:35,225 - app.api.chatbot - INFO - ----> Step: {'RagPdfAgent': {'messages': [HumanMessage(content='The Cybersecurity Awareness course provided by CORPORATE SCHOOL is a detailed program that focuses on educating participants about modern cyber threats and security practices. It covers cybersecurity fundamentals, recognizes threats such as phishing and malware, discusses the best practices for securing devices and networks, and includes strategies for incident response. Additionally, it highlights the importance of compliance and security policies. The course duration is 4 weeks and includes both in-person and virtual sessions, emphasizing practical strategies for safeguarding personal and organizational data against cyber risks.', additional_kwargs={}, response_metadata={}, name='RagPdfAgent')], 'next': 'FINISH'}} <---
+2025-05-07 16:34:35,227 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-05-07 16:34:35,228 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: The Cybersecurity Awareness course provided by CORPORATE SCHOOL is a detailed program that focuses on educating participants about modern cyber threats and security practices. It covers cybersecurity fundamentals, recognizes threats such as phishing and malware, discusses the best practices for securing devices and networks, and includes strategies for incident response. Additionally, it highlights the importance of compliance and security policies. The course duration is 4 weeks and includes both in-person and virtual sessions, emphasizing practical strategies for safeguarding personal and organizational data against cyber risks.
+2025-05-07 16:34:35,963 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-07 16:34:35,964 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:34:35,966 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-07 16:34:35,967 - app.api.chatbot - INFO - FINAL response: The Cybersecurity Awareness course provided by CORPORATE SCHOOL is a detailed program that focuses on educating participants about modern cyber threats and security practices. It covers cybersecurity fundamentals, recognizes threats such as phishing and malware, discusses the best practices for securing devices and networks, and includes strategies for incident response. Additionally, it highlights the importance of compliance and security policies. The course duration is 4 weeks and includes both in-person and virtual sessions, emphasizing practical strategies for safeguarding personal and organizational data against cyber risks.
+2025-05-07 16:35:40,715 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'Researcher'}} <---
+2025-05-07 16:35:40,716 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:35:40,717 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'Researcher'}
+2025-05-07 16:35:40,719 - app.services.agent.factory.helpers - INFO - Invoking agent: Researcher
+2025-05-07 16:35:51,830 - app.services.agent.factory.helpers - INFO - Agent Researcher result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2025-05-07 16:35:51,831 - app.services.agent.factory.helpers - INFO - Researcher response found
+2025-05-07 16:35:51,835 - app.api.chatbot - INFO - ----> Step: {'Researcher': {'messages': [HumanMessage(content='In Australia, October is designated as Cyber Security Awareness Month, an annual initiative aimed at improving the cyber security knowledge and practices of Australians. The theme for 2023 is "Be Cyber Wise – Don\'t Compromise," encouraging individuals and organizations to enhance their online security measures.\n\nThe Cyber Security Awareness Month serves as a reminder for Australians to stay vigilant online and take proactive steps to secure their digital information. This national effort involves the collaboration of various government agencies and private organizations to raise awareness and provide resources and guidance for safeguarding against cyber threats.\n\nThe Australian Cyber Security Centre (ASD) plays a key role in this initiative by monitoring and responding to cyber threats, as well as offering advice and support to both private and public sectors to mitigate risks. The ASD hotline, part of the national effort, received a significant number of calls in the FY2023-24, highlighting the ongoing need for heightened cyber security awareness and response.\n\nFor more detailed insights and resources, you can explore [The Cyber Express article](https://thecyberexpress.com/cybersecurity-awareness-month-challenge/) and [Australian Cyber Security Centre\'s report](https://www.cyber.gov.au/about-us/view-all-content/reports-and-statistics/annual-cyber-threat-report-2023-2024).', additional_kwargs={}, response_metadata={}, name='Researcher')], 'next': 'FINISH'}} <---
+2025-05-07 16:35:51,837 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-05-07 16:35:51,838 - app.api.chatbot - INFO - Agent: Researcher, Content: In Australia, October is designated as Cyber Security Awareness Month, an annual initiative aimed at improving the cyber security knowledge and practices of Australians. The theme for 2023 is "Be Cyber Wise – Don't Compromise," encouraging individuals and organizations to enhance their online security measures.
+
+The Cyber Security Awareness Month serves as a reminder for Australians to stay vigilant online and take proactive steps to secure their digital information. This national effort involves the collaboration of various government agencies and private organizations to raise awareness and provide resources and guidance for safeguarding against cyber threats.
+
+The Australian Cyber Security Centre (ASD) plays a key role in this initiative by monitoring and responding to cyber threats, as well as offering advice and support to both private and public sectors to mitigate risks. The ASD hotline, part of the national effort, received a significant number of calls in the FY2023-24, highlighting the ongoing need for heightened cyber security awareness and response.
+
+For more detailed insights and resources, you can explore [The Cyber Express article](https://thecyberexpress.com/cybersecurity-awareness-month-challenge/) and [Australian Cyber Security Centre's report](https://www.cyber.gov.au/about-us/view-all-content/reports-and-statistics/annual-cyber-threat-report-2023-2024).
+2025-05-07 16:35:52,611 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-07 16:35:52,613 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:35:52,614 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-07 16:35:52,616 - app.api.chatbot - INFO - FINAL response: In Australia, October is designated as Cyber Security Awareness Month, an annual initiative aimed at improving the cyber security knowledge and practices of Australians. The theme for 2023 is "Be Cyber Wise – Don't Compromise," encouraging individuals and organizations to enhance their online security measures.
+
+The Cyber Security Awareness Month serves as a reminder for Australians to stay vigilant online and take proactive steps to secure their digital information. This national effort involves the collaboration of various government agencies and private organizations to raise awareness and provide resources and guidance for safeguarding against cyber threats.
+
+The Australian Cyber Security Centre (ASD) plays a key role in this initiative by monitoring and responding to cyber threats, as well as offering advice and support to both private and public sectors to mitigate risks. The ASD hotline, part of the national effort, received a significant number of calls in the FY2023-24, highlighting the ongoing need for heightened cyber security awareness and response.
+
+For more detailed insights and resources, you can explore [The Cyber Express article](https://thecyberexpress.com/cybersecurity-awareness-month-challenge/) and [Australian Cyber Security Centre's report](https://www.cyber.gov.au/about-us/view-all-content/reports-and-statistics/annual-cyber-threat-report-2023-2024).
+2025-05-07 16:37:06,678 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-07 16:37:06,679 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:37:06,680 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-07 16:37:06,682 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-07 16:37:06,683 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a PIE chart of the number of users PER OFFICE with legend and title', additional_kwargs={}, response_metadata={})], 'next': 'ChartAgent'}
+2025-05-07 16:37:06,685 - app.services.agent.chart_agent - INFO - Extracted user input: Make a PIE chart of the number of users PER OFFICE with legend and title
+2025-05-07 16:37:06,686 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-07 16:37:06,691 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-07 16:37:06,883 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-07 16:37:06,886 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-07 16:37:07,590 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [Office], COUNT(*) AS [Number of Users]
+FROM [User]
+GROUP BY [Office]
+```
+2025-05-07 16:37:07,591 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [Office], COUNT(*) AS [Number of Users]
+FROM [User]
+GROUP BY [Office]
+
+2025-05-07 16:37:07,595 - app.services.agent.chart_agent - INFO - Query Results: [('Build A', 2), ('Build B', 2), ('Build C', 1)]
+2025-05-07 16:37:07,596 - app.services.agent.chart_agent - INFO - Query Columns: ['Office', 'Number of Users']
+2025-05-07 16:37:07,597 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Office': ['Build A', 'Build B', 'Build C'], 'Number of Users': [2, 2, 1]}
+2025-05-07 16:37:07,607 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+    Office  Number of Users
+0  Build A                2
+1  Build B                2
+2  Build C                1
+2025-05-07 16:37:07,608 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [Office], COUNT(*) AS [Number of Users]\nFROM [User]\nGROUP BY [Office]\n```'}]
+2025-05-07 16:37:07,610 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-07 16:37:07,613 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-07 16:37:07,617 - app.services.agent.chart_agent - INFO - Query Result String:     Office  Number of Users
+0  Build A                2
+1  Build B                2
+2  Build C                1
+2025-05-07 16:37:09,932 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-07 16:37:09,943 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x0000029493B78410>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': 'Make a PIE chart of the number of users PER OFFICE with legend and title', 'messages': [AIMessage(content='```sql\nSELECT [Office], COUNT(*) AS [Number of Users]\nFROM [User]\nGROUP BY [Office]\n```', additional_kwargs={}, response_metadata={}, id='d105262b-7ee1-41e9-8f5d-46cfa990ae7c')], 'conn': <pyodbc.Connection object at 0x00000294943420B0>, 'query_result':     Office  Number of Users
+0  Build A                2
+1  Build B                2
+2  Build C                1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "pie",\n            "labels": ["Build A", "Build B", "Build C"],\n            "values": [2, 2, 1],\n            "hoverinfo": "label+percent",\n            "textinfo": "value",\n            "textfont": {"size": 14},\n            "marker": {\n                "colors": ["#636EFA", "#EF553B", "#00CC96"]\n            }\n        }\n    ],\n    "layout": {\n        "title": {\n            "text": "Number of Users Per Office",\n            "font": {\n                "size": 16\n            }\n        },\n        "showlegend": true\n    }\n}'}
+2025-05-07 16:37:09,946 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-07 16:37:09,947 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-07 16:37:09,948 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-07 16:37:09,952 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [2, 2, 1], 'hoverinfo': 'label+percent', 'textinfo': 'value', 'textfont': {'size': 14}, 'marker': {'colors': ['#636EFA', '#EF553B', '#00CC96']}}], 'chart_layout': {'title': {'text': 'Number of Users Per Office', 'font': {'size': 16}}, 'showlegend': True}}} <---
+2025-05-07 16:37:09,953 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-07 16:37:09,954 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-07 16:37:09,956 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'
+2025-05-07 16:37:10,813 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-07 16:37:10,814 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:37:10,816 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-07 16:37:10,817 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-07 16:37:10,818 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a PIE chart of the number of users PER OFFICE with legend and title', additional_kwargs={}, response_metadata={}), HumanMessage(content="I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'ChartAgent', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [2, 2, 1], 'hoverinfo': 'label+percent', 'textinfo': 'value', 'textfont': {'size': 14}, 'marker': {'colors': ['#636EFA', '#EF553B', '#00CC96']}}], 'chart_layout': {'title': {'text': 'Number of Users Per Office', 'font': {'size': 16}}, 'showlegend': True}}
+2025-05-07 16:37:10,820 - app.services.agent.chart_agent - INFO - Extracted user input: I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'
+2025-05-07 16:37:10,821 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-07 16:37:10,825 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-07 16:37:11,014 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-07 16:37:11,017 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-07 16:37:11,809 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [Office], COUNT(*) AS [Number of Users]
+FROM [User]
+GROUP BY [Office]
+```
+2025-05-07 16:37:11,811 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [Office], COUNT(*) AS [Number of Users]
+FROM [User]
+GROUP BY [Office]
+
+2025-05-07 16:37:11,813 - app.services.agent.chart_agent - INFO - Query Results: [('Build A', 2), ('Build B', 2), ('Build C', 1)]
+2025-05-07 16:37:11,814 - app.services.agent.chart_agent - INFO - Query Columns: ['Office', 'Number of Users']
+2025-05-07 16:37:11,815 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Office': ['Build A', 'Build B', 'Build C'], 'Number of Users': [2, 2, 1]}
+2025-05-07 16:37:11,825 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+    Office  Number of Users
+0  Build A                2
+1  Build B                2
+2  Build C                1
+2025-05-07 16:37:11,827 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [Office], COUNT(*) AS [Number of Users]\nFROM [User]\nGROUP BY [Office]\n```'}]
+2025-05-07 16:37:11,828 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-07 16:37:11,833 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-07 16:37:11,836 - app.services.agent.chart_agent - INFO - Query Result String:     Office  Number of Users
+0  Build A                2
+1  Build B                2
+2  Build C                1
+2025-05-07 16:37:14,117 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-07 16:37:14,126 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x0000029493AD41D0>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': "I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'", 'messages': [AIMessage(content='```sql\nSELECT [Office], COUNT(*) AS [Number of Users]\nFROM [User]\nGROUP BY [Office]\n```', additional_kwargs={}, response_metadata={}, id='c4b81f75-cd54-448d-a7f7-6f6b6fe2e384')], 'conn': <pyodbc.Connection object at 0x0000029493BD57C0>, 'query_result':     Office  Number of Users
+0  Build A                2
+1  Build B                2
+2  Build C                1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "pie",\n            "labels": ["Build A", "Build B", "Build C"],\n            "values": [2, 2, 1],\n            "hoverinfo": "label+percent",\n            "textinfo": "value",\n            "marker": {\n                "colors": ["#636EFA", "#EF553B", "#00CC96"]\n            }\n        }\n    ],\n    "layout": {\n        "title": "Number of Users Per Office",\n        "showlegend": true\n    }\n}'}
+2025-05-07 16:37:14,129 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-07 16:37:14,130 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-07 16:37:14,131 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-07 16:37:14,134 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title''", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [2, 2, 1], 'hoverinfo': 'label+percent', 'textinfo': 'value', 'marker': {'colors': ['#636EFA', '#EF553B', '#00CC96']}}], 'chart_layout': {'title': 'Number of Users Per Office', 'showlegend': True}}} <---
+2025-05-07 16:37:14,136 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-07 16:37:14,137 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-07 16:37:14,138 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title''
+2025-05-07 16:37:14,820 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-07 16:37:14,821 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:37:14,823 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-07 16:37:14,825 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-07 16:37:14,827 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a PIE chart of the number of users PER OFFICE with legend and title', additional_kwargs={}, response_metadata={}), HumanMessage(content="I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent'), HumanMessage(content="I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title''", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'ChartAgent', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [2, 2, 1], 'hoverinfo': 'label+percent', 'textinfo': 'value', 'marker': {'colors': ['#636EFA', '#EF553B', '#00CC96']}}], 'chart_layout': {'title': 'Number of Users Per Office', 'showlegend': True}}
+2025-05-07 16:37:14,830 - app.services.agent.chart_agent - INFO - Extracted user input: I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title''
+2025-05-07 16:37:14,832 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-07 16:37:14,836 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-07 16:37:15,033 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-07 16:37:15,035 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-07 16:37:15,802 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [Office], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Office]
+```
+2025-05-07 16:37:15,804 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [Office], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Office]
+
+2025-05-07 16:37:15,807 - app.services.agent.chart_agent - INFO - Query Results: [('Build A', 2), ('Build B', 2), ('Build C', 1)]
+2025-05-07 16:37:15,808 - app.services.agent.chart_agent - INFO - Query Columns: ['Office', 'NumberOfUsers']
+2025-05-07 16:37:15,809 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Office': ['Build A', 'Build B', 'Build C'], 'NumberOfUsers': [2, 2, 1]}
+2025-05-07 16:37:15,822 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+    Office  NumberOfUsers
+0  Build A              2
+1  Build B              2
+2  Build C              1
+2025-05-07 16:37:15,824 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [Office], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Office]\n```'}]
+2025-05-07 16:37:15,825 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-07 16:37:15,828 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-07 16:37:15,832 - app.services.agent.chart_agent - INFO - Query Result String:     Office  NumberOfUsers
+0  Build A              2
+1  Build B              2
+2  Build C              1
+2025-05-07 16:37:17,661 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-07 16:37:17,672 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x00000294940707D0>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': "I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title''", 'messages': [AIMessage(content='```sql\nSELECT [Office], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Office]\n```', additional_kwargs={}, response_metadata={}, id='5e8c3937-deda-4c2c-b40b-aa651351f462')], 'conn': <pyodbc.Connection object at 0x0000029493BD45E0>, 'query_result':     Office  NumberOfUsers
+0  Build A              2
+1  Build B              2
+2  Build C              1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "pie",\n            "labels": ["Build A", "Build B", "Build C"],\n            "values": [2, 2, 1],\n            "textinfo": "label+value+percent",\n            "hoverinfo": "label+value+percent",\n            "marker": {\n                "colors": ["#FFA07A", "#87CEFA", "#90EE90"]\n            }\n        }\n    ],\n    "layout": {\n        "title": "Number of Users Per Office",\n        "showlegend": true\n    }\n}'}
+2025-05-07 16:37:17,676 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-07 16:37:17,678 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-07 16:37:17,679 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-07 16:37:17,683 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'''", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [2, 2, 1], 'textinfo': 'label+value+percent', 'hoverinfo': 'label+value+percent', 'marker': {'colors': ['#FFA07A', '#87CEFA', '#90EE90']}}], 'chart_layout': {'title': 'Number of Users Per Office', 'showlegend': True}}} <---
+2025-05-07 16:37:17,685 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-07 16:37:17,686 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-07 16:37:17,688 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'''
+2025-05-07 16:37:18,439 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-07 16:37:18,441 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:37:18,442 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-07 16:37:18,444 - app.api.chatbot - INFO - FINAL response: I've created a visualization based on your query: 'I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'''
+2025-05-07 16:37:18,446 - app.api.chatbot - INFO - Adding CHART data to response

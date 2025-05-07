@@ -26,7 +26,7 @@ def agent_node(state, agent, name):
             chart_data = result.get("chart_data")
             chart_layout = result.get("chart_layout")
             if messages and len(messages) > 0:
-                # Check if the message has chart attributes
+                # Check if the message has chart attributes (ChartAgent)
                 message = messages[-1]
                 if chart_data is not None and chart_layout is not None:
                     logger.info(f"Chart data found in {name} response")

@@ -13,3 +13,6 @@ app/api/__pycache__/chatbot.cpython-311.pyc
 app/logs/application.log
 app/services/agent/Factory/__pycache__/agent_state.cpython-311.pyc
 app/services/agent/Factory/__pycache__/Helpers.cpython-311.pyc
+app/services/agent/Factory/__pycache__/Helpers.cpython-311.pyc
+app/api/__pycache__/chatbot.cpython-311.pyc
+app/logs/application.log

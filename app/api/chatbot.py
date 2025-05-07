@@ -93,7 +93,6 @@ def process_message():
                     if str(response) != FINISH:
                        final_response = response                  
                 
-                logger.info("---- End of Response ---")
 
         logger.info("FINAL response: " + final_response)
         
@@ -102,6 +101,7 @@ def process_message():
         
         # Add chart data if available
         if chart_data and chart_layout:
+            logger.info("Adding CHART data to response")
             response_obj['chart'] = {
                 'data': chart_data,
                 'layout': chart_layout

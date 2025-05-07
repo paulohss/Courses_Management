@@ -1,20 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Plot from 'react-plotly.js';  // Import Plotly
 import assistantIcon from '../images/assistant.png';
 import userIcon from '../images/user.png';
 import ReactMarkdown from 'react-markdown';
 
 export default function ChatBotSql({ isOpen, onClose }) {
-
-
     //  List of messages
     const [messages, setMessages] = useState([
         {
-            content: "Hi, I'm your Courses Management Assistant. I can help you retrive information from the database.",
-            role: "assistant"
-        },
-        {
-            content: "How can I help you today?",
+            content: "Hi, I'm your Courses Management Assistant. How can I help you today?",
             role: "assistant"
         }
     ]);
@@ -24,7 +19,6 @@ export default function ChatBotSql({ isOpen, onClose }) {
 
     // Reference to the last message
     const messagesEndRef = useRef(null);
-
 
     //--------------------------------------------------------------------------------
     // Function to handle Enter key press
@@ -72,12 +66,31 @@ export default function ChatBotSql({ isOpen, onClose }) {
                 message: newMessage.content
             });
 
-            setMessages([...newMessages, {
+            // Check if response contains chart data
+            const hasChartData = response.data.chart && 
+                                 response.data.chart.data && 
+                                 response.data.chart.layout;
+            
+            // Create new message with chart data if available
+            const assistantMessage = {
                 content: response.data.response,
                 role: "assistant"
-            }]);
+            };
+            
+            // Add chart data and layout if available
+            if (hasChartData) {
+                assistantMessage.chartData = response.data.chart.data;
+                assistantMessage.chartLayout = response.data.chart.layout;
+                console.log("Chart data received:", assistantMessage.chartData);
+            }
+            
+            setMessages([...newMessages, assistantMessage]);
         } catch (error) {
             console.error('Error:', error);
+            setMessages([...newMessages, {
+                content: "Sorry, I encountered an error processing your request.",
+                role: "assistant"
+            }]);
         }
         setIsTyping(false);
     }
@@ -104,7 +117,26 @@ export default function ChatBotSql({ isOpen, onClose }) {
                             </div>
                             <div className="chat-bubble markdown-content">
                                 {msg.role === 'assistant' ? (
-                                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                                    <>
+                                        <ReactMarkdown>{msg.content}</ReactMarkdown>
+                                        
+                                        {/* Render Plotly chart if chartData and chartLayout are available */}
+                                        {msg.chartData && msg.chartLayout && (
+                                            <div className="mt-4 p-2 bg-base-200 rounded-lg">
+                                                <Plot
+                                                    data={msg.chartData}
+                                                    layout={{
+                                                        ...msg.chartLayout,
+                                                        autosize: true,
+                                                        height: 400,
+                                                        margin: { t: 25, r: 25, l: 25, b: 25 }
+                                                    }}
+                                                    style={{ width: '100%' }}
+                                                    config={{ responsive: true }}
+                                                />
+                                            </div>
+                                        )}
+                                    </>
                                 ) : (
                                     msg.content
                                 )}
