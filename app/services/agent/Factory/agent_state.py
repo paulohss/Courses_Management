@@ -16,3 +16,5 @@ class AgentState(TypedDict):
     messages: Annotated[Sequence[BaseMessage], operator.add]
     # The 'next' field indicates where to route to next
     next: str
+    chart_data: str 
+    chart_layout: str 

@@ -1,17 +1,16 @@
+import json
 import pandas as pd
-#import plotly.graph_objects as go
+import pandas as pd
+import pyodbc
 from langchain.sql_database import SQLDatabase
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langchain.prompts import PromptTemplate
 from app.services.llm.llm_factory import LLMFactory
-import json
+from langchain_core.messages import HumanMessage
 from app.utils.logger_service import LoggerService
-import pandas as pd
-import pyodbc
-from app.services.agent.prompt.chart_agent_prompt import ChartAgentState, ChartAgentPrompts
 from app.services.llm.llm_setting import LLMConfig
-
+from app.services.agent.prompt.chart_agent_prompt import ChartAgentState, ChartAgentPrompts
 
 #--------------------------------------------------------------------------------
 # ChatAgent class
@@ -54,6 +53,8 @@ class ChartAgent:
             state["context"] = state["db"].get_context()
             self.logger.info(f"Connected to {db_type} database.")
             
+            return state
+            
         except Exception as e:
             self.logger.error(f"Error connecting to database: {e}")
             
@@ -65,13 +66,16 @@ class ChartAgent:
     def build_langgraph(self):
         try:
             graph_builder = StateGraph(ChartAgentState)
+            
             graph_builder.add_node("connect_to_database", self.connect_to_database)
             graph_builder.add_node("run_query", self.run_query)
             graph_builder.add_node("generate_plotly_graph", self.generate_plotly_graph)
+            
             graph_builder.add_edge(START, "connect_to_database")
             graph_builder.add_edge("connect_to_database", "run_query")
             graph_builder.add_edge("run_query", "generate_plotly_graph")
             graph_builder.add_edge("generate_plotly_graph", END)
+            
             self.graph = graph_builder.compile()
             self.logger.info("Language graph built successfully.")
             
@@ -134,6 +138,7 @@ class ChartAgent:
             state["messages"] = [{"role": "assistant", "content": output.content}]
             self.logger.info(f"Messages: {state['messages']}")
             self.logger.info("run_query COMPLETED")
+            
             return state
         
         except Exception as e:
@@ -150,7 +155,7 @@ class ChartAgent:
     #--------------------------------------------------------------------------------
     def generate_plotly_graph(self, state: ChartAgentState):
         try:
-            self.logger.info("Generating Plotly graph...")
+            self.logger.info("Generating Plotly graph data...")
             user_input = state["user_input"]
             query_result = state.get("query_result")
 
@@ -171,7 +176,9 @@ class ChartAgent:
             response = self.llm.invoke(_input.to_string())
             output = response.content if response else None
             state["plotly_json"] = output
-            self.logger.info("generate_plotly_graph STARTING")
+            self.logger.info("generate_plotly_graph COMPLETED!")
+            
+            return state
             
         except Exception as e:
             self.logger.error(f"Error generating Plotly graph: {e}")
@@ -185,33 +192,65 @@ class ChartAgent:
     #--------------------------------------------------------------------------------
     def invoke(self, state):
         try:
-            
             if not self.graph:
                 self.logger.error("Graph is not initialized. Ensure build_langgraph is called.")
                 return None
-            else:
-                for node in self.graph.nodes:
-                    self.logger.info(f"Node: {node}")
+                
+            self.logger.info(f"ChartAgent invoked with state: {state}")
             
             # Extract the query from the last message in the state
             messages = state.get("messages", [])
             if not messages:
+                self.logger.error("No messages found in state")
                 return {"messages": [{"content": "No query provided."}]}
             
             user_input = messages[-1].content
+                    
+            if not user_input:
+                self.logger.error("No user input found in messages")
+                return {"messages": [{"content": "No user query found."}]}
+                
+            self.logger.info(f"Extracted user input: {user_input}")
             
+            # Initialize a proper ChartAgentState
             prompt_user = ChartAgentState()
             prompt_user["user_input"] = user_input
+           
+            # Execute sub-graph with more verbose logging
+            self.logger.info("Starting graph execution...")
+
+            # Run the graph directly instead of streaming
+            result = self.graph.invoke(prompt_user)
+            self.logger.info(f"Graph execution completed: {result}")
             
-            for event in self.graph.stream(prompt_user, stream_mode="values"):
-                for value in event.values():
-                    if value["plotly_json"]:
-                        self.logger.info("Plotly JSON generated successfully.")
-                        parsed_data = json.loads(value["plotly_json"])
-                        data = parsed_data["data"]
-                        layout = parsed_data["layout"]
-                        return data, layout
-                    
+            # Process the result
+            if result and "plotly_json" in result and result["plotly_json"]:
+                self.logger.info("Plotly data generated successfully")
+                parsed_data = json.loads(result["plotly_json"])
+                
+                # Create a message with chart data
+                message = HumanMessage(
+                    content=f"I've created a visualization based on your query: '{user_input}'"
+                )                
+                return {
+                    "messages": [message],
+                    "next": "FINISH",  # Signal to move on to the next step
+                    "chart_data": parsed_data["data"],
+                    "chart_layout": parsed_data["layout"]
+                }
+            else:
+                self.logger.warning("No visualization data generated")
+                return {
+                    "messages": [{"content": "I couldn't generate a chart for your query."}],
+                    "next": "FINISH"  # Signal to move on to the next step
+                }                
+                           
+   
         except Exception as e:
-            self.logger.error(f"Error invoking the Chart Agent: {e}")
-            return None
+            self.logger.error(f"Error in ChartAgent: {str(e)}")
+            import traceback
+            self.logger.error(traceback.format_exc())
+            return {
+                "messages": [{"content": f"Failed to process chart request: {str(e)}"}],
+                "next": "FINISH"  # Signal to move on even in case of error
+            }

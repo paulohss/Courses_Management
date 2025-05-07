@@ -9,3 +9,7 @@ app/logs/application.log
 app/services/agent/prompt/__pycache__/sql_agent_general.cpython-311.pyc
 app/services/agent/__pycache__
 app/services/agent/__pycache__/
+app/api/__pycache__/chatbot.cpython-311.pyc
+app/logs/application.log
+app/services/agent/Factory/__pycache__/agent_state.cpython-311.pyc
+app/services/agent/Factory/__pycache__/Helpers.cpython-311.pyc

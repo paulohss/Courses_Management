@@ -55,6 +55,8 @@ def process_message():
         # Process the conversation through the graph
         conversation_history = []
         final_response = ""
+        chart_data = None
+        chart_layout = None
         
         # Process the conversation flow
         for step in workflow.graph.stream(initial_state):            
@@ -68,21 +70,25 @@ def process_message():
             for agent_name, response in step.items():
                 logger.info(f"--- {agent_name.upper()} Response ---")
                 
+                # Check for chart data in the response
+                if isinstance(response, dict):
+                    if "chart_data" in response and "chart_layout" in response:
+                        chart_data = response["chart_data"]
+                        chart_layout = response["chart_layout"]
+                        logger.info(f"Chart data detected from {agent_name}")
+                
                 # Extract and process the message content based on format
-                if isinstance(response, dict) and "messages" in response: # check if response is a dict and has a "messages" key
-                   
+                if isinstance(response, dict) and "messages" in response:
                     # Handle message collection format
                     for message in response["messages"]:
-                        
                         message_content = message.content
-                        print(message_content)
-                        conversation_history.append({"agent": agent_name,"content": message_content})   
+                        conversation_history.append({"agent": agent_name, "content": message_content})   
                         logger.info(f"Agent: {agent_name}, Content: {message_content}")                     
                         if str(response) != FINISH:
                             final_response = message_content                
                 else:                
                     # Handle direct content format                    
-                    conversation_history.append({"agent": agent_name, "content": response })                      
+                    conversation_history.append({"agent": agent_name, "content": response})                      
                     logger.info(f"Agent: {agent_name}, Content: {response}")
                     if str(response) != FINISH:
                        final_response = response                  
@@ -90,8 +96,18 @@ def process_message():
                 logger.info("---- End of Response ---")
 
         logger.info("FINAL response: " + final_response)
-        return jsonify({'response': final_response}), 200
-
+        
+        # Prepare the response object
+        response_obj = {'response': final_response}
+        
+        # Add chart data if available
+        if chart_data and chart_layout:
+            response_obj['chart'] = {
+                'data': chart_data,
+                'layout': chart_layout
+            }
+            
+        return jsonify(response_obj), 200
 
     except Exception as e:
         logger.error(f"Error processing request: {str(e)}", exc_info=True)
