@@ -166,10 +166,10 @@ class EmailAgent:
             success, message = self._send_email(user_email, subject, email_body)
 
             if success:
-                return {"messages": [HumanMessage(content=f"Email sent successfully to {user_name} ({user_email}).")]}
+                return {"messages": [HumanMessage(content=f"Email sent successfully to {user_name} ({user_email}).")], "next": "FINISH"}
             else:
-                return {"messages": [HumanMessage(content=f"Failed to send email: {message}")]}
+                return {"messages": [HumanMessage(content=f"Failed to send email: {message}")], "next": "FINISH"}
 
         except Exception as e:
             self.logger.error(f"Error processing email request: {str(e)}")
-            return {"messages": [HumanMessage(content=f"Error processing email request: {str(e)}")]}
+            return {"messages": [HumanMessage(content=f"Error processing email request: {str(e)}")], "next": "FINISH"}
