@@ -4204,3 +4204,368 @@ GROUP BY [Office]
 2025-05-07 16:37:18,442 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
 2025-05-07 16:37:18,444 - app.api.chatbot - INFO - FINAL response: I've created a visualization based on your query: 'I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'''
 2025-05-07 16:37:18,446 - app.api.chatbot - INFO - Adding CHART data to response
+2025-05-07 16:48:04,113 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-07 16:48:04,113 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-07 16:48:08,785 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-07 16:48:08,786 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-07 16:48:08,788 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-07 16:48:09,411 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-07 16:48:10,521 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'EmailAgent'}} <---
+2025-05-07 16:48:10,522 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:48:10,523 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-05-07 16:48:10,523 - app.services.agent.factory.helpers - INFO - Invoking agent: EmailAgent
+2025-05-07 16:48:17,529 - app.services.agent.email_agent - ERROR - Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-74058d7c155sm10750658b3a.14 - gsmtp')
+2025-05-07 16:48:17,530 - app.services.agent.factory.helpers - INFO - Agent EmailAgent result type: <class 'dict'>
+2025-05-07 16:48:17,532 - app.services.agent.factory.helpers - INFO - EmailAgent response found
+2025-05-07 16:48:17,536 - app.api.chatbot - INFO - ----> Step: {'EmailAgent': {'messages': [HumanMessage(content="Failed to send email: Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-74058d7c155sm10750658b3a.14 - gsmtp')", additional_kwargs={}, response_metadata={}, name='EmailAgent')], 'next': 'FINISH'}} <---
+2025-05-07 16:48:17,538 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-05-07 16:48:17,540 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Failed to send email: Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-74058d7c155sm10750658b3a.14 - gsmtp')
+2025-05-07 16:48:18,287 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'EmailAgent'}} <---
+2025-05-07 16:48:18,288 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:48:18,289 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-05-07 16:48:18,291 - app.services.agent.factory.helpers - INFO - Invoking agent: EmailAgent
+2025-05-07 16:48:19,191 - app.services.agent.email_agent - ERROR - Error extracting user email and type: Failed to extract user name or email type from the request.
+2025-05-07 16:48:19,192 - app.services.agent.factory.helpers - INFO - Agent EmailAgent result type: <class 'dict'>
+2025-05-07 16:48:19,192 - app.services.agent.factory.helpers - INFO - EmailAgent response found
+2025-05-07 16:48:19,194 - app.api.chatbot - INFO - ----> Step: {'EmailAgent': {'messages': [HumanMessage(content='Could not find the user or their email.', additional_kwargs={}, response_metadata={}, name='EmailAgent')], 'next': 'FINISH'}} <---
+2025-05-07 16:48:19,196 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-05-07 16:48:19,196 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Could not find the user or their email.
+2025-05-07 16:48:19,963 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'EmailAgent'}} <---
+2025-05-07 16:48:19,964 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:48:19,965 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-05-07 16:48:19,967 - app.services.agent.factory.helpers - INFO - Invoking agent: EmailAgent
+2025-05-07 16:48:20,868 - app.services.agent.email_agent - ERROR - Error extracting user email and type: Failed to extract user name or email type from the request.
+2025-05-07 16:48:20,869 - app.services.agent.factory.helpers - INFO - Agent EmailAgent result type: <class 'dict'>
+2025-05-07 16:48:20,869 - app.services.agent.factory.helpers - INFO - EmailAgent response found
+2025-05-07 16:48:20,871 - app.api.chatbot - INFO - ----> Step: {'EmailAgent': {'messages': [HumanMessage(content='Could not find the user or their email.', additional_kwargs={}, response_metadata={}, name='EmailAgent')], 'next': 'FINISH'}} <---
+2025-05-07 16:48:20,871 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-05-07 16:48:20,872 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Could not find the user or their email.
+2025-05-07 16:48:21,618 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-07 16:48:21,620 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:48:21,621 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-07 16:48:21,622 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-07 16:57:52,053 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-07 16:57:52,059 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-07 16:58:01,870 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-07 16:58:01,872 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-07 16:58:01,877 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-07 16:58:02,481 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-07 16:58:04,178 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'EmailAgent'}} <---
+2025-05-07 16:58:04,180 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 16:58:04,181 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-05-07 16:58:08,126 - app.services.agent.factory.helpers - INFO - Invoking agent: EmailAgent
+2025-05-07 16:59:10,050 - app.services.agent.email_agent - ERROR - Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-74059064cf2sm10645037b3a.142 - gsmtp')
+2025-05-07 16:59:26,850 - app.services.agent.factory.helpers - INFO - Agent EmailAgent result type: <class 'dict'>
+2025-05-07 16:59:26,852 - app.services.agent.factory.helpers - INFO - EmailAgent response found
+2025-05-07 16:59:26,861 - app.api.chatbot - INFO - ----> Step: {'EmailAgent': {'messages': [HumanMessage(content="Failed to send email: Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-74059064cf2sm10645037b3a.142 - gsmtp')", additional_kwargs={}, response_metadata={}, name='EmailAgent')], 'next': 'FINISH'}} <---
+2025-05-07 16:59:26,863 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-05-07 16:59:26,864 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Failed to send email: Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-74059064cf2sm10645037b3a.142 - gsmtp')
+2025-05-07 17:19:33,177 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-07 17:19:33,180 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-07 17:20:12,135 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-07 17:20:12,136 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-07 17:20:12,144 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-07 17:20:12,723 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-07 17:20:13,984 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'EmailAgent'}} <---
+2025-05-07 17:20:13,985 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 17:20:13,986 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-05-07 17:20:17,846 - app.services.agent.factory.helpers - INFO - Invoking agent: EmailAgent
+2025-05-07 17:20:48,695 - app.services.agent.factory.helpers - INFO - Agent EmailAgent result type: <class 'dict'>
+2025-05-07 17:20:48,697 - app.services.agent.factory.helpers - INFO - EmailAgent response found
+2025-05-07 17:20:48,706 - app.api.chatbot - INFO - ----> Step: {'EmailAgent': {'messages': [HumanMessage(content='Email sent successfully to Jen (jennifermariebronte@gmail.com).', additional_kwargs={}, response_metadata={}, name='EmailAgent')], 'next': 'FINISH'}} <---
+2025-05-07 17:20:48,708 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-05-07 17:20:48,710 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Jen (jennifermariebronte@gmail.com).
+2025-05-07 17:20:49,596 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-07 17:20:49,598 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 17:20:49,600 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-07 17:20:49,602 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Jen (jennifermariebronte@gmail.com).
+2025-05-07 17:23:16,558 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-07 17:23:16,559 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 17:23:16,561 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-07 17:23:16,563 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-07 17:23:16,565 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a PIE chart of the number of users PER OFFICE with legend and title', additional_kwargs={}, response_metadata={})], 'next': 'ChartAgent'}
+2025-05-07 17:23:16,567 - app.services.agent.chart_agent - INFO - Extracted user input: Make a PIE chart of the number of users PER OFFICE with legend and title
+2025-05-07 17:23:16,568 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-07 17:23:16,574 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-07 17:23:16,792 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-07 17:23:16,796 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-07 17:23:18,163 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [Office], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Office]
+```
+2025-05-07 17:23:18,164 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [Office], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Office]
+
+2025-05-07 17:23:18,168 - app.services.agent.chart_agent - INFO - Query Results: [('Build A', 2), ('Build B', 2), ('Build C', 1)]
+2025-05-07 17:23:18,169 - app.services.agent.chart_agent - INFO - Query Columns: ['Office', 'NumberOfUsers']
+2025-05-07 17:23:18,170 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Office': ['Build A', 'Build B', 'Build C'], 'NumberOfUsers': [2, 2, 1]}
+2025-05-07 17:23:18,203 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+    Office  NumberOfUsers
+0  Build A              2
+1  Build B              2
+2  Build C              1
+2025-05-07 17:23:18,205 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [Office], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Office]\n```'}]
+2025-05-07 17:23:18,206 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-07 17:23:18,209 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-07 17:23:18,213 - app.services.agent.chart_agent - INFO - Query Result String:     Office  NumberOfUsers
+0  Build A              2
+1  Build B              2
+2  Build C              1
+2025-05-07 17:23:20,878 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-07 17:23:20,890 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x000001FC32AD2050>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': 'Make a PIE chart of the number of users PER OFFICE with legend and title', 'messages': [AIMessage(content='```sql\nSELECT [Office], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Office]\n```', additional_kwargs={}, response_metadata={}, id='c0a8648f-be4e-474e-8425-0273844050ce')], 'conn': <pyodbc.Connection object at 0x000001FC4AA19BD0>, 'query_result':     Office  NumberOfUsers
+0  Build A              2
+1  Build B              2
+2  Build C              1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "pie",\n            "labels": ["Build A", "Build B", "Build C"],\n            "values": [2, 2, 1],\n            "hoverinfo": "label+percent",\n            "textinfo": "value",\n            "marker": {\n                "colors": ["#636EFA", "#EF553B", "#00CC96"]\n            }\n        }\n    ],\n    "layout": {\n        "title": "Number of Users per Office",\n        "showlegend": true\n    }\n}'}
+2025-05-07 17:23:20,893 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-07 17:23:20,894 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-07 17:23:20,895 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-07 17:23:20,898 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [2, 2, 1], 'hoverinfo': 'label+percent', 'textinfo': 'value', 'marker': {'colors': ['#636EFA', '#EF553B', '#00CC96']}}], 'chart_layout': {'title': 'Number of Users per Office', 'showlegend': True}}} <---
+2025-05-07 17:23:20,899 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-07 17:23:20,900 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-07 17:23:20,901 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'
+2025-05-07 17:23:21,855 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-07 17:23:21,857 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-07 17:23:21,858 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-07 17:23:21,860 - app.api.chatbot - INFO - FINAL response: I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'
+2025-05-07 17:23:21,862 - app.api.chatbot - INFO - Adding CHART data to response
+2025-05-09 11:49:47,069 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 11:49:47,070 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 11:49:52,010 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 11:49:52,011 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 11:49:52,017 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 11:49:52,594 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 11:49:54,443 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 11:49:54,443 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:49:54,444 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 11:49:54,445 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 11:50:24,363 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 11:50:24,364 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 11:50:24,367 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Agent stopped due to iteration limit or time limit.', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 11:50:24,369 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 11:50:24,370 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Agent stopped due to iteration limit or time limit.
+2025-05-09 11:50:25,197 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 11:50:25,198 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:50:25,198 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 11:50:25,199 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 11:53:28,019 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 11:53:28,022 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 11:53:38,646 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 11:53:38,648 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 11:53:38,653 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 11:53:39,569 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 11:53:45,765 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 11:53:47,327 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:53:49,424 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 11:53:50,957 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 11:54:04,674 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 11:54:04,675 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 11:54:05,461 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Jen attended the following courses: Diversity and Inclusion, Emotional Intelligence, and Business Ethics.', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 11:54:08,533 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 11:54:11,518 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Jen attended the following courses: Diversity and Inclusion, Emotional Intelligence, and Business Ethics.
+2025-05-09 11:54:16,903 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 11:54:18,005 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:54:21,333 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 11:54:21,334 - app.api.chatbot - INFO - FINAL response: Jen attended the following courses: Diversity and Inclusion, Emotional Intelligence, and Business Ethics.
+2025-05-09 11:56:44,082 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'Researcher'}} <---
+2025-05-09 11:56:44,083 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:56:44,084 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'Researcher'}
+2025-05-09 11:56:44,085 - app.services.agent.factory.helpers - INFO - Invoking agent: Researcher
+2025-05-09 11:56:53,550 - app.services.agent.factory.helpers - INFO - Agent Researcher result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2025-05-09 11:56:53,552 - app.services.agent.factory.helpers - INFO - Researcher response found
+2025-05-09 11:56:53,559 - app.api.chatbot - INFO - ----> Step: {'Researcher': {'messages': [HumanMessage(content="Here are some of the top Diversity and Inclusion courses available in Australia:\n\n1. **Graduate Certificate in Diversity, Equity, and Inclusion at UNSW**:\n   - **Details**: Offered 100% online, the Graduate Certificate comprises four courses (3 core and 1 elective). This program is designed to provide the knowledge and tools necessary to shape company DEI strategies, empowering individuals and teams, and fostering a culture of wellbeing and celebration.\n   - **More Information**: [UNSW Graduate Certificate in DEI](https://studyonline.unsw.edu.au/online-programs/graduate-certificate-diversity-equity-inclusion)\n\n2. **The Inclusion Program**:\n   - **Details**: This is an online inclusion training course, described as Australia's leading program for helping companies embrace diversity and promote a safe and happy workplace.\n   - **More Information**: [The Inclusion Program](https://inclusion-program.com.au/)\n\nThese programs are designed to equip participants with the skills and understanding necessary to implement and champion diversity and inclusion initiatives within various organizations.", additional_kwargs={}, response_metadata={}, name='Researcher')], 'next': 'FINISH'}} <---
+2025-05-09 11:56:53,562 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-05-09 11:56:53,563 - app.api.chatbot - INFO - Agent: Researcher, Content: Here are some of the top Diversity and Inclusion courses available in Australia:
+
+1. **Graduate Certificate in Diversity, Equity, and Inclusion at UNSW**:
+   - **Details**: Offered 100% online, the Graduate Certificate comprises four courses (3 core and 1 elective). This program is designed to provide the knowledge and tools necessary to shape company DEI strategies, empowering individuals and teams, and fostering a culture of wellbeing and celebration.
+   - **More Information**: [UNSW Graduate Certificate in DEI](https://studyonline.unsw.edu.au/online-programs/graduate-certificate-diversity-equity-inclusion)
+
+2. **The Inclusion Program**:
+   - **Details**: This is an online inclusion training course, described as Australia's leading program for helping companies embrace diversity and promote a safe and happy workplace.
+   - **More Information**: [The Inclusion Program](https://inclusion-program.com.au/)
+
+These programs are designed to equip participants with the skills and understanding necessary to implement and champion diversity and inclusion initiatives within various organizations.
+2025-05-09 11:56:54,411 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 11:56:54,412 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:56:54,413 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 11:56:54,414 - app.api.chatbot - INFO - FINAL response: Here are some of the top Diversity and Inclusion courses available in Australia:
+
+1. **Graduate Certificate in Diversity, Equity, and Inclusion at UNSW**:
+   - **Details**: Offered 100% online, the Graduate Certificate comprises four courses (3 core and 1 elective). This program is designed to provide the knowledge and tools necessary to shape company DEI strategies, empowering individuals and teams, and fostering a culture of wellbeing and celebration.
+   - **More Information**: [UNSW Graduate Certificate in DEI](https://studyonline.unsw.edu.au/online-programs/graduate-certificate-diversity-equity-inclusion)
+
+2. **The Inclusion Program**:
+   - **Details**: This is an online inclusion training course, described as Australia's leading program for helping companies embrace diversity and promote a safe and happy workplace.
+   - **More Information**: [The Inclusion Program](https://inclusion-program.com.au/)
+
+These programs are designed to equip participants with the skills and understanding necessary to implement and champion diversity and inclusion initiatives within various organizations.
+2025-05-09 11:58:02,511 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'RagPdfAgent'}} <---
+2025-05-09 11:58:02,512 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:58:02,513 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-05-09 11:58:02,515 - app.services.agent.factory.helpers - INFO - Invoking agent: RagPdfAgent
+2025-05-09 11:58:07,182 - app.services.agent.factory.helpers - INFO - Agent RagPdfAgent result type: <class 'dict'>
+2025-05-09 11:58:07,183 - app.services.agent.factory.helpers - INFO - RagPdfAgent response found
+2025-05-09 11:58:07,187 - app.api.chatbot - INFO - ----> Step: {'RagPdfAgent': {'messages': [HumanMessage(content='The price for the Business Ethics course is AUD $2,000 for the in-person option in Sydney, which includes printed materials, refreshments, and group discussions. For the online option, the price is AUD $1,800, which includes digital materials and interactive online sessions.', additional_kwargs={}, response_metadata={}, name='RagPdfAgent')], 'next': 'FINISH'}} <---
+2025-05-09 11:58:07,189 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-05-09 11:58:07,190 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: The price for the Business Ethics course is AUD $2,000 for the in-person option in Sydney, which includes printed materials, refreshments, and group discussions. For the online option, the price is AUD $1,800, which includes digital materials and interactive online sessions.
+2025-05-09 11:58:08,128 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 11:58:08,132 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:58:08,137 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 11:58:08,139 - app.api.chatbot - INFO - FINAL response: The price for the Business Ethics course is AUD $2,000 for the in-person option in Sydney, which includes printed materials, refreshments, and group discussions. For the online option, the price is AUD $1,800, which includes digital materials and interactive online sessions.
+2025-05-09 11:58:26,678 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-09 11:58:26,680 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:58:26,681 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-09 11:58:26,682 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-09 11:58:26,685 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a BAR chart of the number of users PER COUNTRY with legend and title', additional_kwargs={}, response_metadata={})], 'next': 'ChartAgent'}
+2025-05-09 11:58:26,686 - app.services.agent.chart_agent - INFO - Extracted user input: Make a BAR chart of the number of users PER COUNTRY with legend and title
+2025-05-09 11:58:26,688 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-09 11:58:26,692 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-09 11:58:26,913 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-09 11:58:26,916 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-09 11:58:28,258 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [Country], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Country]
+```
+2025-05-09 11:58:28,259 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [Country], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Country]
+
+2025-05-09 11:58:28,263 - app.services.agent.chart_agent - INFO - Query Results: [('Australia', 2), ('Brazil', 2), ('Manila', 1)]
+2025-05-09 11:58:28,265 - app.services.agent.chart_agent - INFO - Query Columns: ['Country', 'NumberOfUsers']
+2025-05-09 11:58:28,267 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Country': ['Australia', 'Brazil', 'Manila'], 'NumberOfUsers': [2, 2, 1]}
+2025-05-09 11:58:28,293 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+     Country  NumberOfUsers
+0  Australia              2
+1     Brazil              2
+2     Manila              1
+2025-05-09 11:58:28,295 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [Country], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Country]\n```'}]
+2025-05-09 11:58:28,295 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-09 11:58:28,302 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-09 11:58:28,306 - app.services.agent.chart_agent - INFO - Query Result String:      Country  NumberOfUsers
+0  Australia              2
+1     Brazil              2
+2     Manila              1
+2025-05-09 11:58:30,761 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-09 11:58:30,775 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x00000278EB59DCD0>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': 'Make a BAR chart of the number of users PER COUNTRY with legend and title', 'messages': [AIMessage(content='```sql\nSELECT [Country], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Country]\n```', additional_kwargs={}, response_metadata={}, id='f6c5261c-5352-4b29-a4cb-78f100856321')], 'conn': <pyodbc.Connection object at 0x00000278EAC8E590>, 'query_result':      Country  NumberOfUsers
+0  Australia              2
+1     Brazil              2
+2     Manila              1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "bar",\n            "x": ["Australia", "Brazil", "Manila"],\n            "y": [2, 2, 1],\n            "marker": {\n                "color": ["#636EFA", "#EF553B", "#00CC96"]\n            },\n            "name": "Number of Users"\n        }\n    ],\n    "layout": {\n        "title": "Number of Users per Country",\n        "xaxis": {\n            "title": "Country"\n        },\n        "yaxis": {\n            "title": "Number of Users"\n        },\n        "legend": {\n            "title": "Legend"\n        }\n    }\n}'}
+2025-05-09 11:58:30,783 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-09 11:58:30,786 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-09 11:58:30,787 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-09 11:58:30,790 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'bar', 'x': ['Australia', 'Brazil', 'Manila'], 'y': [2, 2, 1], 'marker': {'color': ['#636EFA', '#EF553B', '#00CC96']}, 'name': 'Number of Users'}], 'chart_layout': {'title': 'Number of Users per Country', 'xaxis': {'title': 'Country'}, 'yaxis': {'title': 'Number of Users'}, 'legend': {'title': 'Legend'}}}} <---
+2025-05-09 11:58:30,792 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-09 11:58:30,793 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-09 11:58:30,795 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title'
+2025-05-09 11:58:31,542 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 11:58:31,544 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 11:58:31,545 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 11:58:31,546 - app.api.chatbot - INFO - FINAL response: I've created a visualization based on your query: 'Make a BAR chart of the number of users PER COUNTRY with legend and title'
+2025-05-09 11:58:31,548 - app.api.chatbot - INFO - Adding CHART data to response
+2025-05-09 12:05:12,117 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 12:05:12,118 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 12:05:17,020 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 12:05:17,021 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 12:05:17,024 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 12:05:17,591 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 12:05:18,520 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 12:05:18,521 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:05:18,521 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 12:05:18,522 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 12:07:03,946 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 12:07:03,948 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 12:07:13,707 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 12:07:13,709 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 12:07:13,715 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 12:07:14,323 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 12:07:15,499 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 12:07:15,500 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:07:15,501 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 12:07:15,503 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 12:11:36,697 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 12:11:36,698 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 12:11:59,537 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 12:11:59,538 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 12:11:59,544 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 12:12:00,288 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 12:12:01,184 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 12:12:01,185 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:12:01,186 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 12:12:01,188 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 12:12:22,287 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 12:12:22,288 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 12:12:22,291 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='The courses that Jen has not attended are:\n- Digital Marketing Strategies\n- Crisis Management\n- Cybersecurity Awareness', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 12:12:22,294 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 12:12:22,295 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The courses that Jen has not attended are:
+- Digital Marketing Strategies
+- Crisis Management
+- Cybersecurity Awareness
+2025-05-09 12:12:23,371 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 12:12:23,372 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:12:23,373 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 12:12:23,375 - app.api.chatbot - INFO - FINAL response: The courses that Jen has not attended are:
+- Digital Marketing Strategies
+- Crisis Management
+- Cybersecurity Awareness
+2025-05-09 12:16:27,716 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 12:16:27,717 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 12:16:32,494 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 12:16:32,495 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 12:16:32,499 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 12:16:33,080 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 12:16:33,891 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 12:16:33,892 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:16:33,893 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 12:16:33,894 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 12:16:47,694 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 12:16:47,696 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 12:16:47,702 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Jen attended the following courses: \n1. Diversity and Inclusion \n2. Emotional Intelligence \n3. Business Ethics', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 12:16:47,704 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 12:16:47,707 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Jen attended the following courses: 
+1. Diversity and Inclusion 
+2. Emotional Intelligence 
+3. Business Ethics
+2025-05-09 12:16:48,952 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 12:16:48,953 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:16:48,954 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 12:16:48,955 - app.api.chatbot - INFO - FINAL response: Jen attended the following courses: 
+1. Diversity and Inclusion 
+2. Emotional Intelligence 
+3. Business Ethics
+2025-05-09 12:17:51,054 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 12:17:51,055 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:17:51,056 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 12:17:51,057 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 12:18:07,185 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 12:18:07,187 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 12:18:07,192 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Jen did not attend the following courses:\n1. Digital Marketing Strategies\n2. Cybersecurity Awareness\n3. Crisis Management', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 12:18:07,194 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 12:18:07,197 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Jen did not attend the following courses:
+1. Digital Marketing Strategies
+2. Cybersecurity Awareness
+3. Crisis Management
+2025-05-09 12:18:08,052 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 12:18:08,053 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:18:08,054 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 12:18:08,055 - app.api.chatbot - INFO - FINAL response: Jen did not attend the following courses:
+1. Digital Marketing Strategies
+2. Cybersecurity Awareness
+3. Crisis Management
+2025-05-09 12:19:02,529 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'RagPdfAgent'}} <---
+2025-05-09 12:19:02,531 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:19:02,533 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-05-09 12:19:02,536 - app.services.agent.factory.helpers - INFO - Invoking agent: RagPdfAgent
+2025-05-09 12:19:09,369 - app.services.agent.factory.helpers - INFO - Agent RagPdfAgent result type: <class 'dict'>
+2025-05-09 12:19:09,370 - app.services.agent.factory.helpers - INFO - RagPdfAgent response found
+2025-05-09 12:19:09,373 - app.api.chatbot - INFO - ----> Step: {'RagPdfAgent': {'messages': [HumanMessage(content='The Cybersecurity Awareness course is designed to educate both individuals and professionals on the latest cyber threats and to promote strong security habits. It covers cybersecurity fundamentals, common threats such as phishing and malware, best practices for securing devices and networks, incident response strategies, and the significance of compliance and security policies. The course is available in-person in Melbourne for AUD $2,000, with benefits including printed materials, refreshments, and hands-on cybersecurity exercises. Alternatively, it is available online for AUD $1,800, including digital materials and interactive online sessions. Early bird and corporate group discounts can be arranged.', additional_kwargs={}, response_metadata={}, name='RagPdfAgent')], 'next': 'FINISH'}} <---
+2025-05-09 12:19:09,375 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-05-09 12:19:09,376 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: The Cybersecurity Awareness course is designed to educate both individuals and professionals on the latest cyber threats and to promote strong security habits. It covers cybersecurity fundamentals, common threats such as phishing and malware, best practices for securing devices and networks, incident response strategies, and the significance of compliance and security policies. The course is available in-person in Melbourne for AUD $2,000, with benefits including printed materials, refreshments, and hands-on cybersecurity exercises. Alternatively, it is available online for AUD $1,800, including digital materials and interactive online sessions. Early bird and corporate group discounts can be arranged.
+2025-05-09 12:19:10,203 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 12:19:10,204 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 12:19:10,205 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 12:19:10,206 - app.api.chatbot - INFO - FINAL response: The Cybersecurity Awareness course is designed to educate both individuals and professionals on the latest cyber threats and to promote strong security habits. It covers cybersecurity fundamentals, common threats such as phishing and malware, best practices for securing devices and networks, incident response strategies, and the significance of compliance and security policies. The course is available in-person in Melbourne for AUD $2,000, with benefits including printed materials, refreshments, and hands-on cybersecurity exercises. Alternatively, it is available online for AUD $1,800, including digital materials and interactive online sessions. Early bird and corporate group discounts can be arranged.

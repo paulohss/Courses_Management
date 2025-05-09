@@ -14,6 +14,7 @@ class SqlAgentGeneralPromptTemplate:
         While generating Microsoft SQL Server for the user's query, follow these instructions:
 
         **General SQL Rules**
+        - DO NOT ever use '`'' or '`' in SQL statements.
         - If the user mentions **'User'** (a reserved keyword), use square brackets: `SELECT * FROM [User]`, same for join statements.
         - When asked about **user's course attended** as well as the **courses that the user is missing*, consider:
             -- the *User.FK_Role_ID and Role.ID** to answer, 

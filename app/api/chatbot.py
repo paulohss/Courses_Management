@@ -53,7 +53,6 @@ def process_message():
         initial_state = {"messages": [HumanMessage(content=data['message'])]}
         
         # Process the conversation through the graph
-        conversation_history = []
         final_response = ""
         chart_data = None
         chart_layout = None
@@ -81,14 +80,12 @@ def process_message():
                 if isinstance(response, dict) and "messages" in response:
                     # Handle message collection format
                     for message in response["messages"]:
-                        message_content = message.content
-                        conversation_history.append({"agent": agent_name, "content": message_content})   
+                        message_content = message.content                        
                         logger.info(f"Agent: {agent_name}, Content: {message_content}")                     
                         if str(response) != FINISH:
                             final_response = message_content                
                 else:                
-                    # Handle direct content format                    
-                    conversation_history.append({"agent": agent_name, "content": response})                      
+                    # Handle direct content format                                       
                     logger.info(f"Agent: {agent_name}, Content: {response}")
                     if str(response) != FINISH:
                        final_response = response                  

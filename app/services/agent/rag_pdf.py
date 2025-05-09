@@ -151,13 +151,13 @@ class RagPdfAgent:
             # Extract the request from the last message in the state
             messages = state.get("messages", [])
             if not messages:
-                return {"messages": [HumanMessage(content="No request provided.")]}
+                return {"messages": [HumanMessage(content="No request provided.")], "next": "FINISH"}
 
             request = messages[-1].content
             
             response = self.agent.query(request)
-            return {"messages": [HumanMessage(content=str(response))]}
+            return {"messages": [HumanMessage(content=str(response))], "next": "FINISH"}
             
         except Exception as e:
             self.logger.error(f"Error extracting request: {str(e)}")
-            return {"messages": [HumanMessage(content="Error extracting request.")]}
+            return {"messages": [HumanMessage(content="Error extracting request.")], "next": "FINISH"}

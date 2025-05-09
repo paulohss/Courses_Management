@@ -119,8 +119,8 @@ class SqlAgent:
             self.memory.chat_memory.messages.append({"role": "assistant", "content": output})
             
             # Return in the format expected by agent_node
-            return {"messages": [HumanMessage(content=output)]}
+            return {"messages": [HumanMessage(content=output)],"next": "FINISH" }
             
         except Exception as e:
             self.logger.error(f"Error executing query: {str(e)}")
-            return {"messages": [HumanMessage(content=f"Sorry, I couldn't process your request: {str(e)}")]}
+            return {"messages": [HumanMessage(content=f"Sorry, I couldn't process your request: {str(e)}")], "next": "FINISH"}

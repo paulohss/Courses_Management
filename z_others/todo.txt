@@ -4,9 +4,11 @@ Research how to test agents
 Implement UI test
 
 
+
 Agent
-- Fix goddam email agent
+- Lang Smith monitoring
 - MCP Protocol - study it
+- Save sucessful query in a cache and them retrive it (maybe a vector db?)
 
 
 LLM
