@@ -4569,3 +4569,1037 @@ GROUP BY [Country]
 2025-05-09 12:19:10,204 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
 2025-05-09 12:19:10,205 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
 2025-05-09 12:19:10,206 - app.api.chatbot - INFO - FINAL response: The Cybersecurity Awareness course is designed to educate both individuals and professionals on the latest cyber threats and to promote strong security habits. It covers cybersecurity fundamentals, common threats such as phishing and malware, best practices for securing devices and networks, incident response strategies, and the significance of compliance and security policies. The course is available in-person in Melbourne for AUD $2,000, with benefits including printed materials, refreshments, and hands-on cybersecurity exercises. Alternatively, it is available online for AUD $1,800, including digital materials and interactive online sessions. Early bird and corporate group discounts can be arranged.
+2025-05-09 17:07:24,537 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 17:07:24,539 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 17:07:33,715 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 17:07:33,717 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 17:07:33,723 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 17:07:34,275 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 17:07:35,396 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:07:35,398 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:07:35,399 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:07:35,400 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:07:49,700 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 17:07:49,701 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 17:07:49,708 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Yes, there is a user named Jen in the database.', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:07:49,709 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:07:49,710 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Yes, there is a user named Jen in the database.
+2025-05-09 17:07:50,540 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 17:07:50,541 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:07:50,543 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 17:07:50,544 - app.api.chatbot - INFO - FINAL response: Yes, there is a user named Jen in the database.
+2025-05-09 17:10:18,540 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:10:18,541 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:10:18,543 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:10:18,544 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:10:38,566 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 17:10:38,568 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 17:10:38,572 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='The courses attended by the user named Jen are:\n1. Diversity and Inclusion\n2. Emotional Intelligence\n3. Business Ethics', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:10:38,574 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:10:38,575 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The courses attended by the user named Jen are:
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 17:10:39,438 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 17:10:39,439 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:10:39,440 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 17:10:39,441 - app.api.chatbot - INFO - FINAL response: The courses attended by the user named Jen are:
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 17:31:10,296 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 17:31:10,298 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 17:31:54,451 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 17:31:54,453 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 17:31:54,458 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 17:31:55,062 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 17:31:56,341 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:31:56,342 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:31:56,343 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:31:56,345 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:36:52,106 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 17:36:52,109 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 17:37:10,129 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 17:37:10,130 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 17:37:10,136 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 17:37:10,802 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 17:37:11,659 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:37:11,661 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:37:11,662 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:37:11,664 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:40:18,555 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 17:40:18,556 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 17:40:29,030 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 17:40:29,031 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 17:40:29,036 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 17:40:29,637 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 17:40:30,676 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:40:30,678 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:40:30,679 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:40:30,680 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:41:00,525 - app.services.agent.mssql_agent - INFO - Response: {'messages': [HumanMessage(content='Is there a user called Jen?', additional_kwargs={}, response_metadata={}, id='924ab68a-ca49-41f3-91ab-aa73c552ee2c'), AIMessage(content='', additional_kwargs={'tool_calls': [{'id': 'call_1PfqrxDUp1ozh0prA27xOFzy', 'function': {'arguments': '{}', 'name': 'sql_db_list_tables'}, 'type': 'function'}], 'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 13, 'prompt_tokens': 551, 'total_tokens': 564, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-2024-08-06', 'system_fingerprint': 'fp_55d88aaf2f', 'finish_reason': 'tool_calls', 'logprobs': None}, id='run-1f4fe118-99f5-48c1-88ee-e871f0ea01c2-0', tool_calls=[{'name': 'sql_db_list_tables', 'args': {}, 'id': 'call_1PfqrxDUp1ozh0prA27xOFzy', 'type': 'tool_call'}], usage_metadata={'input_tokens': 551, 'output_tokens': 13, 'total_tokens': 564, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}), ToolMessage(content='Course, Role, Role_Course, User, User_Course', name='sql_db_list_tables', id='75936e7c-5ef0-4568-81dc-c1651247fa6f', tool_call_id='call_1PfqrxDUp1ozh0prA27xOFzy'), AIMessage(content='', additional_kwargs={'tool_calls': [{'id': 'call_Fq2jMZyAIKZhRgFYiLNfVZgU', 'function': {'arguments': '{"table_names":"User"}', 'name': 'sql_db_schema'}, 'type': 'function'}], 'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 17, 'prompt_tokens': 586, 'total_tokens': 603, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-2024-08-06', 'system_fingerprint': 'fp_55d88aaf2f', 'finish_reason': 'tool_calls', 'logprobs': None}, id='run-d4644592-9271-4357-8c06-80a7f5e9ae4f-0', tool_calls=[{'name': 'sql_db_schema', 'args': {'table_names': 'User'}, 'id': 'call_Fq2jMZyAIKZhRgFYiLNfVZgU', 'type': 'tool_call'}], usage_metadata={'input_tokens': 586, 'output_tokens': 17, 'total_tokens': 603, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}), ToolMessage(content='\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/', name='sql_db_schema', id='6b72e59d-3e41-43c7-96b8-20cd69232b59', tool_call_id='call_Fq2jMZyAIKZhRgFYiLNfVZgU'), AIMessage(content='', additional_kwargs={'tool_calls': [{'id': 'call_fqQA7cjZRfn0TbCSIRVVbvQf', 'function': {'arguments': '{"query":"SELECT Name FROM User WHERE Name = \'Jen\'"}', 'name': 'sql_db_query_checker'}, 'type': 'function'}], 'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 26, 'prompt_tokens': 868, 'total_tokens': 894, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-2024-08-06', 'system_fingerprint': 'fp_55d88aaf2f', 'finish_reason': 'tool_calls', 'logprobs': None}, id='run-bcaca27f-fa3b-45f7-a3d9-25b61cf0ca80-0', tool_calls=[{'name': 'sql_db_query_checker', 'args': {'query': "SELECT Name FROM User WHERE Name = 'Jen'"}, 'id': 'call_fqQA7cjZRfn0TbCSIRVVbvQf', 'type': 'tool_call'}], usage_metadata={'input_tokens': 868, 'output_tokens': 26, 'total_tokens': 894, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}), ToolMessage(content="```sql\nSELECT Name FROM User WHERE Name = 'Jen'\n```", name='sql_db_query_checker', id='57bc1137-46f4-4cf3-b691-95fa7b8ab066', tool_call_id='call_fqQA7cjZRfn0TbCSIRVVbvQf'), AIMessage(content='', additional_kwargs={'tool_calls': [{'id': 'call_qU2mmrP5ZNCJKYX3VCQSD5lO', 'function': {'arguments': '{"query":"SELECT Name FROM User WHERE Name = \'Jen\'"}', 'name': 'sql_db_query'}, 'type': 'function'}], 'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 25, 'prompt_tokens': 917, 'total_tokens': 942, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-2024-08-06', 'system_fingerprint': 'fp_55d88aaf2f', 'finish_reason': 'tool_calls', 'logprobs': None}, id='run-cf2a8d4c-e2cb-4ce3-af0e-6b15cd6bb431-0', tool_calls=[{'name': 'sql_db_query', 'args': {'query': "SELECT Name FROM User WHERE Name = 'Jen'"}, 'id': 'call_qU2mmrP5ZNCJKYX3VCQSD5lO', 'type': 'tool_call'}], usage_metadata={'input_tokens': 917, 'output_tokens': 25, 'total_tokens': 942, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}), ToolMessage(content='Error: (pyodbc.ProgrammingError) (\'42000\', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Incorrect syntax near the keyword \'User\'. (156) (SQLExecDirectW)")\n[SQL: SELECT Name FROM User WHERE Name = \'Jen\']\n(Background on this error at: https://sqlalche.me/e/20/f405)', name='sql_db_query', id='c3ede4f0-5ef7-46dd-abdc-cebd5fb7bfec', tool_call_id='call_qU2mmrP5ZNCJKYX3VCQSD5lO'), AIMessage(content='', additional_kwargs={'tool_calls': [{'id': 'call_8lgz8WiJnXJ7A0ya0yRqlcy7', 'function': {'arguments': '{"query":"SELECT Name FROM [User] WHERE Name = \'Jen\'"}', 'name': 'sql_db_query'}, 'type': 'function'}], 'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 27, 'prompt_tokens': 1032, 'total_tokens': 1059, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 'gpt-4o-2024-08-06', 'system_fingerprint': 'fp_55d88aaf2f', 'finish_reason': 'tool_calls', 'logprobs': None}, id='run-418e0522-6a7f-4e93-954d-83b7c10a5f7f-0', tool_calls=[{'name': 'sql_db_query', 'args': {'query': "SELECT Name FROM [User] WHERE Name = 'Jen'"}, 'id': 'call_8lgz8WiJnXJ7A0ya0yRqlcy7', 'type': 'tool_call'}], usage_metadata={'input_tokens': 1032, 'output_tokens': 27, 'total_tokens': 1059, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}}), ToolMessage(content="[('Jen',)]", name='sql_db_query', id='a446b55e-4845-46c1-9e31-2411bd220243', tool_call_id='call_8lgz8WiJnXJ7A0ya0yRqlcy7'), AIMessage(content='Yes, there is a user called Jen in the database.', additional_kwargs={'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 14, 'prompt_tokens': 1072, 'total_tokens': 1086, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 1024}}, 'model_name': 'gpt-4o-2024-08-06', 'system_fingerprint': 'fp_55d88aaf2f', 'finish_reason': 'stop', 'logprobs': None}, id='run-fb2c3e54-fae0-4ccc-a2d1-c435bf348983-0', usage_metadata={'input_tokens': 1072, 'output_tokens': 14, 'total_tokens': 1086, 'input_token_details': {'audio': 0, 'cache_read': 1024}, 'output_token_details': {'audio': 0, 'reasoning': 0}})]}
+2025-05-09 17:41:18,683 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 17:41:18,685 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 17:41:18,693 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='No message created', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:41:18,695 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:41:18,696 - app.api.chatbot - INFO - Agent: SqlAgent, Content: No message created
+2025-05-09 17:44:52,748 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 17:44:52,751 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 17:45:03,263 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 17:45:03,265 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 17:45:03,271 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 17:45:03,837 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 17:45:04,831 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:45:04,832 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:45:04,834 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:45:04,836 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:46:08,871 - app.services.agent.mssql_agent - INFO - Response: content='Yes, there is a user called Jen in the database.' additional_kwargs={'refusal': None} response_metadata={'token_usage': {'completion_tokens': 14, 'prompt_tokens': 1072, 'total_tokens': 1086, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 1024}}, 'model_name': 'gpt-4o-2024-08-06', 'system_fingerprint': 'fp_55d88aaf2f', 'finish_reason': 'stop', 'logprobs': None} id='run-3108ab8d-ca63-4d46-9e82-bc297cf20d0d-0' usage_metadata={'input_tokens': 1072, 'output_tokens': 14, 'total_tokens': 1086, 'input_token_details': {'audio': 0, 'cache_read': 1024}, 'output_token_details': {'audio': 0, 'reasoning': 0}}
+2025-05-09 17:46:08,875 - app.services.agent.factory.helpers - ERROR - Error invoking agent SqlAgent: 21 validation errors for HumanMessage
+content.str
+  Input should be a valid string [type=string_type, input_value=AIMessage(content='Yes, t...o': 0, 'reasoning': 0}}), input_type=AIMessage]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].0.str
+  Input should be a valid string [type=string_type, input_value=('content', 'Yes, there i...d Jen in the database.'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].0.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('content', 'Yes, there i...d Jen in the database.'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].1.str
+  Input should be a valid string [type=string_type, input_value=('additional_kwargs', {'refusal': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].1.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('additional_kwargs', {'refusal': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].2.str
+  Input should be a valid string [type=string_type, input_value=('response_metadata', {'t...top', 'logprobs': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].2.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('response_metadata', {'t...top', 'logprobs': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].3.str
+  Input should be a valid string [type=string_type, input_value=('type', 'ai'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].3.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('type', 'ai'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].4.str
+  Input should be a valid string [type=string_type, input_value=('name', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].4.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('name', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].5.str
+  Input should be a valid string [type=string_type, input_value=('id', 'run-3108ab8d-ca63...46-9e82-bc297cf20d0d-0'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].5.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('id', 'run-3108ab8d-ca63...46-9e82-bc297cf20d0d-0'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].6.str
+  Input should be a valid string [type=string_type, input_value=('example', False), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].6.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('example', False), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].7.str
+  Input should be a valid string [type=string_type, input_value=('tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].7.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].8.str
+  Input should be a valid string [type=string_type, input_value=('invalid_tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].8.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('invalid_tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].9.str
+  Input should be a valid string [type=string_type, input_value=('usage_metadata', {'inpu...o': 0, 'reasoning': 0}}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].9.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('usage_metadata', {'inpu...o': 0, 'reasoning': 0}}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+2025-05-09 17:46:08,903 - app.services.agent.factory.helpers - ERROR - Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\factory\helpers.py", line 20, in agent_node
+    result = agent.invoke(state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\mssql_agent.py", line 101, in invoke
+    return {"messages": [HumanMessage(content=last_message)],"next": "FINISH" }
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\messages\human.py", line 57, in __init__
+    super().__init__(content=content, **kwargs)
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\messages\base.py", line 77, in __init__
+    super().__init__(content=content, **kwargs)
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\langchain_core\load\serializable.py", line 125, in __init__
+    super().__init__(*args, **kwargs)
+  File "d:\AI\HandsOn\PROJECTS\Course_Management\src\venv\Lib\site-packages\pydantic\main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 21 validation errors for HumanMessage
+content.str
+  Input should be a valid string [type=string_type, input_value=AIMessage(content='Yes, t...o': 0, 'reasoning': 0}}), input_type=AIMessage]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].0.str
+  Input should be a valid string [type=string_type, input_value=('content', 'Yes, there i...d Jen in the database.'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].0.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('content', 'Yes, there i...d Jen in the database.'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].1.str
+  Input should be a valid string [type=string_type, input_value=('additional_kwargs', {'refusal': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].1.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('additional_kwargs', {'refusal': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].2.str
+  Input should be a valid string [type=string_type, input_value=('response_metadata', {'t...top', 'logprobs': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].2.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('response_metadata', {'t...top', 'logprobs': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].3.str
+  Input should be a valid string [type=string_type, input_value=('type', 'ai'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].3.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('type', 'ai'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].4.str
+  Input should be a valid string [type=string_type, input_value=('name', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].4.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('name', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].5.str
+  Input should be a valid string [type=string_type, input_value=('id', 'run-3108ab8d-ca63...46-9e82-bc297cf20d0d-0'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].5.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('id', 'run-3108ab8d-ca63...46-9e82-bc297cf20d0d-0'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].6.str
+  Input should be a valid string [type=string_type, input_value=('example', False), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].6.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('example', False), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].7.str
+  Input should be a valid string [type=string_type, input_value=('tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].7.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].8.str
+  Input should be a valid string [type=string_type, input_value=('invalid_tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].8.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('invalid_tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].9.str
+  Input should be a valid string [type=string_type, input_value=('usage_metadata', {'inpu...o': 0, 'reasoning': 0}}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].9.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('usage_metadata', {'inpu...o': 0, 'reasoning': 0}}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+
+2025-05-09 17:46:08,919 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content="Error in SqlAgent: 21 validation errors for HumanMessage\ncontent.str\n  Input should be a valid string [type=string_type, input_value=AIMessage(content='Yes, t...o': 0, 'reasoning': 0}}), input_type=AIMessage]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].0.str\n  Input should be a valid string [type=string_type, input_value=('content', 'Yes, there i...d Jen in the database.'), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].0.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('content', 'Yes, there i...d Jen in the database.'), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].1.str\n  Input should be a valid string [type=string_type, input_value=('additional_kwargs', {'refusal': None}), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].1.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('additional_kwargs', {'refusal': None}), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].2.str\n  Input should be a valid string [type=string_type, input_value=('response_metadata', {'t...top', 'logprobs': None}), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].2.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('response_metadata', {'t...top', 'logprobs': None}), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].3.str\n  Input should be a valid string [type=string_type, input_value=('type', 'ai'), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].3.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('type', 'ai'), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].4.str\n  Input should be a valid string [type=string_type, input_value=('name', None), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].4.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('name', None), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].5.str\n  Input should be a valid string [type=string_type, input_value=('id', 'run-3108ab8d-ca63...46-9e82-bc297cf20d0d-0'), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].5.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('id', 'run-3108ab8d-ca63...46-9e82-bc297cf20d0d-0'), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].6.str\n  Input should be a valid string [type=string_type, input_value=('example', False), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].6.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('example', False), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].7.str\n  Input should be a valid string [type=string_type, input_value=('tool_calls', []), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].7.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('tool_calls', []), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].8.str\n  Input should be a valid string [type=string_type, input_value=('invalid_tool_calls', []), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].8.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('invalid_tool_calls', []), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type\ncontent.list[union[str,dict[any,any]]].9.str\n  Input should be a valid string [type=string_type, input_value=('usage_metadata', {'inpu...o': 0, 'reasoning': 0}}), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/string_type\ncontent.list[union[str,dict[any,any]]].9.dict[any,any]\n  Input should be a valid dictionary [type=dict_type, input_value=('usage_metadata', {'inpu...o': 0, 'reasoning': 0}}), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.10/v/dict_type", additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:46:08,924 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:46:08,925 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Error in SqlAgent: 21 validation errors for HumanMessage
+content.str
+  Input should be a valid string [type=string_type, input_value=AIMessage(content='Yes, t...o': 0, 'reasoning': 0}}), input_type=AIMessage]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].0.str
+  Input should be a valid string [type=string_type, input_value=('content', 'Yes, there i...d Jen in the database.'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].0.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('content', 'Yes, there i...d Jen in the database.'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].1.str
+  Input should be a valid string [type=string_type, input_value=('additional_kwargs', {'refusal': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].1.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('additional_kwargs', {'refusal': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].2.str
+  Input should be a valid string [type=string_type, input_value=('response_metadata', {'t...top', 'logprobs': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].2.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('response_metadata', {'t...top', 'logprobs': None}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].3.str
+  Input should be a valid string [type=string_type, input_value=('type', 'ai'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].3.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('type', 'ai'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].4.str
+  Input should be a valid string [type=string_type, input_value=('name', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].4.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('name', None), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].5.str
+  Input should be a valid string [type=string_type, input_value=('id', 'run-3108ab8d-ca63...46-9e82-bc297cf20d0d-0'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].5.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('id', 'run-3108ab8d-ca63...46-9e82-bc297cf20d0d-0'), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].6.str
+  Input should be a valid string [type=string_type, input_value=('example', False), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].6.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('example', False), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].7.str
+  Input should be a valid string [type=string_type, input_value=('tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].7.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].8.str
+  Input should be a valid string [type=string_type, input_value=('invalid_tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].8.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('invalid_tool_calls', []), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+content.list[union[str,dict[any,any]]].9.str
+  Input should be a valid string [type=string_type, input_value=('usage_metadata', {'inpu...o': 0, 'reasoning': 0}}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+content.list[union[str,dict[any,any]]].9.dict[any,any]
+  Input should be a valid dictionary [type=dict_type, input_value=('usage_metadata', {'inpu...o': 0, 'reasoning': 0}}), input_type=tuple]
+    For further information visit https://errors.pydantic.dev/2.10/v/dict_type
+2025-05-09 17:46:09,958 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:46:09,959 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:46:09,961 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:46:09,962 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:46:28,884 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 17:46:28,886 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 17:46:39,696 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 17:46:39,698 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 17:46:39,703 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 17:46:40,259 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 17:46:41,836 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:46:41,852 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:46:41,854 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:46:41,857 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:47:04,731 - app.services.agent.mssql_agent - INFO - Response: Yes, there is a user called Jen in the database.
+2025-05-09 17:47:12,888 - app.services.agent.factory.helpers - ERROR - Error invoking agent SqlAgent: 'str' object has no attribute 'content'
+2025-05-09 17:47:12,893 - app.services.agent.factory.helpers - ERROR - Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\factory\helpers.py", line 20, in agent_node
+    result = agent.invoke(state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\services\agent\mssql_agent.py", line 100, in invoke
+    if last_message and last_message.content:
+                        ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'content'
+
+2025-05-09 17:47:12,900 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content="Error in SqlAgent: 'str' object has no attribute 'content'", additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:47:12,901 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:47:12,902 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Error in SqlAgent: 'str' object has no attribute 'content'
+2025-05-09 17:48:48,043 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 17:48:48,047 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 17:49:01,398 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 17:49:01,399 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 17:49:01,404 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 17:49:02,067 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 17:49:03,043 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:49:03,044 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:49:03,045 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:49:03,047 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:49:14,028 - app.services.agent.mssql_agent - INFO - Response: Yes, there is a user called Jen in the database.
+2025-05-09 17:49:16,045 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 17:49:16,047 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 17:49:16,055 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Yes, there is a user called Jen in the database.', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:49:16,056 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:49:16,058 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Yes, there is a user called Jen in the database.
+2025-05-09 17:49:16,861 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 17:49:16,863 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:49:16,865 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 17:49:16,867 - app.api.chatbot - INFO - FINAL response: Yes, there is a user called Jen in the database.
+2025-05-09 17:49:35,550 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:49:35,551 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:49:35,553 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:49:35,555 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:50:12,611 - app.services.agent.mssql_agent - INFO - Response: Jen attended the following courses:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 17:50:14,453 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 17:50:14,454 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 17:50:14,461 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Jen attended the following courses:\n\n1. Diversity and Inclusion\n2. Emotional Intelligence\n3. Business Ethics', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:50:14,462 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:50:14,463 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Jen attended the following courses:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 17:50:15,252 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 17:50:15,254 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:50:15,255 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 17:50:15,257 - app.api.chatbot - INFO - FINAL response: Jen attended the following courses:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 17:50:41,842 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:50:41,844 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:50:41,845 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:50:41,846 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:50:47,139 - app.services.agent.mssql_agent - INFO - Response: Jen did not attend the following courses:
+
+1. Leadership Fundamentals
+2. Financial Management
+3. Project Management Basics
+4. Agile Methodologies
+5. Data Analysis with Python
+
+These are just a few examples from the list of courses she did not attend.
+2025-05-09 17:50:47,140 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 17:50:47,141 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 17:50:47,143 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Jen did not attend the following courses:\n\n1. Leadership Fundamentals\n2. Financial Management\n3. Project Management Basics\n4. Agile Methodologies\n5. Data Analysis with Python\n\nThese are just a few examples from the list of courses she did not attend.', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:50:47,145 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:50:47,146 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Jen did not attend the following courses:
+
+1. Leadership Fundamentals
+2. Financial Management
+3. Project Management Basics
+4. Agile Methodologies
+5. Data Analysis with Python
+
+These are just a few examples from the list of courses she did not attend.
+2025-05-09 17:50:47,973 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 17:50:47,974 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:50:47,975 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 17:50:47,976 - app.api.chatbot - INFO - FINAL response: Jen did not attend the following courses:
+
+1. Leadership Fundamentals
+2. Financial Management
+3. Project Management Basics
+4. Agile Methodologies
+5. Data Analysis with Python
+
+These are just a few examples from the list of courses she did not attend.
+2025-05-09 17:52:53,801 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:52:53,803 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:52:53,804 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:52:53,806 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:53:03,370 - app.services.agent.mssql_agent - INFO - Response: Paulo has to attend the following courses:
+
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+2025-05-09 17:53:03,372 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 17:53:03,373 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 17:53:03,378 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Paulo has to attend the following courses:\n\n1. Agile Methodologies\n2. Cybersecurity Awareness\n3. Project Management Basics', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:53:03,380 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:53:03,381 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Paulo has to attend the following courses:
+
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+2025-05-09 17:53:04,294 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 17:53:04,295 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:53:04,296 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 17:53:04,297 - app.api.chatbot - INFO - FINAL response: Paulo has to attend the following courses:
+
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+2025-05-09 17:54:00,724 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 17:54:00,726 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:54:00,727 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 17:54:00,728 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 17:54:09,184 - app.services.agent.mssql_agent - INFO - Response: Paulo has attended the following courses:
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+
+The courses linked to him that he should attend are:
+1. Leadership Fundamentals
+2. Financial Management
+3. Data Analysis with Python
+4. Machine Learning Fundamentals
+5. Digital Marketing Strategies
+
+... and many more. If you need details about any specific courses, feel free to ask!
+2025-05-09 17:54:09,186 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 17:54:09,187 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 17:54:09,191 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Paulo has attended the following courses:\n1. Agile Methodologies\n2. Cybersecurity Awareness\n3. Project Management Basics\n\nThe courses linked to him that he should attend are:\n1. Leadership Fundamentals\n2. Financial Management\n3. Data Analysis with Python\n4. Machine Learning Fundamentals\n5. Digital Marketing Strategies\n\n... and many more. If you need details about any specific courses, feel free to ask!', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 17:54:09,193 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 17:54:09,194 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Paulo has attended the following courses:
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+
+The courses linked to him that he should attend are:
+1. Leadership Fundamentals
+2. Financial Management
+3. Data Analysis with Python
+4. Machine Learning Fundamentals
+5. Digital Marketing Strategies
+
+... and many more. If you need details about any specific courses, feel free to ask!
+2025-05-09 17:54:09,979 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 17:54:09,981 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 17:54:09,983 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 17:54:09,986 - app.api.chatbot - INFO - FINAL response: Paulo has attended the following courses:
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+
+The courses linked to him that he should attend are:
+1. Leadership Fundamentals
+2. Financial Management
+3. Data Analysis with Python
+4. Machine Learning Fundamentals
+5. Digital Marketing Strategies
+
+... and many more. If you need details about any specific courses, feel free to ask!
+2025-05-09 18:07:42,806 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 18:07:42,808 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 18:08:01,407 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 18:08:01,409 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 18:08:01,414 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 18:08:02,068 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 18:08:03,166 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:08:03,167 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:08:03,169 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:08:03,171 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:08:10,204 - app.services.agent.mssql_agent - INFO - Response: Yes, Jen is a user in the database.
+2025-05-09 18:08:10,205 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:08:10,207 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:08:10,211 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Yes, Jen is a user in the database.', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:08:10,213 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:08:10,215 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Yes, Jen is a user in the database.
+2025-05-09 18:08:11,050 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:08:11,052 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:08:11,053 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:08:11,055 - app.api.chatbot - INFO - FINAL response: Yes, Jen is a user in the database.
+2025-05-09 18:08:20,721 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:08:20,723 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:08:20,724 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:08:20,725 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:08:26,385 - app.services.agent.mssql_agent - INFO - Response: Sarah attended the following courses:
+
+1. Business Ethics
+2. Team Building
+3. Effective Communication
+4. Stress Management
+5. Leadership Fundamentals
+2025-05-09 18:08:26,387 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:08:26,388 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:08:26,392 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Sarah attended the following courses:\n\n1. Business Ethics\n2. Team Building\n3. Effective Communication\n4. Stress Management\n5. Leadership Fundamentals', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:08:26,393 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:08:26,394 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Sarah attended the following courses:
+
+1. Business Ethics
+2. Team Building
+3. Effective Communication
+4. Stress Management
+5. Leadership Fundamentals
+2025-05-09 18:08:27,189 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:08:27,190 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:08:27,192 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:08:27,193 - app.api.chatbot - INFO - FINAL response: Sarah attended the following courses:
+
+1. Business Ethics
+2. Team Building
+3. Effective Communication
+4. Stress Management
+5. Leadership Fundamentals
+2025-05-09 18:08:54,987 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:08:54,988 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:08:54,990 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:08:54,992 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:09:00,895 - app.services.agent.mssql_agent - INFO - Response: Jen attended the following courses:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 18:09:00,897 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:09:00,899 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:09:00,904 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Jen attended the following courses:\n\n1. Diversity and Inclusion\n2. Emotional Intelligence\n3. Business Ethics', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:09:00,906 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:09:00,907 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Jen attended the following courses:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 18:09:01,754 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:09:01,755 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:09:01,756 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:09:01,757 - app.api.chatbot - INFO - FINAL response: Jen attended the following courses:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 18:09:12,314 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:09:12,315 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:09:12,317 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:09:12,319 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:09:24,786 - app.services.agent.mssql_agent - INFO - Response: The courses that Jen is scheduled to attend next are:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 18:09:24,788 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:09:24,789 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:09:24,793 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='The courses that Jen is scheduled to attend next are:\n\n1. Diversity and Inclusion\n2. Emotional Intelligence\n3. Business Ethics', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:09:24,795 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:09:24,796 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The courses that Jen is scheduled to attend next are:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 18:09:25,588 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:09:25,590 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:09:25,591 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:09:25,592 - app.api.chatbot - INFO - FINAL response: The courses that Jen is scheduled to attend next are:
+
+1. Diversity and Inclusion
+2. Emotional Intelligence
+3. Business Ethics
+2025-05-09 18:10:02,233 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:10:02,235 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:10:02,238 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:10:02,241 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:10:12,493 - app.services.agent.mssql_agent - INFO - Response: The courses marked for Jen to attend, but which she hasn't yet attended, are:
+
+1. Business Ethics
+2. Diversity and Inclusion
+3. Emotional Intelligence
+2025-05-09 18:10:12,494 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:10:12,496 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:10:12,499 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content="The courses marked for Jen to attend, but which she hasn't yet attended, are:\n\n1. Business Ethics\n2. Diversity and Inclusion\n3. Emotional Intelligence", additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:10:12,500 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:10:12,502 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The courses marked for Jen to attend, but which she hasn't yet attended, are:
+
+1. Business Ethics
+2. Diversity and Inclusion
+3. Emotional Intelligence
+2025-05-09 18:10:14,010 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:10:14,011 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:10:14,012 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:10:14,013 - app.api.chatbot - INFO - FINAL response: The courses marked for Jen to attend, but which she hasn't yet attended, are:
+
+1. Business Ethics
+2. Diversity and Inclusion
+3. Emotional Intelligence
+2025-05-09 18:14:05,083 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 18:14:05,084 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 18:14:07,022 - app.services.agent.mssql_agent - INFO - Database connection successfully created.
+2025-05-09 18:14:07,159 - app.services.agent.mssql_agent - INFO - Tools successfully set.
+2025-05-09 18:14:52,171 - app.services.agent.mssql_agent - ERROR - Error setting prompts: 'str' object has no attribute 'messages'
+2025-05-09 18:14:52,172 - app.services.agent.mssql_agent - ERROR - Error initializing SQL agent: Error setting prompts.
+2025-05-09 18:14:52,174 - app.api.chatbot - ERROR - Error initializing chatbot service: Initialization error: Please try again later.
+2025-05-09 18:14:52,175 - app.api.chatbot - ERROR - Error processing request: 'NoneType' object has no attribute 'graph'
+Traceback (most recent call last):
+  File "D:\AI\HandsOn\PROJECTS\Course_Management\src\app\api\chatbot.py", line 61, in process_message
+    for step in workflow.graph.stream(initial_state):
+    ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'graph'
+2025-05-09 18:18:16,696 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 18:18:16,699 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 18:23:30,747 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 18:23:30,751 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 18:23:44,213 - app.services.agent.mssql_agent - INFO - Prompts successfully set.
+2025-05-09 18:23:55,902 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 18:23:55,903 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 18:23:55,909 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 18:23:56,498 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 18:23:57,985 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:23:57,986 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:23:57,987 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:23:57,988 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:24:09,016 - app.services.agent.mssql_agent - INFO - Response: Yes, there is a user called Paulo. Here are the details:
+
+- **User ID:** 69
+- **Name:** Paulo
+- **Role ID:** 6
+- **Email:** paulohss@gmail.com
+- **Office:** Build A
+- **Country:** Australia
+2025-05-09 18:24:09,019 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:24:09,020 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:24:09,028 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Yes, there is a user called Paulo. Here are the details:\n\n- **User ID:** 69\n- **Name:** Paulo\n- **Role ID:** 6\n- **Email:** paulohss@gmail.com\n- **Office:** Build A\n- **Country:** Australia', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:24:09,029 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:24:09,030 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Yes, there is a user called Paulo. Here are the details:
+
+- **User ID:** 69
+- **Name:** Paulo
+- **Role ID:** 6
+- **Email:** paulohss@gmail.com
+- **Office:** Build A
+- **Country:** Australia
+2025-05-09 18:24:10,301 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:24:10,302 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:24:10,303 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:24:10,304 - app.api.chatbot - INFO - FINAL response: Yes, there is a user called Paulo. Here are the details:
+
+- **User ID:** 69
+- **Name:** Paulo
+- **Role ID:** 6
+- **Email:** paulohss@gmail.com
+- **Office:** Build A
+- **Country:** Australia
+2025-05-09 18:24:34,892 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:24:34,893 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:24:34,894 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:24:34,896 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:24:45,086 - app.services.agent.mssql_agent - INFO - Response: Paulo attended the following courses:
+
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+2025-05-09 18:24:45,088 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:24:45,089 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:24:45,093 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Paulo attended the following courses:\n\n1. Agile Methodologies\n2. Cybersecurity Awareness\n3. Project Management Basics', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:24:45,094 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:24:45,096 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Paulo attended the following courses:
+
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+2025-05-09 18:24:45,875 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:24:45,876 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:24:45,877 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:24:45,879 - app.api.chatbot - INFO - FINAL response: Paulo attended the following courses:
+
+1. Agile Methodologies
+2. Cybersecurity Awareness
+3. Project Management Basics
+2025-05-09 18:25:10,011 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:25:10,013 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:25:10,016 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:25:10,018 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:25:27,267 - app.services.agent.mssql_agent - INFO - Response: Paulo is missing the following courses:
+
+1. Data Analysis with Python
+2. Data Visualization
+3. Cloud Computing Basics
+4. Design Thinking
+5. Innovation and Creativity
+6. Machine Learning Fundamentals
+2025-05-09 18:25:27,269 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:25:27,270 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:25:27,274 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Paulo is missing the following courses:\n\n1. Data Analysis with Python\n2. Data Visualization\n3. Cloud Computing Basics\n4. Design Thinking\n5. Innovation and Creativity\n6. Machine Learning Fundamentals', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:25:27,276 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:25:27,276 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Paulo is missing the following courses:
+
+1. Data Analysis with Python
+2. Data Visualization
+3. Cloud Computing Basics
+4. Design Thinking
+5. Innovation and Creativity
+6. Machine Learning Fundamentals
+2025-05-09 18:25:28,130 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:25:28,131 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:25:28,132 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:25:28,133 - app.api.chatbot - INFO - FINAL response: Paulo is missing the following courses:
+
+1. Data Analysis with Python
+2. Data Visualization
+3. Cloud Computing Basics
+4. Design Thinking
+5. Innovation and Creativity
+6. Machine Learning Fundamentals
+2025-05-09 18:35:35,908 - app.api.chatbot - INFO - Initializing chatbot service with provider: openai, model: gpt-4o
+2025-05-09 18:35:35,910 - app.services.agent.factory.multi_agent_workflow - INFO - Initializing MultiAgentWorkflow with provider: openai, model: gpt-4o
+2025-05-09 18:35:47,665 - app.services.agent.rag_pdf - INFO - LangChain LLM instance obtained successfully: <class 'langchain_openai.chat_models.base.ChatOpenAI'>
+2025-05-09 18:35:47,667 - app.services.agent.rag_pdf - INFO - Wrapped LLM for LlamaIndex: <class 'llama_index.llms.langchain.base.LangChainLLM'>
+2025-05-09 18:35:47,672 - app.services.agent.rag_pdf - INFO - ReActAgent initialized successfully for RagPdfAgent.
+2025-05-09 18:35:48,285 - app.services.agent.chart_agent - INFO - Language graph built successfully.
+2025-05-09 18:35:49,419 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:35:49,420 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:35:49,422 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:35:49,423 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:35:54,349 - app.services.agent.mssql_agent - INFO - Response: Yes, there is a user named Jen in the database. Here are the details:
+
+- **ID:** 72
+- **Name:** Jen
+- **Role ID:** 1
+- **Email:** paulohss@gmail.com
+- **Office:** Build B
+- **Country:** Brazil
+2025-05-09 18:35:54,351 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:35:54,353 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:35:54,359 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Yes, there is a user named Jen in the database. Here are the details:\n\n- **ID:** 72\n- **Name:** Jen\n- **Role ID:** 1\n- **Email:** paulohss@gmail.com\n- **Office:** Build B\n- **Country:** Brazil', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:35:54,362 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:35:54,364 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Yes, there is a user named Jen in the database. Here are the details:
+
+- **ID:** 72
+- **Name:** Jen
+- **Role ID:** 1
+- **Email:** paulohss@gmail.com
+- **Office:** Build B
+- **Country:** Brazil
+2025-05-09 18:35:55,424 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:35:55,425 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:35:55,427 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:35:55,428 - app.api.chatbot - INFO - FINAL response: Yes, there is a user named Jen in the database. Here are the details:
+
+- **ID:** 72
+- **Name:** Jen
+- **Role ID:** 1
+- **Email:** paulohss@gmail.com
+- **Office:** Build B
+- **Country:** Brazil
+2025-05-09 18:36:09,260 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:36:09,261 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:36:09,263 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:36:09,264 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:36:11,166 - app.services.agent.mssql_agent - INFO - Response: To determine the courses a specific user attended, I need you to provide the user's identifier or name. Please specify the user you are referring to, so I can generate the appropriate SQL query.
+2025-05-09 18:36:11,167 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:36:11,168 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:36:11,172 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content="To determine the courses a specific user attended, I need you to provide the user's identifier or name. Please specify the user you are referring to, so I can generate the appropriate SQL query.", additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:36:11,174 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:36:11,176 - app.api.chatbot - INFO - Agent: SqlAgent, Content: To determine the courses a specific user attended, I need you to provide the user's identifier or name. Please specify the user you are referring to, so I can generate the appropriate SQL query.
+2025-05-09 18:36:12,023 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:36:12,024 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:36:12,026 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:36:12,027 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:36:13,391 - app.services.agent.mssql_agent - INFO - Response: Please provide the user's identifier (e.g., User.ID) or the user's name so that I can generate the correct SQL query to determine the courses they attended.
+2025-05-09 18:36:13,393 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:36:13,395 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:36:13,399 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content="Please provide the user's identifier (e.g., User.ID) or the user's name so that I can generate the correct SQL query to determine the courses they attended.", additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:36:13,402 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:36:13,403 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Please provide the user's identifier (e.g., User.ID) or the user's name so that I can generate the correct SQL query to determine the courses they attended.
+2025-05-09 18:36:14,125 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:36:14,126 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:36:14,127 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:36:14,129 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:36:15,084 - app.services.agent.mssql_agent - INFO - Response: To generate the correct SQL query, please provide either the user's identifier (User.ID) or the user's name.
+2025-05-09 18:36:15,085 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:36:15,086 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:36:15,090 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content="To generate the correct SQL query, please provide either the user's identifier (User.ID) or the user's name.", additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:36:15,092 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:36:15,093 - app.api.chatbot - INFO - Agent: SqlAgent, Content: To generate the correct SQL query, please provide either the user's identifier (User.ID) or the user's name.
+2025-05-09 18:36:15,928 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:36:15,931 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:36:15,934 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:36:15,938 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:36:17,086 - app.services.agent.mssql_agent - INFO - Response: Please provide me with either the user's identifier (User.ID) or the user's name so that I can help generate the appropriate SQL query for you.
+2025-05-09 18:36:17,087 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:36:17,088 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:36:17,092 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content="Please provide me with either the user's identifier (User.ID) or the user's name so that I can help generate the appropriate SQL query for you.", additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:36:17,094 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:36:17,095 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Please provide me with either the user's identifier (User.ID) or the user's name so that I can help generate the appropriate SQL query for you.
+2025-05-09 18:36:17,934 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:36:17,957 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:36:17,959 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:36:17,961 - app.api.chatbot - INFO - FINAL response: Please provide me with either the user's identifier (User.ID) or the user's name so that I can help generate the appropriate SQL query for you.
+2025-05-09 18:36:32,927 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:36:32,928 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:36:32,929 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:36:32,931 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:36:42,432 - app.services.agent.mssql_agent - INFO - Response: Jen attended the following courses:
+- Diversity and Inclusion
+- Emotional Intelligence
+- Business Ethics
+2025-05-09 18:36:42,432 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:36:42,433 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:36:42,436 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Jen attended the following courses:\n- Diversity and Inclusion\n- Emotional Intelligence\n- Business Ethics', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:36:42,438 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:36:42,440 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Jen attended the following courses:
+- Diversity and Inclusion
+- Emotional Intelligence
+- Business Ethics
+2025-05-09 18:36:44,493 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:36:44,495 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:36:44,497 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:36:44,499 - app.api.chatbot - INFO - FINAL response: Jen attended the following courses:
+- Diversity and Inclusion
+- Emotional Intelligence
+- Business Ethics
+2025-05-09 18:37:13,186 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:37:13,187 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:37:13,188 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:37:13,190 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:37:30,126 - app.services.agent.mssql_agent - INFO - Response: Jen missed the following courses:
+
+- Digital Marketing Strategies
+- Cybersecurity Awareness
+- Crisis Management
+2025-05-09 18:37:30,128 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:37:30,130 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:37:30,136 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='Jen missed the following courses:\n\n- Digital Marketing Strategies\n- Cybersecurity Awareness\n- Crisis Management', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:37:30,137 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:37:30,138 - app.api.chatbot - INFO - Agent: SqlAgent, Content: Jen missed the following courses:
+
+- Digital Marketing Strategies
+- Cybersecurity Awareness
+- Crisis Management
+2025-05-09 18:37:30,988 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:37:30,989 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:37:30,991 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:37:30,993 - app.api.chatbot - INFO - FINAL response: Jen missed the following courses:
+
+- Digital Marketing Strategies
+- Cybersecurity Awareness
+- Crisis Management
+2025-05-09 18:38:27,220 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'RagPdfAgent'}} <---
+2025-05-09 18:38:27,221 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:38:27,223 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'RagPdfAgent'}
+2025-05-09 18:38:27,225 - app.services.agent.factory.helpers - INFO - Invoking agent: RagPdfAgent
+2025-05-09 18:38:33,715 - app.services.agent.factory.helpers - INFO - Agent RagPdfAgent result type: <class 'dict'>
+2025-05-09 18:38:33,716 - app.services.agent.factory.helpers - INFO - RagPdfAgent response found
+2025-05-09 18:38:33,720 - app.api.chatbot - INFO - ----> Step: {'RagPdfAgent': {'messages': [HumanMessage(content='The Cybersecurity Awareness course is designed to provide individuals and professionals with the essential knowledge and skills to effectively understand and mitigate contemporary cyber threats. Participants will learn about the basics of cybersecurity, various common threats such as phishing and malware, best practices for securing devices and networks, strategies for incident response, and the importance of compliance and security policies within organizations.', additional_kwargs={}, response_metadata={}, name='RagPdfAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:38:33,721 - app.api.chatbot - INFO - --- RAGPDFAGENT Response ---
+2025-05-09 18:38:33,722 - app.api.chatbot - INFO - Agent: RagPdfAgent, Content: The Cybersecurity Awareness course is designed to provide individuals and professionals with the essential knowledge and skills to effectively understand and mitigate contemporary cyber threats. Participants will learn about the basics of cybersecurity, various common threats such as phishing and malware, best practices for securing devices and networks, strategies for incident response, and the importance of compliance and security policies within organizations.
+2025-05-09 18:38:34,520 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:38:34,521 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:38:34,522 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:38:34,523 - app.api.chatbot - INFO - FINAL response: The Cybersecurity Awareness course is designed to provide individuals and professionals with the essential knowledge and skills to effectively understand and mitigate contemporary cyber threats. Participants will learn about the basics of cybersecurity, various common threats such as phishing and malware, best practices for securing devices and networks, strategies for incident response, and the importance of compliance and security policies within organizations.
+2025-05-09 18:38:58,041 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'SqlAgent'}} <---
+2025-05-09 18:38:58,042 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:38:58,043 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'SqlAgent'}
+2025-05-09 18:38:58,044 - app.services.agent.factory.helpers - INFO - Invoking agent: SqlAgent
+2025-05-09 18:39:03,224 - app.services.agent.mssql_agent - INFO - Response: The cost of the Cybersecurity Awareness course is $2500.00.
+2025-05-09 18:39:03,226 - app.services.agent.factory.helpers - INFO - Agent SqlAgent result type: <class 'dict'>
+2025-05-09 18:39:03,227 - app.services.agent.factory.helpers - INFO - SqlAgent response found
+2025-05-09 18:39:03,230 - app.api.chatbot - INFO - ----> Step: {'SqlAgent': {'messages': [HumanMessage(content='The cost of the Cybersecurity Awareness course is $2500.00.', additional_kwargs={}, response_metadata={}, name='SqlAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:39:03,232 - app.api.chatbot - INFO - --- SQLAGENT Response ---
+2025-05-09 18:39:03,233 - app.api.chatbot - INFO - Agent: SqlAgent, Content: The cost of the Cybersecurity Awareness course is $2500.00.
+2025-05-09 18:39:03,979 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:39:03,980 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:39:03,982 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:39:03,983 - app.api.chatbot - INFO - FINAL response: The cost of the Cybersecurity Awareness course is $2500.00.
+2025-05-09 18:39:21,396 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'Researcher'}} <---
+2025-05-09 18:39:21,397 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:39:21,398 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'Researcher'}
+2025-05-09 18:39:21,400 - app.services.agent.factory.helpers - INFO - Invoking agent: Researcher
+2025-05-09 18:39:33,527 - app.services.agent.factory.helpers - INFO - Agent Researcher result type: <class 'langgraph.pregel.io.AddableValuesDict'>
+2025-05-09 18:39:33,528 - app.services.agent.factory.helpers - INFO - Researcher response found
+2025-05-09 18:39:33,532 - app.api.chatbot - INFO - ----> Step: {'Researcher': {'messages': [HumanMessage(content="In Australia, October is recognized as Cyber Security Awareness Month, aimed at educating and empowering Australians to enhance their cybersecurity practices. Here are some key resources and initiatives happening in 2023:\n\n1. **Cyber Security Awareness Month**: October is dedicated to increasing cyber security awareness across the country. This initiative focuses on improving cyber security knowledge and encouraging actions to protect individuals and businesses online. [Read more on the Cyber Security Centre's website](https://www.cyber.gov.au/about-us/news/Cyber-Security-Awareness-Month-2023).\n\n2. **Ai Group Cyber Security Survey 2023**: This survey highlights that Australian businesses are increasingly aware of the risks posed by cyber threats and are actively taking steps to mitigate these risks. It underscores the importance of boosting cyber security capabilities, particularly in medium-sized enterprises. [Read more on Ai Group's report](https://www.aigroup.com.au/news/reports/2023/ai-group-cyber-security-survey-2023/).\n\n3. **Annual Cyber Threat Report 2023-2024**: This report provides an overview of the current cyber threat landscape in Australia, noting an increase in calls to the Australian Cyber Security Hotline and detailing national efforts to enhance cyber resilience through initiatives like the DeliverEx exercise series. [Learn more in the full report](https://www.cyber.gov.au/about-us/view-all-content/reports-and-statistics/annual-cyber-threat-report-2023-2024).\n\nThese resources reflect a comprehensive effort to strengthen cyber security awareness and resilience across Australia.", additional_kwargs={}, response_metadata={}, name='Researcher')], 'next': 'FINISH'}} <---
+2025-05-09 18:39:33,536 - app.api.chatbot - INFO - --- RESEARCHER Response ---
+2025-05-09 18:39:33,538 - app.api.chatbot - INFO - Agent: Researcher, Content: In Australia, October is recognized as Cyber Security Awareness Month, aimed at educating and empowering Australians to enhance their cybersecurity practices. Here are some key resources and initiatives happening in 2023:
+
+1. **Cyber Security Awareness Month**: October is dedicated to increasing cyber security awareness across the country. This initiative focuses on improving cyber security knowledge and encouraging actions to protect individuals and businesses online. [Read more on the Cyber Security Centre's website](https://www.cyber.gov.au/about-us/news/Cyber-Security-Awareness-Month-2023).
+
+2. **Ai Group Cyber Security Survey 2023**: This survey highlights that Australian businesses are increasingly aware of the risks posed by cyber threats and are actively taking steps to mitigate these risks. It underscores the importance of boosting cyber security capabilities, particularly in medium-sized enterprises. [Read more on Ai Group's report](https://www.aigroup.com.au/news/reports/2023/ai-group-cyber-security-survey-2023/).
+
+3. **Annual Cyber Threat Report 2023-2024**: This report provides an overview of the current cyber threat landscape in Australia, noting an increase in calls to the Australian Cyber Security Hotline and detailing national efforts to enhance cyber resilience through initiatives like the DeliverEx exercise series. [Learn more in the full report](https://www.cyber.gov.au/about-us/view-all-content/reports-and-statistics/annual-cyber-threat-report-2023-2024).
+
+These resources reflect a comprehensive effort to strengthen cyber security awareness and resilience across Australia.
+2025-05-09 18:39:34,368 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:39:34,370 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:39:34,372 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:39:34,374 - app.api.chatbot - INFO - FINAL response: In Australia, October is recognized as Cyber Security Awareness Month, aimed at educating and empowering Australians to enhance their cybersecurity practices. Here are some key resources and initiatives happening in 2023:
+
+1. **Cyber Security Awareness Month**: October is dedicated to increasing cyber security awareness across the country. This initiative focuses on improving cyber security knowledge and encouraging actions to protect individuals and businesses online. [Read more on the Cyber Security Centre's website](https://www.cyber.gov.au/about-us/news/Cyber-Security-Awareness-Month-2023).
+
+2. **Ai Group Cyber Security Survey 2023**: This survey highlights that Australian businesses are increasingly aware of the risks posed by cyber threats and are actively taking steps to mitigate these risks. It underscores the importance of boosting cyber security capabilities, particularly in medium-sized enterprises. [Read more on Ai Group's report](https://www.aigroup.com.au/news/reports/2023/ai-group-cyber-security-survey-2023/).
+
+3. **Annual Cyber Threat Report 2023-2024**: This report provides an overview of the current cyber threat landscape in Australia, noting an increase in calls to the Australian Cyber Security Hotline and detailing national efforts to enhance cyber resilience through initiatives like the DeliverEx exercise series. [Learn more in the full report](https://www.cyber.gov.au/about-us/view-all-content/reports-and-statistics/annual-cyber-threat-report-2023-2024).
+
+These resources reflect a comprehensive effort to strengthen cyber security awareness and resilience across Australia.
+2025-05-09 18:39:47,690 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'EmailAgent'}} <---
+2025-05-09 18:39:47,691 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:39:47,692 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'EmailAgent'}
+2025-05-09 18:39:47,694 - app.services.agent.factory.helpers - INFO - Invoking agent: EmailAgent
+2025-05-09 18:40:01,480 - app.services.agent.factory.helpers - INFO - Agent EmailAgent result type: <class 'dict'>
+2025-05-09 18:40:01,481 - app.services.agent.factory.helpers - INFO - EmailAgent response found
+2025-05-09 18:40:01,485 - app.api.chatbot - INFO - ----> Step: {'EmailAgent': {'messages': [HumanMessage(content='Email sent successfully to Jen (paulohss@gmail.com).', additional_kwargs={}, response_metadata={}, name='EmailAgent')], 'next': 'FINISH'}} <---
+2025-05-09 18:40:01,486 - app.api.chatbot - INFO - --- EMAILAGENT Response ---
+2025-05-09 18:40:01,488 - app.api.chatbot - INFO - Agent: EmailAgent, Content: Email sent successfully to Jen (paulohss@gmail.com).
+2025-05-09 18:40:02,311 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:40:02,311 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:40:02,312 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:40:02,313 - app.api.chatbot - INFO - FINAL response: Email sent successfully to Jen (paulohss@gmail.com).
+2025-05-09 18:40:22,837 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-09 18:40:22,838 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:40:22,840 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-09 18:40:22,842 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-09 18:40:22,844 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a PIE chart of the number of users PER OFFICE with legend and title', additional_kwargs={}, response_metadata={})], 'next': 'ChartAgent'}
+2025-05-09 18:40:22,845 - app.services.agent.chart_agent - INFO - Extracted user input: Make a PIE chart of the number of users PER OFFICE with legend and title
+2025-05-09 18:40:22,847 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-09 18:40:22,851 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-09 18:40:23,066 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-09 18:40:23,069 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-09 18:40:24,546 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [User].Office, COUNT([User].ID) AS NumberOfUsers
+FROM [User]
+GROUP BY [User].Office
+```
+2025-05-09 18:40:24,547 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [User].Office, COUNT([User].ID) AS NumberOfUsers
+FROM [User]
+GROUP BY [User].Office
+
+2025-05-09 18:40:24,552 - app.services.agent.chart_agent - INFO - Query Results: [('Build A', 1), ('Build B', 3), ('Build C', 1)]
+2025-05-09 18:40:24,553 - app.services.agent.chart_agent - INFO - Query Columns: ['Office', 'NumberOfUsers']
+2025-05-09 18:40:24,554 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Office': ['Build A', 'Build B', 'Build C'], 'NumberOfUsers': [1, 3, 1]}
+2025-05-09 18:40:24,584 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+    Office  NumberOfUsers
+0  Build A              1
+1  Build B              3
+2  Build C              1
+2025-05-09 18:40:24,585 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [User].Office, COUNT([User].ID) AS NumberOfUsers\nFROM [User]\nGROUP BY [User].Office\n```'}]
+2025-05-09 18:40:24,587 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-09 18:40:24,593 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-09 18:40:24,598 - app.services.agent.chart_agent - INFO - Query Result String:     Office  NumberOfUsers
+0  Build A              1
+1  Build B              3
+2  Build C              1
+2025-05-09 18:40:27,097 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-09 18:40:27,120 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x0000022E5F255890>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': 'Make a PIE chart of the number of users PER OFFICE with legend and title', 'messages': [AIMessage(content='```sql\nSELECT [User].Office, COUNT([User].ID) AS NumberOfUsers\nFROM [User]\nGROUP BY [User].Office\n```', additional_kwargs={}, response_metadata={}, id='53a8ca6d-5405-4226-9e76-49cfe6a99b84')], 'conn': <pyodbc.Connection object at 0x0000022E5F929890>, 'query_result':     Office  NumberOfUsers
+0  Build A              1
+1  Build B              3
+2  Build C              1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "pie",\n            "labels": ["Build A", "Build B", "Build C"],\n            "values": [1, 3, 1],\n            "hoverinfo": "label+percent",\n            "textinfo": "value",\n            "textposition": "inside"\n        }\n    ],\n    "layout": {\n        "title": {\n            "text": "Number of Users per Office"\n        },\n        "showlegend": true\n    }\n}'}
+2025-05-09 18:40:27,127 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-09 18:40:27,130 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-09 18:40:27,133 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-09 18:40:27,137 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [1, 3, 1], 'hoverinfo': 'label+percent', 'textinfo': 'value', 'textposition': 'inside'}], 'chart_layout': {'title': {'text': 'Number of Users per Office'}, 'showlegend': True}}} <---
+2025-05-09 18:40:27,138 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-09 18:40:27,139 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-09 18:40:27,141 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'
+2025-05-09 18:40:28,038 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'ChartAgent'}} <---
+2025-05-09 18:40:28,039 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:40:28,041 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'ChartAgent'}
+2025-05-09 18:40:28,043 - app.services.agent.factory.helpers - INFO - Invoking agent: ChartAgent
+2025-05-09 18:40:28,045 - app.services.agent.chart_agent - INFO - ChartAgent invoked with state: {'messages': [HumanMessage(content='Make a PIE chart of the number of users PER OFFICE with legend and title', additional_kwargs={}, response_metadata={}), HumanMessage(content="I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'ChartAgent', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [1, 3, 1], 'hoverinfo': 'label+percent', 'textinfo': 'value', 'textposition': 'inside'}], 'chart_layout': {'title': {'text': 'Number of Users per Office'}, 'showlegend': True}}
+2025-05-09 18:40:28,047 - app.services.agent.chart_agent - INFO - Extracted user input: I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'
+2025-05-09 18:40:28,048 - app.services.agent.chart_agent - INFO - Starting graph execution...
+2025-05-09 18:40:28,052 - app.services.agent.chart_agent - INFO - connect_to_database STARTING
+2025-05-09 18:40:28,265 - app.services.agent.chart_agent - INFO - Connected to SQL Server database.
+2025-05-09 18:40:28,267 - app.services.agent.chart_agent - INFO - run_query STARTING
+2025-05-09 18:40:30,162 - app.services.agent.chart_agent - INFO - Generated Query: ```sql
+SELECT [Office], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Office]
+```
+2025-05-09 18:40:30,163 - app.services.agent.chart_agent - INFO - Sanitized Query: 
+SELECT [Office], COUNT([ID]) AS NumberOfUsers
+FROM [User]
+GROUP BY [Office]
+
+2025-05-09 18:40:30,165 - app.services.agent.chart_agent - INFO - Query Results: [('Build A', 1), ('Build B', 3), ('Build C', 1)]
+2025-05-09 18:40:30,166 - app.services.agent.chart_agent - INFO - Query Columns: ['Office', 'NumberOfUsers']
+2025-05-09 18:40:30,167 - app.services.agent.chart_agent - INFO - Dictionary Data: {'Office': ['Build A', 'Build B', 'Build C'], 'NumberOfUsers': [1, 3, 1]}
+2025-05-09 18:40:30,178 - app.services.agent.chart_agent - INFO - Query Results (DF): 
+    Office  NumberOfUsers
+0  Build A              1
+1  Build B              3
+2  Build C              1
+2025-05-09 18:40:30,180 - app.services.agent.chart_agent - INFO - Messages: [{'role': 'assistant', 'content': '```sql\nSELECT [Office], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Office]\n```'}]
+2025-05-09 18:40:30,183 - app.services.agent.chart_agent - INFO - run_query COMPLETED
+2025-05-09 18:40:30,185 - app.services.agent.chart_agent - INFO - Generating Plotly graph data...
+2025-05-09 18:40:30,191 - app.services.agent.chart_agent - INFO - Query Result String:     Office  NumberOfUsers
+0  Build A              1
+1  Build B              3
+2  Build C              1
+2025-05-09 18:40:32,803 - app.services.agent.chart_agent - INFO - generate_plotly_graph COMPLETED!
+2025-05-09 18:40:32,816 - app.services.agent.chart_agent - INFO - Graph execution completed: {'db': <langchain_community.utilities.sql_database.SQLDatabase object at 0x0000022E628DC950>, 'context': {'table_info': '\nCREATE TABLE [Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[Recurrent] VARCHAR(50) COLLATE Latin1_General_CI_AS NULL, \n\t[Cost] DECIMAL(18, 2) NULL, \n\tCONSTRAINT [PK__Course__3214EC2703418FA3] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Course table:\nID\tName\tRecurrent\tCost\n1\tLeadership Fundamentals\tAnnual\t1500.00\n2\tFinancial Management\tAnnual\t3000.00\n3\tProject Management Basics\tAnnual\t1000.00\n*/\n\n\nCREATE TABLE [Role] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\tCONSTRAINT [PK__Role__3214EC27472DA315] PRIMARY KEY ([ID])\n)\n\n/*\n3 rows from Role table:\nID\tName\n1\tCEO\n2\tCTO\n3\tCFO\n*/\n\n\nCREATE TABLE [Role_Course] (\n\t[FK_Course_ID] INTEGER NOT NULL, \n\t[FK_Role_ID] INTEGER NOT NULL, \n\t[Id] INTEGER NOT NULL IDENTITY(1,1), \n\tCONSTRAINT [FK__Role_Cour__FK_Co__3E52440B] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__Role_Cour__FK_Ro__3F466844] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from Role_Course table:\nFK_Course_ID\tFK_Role_ID\tId\n3\t2\t81\n4\t2\t82\n12\t2\t84\n*/\n\n\nCREATE TABLE [User] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[Name] VARCHAR(150) COLLATE Latin1_General_CI_AS NOT NULL, \n\t[FK_Role_ID] INTEGER NULL, \n\t[Email] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Office] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\t[Country] VARCHAR(250) COLLATE Latin1_General_CI_AS NULL, \n\tCONSTRAINT [PK__User__3214EC272C5B265D] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User__FK_Role_ID__398D8EEE] FOREIGN KEY([FK_Role_ID]) REFERENCES [Role] ([ID])\n)\n\n/*\n3 rows from User table:\nID\tName\tFK_Role_ID\tEmail\tOffice\tCountry\n5\tDavid\t5\tpaulohss19832@gmail.com\tBuild B\tBrazil\n6\tSarah\t4\tpaulohss19832@gmail.com\tBuild B\tAustralia\n66\tNovin\t1\tpaulohss19832@gmail.com\tBuild C\tManila\n*/\n\n\nCREATE TABLE [User_Course] (\n\t[ID] INTEGER NOT NULL IDENTITY(1,1), \n\t[FK_User_ID] INTEGER NULL, \n\t[FK_Course_ID] INTEGER NULL, \n\tCONSTRAINT [PK__User_Cou__3214EC2730560A0A] PRIMARY KEY ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Co__4316F928] FOREIGN KEY([FK_Course_ID]) REFERENCES [Course] ([ID]), \n\tCONSTRAINT [FK__User_Cour__FK_Us__4222D4EF] FOREIGN KEY([FK_User_ID]) REFERENCES [User] ([ID])\n)\n\n/*\n3 rows from User_Course table:\nID\tFK_User_ID\tFK_Course_ID\n117\tNone\t9\n118\tNone\t4\n119\tNone\t12\n*/', 'table_names': 'Course, Role, Role_Course, User, User_Course'}, 'user_input': "I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title'", 'messages': [AIMessage(content='```sql\nSELECT [Office], COUNT([ID]) AS NumberOfUsers\nFROM [User]\nGROUP BY [Office]\n```', additional_kwargs={}, response_metadata={}, id='b20ebac4-1ae2-4bd3-9624-e668133d93bc')], 'conn': <pyodbc.Connection object at 0x0000022E5F92B360>, 'query_result':     Office  NumberOfUsers
+0  Build A              1
+1  Build B              3
+2  Build C              1, 'plotly_json': '{\n    "data": [\n        {\n            "type": "pie",\n            "labels": ["Build A", "Build B", "Build C"],\n            "values": [1, 3, 1],\n            "hoverinfo": "label+percent",\n            "textinfo": "value",\n            "marker": {\n                "colors": ["#636EFA", "#EF553B", "#00CC96"]\n            }\n        }\n    ],\n    "layout": {\n        "title": {\n            "text": "Number of Users Per Office",\n            "x": 0.5\n        },\n        "legend": {\n            "x": 1,\n            "y": 1\n        }\n    }\n}'}
+2025-05-09 18:40:32,818 - app.services.agent.chart_agent - INFO - Plotly data generated successfully
+2025-05-09 18:40:32,819 - app.services.agent.factory.helpers - INFO - Agent ChartAgent result type: <class 'dict'>
+2025-05-09 18:40:32,820 - app.services.agent.factory.helpers - INFO - Chart data found in ChartAgent response
+2025-05-09 18:40:32,827 - app.api.chatbot - INFO - ----> Step: {'ChartAgent': {'messages': [HumanMessage(content="I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title''", additional_kwargs={}, response_metadata={}, name='ChartAgent')], 'next': 'FINISH', 'chart_data': [{'type': 'pie', 'labels': ['Build A', 'Build B', 'Build C'], 'values': [1, 3, 1], 'hoverinfo': 'label+percent', 'textinfo': 'value', 'marker': {'colors': ['#636EFA', '#EF553B', '#00CC96']}}], 'chart_layout': {'title': {'text': 'Number of Users Per Office', 'x': 0.5}, 'legend': {'x': 1, 'y': 1}}}} <---
+2025-05-09 18:40:32,830 - app.api.chatbot - INFO - --- CHARTAGENT Response ---
+2025-05-09 18:40:32,832 - app.api.chatbot - INFO - Chart data detected from ChartAgent
+2025-05-09 18:40:32,835 - app.api.chatbot - INFO - Agent: ChartAgent, Content: I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title''
+2025-05-09 18:40:33,966 - app.api.chatbot - INFO - ----> Step: {'supervisor': {'next': 'FINISH'}} <---
+2025-05-09 18:40:33,967 - app.api.chatbot - INFO - --- SUPERVISOR Response ---
+2025-05-09 18:40:33,968 - app.api.chatbot - INFO - Agent: supervisor, Content: {'next': 'FINISH'}
+2025-05-09 18:40:33,969 - app.api.chatbot - INFO - FINAL response: I've created a visualization based on your query: 'I've created a visualization based on your query: 'Make a PIE chart of the number of users PER OFFICE with legend and title''
+2025-05-09 18:40:33,971 - app.api.chatbot - INFO - Adding CHART data to response

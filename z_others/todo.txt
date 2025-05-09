@@ -6,8 +6,8 @@ Implement UI test
 
 
 Agent
+- Refactory SQL agent as this https://github.com/paulohss/SQL_Agent_Langchain
 - Lang Smith monitoring
-- MCP Protocol - study it
 - Save sucessful query in a cache and them retrive it (maybe a vector db?)
 
 

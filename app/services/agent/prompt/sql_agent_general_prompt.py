@@ -1,5 +1,6 @@
 
 import textwrap
+from langchain.prompts import PromptTemplate
 
 class SqlAgentGeneralPromptTemplate:
     """Prompt template for SQL agent general."""
@@ -50,3 +51,34 @@ class SqlAgentGeneralPromptTemplate:
                 Question: {input}
                 Thought: Let's think step by step. {agent_scratchpad}"
         """)
+        
+        
+    @staticmethod
+    def get_mssql_rules() -> str:
+        return textwrap.dedent("""\
+            General SQL Rules:
+            - When asked about **user's course attended** as well as the **courses that the user is missing**, consider:
+                -- the *User.FK_Role_ID and Role.ID** to answer,
+                -- also notice that the Courses that User attended (or missed) are always related to the User's Role the user is assigned to.
+                -- The tables User, Course, Roles, Role_Course and User_Course have the relationship and data to answer that type of questions.
+            - When describing the **user role**, use Role.Name instead of Role.ID.
+            - Round numerical answers to **two decimal places**..
+        """)
+        
+        
+    @staticmethod
+    def get_mssql_agent_prompt_template() -> str:
+        return  PromptTemplate(
+                input_variables=["dialect", "top_k", "sql_rules", "tables"],
+                template="""
+                You are a SQL assistant specialized in {dialect}.
+                Your task is to generate SQL queries based on user questions and the following rules:
+
+                {sql_rules}
+
+                You have access to the following tables:
+                {tables}
+
+                Begin!
+                """
+            )

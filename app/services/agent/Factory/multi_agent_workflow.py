@@ -3,7 +3,8 @@ from langgraph.graph import END, StateGraph, START
 from app.services.agent.factory.agent_state import AgentState
 from app.services.agent.factory.agents_util import AgentsUtil
 from app.services.agent.factory.helpers import agent_node
-from app.services.agent.sql_agent import SqlAgent
+#from app.services.agent.sql_agent import SqlAgent
+from app.services.agent.mssql_agent import MSSQL_Agent
 from app.services.agent.supervisor_agent import SupervisorAgent
 from app.services.agent.researcher_agent import ResearcherAgent
 from app.services.agent.email_agent import EmailAgent
@@ -33,7 +34,8 @@ class MultiAgentWorkflow:
         # Create agents with specified provider and model
         self.supervisor_agent = SupervisorAgent(provider, model_name)
         self.researcher_agent = ResearcherAgent(provider, model_name)
-        self.sql_agent = SqlAgent(provider, model_name)
+        #self.sql_agent = SqlAgent(provider, model_name)
+        self.sql_agent = MSSQL_Agent(provider, model_name)
         self.email_agent = EmailAgent(provider, model_name)
         self.rag_pdf_agent = RagPdfAgent(provider, model_name)
         self.chart_agent = ChartAgent(provider, model_name)  
